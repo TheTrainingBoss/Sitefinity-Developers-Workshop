@@ -1,6 +1,7 @@
-*Sitefinity 11 for Developers*
+Sitefinity Developers Workshop
+=============================
 
-*©2018 Alain "Lino" Tadros*
+*©2019 Alain "Lino" Tadros*
 
 All rights reserved. No parts of this work may be reproduced in any form
 or by any means - graphic, electronic, or mechanical, including
@@ -20,91 +21,81 @@ the author be liable for any loss of profit or any other commercial
 damage caused or alleged to have been caused directly or indirectly by
 this document
 
-Contents
+Table of Contents
+=================
 
-[Developing in Sitefinity 4](#developing-in-sitefinity)
-
-[What Flavor API? 4](#what-flavor-api)
-
-[Sitefinity Projects in Visual Studio
-5](#sitefinity-projects-in-visual-studio)
-
-[Configuration 6](#configuration)
-
-[Getting Started with Sitefinity Development
-7](#getting-started-with-sitefinity-development)
-
-[Using the Sitefinity API 7](#using-the-sitefinity-api)
-
-[Prepare the Sitefinity Project in Visual Studio
-7](#prepare-the-sitefinity-project-in-visual-studio)
-
-[Working with Pages 9](#working-with-pages)
-
-[Redirecting to Other Pages 26](#redirecting-to-other-pages)
-
-[Show Page Hierarchy 28](#show-page-hierarchy)
-
-[Add Widgets to a Page 30](#add-widgets-to-a-page)
-
-[Working with Content Items 35](#working-with-content-items)
-
-[Working with Forms 42](#working-with-forms)
-
-[Content Classification - Taxonomy
-51](#content-classification---taxonomy)
-
-[Dynamic Data 63](#dynamic-data)
-
-[Custom Content Types 73](#custom-content-types)
-
-[Authentication and Security 79](#authentication-and-security)
-
-[Claims vs. Forms Authentication 79](#claims-vs.-forms-authentication)
-
-[Authenticate Programmatically 81](#authenticate-programmatically)
-
-[Create a User 83](#create-a-user)
-
-[Create Roles and Permissions 85](#create-roles-and-permissions)
-
-[Using MVC in Sitefinity 87](#using-mvc-in-sitefinity)
-
-[Choosing MVC or WebForms 87](#choosing-mvc-or-webforms)
-
-[Sitefinity MVC Modes 89](#sitefinity-mvc-modes)
-
-[Creating MVC Widgets 94](#creating-mvc-widgets)
-
-[Sitefinity Feather 100](#sitefinity-feather)
-
-[What is Feather? 100](#what-is-feather)
-
-[Designer Features 100](#designer-features)
-
-[MVC Widgets 100](#mvc-widgets)
-
-[Widget Designers 106](#widget-designers)
-
-[Sitefinity Web Services 117](#sitefinity-web-services)
-
-[Choosing the Appropriate Method for Web Services
-120](#choosing-the-appropriate-method-for-web-services)
-
-[Working with the Web Services Module
-122](#working-with-the-web-services-module)
-
-[First, we do it the dotnet way in C\#
-137](#first-we-do-it-the-dotnet-way-in-c)
-
-[Second, let's do this in JavaScript
-139](#second-lets-do-this-in-javascript)
-
-[Working with the Sitefinity WCF Services
-142](#working-with-the-sitefinity-wcf-services)
-
-[Sitefinity Web Services and CORS
-169](#sitefinity-web-services-and-cors)
+[What Flavor API?](#what-flavor-api)
+--------------------------------------------
+[Sitefinity Projects in Visual Studio](#sitefinity-projects-in-visual-studio)
+--------------------------------------------
+[Configuration](#configuration)
+--------------------------------------------
+[Getting Started with Sitefinity Development](#getting-started-with-sitefinity-development)
+--------------------------------------------
+[Using the Sitefinity API](#using-the-sitefinity-api)
+--------------------------------------------
+[Prepare the Sitefinity Project in Visual Studio](#prepare-the-sitefinity-project-in-visual-studio)
+--------------------------------------------
+[Working with Pages](#working-with-pages)
+--------------------------------------------
+[Redirecting to Other Pages](#redirecting-to-other-pages)
+--------------------------------------------
+[Show Page Hierarchy](#show-page-hierarchy)
+--------------------------------------------
+[Add Widgets to a Page](#add-widgets-to-a-page)
+--------------------------------------------
+[Working with Content Items](#working-with-content-items)
+--------------------------------------------
+[Working with Forms](#working-with-forms)
+--------------------------------------------
+[Content Classification - Taxonomy](#content-classification---taxonomy)
+--------------------------------------------
+[Dynamic Data](#dynamic-data)
+--------------------------------------------
+[Custom Content Types](#custom-content-types)
+--------------------------------------------
+[Authentication and Security](#authentication-and-security)
+--------------------------------------------
+[Claims vs. Forms Authentication](#claims-vs.-forms-authentication)
+--------------------------------------------
+[Authenticate Programmatically](#authenticate-programmatically)
+--------------------------------------------
+[Create a User](#create-a-user)
+--------------------------------------------
+[Create Roles and Permissions](#create-roles-and-permissions)
+--------------------------------------------
+[Using MVC in Sitefinity](#using-mvc-in-sitefinity)
+--------------------------------------------
+[Choosing MVC or WebForms](#choosing-mvc-or-webforms)
+--------------------------------------------
+[Sitefinity MVC Modes](#sitefinity-mvc-modes)
+--------------------------------------------
+[Creating MVC Widgets4](#creating-mvc-widgets)
+--------------------------------------------
+[Sitefinity Feather](#sitefinity-feather)
+--------------------------------------------
+[What is Feather?](#what-is-feather)
+--------------------------------------------
+[Designer Features](#designer-features)
+--------------------------------------------
+[MVC Widgets](#mvc-widgets)
+--------------------------------------------
+[Widget Designers](#widget-designers)
+--------------------------------------------
+[Sitefinity Web Services](#sitefinity-web-services)
+--------------------------------------------
+[Choosing the Appropriate Method for Web Services](#choosing-the-appropriate-method-for-web-services)
+--------------------------------------------
+[Working with the Web Services Module](#working-with-the-web-services-module)
+--------------------------------------------
+[First, we do it the dotnet way in C\#](#first-we-do-it-the-dotnet-way-in-c)
+--------------------------------------------
+[Second, let's do this in JavaScript](#second-lets-do-this-in-javascript)
+--------------------------------------------
+[Working with the Sitefinity WCF Services](#working-with-the-sitefinity-wcf-services)
+--------------------------------------------
+[Sitefinity Web Services and CORS](#sitefinity-web-services-and-cors)
+--------------------------------------------
 
 Developing in Sitefinity
 ========================

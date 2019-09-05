@@ -153,7 +153,7 @@ contentManager.SaveChanges();
 
 The resulting item displays in the list of content blocks.
 
-![](./media/image22.png){width="6.5in" height="0.5157874015748032in"}
+![](../media/image22.png)
 
 Editing the content block shows that the Title and Content properties
 have persisted.
@@ -218,11 +218,9 @@ var temp = manager.Lifecycle.CheckOut(master) as ContentItem;
 
 // modify the temp copy
 
-temp.Content = \"New content set at \" +
-DateTime.Now.ToLongDateString();
+temp.Content = \"New content set at \" + DateTime.Now.ToLongDateString();
 
-// check the item back in and assign back to master for saving and
-publishing
+// check the item back in and assign back to master for saving and publishing
 
 master = manager.Lifecycle.CheckIn(temp) as ContentItem;
 

@@ -26,9 +26,7 @@ Table of Contents
 
 [Introduction](./Introduction/readme.md)
 --------------------------------------------
-[Working with Pages](./Working%20with%20Pages/readme/md)
---------------------------------------------
-[Add Widgets to a Page](#add-widgets-to-a-page)
+[Working with Pages](./Working%20with%20Pages/readme.md)
 --------------------------------------------
 [Working with Content Items](#working-with-content-items)
 --------------------------------------------

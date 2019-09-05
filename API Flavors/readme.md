@@ -18,8 +18,8 @@ var blogs = App.WorkWith().BlogPosts().Get().ToList();
 
  The original WCF services can communicate in XML or JSON (for easy access in JavaScript client code). They are mature and offer the most complete coverage, but are more verbose to work with. The example below brings back a list of all blog posts in XML format from \"\<my site\>\".
 
-http://localhost:12345/<mysite>/sitefinity/services/Content/BlogPostService.svc/xml
+http://localhost:12345/mysite/sitefinity/services/Content/BlogPostService.svc/xml
 
 New to Sitefinity is the Web Services module, which gives you the ability to create API endpoints using the familiar Sitefinity Backend interface. The endpoints are lighter, customizable, and easier to use than the WCF services. This example of an API call returns the list of news items in JSON format:
 
-http://localhost:12345/<my site>/api/default/newsitems
+http://localhost:12345/mysite/api/default/newsitems

@@ -24,7 +24,7 @@ this document
 Table of Contents
 =================
 
-[Introduction?](./Introduction/readme.md)
+[Introduction](./Introduction/readme.md)
 --------------------------------------------
 [Getting Started with Sitefinity Development](#getting-started-with-sitefinity-development)
 --------------------------------------------

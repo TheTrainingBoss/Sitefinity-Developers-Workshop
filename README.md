@@ -40,7 +40,7 @@ Table of Contents
 --------------------------------------------
 [Authentication and Security](./Authentication%20and%20Security/readme.md)
 --------------------------------------------
-[Using MVC in Sitefinity](#using-mvc-in-sitefinity)
+[MVC in Sitefinity](./MVC%20in%20Sitefinity/readme.md)
 --------------------------------------------
 [Choosing MVC or WebForms](#choosing-mvc-or-webforms)
 --------------------------------------------

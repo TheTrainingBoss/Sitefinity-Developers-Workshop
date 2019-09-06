@@ -32,7 +32,7 @@ Table of Contents
 --------------------------------------------
 [Working with Forms](./Working%20with%20Forms/readme.md)
 --------------------------------------------
-[Content Classification - Taxonomy](#content-classification---taxonomy)
+[Content Classification - Taxonomy](./Taxonomy/readme.md)
 --------------------------------------------
 [Dynamic Data](#dynamic-data)
 --------------------------------------------

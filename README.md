@@ -36,10 +36,9 @@ Table of Contents
 --------------------------------------------
 [Dynamic Data](./Dynamic%20Data/readme.md)
 --------------------------------------------
-[Custom Content Types](#custom-content-types)
+[Custom Content Types](./Dynamic%20Types/readme.md)
 --------------------------------------------
-[Authentication and Security](#authentication-and-security)
---------------------------------------------
+[Authentication and Security](./Authentication%20and%20Security/readme.md)
 --------------------------------------------
 [Using MVC in Sitefinity](#using-mvc-in-sitefinity)
 --------------------------------------------

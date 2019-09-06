@@ -25,7 +25,7 @@ Custom fields can be created directly in Sitefinity administration.
 
 2.  Click the *Custom Fields for news* link.
 
-![](./media/image39.png)
+![](../media/image39.png)
 
 3.  Choose *Date* and *Time* from the *Type* drop down list. Enter
     *ReviewDate* as the *Name* for the custom field. Click the
@@ -39,7 +39,7 @@ Custom fields can be created directly in Sitefinity administration.
     field. The *Advanced* section allows you to map the custom field
     data type against database types.
 
-![](./media/image40.png)
+![](../media/image40.png)
 
 > In the *Settings, Label and text* tab, enter the *Label* *Review Date*
 > and *Instructional text* as *Enter the date when the news item should
@@ -55,30 +55,30 @@ Custom fields can be created directly in Sitefinity administration.
 > *Appearance* tab determines where the field will be shown in the
 > backend.
 
-![](./media/image41.png)
+![](../media/image41.png)
 
 > The new *ReviewDate* field should display in the list of custom fields
 > for news item. Notice that the list starts out with *Tags* and
 > *Category* classification field types and that these are considered to
 > be custom fields.
 >
-![](./media/image42.png)
+![](../media/image42.png)
 
 4.  Create a News Item. Scroll to the bottom of the news item to see
     your new custom \"Review Date\" field label and instruction text.
 
-![](./media/image43.png)
+![](../media/image43.png)
 
 5.  Click the entry box to see the popup calendar editor.
 
-![](./media/image44.png)
+![](../media/image44.png)
 
 **Note**: The Type drop down list also includes Short text, Long text,
 Multiple choice, Yes / No, Currency, Number and Classification. You can
 add multiple fields to a content type. The screenshot below shows
 examples of Date-Time, Long text, Multiple choice and Currency.
 
-![](./media/image45.png)
+![](../media/image45.png)
 
 ### Reading and Writing Custom Field Values
 
@@ -239,10 +239,10 @@ RadGrid1.DataBind();
 
 5.  Run the application.
 
-![](./media/image46.png)
+![](../media/image46.png)
 
 When an item is selected from the drop-down list, the fields for the
 type display in the grid. In the screenshot below, the NewsItem type is
 selected and shows custom \"ReviewDate\" field.
 
-![](./media/image47.png)
+![](../media/image47.png)

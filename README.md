@@ -32,7 +32,7 @@ Table of Contents
 --------------------------------------------
 [Working with Forms](./Working%20with%20Forms/readme.md)
 --------------------------------------------
-[Content Classification - Taxonomy](./Taxonomy/readme.md)
+[Working with Taxonomies](./Taxonomy/readme.md)
 --------------------------------------------
 [Dynamic Data](./Dynamic%20Data/readme.md)
 --------------------------------------------
@@ -40,11 +40,11 @@ Table of Contents
 --------------------------------------------
 [Authentication and Security](./Authentication%20and%20Security/readme.md)
 --------------------------------------------
-[MVC in Sitefinity](./MVC%20in%20Sitefinity/readme.md)
+[Working with MVC in Sitefinity](./MVC%20in%20Sitefinity/readme.md)
 --------------------------------------------
-[Sitefinity Feather](./Feather/readme.md)
+[Working with Sitefinity Feather](./Feather/readme.md)
 --------------------------------------------
-[Sitefinity Web Services](./Web%20Services/readme.md)
+[Working with Sitefinity Web Services](./Web%20Services/readme.md)
 --------------------------------------------
 
 Developing in Sitefinity

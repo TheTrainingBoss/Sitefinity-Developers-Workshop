@@ -3,7 +3,7 @@ What Flavor API?
 
 To work with Sitefinity programmatically:
 
--   Use the Sitefinity API. This is the full-featured API that provides the deepest set of features for controlling Sitefinity functionality. Use the Sitefinity API to access everything that Sitefinity has to offer. Here is an example of the Sitefinity API that returns all blog posts:
+- Use the Sitefinity API. This is the full-featured API that provides the deepest set of features for controlling Sitefinity functionality. Use the Sitefinity API to access everything that Sitefinity has to offer. Here is an example of the Sitefinity API that returns all blog posts:
 
 BlogsManager manager = BlogsManager.GetManager();
 
@@ -14,13 +14,13 @@ Sitefinity API that surfaces the most commonly used features.
 
 var blogs = App.WorkWith().BlogPosts().Get().ToList();
 
--   Use Sitefinity Web services. Sitefinityoffers two ways to work with REST web services from any client platform that can hit a URL, including Linux, Windows, Mac, I-whatever (iPad, iPhone), WPF, Flash, Android, etc.
+-   Use Sitefinity Web services. Sitefinity offers two ways to work with REST web services from any client platform that can hit a URL, including Linux, Windows, Mac, I-whatever (iPad, iPhone), WPF, Flash, Android, etc.
 
  The original WCF services can communicate in XML or JSON (for easy access in JavaScript client code). They are mature and offer the most complete coverage, but are more verbose to work with. The example below brings back a list of all blog posts in XML format from \"\<my site\>\".
 
 http://localhost:12345/mysite/sitefinity/services/Content/BlogPostService.svc/xml
 
-New to Sitefinity is the Web Services module, which gives you the ability to create API endpoints using the familiar Sitefinity Backend interface. The endpoints are lighter, customizable, and easier to use than the WCF services. This example of an API call returns the list of news items in JSON format:
+Now in Sitefinity is the Web Services module, which gives you the ability to create API endpoints using the familiar Sitefinity Backend interface. The endpoints are lighter, customizable, and easier to use than the WCF services. This example of an API call returns the list of news items in JSON format:
 
 http://localhost:12345/mysite/api/default/newsitems
 
@@ -33,7 +33,7 @@ difference is that page creation is performed automatically using
 information from the database
 
 The first thing to notice is that we're working with a web application
-project, not a web site. A web site is a loose collection of files, but
+project, **not a web site**. A web site is a loose collection of files, but
 a project is managed as a whole and is compiled into a single DLL
 assembly. There is one default.aspx page in the project to keep IIS
 happy, but all the pages actually used in the project are stored in the
@@ -78,7 +78,7 @@ new pages, look for specific keywords, find locked pages, hunt for empty
 keywords and so on.
 
 Your custom server-side code can be placed directly into a standard
-ASP.NET page or user control code-behind. Because these are added to the
+ASP.NET page or user control code-behind or MVC Controller. Because these are added to the
 same Sitefinity application project, your code runs within the
 Sitefinity context, and will execute with the same context as the
 currently logged in (or anonymous) user.
@@ -112,3 +112,6 @@ Next, setup a standard web forms .aspx page to contain your API code:
 2.  In the *Add New Item* dialog, select the *Web \> Web Form item* and set the *Name* to *MyPagesList.aspx*.
 
 3.  Click the *Add* button to create the page and close the dialog.
+
+**Next Topic:**
+[Working with Pages](../Working%20with%20Pages/readme.md)

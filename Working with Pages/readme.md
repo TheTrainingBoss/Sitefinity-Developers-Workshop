@@ -13,18 +13,15 @@ properties used to filter lists of PageNode objects:
 
 -   *NodeType* describes the type of the page node. For example,
     *Standard* is a normal page displaying content, *Group* is a page
-    without content that contains other pages, and *External* is a page
-    from the file system.
+    without content that contains other pages, *External* is a page
+    from the file system, *Deleted* is a page that has been sent to the Recycle bin and no longer available through the UI.
 
--   *IsDeleted* is true when the page has been deleted and sent to the
-    recycle bin.
-
-PageData is concerned with page presentation, the actual content of the
+**PageData** is concerned with page presentation, the actual content of the
 page. It tracks elements used to compose the page such as templates,
 controls, personalization info, etc. Here are some key properties used
 to filter lists of PageData:
 
--   *Status* is the current lifecycle state of the page such as *Master* or *Live*.
+-   *Status* is the current lifecycle state of the page such as *Master* or *Live* or *Temp*.
 
 -   *Visible* indicates if the page is publicly viewable.
 
@@ -41,7 +38,7 @@ recycle bin, there is a published page and a draft page.
 
 ### List All Pages
 
-To list all the pages a Sitefinity website:
+To list all the pages in a Sitefinity website:
 
 1.  Add a standard ASP.NET ListBox to the page.
 

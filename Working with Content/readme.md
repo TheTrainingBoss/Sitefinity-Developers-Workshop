@@ -91,11 +91,11 @@ ContentManager contentManager = ContentManager.GetManager();
 
 contentManager.Provider.SuppressSecurityChecks = true;
 
-IQueryable\<ContentItem\> items = contentManager
+IQueryable<ContentItem> items = contentManager
 
     .GetContent()
 
-    .Where(i =\> i.Status == ContentLifecycleStatus.Master);
+    .Where(i => i.Status == ContentLifecycleStatus.Master);
 
 foreach (ContentItem item in items)
 

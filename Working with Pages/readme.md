@@ -32,7 +32,7 @@ PageNode. To traverse the other direction, use the PageNode's
 *GetPageData()* method to return the PageData object.
 
 Let's start with a raw list of PageData and filter it to show standard,
-published pages. The screenshot below shows an example set of pages
+published pages. The screenshots below show an example set of pages
 where we have two published pages and one in draft status. In the
 recycle bin, there is a published page and a draft page.
 
@@ -40,31 +40,36 @@ recycle bin, there is a published page and a draft page.
 
 ### List All Pages
 
-To list all the pages in a Sitefinity website:
+To list all the pages of a Sitefinity website:
 
 1.  Add a standard ASP.NET ListBox to the page.
 
-\<asp:ListBox ID=\"ListBox1\" runat=\"server\"Height=\"300px\"\>\</asp:ListBox\>
+
+```
+<asp:ListBox ID=\"ListBox1\" runat=\"server\"Height=\"300px\"\>\</asp:ListBox\>
+```
 
 2.  Add using references for *System.Linq* and *Telerik.Sitefinity.Modules.Pages* namespaces.
 
 3.  In the code behind for the page, add the code below to the Page\_Load event handler.
 
-> // get an instance of the PageManager
->
-> PageManager manager = PageManager.GetManager();
->
-> // get the list of all pages on your site
->
-> var pages = manager.GetPageDataList();
->
-> // bind the list
->
-> ListBox1.DataSource = pages;
->
-> ListBox1.DataTextField = \"Title\";
->
-> ListBox1.DataBind();
+```
+// get an instance of the PageManager
+
+PageManager manager = PageManager.GetManager();
+
+// get the list of all pages on your site
+
+var pages = manager.GetPageDataList();
+
+// bind the list
+
+ListBox1.DataSource = pages;
+
+ListBox1.DataTextField = \"Title\";
+
+ListBox1.DataBind();
+```
 
 The first step is to get the Sitefinity manager object for the part of
 the API we\'re working with, such as *BlogsManager*, *EventsManager*,

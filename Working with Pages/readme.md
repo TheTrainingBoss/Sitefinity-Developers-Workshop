@@ -48,7 +48,7 @@ To list all the pages of a Sitefinity website:
 
 
 ```
-<asp:ListBox ID="ListBox1" runat="server"Height="300px"><asp:ListBox>
+<asp:ListBox ID="ListBox1" runat="server"Height="300px"></asp:ListBox>
 ```
 
 2.  Add using references for *System.Linq* and *Telerik.Sitefinity.Modules.Pages* namespaces.
@@ -68,7 +68,7 @@ var pages = manager.GetPageDataList();
 
 ListBox1.DataSource = pages;
 
-ListBox1.DataTextField = \"Title\";
+ListBox1.DataTextField = "Title";
 
 ListBox1.DataBind();
 ```

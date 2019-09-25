@@ -42,11 +42,13 @@ recycle bin, there is a published page and a draft page.
 
 To list all the pages of a Sitefinity website:
 
-1.  Add a standard ASP.NET ListBox to the page.
+1.  Create a new ASPX page at the root of the site
+
+2.  Add a standard ASP.NET ListBox to the page.
 
 
 ```
-<asp:ListBox ID=\"ListBox1\" runat=\"server\"Height=\"300px\"\>\</asp:ListBox\>
+<asp:ListBox ID="ListBox1" runat="server"Height="300px"><asp:ListBox>
 ```
 
 2.  Add using references for *System.Linq* and *Telerik.Sitefinity.Modules.Pages* namespaces.

@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Telerik.Sitefinity.Services.RecycleBin.Impl</name>
+    </assembly>
+    <members>
+        <member name="T:Telerik.Sitefinity.Services.RecycleBin.Impl.RecycleBinService">
+            <summary>
+            The default Recycle Bin Service implementation.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.RecycleBin.Impl.RecycleBinService.TransactionName">
+            <summary>
+            Gets or sets the name of the single transaction that all managers will use.
+            </summary>
+            <value>The name of the transaction to use.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.RecycleBin.Impl.RecycleBinService.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.RecycleBin.Impl.RecycleBinService" /> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.RecycleBin.Impl.RecycleBinService.CreateRecycleBinItemFrom(System.Type,System.Guid,System.String,System.String[])">
+            <summary>
+            Creates a Recycle Bin record from the specified data item.
+            The data item is identified by its <paramref name="itemType"/>, <paramref name="itemId"/>, <paramref name="providerName"/> and <paramref name="languages"/>.
+            </summary>
+            <param name="itemType">The type of the item to mark as deleted.</param>
+            <param name="itemId">The id of the item to mark as deleted.</param>
+            <param name="providerName">The item provider name.</param>
+            <param name="languages">The specific language translations that are stored with the item.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.RecycleBin.Impl.RecycleBinService.DeleteRecycleBinItem(System.Type,System.Guid,System.String,System.String[])">
+            <summary>
+            Permanently deletes a Recycle Bin record from data item.
+            The data item is identified by its <paramref name="itemType"/>, <paramref name="itemId"/>, <paramref name="providerName"/> and <paramref name="languages"/>.
+            </summary>
+            <param name="itemType">Type of the item.</param>
+            <param name="itemId">The item id.</param>
+            <param name="providerName">Name of the provider.</param>
+            <param name="languages">The specific language translations that identify the item.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.RecycleBin.Impl.RecycleBinService.RecycleBinItemExists(System.Type,System.Guid,System.String,System.String[])">
+            <summary>
+            Checks if a recycle bin item already exists.
+            The item is identified by its <paramref name="itemType"/>, <paramref name="itemId"/>, <paramref name="providerName"/> and <paramref name="languages"/>.
+            </summary>
+            <param name="itemType">The type of the item.</param>
+            <param name="itemId">The item id of the item.</param>
+            <param name="providerName">The name of the provider that identify the item.</param>
+            <param name="languages">The specific language translations that identify the item.</param>
+            <returns><c>True</c> if item exists, otherwise <c>false</c></returns>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.RecycleBin.Impl.RecycleBinService.Interfaces">
+            <summary>
+            Gets the types of the service used to register and resolve the service from the Service Bus.
+            </summary>
+            <value>The type of the service.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.RecycleBin.Impl.RecycleBinService.GetDataItem(System.Type,System.Guid,Telerik.Sitefinity.RecycleBin.ISupportRecyclingManager)">
+            <summary>
+            Gets a <see cref="T:Telerik.Sitefinity.RecycleBin.IRecyclableDataItem"/> from the specified <paramref name="recyclingManager"/>.
+            </summary>
+            <param name="itemType">Type of the item to get.</param>
+            <param name="itemId">The id of the item to get.</param>
+            <param name="recyclingManager">The recycling manager that will be used to fetch the item.</param>
+            <returns>A <see cref="T:Telerik.Sitefinity.RecycleBin.IRecyclableDataItem"/> from the specified <paramref name="recyclingManager"/>.</returns>
+            <exception cref="T:Telerik.Sitefinity.SitefinityExceptions.ItemNotFoundException">No item with the specified id and type was found.</exception>
+            <exception cref="T:System.InvalidCastException">The item does not implement <see cref="T:Telerik.Sitefinity.RecycleBin.IRecyclableDataItem"/>.</exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.RecycleBin.Impl.RecycleBinService.GetDataItemRecyclingManager(System.Type,System.String)">
+            <summary>
+            Gets the <see cref="T:Telerik.Sitefinity.RecycleBin.ISupportRecyclingManager" /> manager responsible for the item specified by its <paramref name="itemType" /> and <paramref name="itemProviderName" />.
+            </summary>
+            <param name="itemType">Type of the item which manager will be returned.</param>
+            <param name="itemProviderName">Name of the provider of the item which manager will be returned.</param>
+            <exception cref="T:System.InvalidOperationException">The manager of the specified item does not support recycling (does not implement <see cref="T:Telerik.Sitefinity.RecycleBin.ISupportRecyclingManager" />).</exception>
+            <returns>
+            The <see cref="T:Telerik.Sitefinity.RecycleBin.ISupportRecyclingManager" /> manager responsible for the item specified by its <paramref name="itemType" /> and <paramref name="itemProviderName" />.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.RecycleBin.Impl.RecycleBinService.GetItemType(System.String)">
+            <summary>
+            Gets the type of the item by its type full name.
+            </summary>
+            <param name="itemTypeName">Name of the item type.</param>
+            <returns>The type of the item by its type full name.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.RecycleBin.Impl.RecycleBinService.GetRecycleBinFactory(System.String)">
+            <summary>
+            Gets the Recycle Bin item factory that should be used for the specified <paramref name="managerTypeName"/>.
+            </summary>
+            <param name="managerTypeName">The manager type name that will be used to resolve the factory.</param>
+            <returns>The Recycle Bin item factory for the specified manager or the default <see cref="T:Telerik.Sitefinity.RecycleBin.IRecycleBinItemFactory"/>.</returns>
+        </member>
+    </members>
+</doc>

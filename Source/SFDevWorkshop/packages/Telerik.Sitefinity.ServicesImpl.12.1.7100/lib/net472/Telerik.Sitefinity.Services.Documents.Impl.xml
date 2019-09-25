@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Telerik.Sitefinity.Services.Documents.Impl</name>
+    </assembly>
+    <members>
+        <member name="T:Telerik.Sitefinity.Services.Documents.Configuration.DocumentServiceConfig">
+            <summary>
+            A configuration section for the documents service.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Documents.Configuration.DocumentServiceConfig.ExtractorSettings">
+            <summary>
+            Gets the settings of the text extractors.
+            </summary>
+            <value>The extractor mappings.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Documents.Configuration.DocumentServiceConfig.OnPropertiesInitialized">
+            <summary>
+            Called after the properties of this instance have been initialized.
+            Load default values here.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Documents.Configuration.TextExtractorSettingsElement">
+            <summary>
+            A configuration element that is the default implementation for the ITextExtractorSettings interface.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Documents.Configuration.TextExtractorSettingsElement.#ctor(Telerik.Sitefinity.Configuration.ConfigElement)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Documents.Configuration.TextExtractorSettingsElement"/> class.
+            </summary>
+            <param name="parent">The parent element.</param>
+            <remarks>
+            ConfigElementCollection generally needs to have a parent, however, sometimes it is necessary
+            to create a collection in memory only which is then used later on in the context of a parent.
+            Therefore, is the element is of ConfigElementCollection, exception for a non existing parent
+            will not be thrown.
+            </remarks>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Documents.Configuration.TextExtractorSettingsElement.MimeType">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Documents.Configuration.TextExtractorSettingsElement.ExtractorType">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Documents.Configuration.TextExtractorSettingsElement.Parameters">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Documents.DefaultTextExtractor">
+            <summary>
+            The default text extractor for Sitefinity.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Documents.DefaultTextExtractor.Initialize(System.String,System.Collections.Specialized.NameValueCollection)">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Documents.DefaultTextExtractor.MimeType">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Documents.DefaultTextExtractor.GetText(System.IO.Stream,System.IO.Stream)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Documents.DefaultTextExtractor.GetInnerTextExtractor">
+            <summary>
+            A factory method that returns an inner text extractor for the given MIME type.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Documents.DefaultTextExtractor.DefaultRtfTextExtractor">
+            <summary>
+            The inner text extractor used for RTF files.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Documents.DefaultTextExtractor.DefaultRtfTextExtractor.Initialize(System.String,System.Collections.Specialized.NameValueCollection)">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Documents.DefaultTextExtractor.DefaultRtfTextExtractor.MimeType">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Documents.DefaultTextExtractor.DefaultRtfTextExtractor.GetText(System.IO.Stream,System.IO.Stream)">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Documents.DefaultTextExtractor.DefaultHtmlTextExtractor">
+            <summary>
+            The inner text extractor used for HTML files.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Documents.DefaultTextExtractor.DefaultHtmlTextExtractor.Initialize(System.String,System.Collections.Specialized.NameValueCollection)">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Documents.DefaultTextExtractor.DefaultHtmlTextExtractor.MimeType">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Documents.DefaultTextExtractor.DefaultHtmlTextExtractor.GetText(System.IO.Stream,System.IO.Stream)">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Documents.DefaultTextExtractor.DefaultTxtTextExtractor">
+            <summary>
+            The inner text extractor used for TXT files.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Documents.DefaultTextExtractor.DefaultTxtTextExtractor.Initialize(System.String,System.Collections.Specialized.NameValueCollection)">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Documents.DefaultTextExtractor.DefaultTxtTextExtractor.MimeType">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Documents.DefaultTextExtractor.DefaultTxtTextExtractor.GetText(System.IO.Stream,System.IO.Stream)">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Documents.DefaultTextExtractor.DefaultPdfTextExtractor">
+            <summary>
+            The inner text extractor used for PDF files.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Documents.DefaultTextExtractor.DefaultPdfTextExtractor.Initialize(System.String,System.Collections.Specialized.NameValueCollection)">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Documents.DefaultTextExtractor.DefaultPdfTextExtractor.MimeType">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Documents.DefaultTextExtractor.DefaultPdfTextExtractor.GetText(System.IO.Stream,System.IO.Stream)">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Documents.DefaultTextExtractor.DefaultDocxTextExtractor">
+            <summary>
+            The inner text extractor used for PDF files.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Documents.DefaultTextExtractor.DefaultDocxTextExtractor.Initialize(System.String,System.Collections.Specialized.NameValueCollection)">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Documents.DefaultTextExtractor.DefaultDocxTextExtractor.MimeType">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Documents.DefaultTextExtractor.DefaultDocxTextExtractor.GetText(System.IO.Stream,System.IO.Stream)">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Documents.DocumentService">
+            <summary>
+            The default implementation for the IDocumentService.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Documents.DocumentService.Interfaces">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Documents.DocumentService.Initialize(Telerik.Sitefinity.Services.ModuleSettings)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Documents.DocumentService.ExtractText(System.String,System.IO.Stream,System.IO.Stream)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Documents.DocumentService.GetSupportedExtensions">
+            <summary>
+            Gets all the supported extensions for documents.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Documents.TextExtractorFactory">
+            <summary>
+            A factory class that is used for creating text extractors.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Documents.TextExtractorFactory.GetExtractor(System.String)">
+            <summary>
+            Creates, initializes and returns the extractor mapped to the passed MIME type.
+            </summary>
+            <param name="mimeType">The MIME type.</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

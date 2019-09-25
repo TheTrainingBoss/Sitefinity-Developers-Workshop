@@ -1,0 +1,2832 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Telerik.Sitefinity.MarketoConnector</name>
+    </assembly>
+    <members>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Components.MarketoConnectorCacheManager.GetManager">
+            <summary>
+            Gets the Marketo Connector cache manager.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Components.MarketoConnectorCacheManager.GetCurrentLead">
+            <summary>
+            Gets the current lead.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Components.MarketoConnectorCacheManager.Add(Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetLead)">
+            <summary>
+            Adds the specified key-value pair in the Marketo Connector cache manager.
+            The key is the current munchkin id.
+            </summary>
+            <param name="resultGetLead">The ResultGetLead.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Components.MarketoConnectorCacheManager.Add(Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultSyncLead)">
+            <summary>
+            Adds the specified key-value pair in the Marketo Connector cache manager.
+            The key is the current munchkin id.
+            </summary>
+            <param name="resultSyncLead">The ResultSyncLead.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Components.MarketoConnectorCacheManager.Add(Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadRecord)">
+            <summary>
+            Adds the specified key-value pair in the Marketo Connector cache manager.
+            The key is the current munchkin id.
+            </summary>
+            <param name="leadRecord">The LeadRecord.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Components.MarketoConnectorCacheManager.Add(System.String,Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadRecord)">
+            <summary>
+            Adds the specified key-value pair in the Marketo Connector cache manager.
+            </summary>
+            <param name="key">The munchkin id.</param>
+            <param name="leadRecord">The LeadRecord.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Components.MarketoConnectorCacheManager.Contains(System.String)">
+            <summary>
+            Determines whether the Marketo Connector cache manager [contains] [the specified key].
+            </summary>
+            <param name="key">The key.</param>
+            <returns></returns>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.Components.MarketoConnectorCacheManager.Item(System.String)">
+            <summary>
+            Gets or sets the <see cref="T:System.Object" /> with the specified key.
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Components.MarketoConnectorCacheManager.Remove(System.String)">
+            <summary>
+            Removes the cache item with the specified key.
+            </summary>
+            <param name="key">The key.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Components.MarketoConnectorCacheManager.GetCacheManager">
+            <summary>
+            Gets the Marketo Connector cache manager.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Components.MarketoConnectorCacheManager.GetExpirations">
+            <summary>
+            Gets the expirations.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Components.MarketoConnectorCacheManager.GetLeadRecord(Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetLead)">
+            <summary>
+            Gets the lead record.
+            </summary>
+            <param name="resultGetLead">The result get lead.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Components.MarketoConnectorCacheManager.GetLeadRecord(Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultSyncLead)">
+            <summary>
+            Gets the lead record.
+            </summary>
+            <param name="resultSyncLead">The result get lead.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Components.MarketoConnectorCacheManager.GetMarketoServiceManager">
+            <summary>
+            Gets the marketo service manager.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Components.MarketoConnectorCacheManager.GetMuchkinId">
+            <summary>
+            Gets the current muchkin id.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Components.MarketoConnectorCacheManager.IsValidMunchkinId(System.String)">
+            <summary>
+            Determines whether [is valid munchkin id].
+            </summary>
+            <param name="id">The id.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Components.MarketoConnectorLogger.Log(System.Object)">
+            <summary>
+            Writes a new log entry.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Components.MarketoConnectorLogger.Log(System.Exception)">
+            <summary>
+            Writes a new log entry.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Forms.FormExtensions.GetChangeMarketoLeadScore(Telerik.Sitefinity.Forms.Model.FormDescription)">
+            <summary>
+            Gets the change marketo lead score property value.
+            </summary>
+            <param name="form">The form.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Forms.FormExtensions.GetChangeMarketoLeadScoreAmount(Telerik.Sitefinity.Forms.Model.FormDescription)">
+            <summary>
+            Gets the change marketo lead score amount property value.
+            </summary>
+            <param name="form">The form.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Forms.FormExtensions.GetSyncFormFieldsToLeadFields(Telerik.Sitefinity.Forms.Model.FormDescription)">
+            <summary>
+            Gets the sync form fields to lead fields property value.
+            </summary>
+            <param name="form">The form.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Forms.FormExtensions.GetDoSpecificWebCalls(Telerik.Sitefinity.Forms.Model.FormDescription)">
+            <summary>
+            Gets the do specific web calls property value.
+            </summary>
+            <param name="form">The form.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Forms.FormsHelper.RemoveMarketoConfigurationChanges(Telerik.Sitefinity.Abstractions.SiteInitializer)">
+            <summary>
+            Removes the forms configuration changes required by the module.
+            </summary>
+            <param name="initializer"><see cref="T:Telerik.Sitefinity.Abstractions.SiteInitializer"/> instance.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Forms.FormsHelper.AddLeadScoreField(Telerik.Sitefinity.Configuration.ConfigElementDictionary{System.String,Telerik.Sitefinity.Web.UI.Fields.Config.FieldDefinitionElement})">
+            <summary>
+            Adds the lead score field.
+            </summary>
+            <param name="sectionFields">The section fields.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Forms.FormsHelper.AddLeadScoreAmountField(Telerik.Sitefinity.Configuration.ConfigElementDictionary{System.String,Telerik.Sitefinity.Web.UI.Fields.Config.FieldDefinitionElement})">
+            <summary>
+            Adds the lead score amount field.
+            </summary>
+            <param name="sectionFields">The section fields.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Forms.FormsHelper.AddSyncFormToLeadFieldsField(Telerik.Sitefinity.Configuration.ConfigElementDictionary{System.String,Telerik.Sitefinity.Web.UI.Fields.Config.FieldDefinitionElement})">
+            <summary>
+            Adds the sync form fields to lead fields check box.
+            </summary>
+            <param name="sectionFields">The section fields.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Forms.FormsHelper.AddDoSpecificWebCallsField(Telerik.Sitefinity.Configuration.ConfigElementDictionary{System.String,Telerik.Sitefinity.Web.UI.Fields.Config.FieldDefinitionElement})">
+            <summary>
+            Adds the do specific web calls field.
+            </summary>
+            <param name="sectionFields">The section fields.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Forms.FormsHelper.RemoveModuleSection(Telerik.Sitefinity.Web.UI.ContentUI.Views.Backend.Master.Config.DetailFormViewElement)">
+            <summary>
+            Removes fields required by the module from the Forms definitions.
+            </summary>
+            <param name="formViewElement">The forms insert/edit detail view element.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoConnectorReport">
+            <summary>
+            Represents the usage tracking report of the Marketo connector
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorReport.ModuleName">
+            <summary>
+            Gets or sets the module name
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorReport.IsUsed">
+            <summary>
+            Gets or sets a value indicating whether the connector is used
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceManager">
+            <summary>
+            Provides methods for accesing Marketo data through the SOAP API.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceManager.TryCreateService(Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceManager@)">
+            <summary>
+            Creates new manager instance if the Marketo account settings are provided and the Marketo Connector module is connected to marketo.
+            </summary>
+            <param name="manager">The manager.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceManager.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceManager" /> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceManager.GetMunchkinId">
+            <summary>
+            Gets the Munchkin id from the Munchin cookie.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceManager.GetMunchkinId(System.String)">
+            <summary>
+            Gets the Munchkin id from the Munchin cookie.
+            </summary>
+            <param name="munchkinCookie">The munchkin cookie.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceManager.GetMunchkinToken">
+            <summary>
+            Gets the Munchkin token from the Munchin cookie.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceManager.GetMunchkinCookie">
+            <summary>
+            Gets the Munchkin cookie from the Munchin cookie.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceManager.GetCurrentLead(Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetLead@)">
+            <summary>
+            Gets the current lead according to the Munchkin cookie Id.
+            </summary>
+            <param name="resultGetLead">The result get lead.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceManager.GetLead(System.String,Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadKeyRef,Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetLead@)">
+            <summary>
+            Gets the lead.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="keyType">Type of the key.</param>
+            <param name="resultGetLead">The result get lead.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceManager.GetLeadAsync(System.String,Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadKeyRef,System.Action{Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetLead})">
+            <summary>
+            Gets the lead.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="keyType">Type of the key.</param>
+            <param name="asyncCallback">The async callback.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceManager.SyncLead(System.Collections.Generic.IDictionary{System.String,System.String},Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultSyncLead@)">
+            <summary>
+            Syncs the lead.
+            </summary>
+            <param name="attributes">The attributes.</param>
+            <param name="rs">The rs.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceManager.SyncLeadAsync(System.Collections.Generic.IDictionary{System.String,System.String},System.Action{Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultSyncLead})">
+            <summary>
+            Syncs the lead.
+            </summary>
+            <param name="attributes">The attributes.</param>
+            <param name="asyncCallback">The async callback.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceManager.GetLeadByCookie(System.String,Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetLead@)">
+            <summary>
+            Gets the lead by cookie.
+            </summary>
+            <param name="leadKey">The lead key.</param>
+            <param name="resultGetLead">The result get lead.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceManager.CreateGetLeadParameters(System.String,Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadKeyRef,Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.AuthenticationHeaderInfo@,Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetLead@)">
+            <summary>
+            Creates the get lead parameters.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="keyType">Type of the key.</param>
+            <param name="wsHeader">The ws header.</param>
+            <param name="wsLead">The ws lead.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceManager.CreateSyncLeadParameters(System.Collections.Generic.IDictionary{System.String,System.String},Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.AuthenticationHeaderInfo@,Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MktowsContextHeaderInfo@,Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsSyncLead@)">
+            <summary>
+            Creates the sync lead parameters.
+            </summary>
+            <param name="attributes">The attributes.</param>
+            <param name="wsHeader">The ws header.</param>
+            <param name="wsContext">The ws context.</param>
+            <param name="wsLead">The ws lead.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Personalization.Evaluators.MarketoFieldEvaluator.IsMatch(System.String,Telerik.Sitefinity.Personalization.IPersonalizationTestContext)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Personalization.Evaluators.MarketoLeadScoreEvaluator.IsMatch(System.String,Telerik.Sitefinity.Personalization.IPersonalizationTestContext)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Personalization.PersonalizationHelper.RegisterMarketoLeadScoreCriterion">
+            <summary>
+            Registers the Marketo lead score criterion in the personalization module.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Personalization.PersonalizationHelper.RemoveAllLeadScoreCriteria">
+            <summary>
+            Removes all lead score criteria.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.AuthenticationHeaderInfo">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.AuthenticationHeaderInfo.mktowsUserId">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.AuthenticationHeaderInfo.requestSignature">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.AuthenticationHeaderInfo.requestTimestamp">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.AuthenticationHeaderInfo.audit">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.AuthenticationHeaderInfo.mode">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.AuthenticationHeaderInfo.modeSpecified">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetTags">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetTags.tagList">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.Tag">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.Tag.type">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.Tag.values">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SuccessGetTags">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SuccessGetTags.result">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetTags">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetTags.tagList">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ProgressionStatus">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ProgressionStatus.progressionStatus">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.Attrib">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.Attrib.name">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.Attrib.value">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.TagStatus">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.TagStatus.tagValue">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.TagStatus.statusList">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetChannels">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetChannels.tags">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SuccessGetChannels">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SuccessGetChannels.result">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetChannels">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetChannels.tag">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MergeStatus">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MergeStatus.winningLeadId">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MergeStatus.winningLeadIdSpecified">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MergeStatus.losingLeadIdList">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MergeStatus.status">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MergeStatus.error">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadMergeStatusEnum">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadMergeStatusEnum.MERGED">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadMergeStatusEnum.FAILED">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultMergeLeads">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultMergeLeads.mergeStatus">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SuccessMergeLeads">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SuccessMergeLeads.result">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsMergeLeads">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsMergeLeads.winningLeadKeyList">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsMergeLeads.losingLeadKeyLists">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.Attribute">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.Attribute.attrName">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.Attribute.attrType">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.Attribute.attrValue">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetCustomObjects">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetCustomObjects.objTypeName">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetCustomObjects.returnCount">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetCustomObjects.remainingCount">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetCustomObjects.newStreamPosition">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetCustomObjects.customObjList">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.CustomObj">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.CustomObj.customObjKeyList">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.CustomObj.customObjAttributeList">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SuccessGetCustomObjects">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SuccessGetCustomObjects.result">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetCustomObjects">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetCustomObjects.objTypeName">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetCustomObjects.streamPosition">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetCustomObjects.batchSize">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetCustomObjects.batchSizeSpecified">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetCustomObjects.customObjKeyList">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetCustomObjects.includeAttributes">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultDeleteCustomObjects">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultDeleteCustomObjects.deleteCustomObjStatusList">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SyncCustomObjStatus">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SyncCustomObjStatus.objTypeName">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SyncCustomObjStatus.customObjKeyList">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SyncCustomObjStatus.status">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SyncCustomObjStatus.error">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SyncStatusEnum">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SyncStatusEnum.CREATED">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SyncStatusEnum.UPDATED">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SyncStatusEnum.DELETED">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SyncStatusEnum.FAILED">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SuccessDeleteCustomObjects">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SuccessDeleteCustomObjects.result">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsDeleteCustomObjects">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsDeleteCustomObjects.objTypeName">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsDeleteCustomObjects.customObjKeyLists">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultSyncCustomObjects">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultSyncCustomObjects.syncCustomObjStatusList">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SuccessSyncCustomObjects">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SuccessSyncCustomObjects.result">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsSyncCustomObjects">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsSyncCustomObjects.objTypeName">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsSyncCustomObjects.customObjList">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsSyncCustomObjects.operation">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsSyncCustomObjects.operationSpecified">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SyncOperationEnum">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SyncOperationEnum.UPSERT">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SyncOperationEnum.INSERT">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SyncOperationEnum.UPDATE">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultSyncMultipleLeads">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultSyncMultipleLeads.syncStatusList">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SyncStatus">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SyncStatus.leadId">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SyncStatus.status">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SyncStatus.error">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadSyncStatus">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadSyncStatus.CREATED">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadSyncStatus.UPDATED">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadSyncStatus.FAILED">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SuccessSyncMultipleLeads">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SuccessSyncMultipleLeads.result">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsSyncMultipleLeads">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsSyncMultipleLeads.leadRecordList">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsSyncMultipleLeads.dedupEnabled">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsSyncMultipleLeads.dedupEnabledSpecified">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadRecord">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadRecord.Id">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadRecord.IdSpecified">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadRecord.Email">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadRecord.ForeignSysPersonId">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadRecord.ForeignSysType">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadRecord.ForeignSysTypeSpecified">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadRecord.leadAttributeList">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ForeignSysType">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ForeignSysType.CUSTOM">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ForeignSysType.SFDC">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ForeignSysType.NETSUITE">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MktowsContextHeaderInfo">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MktowsContextHeaderInfo.targetWorkspace">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultSyncLead">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultSyncLead.leadId">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultSyncLead.syncStatus">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultSyncLead.leadRecord">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SuccessSyncLead">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SuccessSyncLead.result">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsSyncLead">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsSyncLead.leadRecord">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsSyncLead.returnLead">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsSyncLead.marketoCookie">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultScheduleCampaign">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultScheduleCampaign.success">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SuccessScheduleCampaign">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SuccessScheduleCampaign.result">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsScheduleCampaign">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsScheduleCampaign.programName">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsScheduleCampaign.campaignName">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsScheduleCampaign.campaignRunAt">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsScheduleCampaign.campaignRunAtSpecified">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsScheduleCampaign.programTokenList">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultRequestCampaign">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultRequestCampaign.success">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SuccessRequestCampaign">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SuccessRequestCampaign.result">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsRequestCampaign">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsRequestCampaign.source">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsRequestCampaign.campaignId">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsRequestCampaign.campaignIdSpecified">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsRequestCampaign.leadList">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsRequestCampaign.programName">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsRequestCampaign.campaignName">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsRequestCampaign.programTokenList">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ReqCampSourceType">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ReqCampSourceType.MKTOWS">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ReqCampSourceType.SALES">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadKey">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadKey.keyType">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadKey.keyValue">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadKeyRef">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadKeyRef.IDNUM">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadKeyRef.COOKIE">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadKeyRef.EMAIL">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadKeyRef.LEADOWNEREMAIL">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadKeyRef.SFDCACCOUNTID">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadKeyRef.SFDCCONTACTID">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadKeyRef.SFDCLEADID">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadKeyRef.SFDCLEADOWNERID">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadKeyRef.SFDCOPPTYID">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadStatus">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadStatus.leadKey">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadStatus.status">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultListOperation">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultListOperation.success">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultListOperation.statusList">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SuccessListOperation">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SuccessListOperation.result">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ListKey">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ListKey.keyType">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ListKey.keyValue">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ListKeyType">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ListKeyType.MKTOLISTNAME">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ListKeyType.MKTOSALESUSERID">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ListKeyType.SFDCLEADOWNERID">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsListOperation">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsListOperation.listOperation">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsListOperation.listKey">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsListOperation.listMemberList">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsListOperation.strict">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsListOperation.strictSpecified">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsListOperation.skipActivityLog">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsListOperation.skipActivityLogSpecified">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ListOperationType">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ListOperationType.ADDTOLIST">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ListOperationType.CLEARLIST">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ListOperationType.ISMEMBEROFLIST">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ListOperationType.REMOVEFROMLIST">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SuccessListMObjects">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SuccessListMObjects.result">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsListMObjects">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultImportToList">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultImportToList.importStatus">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ImportToListStatusEnum">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ImportToListStatusEnum.PROCESSING">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ImportToListStatusEnum.COMPLETE">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ImportToListStatusEnum.FAILED">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ImportToListStatusEnum.CANCELED">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SuccessImportToList">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SuccessImportToList.result">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsImportToList">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsImportToList.programName">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsImportToList.importFileHeader">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsImportToList.importFileRows">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsImportToList.importListMode">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsImportToList.listName">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsImportToList.clearList">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsImportToList.campaignName">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ImportToListModeEnum">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ImportToListModeEnum.UPSERTLEADS">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ImportToListModeEnum.LISTONLY">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetMultipleLeads">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetMultipleLeads.returnCount">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetMultipleLeads.remainingCount">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetMultipleLeads.newStreamPosition">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetMultipleLeads.leadRecordList">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SuccessGetMultipleLeads">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SuccessGetMultipleLeads.result">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadSelector">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadKeySelector">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadKeySelector.keyType">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadKeySelector.keyValues">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.StaticListSelector">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.StaticListSelector.staticListName">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.StaticListSelector.staticListId">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.StaticListSelector.staticListIdSpecified">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LastUpdateAtSelector">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LastUpdateAtSelector.latestUpdatedAt">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LastUpdateAtSelector.latestUpdatedAtSpecified">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LastUpdateAtSelector.oldestUpdatedAt">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetMultipleLeads">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetMultipleLeads.leadSelector">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetMultipleLeads.lastUpdatedAt">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetMultipleLeads.lastUpdatedAtSpecified">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetMultipleLeads.streamPosition">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetMultipleLeads.batchSize">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetMultipleLeads.batchSizeSpecified">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetMultipleLeads.includeAttributes">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadChangeRecord">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadChangeRecord.id">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadChangeRecord.activityDateTime">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadChangeRecord.activityType">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadChangeRecord.mktgAssetName">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadChangeRecord.activityAttributes">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadChangeRecord.campaign">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadChangeRecord.mktPersonId">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetLeadChanges">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetLeadChanges.returnCount">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetLeadChanges.remainingCount">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetLeadChanges.newStartPosition">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetLeadChanges.leadChangeRecordList">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.StreamPosition">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.StreamPosition.latestCreatedAt">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.StreamPosition.latestCreatedAtSpecified">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.StreamPosition.oldestCreatedAt">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.StreamPosition.oldestCreatedAtSpecified">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.StreamPosition.activityCreatedAt">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.StreamPosition.activityCreatedAtSpecified">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.StreamPosition.offset">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SuccessGetLeadChanges">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SuccessGetLeadChanges.result">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetLeadChanges">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetLeadChanges.startPosition">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetLeadChanges.activityFilter">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetLeadChanges.batchSize">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetLeadChanges.batchSizeSpecified">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityTypeFilter">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityTypeFilter.includeTypes">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityTypeFilter.excludeTypes">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.VisitWebpage">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.FillOutForm">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.ClickLink">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.SendEmail">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.EmailDelivered">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.EmailBounced">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.UnsubscribeEmail">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.OpenEmail">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.ClickEmail">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.NewLead">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.ChangeDataValue">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.LeadAssigned">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.NewSFDCOpprtnty">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.Wait">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.RunSubflow">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.RemoveFromFlow">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.PushLeadToSales">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.CreateTask">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.ConvertLead">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.ChangeScore">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.ChangeOwner">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.AddToList">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.RemoveFromList">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.SFDCActivity">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.EmailBouncedSoft">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.PushLeadUpdatesToSales">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.DeleteLeadFromSales">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.SFDCActivityUpdated">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.SFDCMergeLeads">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.MergeLeads">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.ResolveConflicts">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.AssocWithOpprtntyInSales">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.DissocFromOpprtntyInSales">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.UpdateOpprtntyInSales">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.DeleteLead">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.SendAlert">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.SendSalesEmail">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.OpenSalesEmail">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.ClickSalesEmail">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.AddtoSFDCCampaign">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.RemoveFromSFDCCampaign">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.ChangeStatusInSFDCCampaign">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.ReceiveSalesEmail">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.InterestingMoment">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.RequestCampaign">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.SalesEmailBounced">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.ChangeLeadPartition">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.ChangeRevenueStage">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.ChangeRevenueStageManually">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.ComputeDataValue">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.ChangeStatusInProgression">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.ChangeFieldInProgram">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.EnrichWithDatacom">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.ChangeSegment">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.ResolveRuleset">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.SmartCampaignTest">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityType.SmartCampaignTestTrigger">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityRecord">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityRecord.id">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityRecord.activityDateTime">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityRecord.activityType">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityRecord.mktgAssetName">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityRecord.activityAttributes">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityRecord.campaign">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityRecord.personName">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityRecord.mktPersonId">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityRecord.foreignSysId">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityRecord.orgName">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ActivityRecord.foreignSysOrgId">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadActivityList">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadActivityList.returnCount">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadActivityList.remainingCount">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadActivityList.newStartPosition">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.LeadActivityList.activityRecordList">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SuccessGetLeadActivity">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SuccessGetLeadActivity.leadActivityList">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetLeadActivity">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetLeadActivity.leadKey">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetLeadActivity.activityFilter">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetLeadActivity.startPosition">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetLeadActivity.batchSize">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetLeadActivity.batchSizeSpecified">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetLead">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetLead.count">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetLead.leadRecordList">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SuccessGetLead">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SuccessGetLead.result">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetLead">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetLead.leadKey">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetImportToListStatus">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetImportToListStatus.status">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetImportToListStatus.startedTime">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetImportToListStatus.startedTimeSpecified">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetImportToListStatus.endedTime">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetImportToListStatus.endedTimeSpecified">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetImportToListStatus.estimatedTime">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetImportToListStatus.estimatedTimeSpecified">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetImportToListStatus.estimatedRows">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetImportToListStatus.estimatedRowsSpecified">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetImportToListStatus.rowsImported">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetImportToListStatus.rowsImportedSpecified">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetImportToListStatus.rowsFailed">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetImportToListStatus.rowsFailedSpecified">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetImportToListStatus.rowsIgnored">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetImportToListStatus.rowsIgnoredSpecified">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetImportToListStatus.importSummary">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SuccessGetImportToListStatus">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SuccessGetImportToListStatus.result">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetImportToListStatus">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetImportToListStatus.programName">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetImportToListStatus.listName">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.CampaignRecord">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.CampaignRecord.id">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.CampaignRecord.name">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.CampaignRecord.description">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetCampaignsForSource">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetCampaignsForSource.returnCount">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetCampaignsForSource.campaignRecordList">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SuccessGetCampaignsForSource">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SuccessGetCampaignsForSource.result">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetCampaignsForSource">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetCampaignsForSource.source">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetCampaignsForSource.name">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetCampaignsForSource.exactName">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetCampaignsForSource.exactNameSpecified">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultSyncMObjects">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultSyncMObjects.mObjStatusList">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObjStatus">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObjStatus.id">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObjStatus.externalKey">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObjStatus.status">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObjStatus.error">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObjStatusEnum">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObjStatusEnum.CREATED">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObjStatusEnum.UPDATED">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObjStatusEnum.DELETED">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObjStatusEnum.FAILED">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObjStatusEnum.UNCHANGED">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObjStatusEnum.SKIPPED">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SuccessSyncMObjects">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SuccessSyncMObjects.result">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsSyncMObjects">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsSyncMObjects.mObjectList">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsSyncMObjects.operation">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObject">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObject.type">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObject.id">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObject.idSpecified">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObject.externalKey">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObject.createdAt">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObject.createdAtSpecified">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObject.updatedAt">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObject.updatedAtSpecified">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObject.attribList">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObject.typeAttribList">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObject.associationList">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.TypeAttrib">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.TypeAttrib.attrType">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.TypeAttrib.attrList">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObjAssociation">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObjAssociation.mObjType">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObjAssociation.id">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObjAssociation.idSpecified">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObjAssociation.externalKey">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetMObjects">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetMObjects.returnCount">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetMObjects.hasMore">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetMObjects.newStreamPosition">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultGetMObjects.mObjectList">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SuccessGetMObjects">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SuccessGetMObjects.result">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObjCriteria">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObjCriteria.attrName">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObjCriteria.comparison">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObjCriteria.attrValue">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ComparisonEnum">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ComparisonEnum.EQ">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ComparisonEnum.NE">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ComparisonEnum.LT">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ComparisonEnum.LE">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ComparisonEnum.GT">
+            <remarks/>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ComparisonEnum.GE">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetMObjects">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetMObjects.type">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetMObjects.id">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetMObjects.idSpecified">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetMObjects.externalKey">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetMObjects.mObjCriteriaList">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetMObjects.mObjAssociationList">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetMObjects.includeDetails">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetMObjects.includeDetailsSpecified">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsGetMObjects.streamPosition">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObjFieldMetadata">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObjFieldMetadata.name">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObjFieldMetadata.description">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObjFieldMetadata.displayName">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObjFieldMetadata.sourceObject">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObjFieldMetadata.dataType">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObjFieldMetadata.size">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObjFieldMetadata.isReadonly">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObjFieldMetadata.isUpdateBlocked">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObjFieldMetadata.isName">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObjFieldMetadata.isPrimaryKey">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObjFieldMetadata.isCustom">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObjFieldMetadata.isDynamic">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObjFieldMetadata.dynamicFieldRef">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObjFieldMetadata.updatedAt">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObjectMetadata">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObjectMetadata.name">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObjectMetadata.description">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObjectMetadata.isCustom">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObjectMetadata.isVirtual">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObjectMetadata.fieldList">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.MObjectMetadata.updatedAt">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultDescribeMObject">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultDescribeMObject.metadata">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SuccessDescribeMObject">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SuccessDescribeMObject.result">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsDescribeMObject">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsDescribeMObject.objectName">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultDeleteMObjects">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ResultDeleteMObjects.mObjStatusList">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SuccessDeleteMObjects">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.SuccessDeleteMObjects.result">
+            <remarks/>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsDeleteMObjects">
+            <remarks/>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceReference.ParamsDeleteMObjects.mObjectList">
+            <remarks/>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Web.Services.IMarketoConnectorService.SaveAccountSettings(Telerik.Sitefinity.MarketoConnector.Web.Services.ViewModels.AccountSettingsViewModel)">
+            <summary>
+            Tests the connection to the service.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Web.Services.IMarketoConnectorService.SaveModuleSettings(Telerik.Sitefinity.MarketoConnector.Web.Services.ViewModels.ModuleSettingsViewModel)">
+            <summary>
+            Saves the module settings.
+            </summary>
+            <param name="model">The model.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Web.Services.IMarketoConnectorService.ChangeConnectionState(System.Boolean)">
+            <summary>
+            Changes the state of the connection.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Web.Services.IMarketoConnectorService.SyncLead(System.String,System.Boolean,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Syncs the lead.
+            </summary>
+            <param name="formId">The form id.</param>
+            <param name="attributes">The attributes.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Web.Services.IMarketoConnectorService.CallVisitWebPage(System.Boolean)">
+            <summary>
+            Calls Marketo's visit web page service method.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Web.Services.MarketoConnectorService.SaveAccountSettings(Telerik.Sitefinity.MarketoConnector.Web.Services.ViewModels.AccountSettingsViewModel)">
+            <summary>
+            Tests the connection to the service.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Web.Services.MarketoConnectorService.ChangeConnectionState(System.Boolean)">
+            <summary>
+            Changes the state of the connection.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Web.Services.MarketoConnectorService.SyncLead(System.String,System.Boolean,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Syncs the lead.
+            </summary>
+            <param name="formId">The form id.</param>
+            <param name="attributes">The attributes.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Web.Services.MarketoConnectorService.CallVisitWebPage(System.Boolean)">
+            <summary>
+            Calls Marketo's visit web page service method.
+            </summary>
+            <param name="async"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Web.Services.MarketoConnectorService.GetBaseUrl">
+            <summary>
+            Gets the base URL.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Web.Services.MarketoConnectorService.VerifyConnection">
+            <summary>
+            Verifies the connection by making dummy call to the SOAP service.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Web.Services.MarketoConnectorService.GetCurrentLeadScore(Telerik.Sitefinity.MarketoConnector.MarketoSoapServiceManager,System.String)">
+            <summary>
+            Gets the current lead score.
+            </summary>
+            <param name="marketoSoapManager">The marketo SOAP manager.</param>
+            <param name="email">The email.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Web.Services.MarketoConnectorService.GetTimeJavaScriptFormat">
+            <summary>
+            Alternative to javascript getTime() function.
+            </summary>
+            <returns>Time in miliseconds.</returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.Web.UI.MarketoScriptControl">
+            <summary>
+            A conrol that will plug custom marketing functionality.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.Web.UI.MarketoScriptControl.AddSubmitScript">
+            <summary>
+            Indicates if the marketing submit script should be added on the page.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.Web.UI.MarketoScriptControl.FormMetadata">
+            <summary>
+            Gets the form metadata.
+            </summary>
+            <value>The form metadata.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Web.UI.MarketoScriptControl.OnInit(System.EventArgs)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Web.UI.MarketoScriptControl.RenderControl(System.Web.UI.HtmlTextWriter)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Web.UI.MarketoScriptControl.GetWebResource(System.Type,System.String)">
+            <summary>
+            Gets the web resource and wraps it inside a script element.
+            </summary>
+            <param name="type">The type.</param>
+            <param name="resource">The resource.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Web.UI.MarketoScriptControl.GetWebResourceUrl(System.Type,System.String)">
+            <summary>
+            Gets the web resource URL.
+            </summary>
+            <param name="type">The type.</param>
+            <param name="resource">The resource.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Web.UI.MarketoScriptControl.AddScriptTag(System.String)">
+            <summary>
+            Adds the script tag and sets the src to the selected url.
+            </summary>
+            <param name="url">The URL.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Web.UI.MarketoScriptControl.GenerateScript">
+            <summary>
+            Generate the script that logs the visit.
+            </summary>
+            <returns>
+            Javascript code for the page visit.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Web.UI.MarketoScriptControl.GenerateMarketoLeadFields(System.String)">
+            <summary>
+            Generates the Marketo lead fields.
+            </summary>
+            <param name="s">The s.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Web.UI.MarketoScriptControl.SplitString(System.String)">
+            <summary>
+            Splits the string.
+            </summary>
+            <param name="s">The s.</param>
+            <returns></returns>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.Web.UI.MarketoConnectorSettings.LayoutTemplatePath">
+            <summary>
+            Gets or sets the path of the external template to be used by the control.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.Web.UI.MarketoConnectorSettings.WebServiceUrlBase">
+            <summary>
+            Gets or sets the web service URL base.
+            </summary>
+            <value>The web service URL base.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.Web.UI.MarketoConnectorSettings.HasAccountSettings">
+            <summary>
+            Gets or sets the has account settings.
+            </summary>
+            <value>The has account settings.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.Web.UI.MarketoConnectorSettings.Connected">
+            <summary>
+            Gets or sets whether the Sitefinity instance is connected to Marketo.
+            </summary>
+            <value>The connected.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.Web.UI.MarketoConnectorSettings.ReconnectLabel">
+            <summary>
+            Gets or sets the reconnect label.
+            </summary>
+            <value>The reconnect label.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.Web.UI.MarketoConnectorSettings.DisconnectLabel">
+            <summary>
+            Gets or sets the disconnect label.
+            </summary>
+            <value>The disconnect label.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.Web.UI.MarketoConnectorSettings.ActiveLabel">
+            <summary>
+            Gets or sets the active label.
+            </summary>
+            <value>The active label.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.Web.UI.MarketoConnectorSettings.DeactivatedLabel">
+            <summary>
+            Gets or sets the deactivated label.
+            </summary>
+            <value>The deactivated label.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.Web.UI.MarketoConnectorSettings.PersonalizationActivated">
+            <summary>
+            Gets or sets whether the Marketo personalization rule is installed.
+            </summary>
+            <value>The personalization activated.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.Web.UI.MarketoConnectorSettings.UsePersonalizationRule">
+            <summary>
+            Gets or sets whether the Marketo personalization criteria will be used.
+            </summary>
+            <value>The use personalization rule.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.Web.UI.MarketoConnectorSettings.TrackExternalForms">
+            <summary>
+            Gets or sets the track external forms.
+            </summary>
+            <value>The track external forms.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.Web.UI.MarketoConnectorSettings.DoWebCallsOnExternalForms">
+            <summary>
+            Gets or sets the do web calls on external forms.
+            </summary>
+            <value>The do web calls on external forms.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.Web.UI.MarketoConnectorSettings.ApiKeyTextBox">
+            <summary>
+            Gets the API key text box.
+            </summary>
+            <value>The API key text box.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.Web.UI.MarketoConnectorSettings.UserIdTextBox">
+            <summary>
+            Gets the user id text box.
+            </summary>
+            <value>The user id text box.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.Web.UI.MarketoConnectorSettings.SoapEndPointTextBox">
+            <summary>
+            Gets the SOAP end point text box.
+            </summary>
+            <value>The SOAP end point text box.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.Web.UI.MarketoConnectorSettings.DisconnectReconnectButton">
+            <summary>
+            Gets the connect button.
+            </summary>
+            <value>The connect button.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.Web.UI.MarketoConnectorSettings.MunchkinJsTextBox">
+            <summary>
+            Gets the munchkin js text box.
+            </summary>
+            <value>The munchkin js text box.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.Web.UI.MarketoConnectorSettings.ConnectButton">
+            <summary>
+            Gets the save button.
+            </summary>
+            <value>The save button.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.Web.UI.MarketoConnectorSettings.ChangeConnectionButton">
+            <summary>
+            Gets the change connection button.
+            </summary>
+            <value>The change connection button.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.Web.UI.MarketoConnectorSettings.MarketoAccountForm">
+            <summary>
+            Gets the marketo account form.
+            </summary>
+            <value>The marketo account form.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.Web.UI.MarketoConnectorSettings.MarketoSettingsForm">
+            <summary>
+            Gets the marketo settings.
+            </summary>
+            <value>The marketo settings.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Web.UI.MarketoConnectorSettings.GetScriptDescriptors">
+            <summary>
+            Gets a collection of script descriptors that represent ECMAScript (JavaScript)
+            client components.
+            </summary>
+            <returns>
+            An <see cref="T:System.Collections.IEnumerable" /> collection of <see cref="T:System.Web.UI.ScriptDescriptor" />
+            objects.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Web.UI.MarketoConnectorSettings.GetScriptReferences">
+            <summary>
+            Gets a collection of <see cref="T:System.Web.UI.ScriptReference" /> objects
+            that define script resources that the control requires.
+            </summary>
+            <returns>
+            An <see cref="T:System.Collections.IEnumerable" /> collection of <see cref="T:System.Web.UI.ScriptReference" />
+            objects.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.Web.UI.MarketoConnectorSettings.InitializeControls(Telerik.Sitefinity.Web.UI.GenericContainer)">
+            <summary>
+            Initializes the controls.
+            </summary>
+            <param name="container"></param>
+            <remarks>
+            Initialize your controls in this method. Do not override CreateChildControls method.
+            </remarks>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.MarketoConnectorManager.GetManager">
+            <summary>
+            Get an instance of the MarketoConnector manager using the default provider.
+            </summary>
+            <returns>Instance of the MarketoConnector manager</returns>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorManager.HasAccountSettings">
+            <summary>
+            Determines whether and a Marketo account settings are saved in the configuration.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorManager.IsConnected">
+            <summary>
+            Determines whether this instance is connected to Marketo.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorManager.ModuleSuccessfullyConfigured">
+            <summary>
+            Determines whether the Marketo Connector module is successfully configured and operating.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.MarketoConnectorManager.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing,
+            or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.MarketoConnector.MarketoConnectorModule">
+            <summary>
+            Custom Sitefinity module 
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorModule.LandingPageId">
+            <summary>
+            Gets the landing page id for the module.
+            </summary>
+            <value>The landing page id.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorModule.Managers">
+            <summary>
+            Gets the CLR types of all data managers provided by this module.
+            </summary>
+            <value>An array of <see cref="T:System.Type" /> objects.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.MarketoConnectorModule.Initialize(Telerik.Sitefinity.Services.ModuleSettings)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.MarketoConnectorModule.Install(Telerik.Sitefinity.Abstractions.SiteInitializer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.MarketoConnectorModule.GetVirtualPaths">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.MarketoConnectorModule.Upgrade(Telerik.Sitefinity.Abstractions.SiteInitializer,System.Version)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.MarketoConnectorModule.Uninstall(Telerik.Sitefinity.Abstractions.SiteInitializer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.MarketoConnectorModule.OnPagePreRenderCompleteEventHandler(Telerik.Sitefinity.Web.Events.IPagePreRenderCompleteEvent)">
+            <summary>
+            Called when IPagePreRenderCompleteEvent event is fired.
+            </summary>
+            <param name="args">The event arguments.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.MarketoConnectorModule.GetModuleConfig">
+            <summary>
+            Gets the module configuration.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.MarketoConnectorModule.InstallBackendPages(Telerik.Sitefinity.Abstractions.SiteInitializer)">
+            <summary>
+            Installs the backend pages.
+            </summary>
+            <param name="initializer">The initializer.</param>
+        </member>
+        <member name="F:Telerik.Sitefinity.MarketoConnector.MarketoConnectorModule.ModuleId">
+            <summary>
+            Id of the module. Used for licensing.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources" -->
+        <member name="M:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.#ctor">
+            <summary>
+            Initializes new instance of <see cref="T:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources"/> class with the default <see cref="T:Telerik.Sitefinity.Localization.Data.ResourceDataProvider"/>.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.#ctor(Telerik.Sitefinity.Localization.Data.ResourceDataProvider)">
+            <summary>
+            Initializes new instance of <see cref="T:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources"/> class with the provided <see cref="T:Telerik.Sitefinity.Localization.Data.ResourceDataProvider"/>.
+            </summary>
+            <param name="dataProvider"><see cref="T:Telerik.Sitefinity.Localization.Data.ResourceDataProvider"/></param>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.MarketoConnectorResourcesTitle">
+            <summary>
+            MarketoConnector Resources
+            </summary>
+            <value>Connector for Marketo module labels</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.MarketoConnectorResourcesTitlePlural">
+            <summary>
+            MarketoConnector Resources Title plural
+            </summary>
+            <value>Connector for Marketo module labels</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.MarketoConnectorResourcesDescription">
+            <summary>
+            Contains localizable resources for MarketoConnector module.
+            </summary>
+            <value>Contains localizable resources for Connector for Marketo module.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.AapiKeyLabel">
+            <summary>
+            Phrase: API Key
+            </summary>
+            <value>API Key</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.ApiKeyHint">
+            <summary>
+            Phrase: Can be found in Marketo > Admin > SOAP API section
+            </summary>
+            <value>SOAP End point</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.SoapEndPointLabel">
+            <summary>
+            Phrase: SOAP End point
+            </summary>
+            <value>SOAP End point</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.SoapEndPointHint">
+            <summary>
+            Phrase: Url to your Marketo instance service
+            </summary>
+            <value>SOAP End point</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.MunchkinJsLabel">
+            <summary>
+            Phrase: Enter the Munchkin javascript here:
+            </summary>
+            <value>Enter the Munchkin javascript here:</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.MunchkinJsHint">
+            <summary>
+            Phrase: Can be found in Marketo > Admin > Munchkin section
+            </summary>
+            <value>SOAP End point</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.ConnectLabel">
+            <summary>
+            Word: Connect
+            </summary>
+            <value>Connect</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.ChangeConnectionLabel">
+            <summary>
+            Phrase: Change connection
+            </summary>
+            <value>Change connection</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.DisconnectLabel">
+            <summary>
+            Word: Disconnect
+            </summary>
+            <value>Disconnect</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.ReconnectLabel">
+            <summary>
+            Word: Reconnect
+            </summary>
+            <value>Reconnect</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.MarketoInstructionsHeader">
+            <summary>
+            Phrase: Why use Marketo
+            </summary>
+            <value>Why use Marketo</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.MarketoAccountSettingsHeader">
+            <summary>
+            Phrase: Connect to Marketo using your аccount
+            </summary>
+            <value>Connect to Marketo using your аccount</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.IsLabel">
+            <summary>
+            Word: is
+            </summary>
+            <value>is</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.TrackExternalFormsLabel">
+            <summary>
+            Phrase: Track external forms
+            </summary>
+            <value>Track external forms</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.DoWebCallsOnExternalFormsLabel">
+            <summary>
+            Phrase: Do web calls on external form submit
+            </summary>
+            <value>Do web calls on external form submit</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.SaveLabel">
+            <summary>
+            Word: Save
+            </summary>
+            <value>Save</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.SavedLabel">
+            <summary>
+            Word: Saved
+            </summary>
+            <value>Saved</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.PagesLabel">
+            <summary>
+            Word: Pages:
+            </summary>
+            <value>Pages:</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.DocumentsTrackingLabel">
+            <summary>
+            Phrase: Documents tracking:
+            </summary>
+            <value>Documents tracking:</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.ExternalFormsTrackingLabel">
+            <summary>
+            Phrase: External forms tracking:
+            </summary>
+            <value>External forms tracking:</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.ChangeLabel">
+            <summary>
+            Word: Change
+            </summary>
+            <value>Change</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.EnabledLabel">
+            <summary>
+            Word: enabled
+            </summary>
+            <value>enabled</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.DisabledLabel">
+            <summary>
+            Word: disabled
+            </summary>
+            <value>disabled</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.HelpHeader1">
+            <summary>
+            Phrase: Use Marketo integration to:
+            </summary>
+            <value>Use Marketo integration to:</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.HelpHeader2">
+            <summary>
+            Phrase: Track pages and links
+            </summary>
+            <value>Track pages and links</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.HelpHeader3">
+            <summary>
+            Phrase: Track Forms
+            </summary>
+            <value>Track Forms</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.HelpHeader4">
+            <summary>
+            Phrase: Personalization Rules
+            </summary>
+            <value>Personalization Rules</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.HelpText1">
+            <summary>
+            Phrase: The Connector for Marketo will automatically help tracking all pages and link clicks for all existing and new pages. File downloads via a click link will be monitored too.
+            </summary>
+            <value>The Connector for Marketo will automatically help tracking all pages and link clicks for all existing and new pages. File downloads via a click link will be monitored too.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.HelpText2">
+            <summary>
+            Phrase: Automatically track all Forms built with the Forms Module, as well as your custom forms in any user controls, pages or templates. This is how anonymous visitors can be associated with real names.
+            </summary>
+            <value>Automatically track all Forms built with the Forms Module, as well as your custom forms in any user controls, pages or templates. This is how anonymous visitors can be associated with real names.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.HelpText3">
+            <summary>
+            Phrase: If you have the Personalization module installed, the Connector for Marketo will add Marketo Personalization rules.
+            </summary>
+            <value>If you have the Personalization module installed, the Connector for Marketo will add Marketo Personalization rules.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.SettingsLabel">
+            <summary>
+            Word: Settings
+            </summary>
+            <value>Settings</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.MarketoFormsFieldsHeader">
+            <summary>
+            Phrase: Marketo settings
+            </summary>
+            <value>Marketo settings</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.ChangeMarketoLeadScoreLabel">
+            <summary>
+            Phrase: Change Marketo lead score
+            </summary>
+            <value>Change Marketo lead score</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.ChangeMarketoLeadScoreFieldDescription">
+            <summary>
+            Phrase: Lead score
+            </summary>
+            <value>Lead score</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.SyncFormFieldsWithLeadFieldsLabel">
+            <summary>
+            Phrase: Sync form fields with lead fields
+            </summary>
+            <value>Sync form fields with lead fields</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.DoSpecificWebCallsLabel">
+            <summary>
+            Phrase: Do specific web calls
+            </summary>
+            <value>Do specific web calls</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.MarketoConnectorExpandableControlLabel">
+            <summary>
+            Word: Advanced
+            </summary>
+            <value>Advanced</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.FormsLabel">
+            <summary>
+            Word: Forms:
+            </summary>
+            <value>Forms:</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.AboveLabel">
+            <summary>
+            Word: above
+            </summary>
+            <value>above</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.BelowLabel">
+            <summary>
+            Word: below
+            </summary>
+            <value>below</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.MarketoLeadScore">
+            <summary>
+            Phrase: Marketo lead score
+            </summary>
+            <value>Marketo lead score</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.InvalidScoreValidationMessage">
+            <summary>
+            Phrase: Enter only positive numbers
+            </summary>
+            <value>Enter only positive numbers</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.LargeScoreValidationMessage">
+            <summary>
+            Phrase: The number is too big
+            </summary>
+            <value>The number is too big</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.UsePersonalizationRuleLabel">
+            <summary>
+            Phrase: Personalize Sitefinity using Marketo criteria
+            </summary>
+            <value>Personalize Sitefinity using Marketo criteria</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.EqualsLabel">
+            <summary>
+            Phrase: is equal to
+            </summary>
+            <value>is equal to</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.ContainsLabel">
+            <summary>
+            Word: contains
+            </summary>
+            <value>contains</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.LeadFieldLabel">
+            <summary>
+            Phrase: Lead field
+            </summary>
+            <value>Lead field</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.MarketoField">
+            <summary>
+            Phrase: Marketo field
+            </summary>
+            <value>Marketo field</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.ConnectedPropNameCaption">
+            <summary>
+            Word: Connected
+            </summary>
+            <value>Connected</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.ConnectedPropNameDescription">
+            <summary>
+            Phrase: Determines whether the module will track and send information to Marketo.
+            </summary>
+            <value>Determines whether the module will track and send information to Marketo.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.SoapEndPointPropNameCaption">
+            <summary>
+            Phrase: Soap API End point
+            </summary>
+            <value>Soap API End point</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.SoapEndPointPropNameDescription">
+            <summary>
+            Phrase: The Marketo account's Soap end point.
+            </summary>
+            <value>The Marketo account's Soap end point.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.UserIdPropNameCaption">
+            <summary>
+            Phrase: User Id
+            </summary>
+            <value>User Id</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.UserIdPropNameDescription">
+            <summary>
+            Phrase: Marketo account's user Id.
+            </summary>
+            <value>Marketo account's user Id.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.ApiKeyPropNameCaption">
+            <summary>
+            Phrase: Api Key
+            </summary>
+            <value>Api Key</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.ApiKeyPropNameDescription">
+            <summary>
+            Phrase: Marketo account's API Key.
+            </summary>
+            <value>Marketo account's API Key.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.MunchkinJSPropNameCaption">
+            <summary>
+            Phrase: Munchkin JS
+            </summary>
+            <value>Munchkin JS</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.MunchkinJSPropNameDescription">
+            <summary>
+            Phrase: The Munchkin JS which will track user activity.
+            </summary>
+            <value>The Munchkin JS which will track user activity.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.TrackExternalFormsPropNameCaption">
+            <summary>
+            Phrase: Track external forms
+            </summary>
+            <value>Track external forms</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.TrackExternalFormsPropNameDescription">
+            <summary>
+            Phrase: Determines whether external forms will be tracked.
+            </summary>
+            <value>Determines whether external forms will be tracked.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.ExternalFormSubmitButtonsQueryPropNameCaption">
+            <summary>
+            Phrase: External form submit buttons query
+            </summary>
+            <value>External form submit buttons query</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.ExternalFormSubmitButtonsQueryPropNameDescription">
+            <summary>
+            Phrase: This is a standard jQuery selector literal which determines on which external form submit button's clicks, an information will be collected from the form elements.
+            </summary>
+            <value>This is a standard jQuery selector literal which determines on which external form submit button's clicks, an information will be collected from the form elements.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.ExternalFormFieldKeyAttributesPropNameCaption">
+            <summary>
+            Phrase: External form field key attributes
+            </summary>
+            <value>External form field key attributes</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.ExternalFormFieldKeyAttributesPropNameDescription">
+            <summary>
+            Phrase: Determines in which html elements' attributes will be looked for a lead field name. They are sorted from higher to lower priority.
+            </summary>
+            <value>Determines in which html elements' attributes will be looked for a lead field name. They are sorted from higher to lower priority.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.MarketoLeadFieldsPropNameCaption">
+            <summary>
+            Phrase: Marketo lead fields
+            </summary>
+            <value>Marketo lead fields</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.MarketoLeadFieldsPropNameDescription">
+            <summary>
+            Phrase: This is a mapping in the format 'LeadField:Value'where if the 'eadField' is found in a key attribute, the 'Value' is sent to Marketo as name of the lead field. If 'Value' is omitted, the 'LeadField' is sent as a name of the field.
+            </summary>
+            <value>This is a mapping in the format 'LeadField:Value'where if the 'eadField' is found in a key attribute, the 'Value' is sent to Marketo as name of the lead field. If 'Value' is omitted, the 'LeadField' is sent as a name of the field.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.DoSpecificWebCallsOnExternalFormPropNameCaption">
+            <summary>
+            Phrase: Do specific web calls on external form
+            </summary>
+            <value>Do specific web calls on external form</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.DoSpecificWebCallsOnExternalFormPropNameDescription">
+            <summary>
+            Phrase: Determines whether to send 'VisitedPage' event to Marketo, when external form is submited.
+            </summary>
+            <value>Determines whether to send 'VisitedPage' event to Marketo, when external form is submited.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.UsePersonalizationRulePropNameCaption">
+            <summary>
+            Phrase: Use personalization rule
+            </summary>
+            <value>Use personalization rule</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.UsePersonalizationRulePropNameDescription">
+            <summary>
+            Phrase: Determines whether the personalization characteristics will be active.
+            </summary>
+            <value>Determines whether the personalization characteristics will be active.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.CacheAbsoluteExpirationPropNameCaption">
+            <summary>
+            Phrase: Personalization cache absolute expiration
+            </summary>
+            <value>Personalization cache absolute expiration</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.CacheAbsoluteExpirationPropNameDescription">
+            <summary>
+            Phrase: Determines the maximum duration that the leads will be kept in memory in minutes. Enter 0 to disable.
+            </summary>
+            <value>Determines the maximum duration that the leads will be kept in memory. Time is in minutes. Enter 0 to disable.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.CacheSlidingExpirationPropNameCaption">
+            <summary>
+            Phrase: Personalization cache sliding expiration
+            </summary>
+            <value>Personalization cache sliding expiration</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.CacheSlidingExpirationPropNameDescription">
+            <summary>
+            Phrase: Determines the time that it takes for a cached lead to expire if it is not used. The time is in minutes. Enter 0 to disable.
+            </summary>
+            <value>Determines the time that it takes for a cached lead to expire if it is not used. The time is in minutes. Enter 0 to disable.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.MarketoConnectorGroupPageTitle">
+            <summary>
+            Phrase: Connector for Marketo
+            </summary>
+            <value>Connector for Marketo</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.MarketoConnectorGroupPageUrlName">
+            <summary>
+            Word: Marketo
+            </summary>
+            <value>Marketo</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.MarketoConnectorGroupPageDescription">
+            <summary>
+            Phrase: Connector for Marketo group page
+            </summary>
+            <value>Connector for Marketo group page</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.MarketoConnectorPageTitle">
+            <summary>
+            Phrase: Connector for Marketo
+            </summary>
+            <value>Connector for Marketo</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.MarketoConnectorPageUrlName">
+            <summary>
+            Word: Settings
+            </summary>
+            <value>Settings</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.MarketoConnectorPageDescription">
+            <summary>
+            Connector for Marketo
+            </summary>
+            <value>Connector for Marketo</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.ActiveLabel">
+            <summary>
+            Word: Active
+            </summary>
+            <value>Active</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.DeactivatedLabel">
+            <summary>
+            Word: Disabled
+            </summary>
+            <value>Disabled</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.PersonalizationRuleLabel">
+            <summary>
+            Phrase: Personalization rule:
+            </summary>
+            <value>Personalization rules:</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.UserIdLabel">
+            <summary>
+            Phrase: User Id
+            </summary>
+            <value>User Id</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.UserIdHint">
+            <summary>
+            Phrase: Can be found in Marketo > Admin > SOAP API section
+            </summary>
+            <value>User Id</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.Faq">
+            <summary>
+            abbreviation: FAQ
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.AccessMarketoConnectorTitle">
+            <summary>
+            Phrase: Access Connector for Marketo module
+            </summary>
+            <value>Access Connector for Marketo module</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.AccessMarketoConnectorDescription">
+            <summary>
+            Phrase: Security action that allows access to the backend pages of the Connector for Marketo module.
+            </summary>
+            <value>Security action that allows access to the backend pages of the Connector for Marketo module.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.ActivationKeyLabel">
+            <summary>
+            Phrase: Activation key
+            </summary>
+            <value>Activation key</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.ActivationKeyHint">
+            <summary>
+            Phrase: Activation key
+            </summary>
+            <value>Activation key</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.ActivationKeyPropNameCaption">
+            <summary>
+            Phrase: Activation key
+            </summary>
+            <value>Activation key</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.MarketoConnector.MarketoConnectorResources.ActivationKeyPropNameDescription">
+            <summary>
+            Phrase: The Marketo account's Soap end point.
+            </summary>
+            <value>The Marketo account's Soap end point.</value>
+        </member>
+    </members>
+</doc>

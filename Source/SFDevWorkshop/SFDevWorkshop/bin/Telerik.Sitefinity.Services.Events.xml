@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Telerik.Sitefinity.Services.Events</name>
+    </assembly>
+    <members>
+        <member name="T:Telerik.Sitefinity.Services.Events.EventBase">
+            <summary>
+             A base class for events notifying for changed state at some entities in which subscribers are interested. 
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Events.EventBase.Origin">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Events.IEvent">
+            <summary>
+            An interface containing information about change of state that some entities communicate to other entities 
+            via Sitefinity event notification infrastructure.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Events.IEvent.Origin">
+            <summary>
+            A value specifying the origin of the event.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Events.IPreProcessingEvent">
+            <summary>
+            Marker interface for all events thrown BEFORE the actual processing is done. By convention the verb form in their name is present participle (-ing).
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Events.IPostProcessingEvent">
+            <summary>
+            Marker interface for all events thrown AFTER the actual processing is done. By convention the verb form in their name is past participle (-ed).
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Events.SitefinityEventHandler`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="TEvent">The type of the event.</typeparam>
+            <param name="event">The @event.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Events.IEventService">
+            <summary>
+            The contract for subscribing for an event and notification of potential subscribers.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Events.IEventService.Raise(Telerik.Sitefinity.Services.Events.IEvent,System.Boolean)">
+            <summary>
+            Raises the specified @event.
+            </summary>
+            <param name="event">The @event.</param>
+            <param name="throwExceptions">if set to <c>true</c> [throw exceptions].</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Events.IEventService.Subscribe``1(Telerik.Sitefinity.Services.Events.SitefinityEventHandler{``0})">
+            <summary>
+            Subscribes the specified handler.
+            </summary>
+            <typeparam name="TEvent">The type of the event.</typeparam>
+            <param name="handler">The handler.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Events.IEventService.Unsubscribe``1(Telerik.Sitefinity.Services.Events.SitefinityEventHandler{``0})">
+            <summary>
+            Unsubscribes the specified handler.
+            </summary>
+            <typeparam name="TEvent">The type of the event.</typeparam>
+            <param name="handler">The handler.</param>
+        </member>
+    </members>
+</doc>

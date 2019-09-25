@@ -1,0 +1,2143 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Telerik.Sitefinity.Services.Notifications.Impl</name>
+    </assembly>
+    <members>
+        <member name="T:Telerik.Sitefinity.Services.Notifications.BackgroundTasks.SendNotificationScheduledTask">
+            <summary>
+            Scheduled task for sending notifications.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.BackgroundTasks.SendNotificationScheduledTask.GetCustomData">
+            <summary>
+            Gets any custom data that the task needs persisted. The data should be serialized as a string.
+            The <seealso cref="M:Telerik.Sitefinity.Services.Notifications.BackgroundTasks.SendNotificationScheduledTask.SetCustomData(System.String)" />should have implementation for deserialized the data
+            </summary>
+            <returns>string serialized custom task data</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.BackgroundTasks.SendNotificationScheduledTask.SetCustomData(System.String)">
+            <summary>
+            Sets the custom data. This is used when reviving a task from a persistent storage to deserialize any custom stored data
+            </summary>
+            <param name="customData">The task information.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.BackgroundTasks.SendNotificationScheduledTask.Settings">
+            <summary>
+            Gets or sets the settings.
+            </summary>
+            <value>The settings.</value>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Notifications.BackgroundTasks.SendNotificationScheduledTask.NotificationTaskSettings">
+            <summary>
+            The SendNotificationScheduledTask information
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.BackgroundTasks.SendNotificationScheduledTask.NotificationTaskSettings.#ctor(System.Guid,Telerik.Sitefinity.Services.Notifications.ServiceContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Notifications.BackgroundTasks.SendNotificationScheduledTask.NotificationTaskSettings" /> class.
+            </summary>
+            <param name="messageJobId">The message job id.</param>
+            <param name="systemContext">The system context that will be used to clear system tasks</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.BackgroundTasks.SendNotificationScheduledTask.NotificationTaskSettings.MessageJobId">
+            <summary>
+            Gets or sets the message job id.
+            </summary>
+            <value>The message job id.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.BackgroundTasks.SendNotificationScheduledTask.NotificationTaskSettings.SystemAccountName">
+            <summary>
+            Gets or sets the name of the account.
+            </summary>
+            <value>The name of the account.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.BackgroundTasks.SendNotificationScheduledTask.NotificationTaskSettings.SystemModuleName">
+            <summary>
+            Gets or sets the name of the module.
+            </summary>
+            <value>The name of the module.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.BackgroundTasks.SendNotificationScheduledTask.NotificationTaskSettings.Parse(System.String)">
+            <summary>
+            Parses the specified data.
+            </summary>
+            <param name="data">The data.</param>
+            <returns>The notification task settings.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.BackgroundTasks.SendNotificationScheduledTask.NotificationTaskSettings.ToString">
+            <summary>
+            Returns a <see cref="T:System.String" /> that represents the current object.
+            <see cref="T:System.Object" />.
+            </summary>
+            <returns>
+            A <see cref="T:System.String" /> that represents the current <see cref="T:System.Object" />.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.BackgroundTasks.SendNotificationTask.#ctor(System.Guid,Telerik.Sitefinity.Services.Notifications.ServiceContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Notifications.BackgroundTasks.SendNotificationTask" /> class.
+            </summary>
+            <param name="messageJobId">The message job id.</param>
+            <param name="systemContext">The internal context used in creating system lists. It will be used to clear those lists.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.BackgroundTasks.SendNotificationTask.PersistJobProgress(System.Guid,Telerik.Sitefinity.Services.Notifications.Model.Subscription,Telerik.Sitefinity.Services.Notifications.NotificationsManager)">
+            <summary>
+            Stores the JobSubscriptionLog item for the completed sending operation 
+            and updates the MessageJob last activity date
+            </summary>
+            <param name="messageJobId">The message job id</param>
+            <param name="subscription">The subscription</param>
+            <param name="manager">The manager</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.BackgroundTasks.SendNotificationTask.ClearAllMessageJobDetails(Telerik.Sitefinity.Services.Notifications.Model.MessageJob,Telerik.Sitefinity.Services.Notifications.ServiceContext)">
+            <summary>
+            Clears the message job related items that has been persisted
+            </summary>
+            <param name="mJob">The message job</param>
+            <param name="systemContext">The internal context used in creating system lists. It will be used to clear those lists.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.BackgroundTasks.SendNotificationTask.ClearMessageJobLog(System.Guid)">
+            <summary>
+            Clears the message job log on chunks.
+            </summary>
+            <param name="manager">The manager.</param>
+            <param name="mJob">The message job.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Notifications.Composition.IMessageInfo">
+            <summary>
+            Basic message information.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Composition.IMessageInfo.IsHtml">
+            <summary>
+            Gets or sets the if the message is HTML.
+            </summary>
+            <value>Is the message HTML.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Composition.IMessageInfo.SenderEmailAddress">
+            <summary>
+            Gets or sets the sender email address.
+            </summary>
+            <value>The sender email address.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Composition.IMessageInfo.SenderName">
+            <summary>
+            Gets or sets the name of the sender.
+            </summary>
+            <value>The name of the sender.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Composition.MessageInfo.#ctor(Telerik.Sitefinity.Services.Notifications.IMessageTemplateRequest,System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.Boolean,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Notifications.Composition.MessageInfo" /> class.
+            </summary>
+            <param name="messageTemplate">The message template.</param>
+            <param name="senderEmail">The sender email.</param>
+            <param name="senderName">Name of the sender.</param>
+            <param name="mergeContext">The merge context.</param>
+            <param name="clearUnmergedTags">The clear unmerged tags.</param>
+            <param name="customMessageHeaders">The custom message headers.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Composition.MessageInfo.MergeMessageInformation(System.Collections.Generic.IDictionary{System.String,System.String},System.Collections.Generic.IDictionary{System.String,System.String},System.Collections.Generic.IDictionary{System.String,System.String},System.Boolean)">
+            <summary>
+            Replaces placeholders in the message with the given merge context.
+            </summary>
+            <param name="mergeContext">The merge context.</param>
+            <param name="messageTemplateHeaders">The message headers from the message template.</param>
+            <param name="customMessageHeaders">The custom message headers.</param>
+            <param name="clearUnmergedTags">The clear unmerged tags.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Composition.MessageInfo.TemplateSenderEmailAddress">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Composition.MessageInfo.TemplateSenderName">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Composition.MessageInfo.LastModifiedById">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Composition.MessageInfo.LastModifiedByProvider">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Notifications.Composition.ChunkInfo">
+            <summary>
+            This class represents the information about html chunk.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Composition.ChunkInfo.#ctor(System.String)">
+            <summary>
+            Creates a new instance of the <see cref="T:Telerik.Sitefinity.Services.Notifications.Composition.ChunkInfo"/>.
+            </summary>
+            <param name="tagName">The name of the tag being represented.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Composition.ChunkInfo.#ctor(System.String,System.Boolean)">
+            <summary>
+            Creates a new instance of the <see cref="T:Telerik.Sitefinity.Services.Notifications.Composition.ChunkInfo"/>.
+            </summary>
+            <param name="tagName">The name of the tag being represented.</param>
+            <param name="isArtificial">Indicates weather chunk existed in the original html. True if no; otherwise false.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Composition.ChunkInfo.TagName">
+            <summary>
+            Gets the name of the tag.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Composition.ChunkInfo.IsArtificial">
+            <summary>
+            Determines if chunk is artificial.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Notifications.Composition.HtmlProcessor">
+            <summary>
+            This class provides functionality for processing Sitefinity generated markup into 
+            email acceptable markup.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Composition.HtmlProcessor.ProcessHtml(System.String)">
+            <summary>
+            Processes the native Sitefinity html and returns email acceptable html.
+            </summary>
+            <param name="html">Native Sitefinity html.</param>
+            <returns>Email acceptable html.</returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Notifications.Composition.HtmlStripper">
+            <summary>
+            Methods to remove HTML from strings.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Composition.HtmlStripper.StripTagsRegex(System.String)">
+            <summary>
+            Remove HTML from string with Regex.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Services.Notifications.Composition.HtmlStripper._htmlRegex">
+            <summary>
+            Compiled regular expression for performance.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Composition.HtmlStripper.StripTagsRegexCompiled(System.String)">
+            <summary>
+            Remove HTML from string with compiled Regex.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Composition.HtmlStripper.StripTagsCharArray(System.String)">
+            <summary>
+            Remove HTML tags from string using char array.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Notifications.Composition.MergeTag">
+            <summary>
+            This class represents the merge tag.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Composition.MergeTag.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Creates a new instance of the <see cref="T:Telerik.Sitefinity.Services.Notifications.Composition.MergeTag"/> type.
+            </summary>
+            <param name="title">Title of the merge tag that will be displayed to the users.</param>
+            <param name="propertyName">Name of the property used to resolve the merge tag.</param>
+            <param name="declaringTypeName">Name of the property declaring type used to resolve the merge tag.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Composition.MergeTag.#ctor(System.String)">
+            <summary>
+            Creates a new instance of the <see cref="T:Telerik.Sitefinity.Services.Notifications.Composition.MergeTag"/> type.
+            </summary>
+            <param name="composedTag">The composed merge tag.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Composition.MergeTag.Title">
+            <summary>
+            Gets the title of the merge tag that will be displayed to the users.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Composition.MergeTag.PropertyName">
+            <summary>
+            Gets the name of the property used to resolve the merge tag.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Composition.MergeTag.DeclaringTypeName">
+            <summary>
+            Gets the name of the property declaring type used to resolve the merge tag.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Notifications.Communication.MessageParser">
+            <summary>
+            This class provides functionality for parsing the received email messages.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Communication.MessageParser.GetMessageStatus(System.String)">
+            <summary>
+            Gets the message status from the raw message.
+            </summary>
+            <param name="rawMessage">The content of the raw message.</param>
+            <returns>One of the predefined <see cref="T:Telerik.Sitefinity.Services.Notifications.Communication.MessageStatus"/> values.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Communication.MessageParser.GetMessageCampaignId(System.String)">
+            <summary>
+            Gets the id of the campaign for which the message has been sent.
+            </summary>
+            <param name="rawMessage">The content of the raw message.</param>
+            <returns>A GUID id of the campaign.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Communication.MessageParser.GetMessageSubscriberId(System.String)">
+            <summary>
+            Gets the id of the subscriber to whom the message has been sent.
+            </summary>
+            <param name="rawMessage">The content of the raw message.</param>
+            <returns>A GUID id of the subscriber.</returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Notifications.Communication.MessageStatus">
+            <summary>
+            Defines different types of received messages.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Services.Notifications.Communication.MessageStatus.Normal">
+            <summary>
+            Represents a normal email message.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Services.Notifications.Communication.MessageStatus.EmailAddressDoesNotExist">
+            <summary>
+            Represents a bounced email when recipients email does not exist.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Notifications.Configuration.CustomSenderProfileElement">
+            <summary>
+            Configuration element for defining a custom sender of the notification service.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Configuration.CustomSenderProfileElement.#ctor(Telerik.Sitefinity.Configuration.ConfigElement)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Notifications.Configuration.CustomSenderProfileElement"/> class.
+            </summary>
+            <param name="parent">The parent element.</param>
+            <remarks>
+            ConfigElementCollection generally needs to have a parent, however, sometimes it is necessary
+            to create a collection in memory only which is then used later on in the context of a parent.
+            Therefore, is the element is of ConfigElementCollection, exception for a non existing parent
+            will not be thrown.
+            </remarks>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Configuration.CustomSenderProfileElement.ToDictionary">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Configuration.CustomSenderProfileElement.Initialize(System.Collections.Generic.IDictionary{System.String,System.String})">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Notifications.Configuration.DefaultProfileElement">
+            <summary>
+            A configuration element specifying which is the default profile for a particular sender type.
+            For example for Smtp we can have one default profile and many non default profiles pointing to other smtp servers
+            There could be only one default profile per sender type
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Configuration.DefaultProfileElement.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Notifications.Configuration.DefaultProfileElement"/> class.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Configuration.DefaultProfileElement.ProfileType">
+            <summary>
+            Gets or sets the name of the provider configured by this class.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Notifications.Configuration.SmtpSenderProfileElement">
+            <summary>
+            Contains the settings for the Smtp sender profile that can be used by the notification service.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Configuration.SmtpSenderProfileElement.#ctor(Telerik.Sitefinity.Configuration.ConfigElement)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Notifications.Configuration.SmtpSenderProfileElement"/> class.
+            </summary>
+            <param name="parent">The parent element.</param>
+            <remarks>
+            ConfigElementCollection generally needs to have a parent, however, sometimes it is necessary
+            to create a collection in memory only which is then used later on in the context of a parent.
+            Therefore, is the element is of ConfigElementCollection, exception for a non existing parent
+            will not be thrown.
+            </remarks>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Configuration.SmtpSenderProfileElement.DefaultSenderEmailAddress">
+            <summary>
+            Gets or sets the default sender email address.
+            </summary>
+            <value>The default sender email address.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Configuration.SmtpSenderProfileElement.DefaultSenderName">
+            <summary>
+            Gets or sets the default sender name.
+            </summary>
+            <value>The the default sender name.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Configuration.SmtpSenderProfileElement.Host">
+            <summary>
+            Gets or sets the smtp server host.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Configuration.SmtpSenderProfileElement.Port">
+            <summary>
+            Gets or sets the port of the smtp server.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Configuration.SmtpSenderProfileElement.UseAuthentication">
+            <summary>
+            Gets or sets a value indicating whether authentication is required by the smtp server.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Configuration.SmtpSenderProfileElement.Username">
+            <summary>
+            Gets the username to be used to authenticate with the smtp server.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Configuration.SmtpSenderProfileElement.Password">
+            <summary>
+            Gets the password to be used to authenticate with the smtp server.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Configuration.SmtpSenderProfileElement.Domain">
+            <summary>
+            Gets or sets the domain or computer name that verifies the credentials.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Configuration.SmtpSenderProfileElement.UseSSL">
+            <summary>
+            Gets or sets the value indicating weather smtp server should communicate over SSL.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Configuration.SmtpSenderProfileElement.BatchSize">
+            <summary>
+            Gets or sets the size of the groups of the emails that will be sent.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Configuration.SmtpSenderProfileElement.BatchPauseInterval">
+            <summary>
+            Gets or sets the pause in seconds between sending next group of the emails.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Configuration.SmtpSenderProfileElement.DeliveryMethod">
+            <summary>
+            Gets or sets a value specifying how outgoing email messages will be handled.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Configuration.SmtpSenderProfileElement.PickupDirectoryLocation">
+            <summary>
+            Gets or sets the folder where applications save mail messages to be processed
+            by the local SMTP server.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Configuration.SmtpSenderProfileElement.Timeout">
+            <summary>
+            Gets or sets a value that specifies the amount of time after which a synchronous
+            <see cref="!:Overload:System.Net.Mail.SmtpClient.Send"/> call times out.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Configuration.SmtpSenderProfileElement.EmailSubjectEncoding">
+            <summary>
+            Gets or sets the email subject encoding.
+            </summary>
+            <value>The email subject encoding.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Configuration.SmtpSenderProfileElement.EmailBodyEncoding">
+            <summary>
+            Gets or sets the email body encoding.
+            </summary>
+            <value>The email body encoding.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Configuration.SmtpSenderProfileElement.ToDictionary">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Configuration.SmtpSenderProfileElement.Initialize(System.Collections.Generic.IDictionary{System.String,System.String})">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Notifications.Configuration.NotificationsConfig">
+            <summary>
+            The configuration class for the notifications service.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Configuration.NotificationsConfig.DefaultProvider">
+            <summary>
+            Gets or sets the name of the default data provider. 
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Configuration.NotificationsConfig.Providers">
+            <summary>
+            Gets a collection of data provider settings.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Configuration.NotificationsConfig.Profiles">
+            <summary>
+            Gets the profiles containing communication settings.
+            </summary>
+            <value>The profiles.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Configuration.NotificationsConfig.DefaultProfiles">
+            <summary>
+            Contains the default profiles for given types.
+            Key: profileType, Value: the default profile name
+            </summary>
+            <value>The default profiles.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Configuration.NotificationsConfig.MaxConcurrentThreads">
+            <summary>
+            Gets or sets the max concurrent threads. Maximum threads that are running simultaneously
+            </summary>
+            <value>The max concurrent threads.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Configuration.NotificationsConfig.OnPropertiesInitialized">
+            <summary>
+            Called after the properties of this instance have been initialized.
+            Load default values here.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Services.Notifications.Configuration.NotificationsConfig.DefaultProfileDefaultName">
+            <summary>
+            The default name of the default profile used in Notifications.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Notifications.Configuration.SenderProfileElement">
+            <summary>
+            Contains the settings for a sender profile that can be used by the notification service.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Configuration.SenderProfileElement.#ctor(Telerik.Sitefinity.Configuration.ConfigElement)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Notifications.Configuration.SenderProfileElement"/> class.
+            </summary>
+            <param name="parent">The parent element.</param>
+            <remarks>
+            ConfigElementCollection generally needs to have a parent, however, sometimes it is necessary
+            to create a collection in memory only which is then used later on in the context of a parent.
+            Therefore, is the element is of ConfigElementCollection, exception for a non existing parent
+            will not be thrown.
+            </remarks>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Configuration.SenderProfileElement.ProfileName">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Configuration.SenderProfileElement.SenderType">
+            <summary>
+            Gets or sets the type of the sender.
+            </summary>
+            <value>The type of the sender.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Configuration.SenderProfileElement.ProfileType">
+            <summary>
+            Gets or sets the type of the profile (e.g. SMTP, SMS etc.).
+            </summary>
+            <value>The type of the profile.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Configuration.SenderProfileElement.ToDictionary">
+            <summary>
+            Generates a dictionary containing the elements of the given type.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Configuration.SenderProfileElement.Initialize(System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Initializes the current instance properties from the given dictionary.
+            </summary>
+            <param name="properties">The properties.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Notifications.Data.Upgrades.SubscriptionsCleaner">
+            <summary>
+            Provides methods to clean unused notifications data.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Data.Upgrades.SubscriptionsCleaner.ExecuteScript(Telerik.Sitefinity.Data.OA.UpgradingContext)">
+            <summary>
+            Checks whether affected table columns exists
+            </summary>
+            <param name="context">The context.</param>
+            <returns>True in case script should be executed, otherwise - false</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Data.Upgrades.SubscriptionsCleaner.RemoveUnusedSystemSubscriptions(Telerik.Sitefinity.Data.OA.UpgradingContext,System.String)">
+            <summary>
+            Removes the unused system subscriptions.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="logMessage">The log message.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Data.Upgrades.SubscriptionsCleaner.RemoveUnusedSystemSubscriptionLists(Telerik.Sitefinity.Data.OA.UpgradingContext,System.String)">
+            <summary>
+            Removes the unused system subscription lists.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="logMessage">The log message.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Notifications.Data.NotificationsFluentMapping">
+            <summary>
+            Fluent mapping for the notifications persistent classes
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Notifications.Data.NotificationsFluentMetadataSource">
+            <summary>
+            Collection of ORM mappings needed for open access notifications provider
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Notifications.Data.OpenAccessNotificationsProvider">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Data.OpenAccessNotificationsProvider.Context">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Data.OpenAccessNotificationsProvider.GetMetaDataSource(Telerik.Sitefinity.Model.IDatabaseMappingContext)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Data.OpenAccessNotificationsProvider.CreateSubscriptionList">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Data.OpenAccessNotificationsProvider.CreateSubscriptionList(System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Data.OpenAccessNotificationsProvider.GetSubscriptionLists">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Data.OpenAccessNotificationsProvider.GetSubscriptionList(System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Data.OpenAccessNotificationsProvider.Delete(Telerik.Sitefinity.Services.Notifications.Model.SubscriptionList)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Data.OpenAccessNotificationsProvider.CreateSubscription">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Data.OpenAccessNotificationsProvider.CreateSubscription(System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Data.OpenAccessNotificationsProvider.GetSubscriptions">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Data.OpenAccessNotificationsProvider.GetSubscriptionsIncludingSubscriber">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Data.OpenAccessNotificationsProvider.GetSubscription(System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Data.OpenAccessNotificationsProvider.Delete(Telerik.Sitefinity.Services.Notifications.Model.Subscription)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Data.OpenAccessNotificationsProvider.CreateSubscriber">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Data.OpenAccessNotificationsProvider.CreateSubscriber(System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Data.OpenAccessNotificationsProvider.GetSubscribers">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Data.OpenAccessNotificationsProvider.GetSubscriber(System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Data.OpenAccessNotificationsProvider.Delete(Telerik.Sitefinity.Services.Notifications.Model.Subscriber)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Data.OpenAccessNotificationsProvider.CreateMessageTemplate">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Data.OpenAccessNotificationsProvider.CreateMessageTemplate(System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Data.OpenAccessNotificationsProvider.GetMessageTemplates">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Data.OpenAccessNotificationsProvider.GetMessageTemplate(System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Data.OpenAccessNotificationsProvider.Delete(Telerik.Sitefinity.Services.Notifications.Model.MessageTemplate)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Data.OpenAccessNotificationsProvider.CreateMessageJob">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Data.OpenAccessNotificationsProvider.GetMessageJob(System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Data.OpenAccessNotificationsProvider.GetMessageJobs">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Data.OpenAccessNotificationsProvider.Delete(Telerik.Sitefinity.Services.Notifications.Model.MessageJob)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Data.OpenAccessNotificationsProvider.CreateCompletedMessageJob">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Data.OpenAccessNotificationsProvider.GetCompletedMessageJob(System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Data.OpenAccessNotificationsProvider.GetCompletedMessageJobs">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Data.OpenAccessNotificationsProvider.Delete(Telerik.Sitefinity.Services.Notifications.Model.CompletedMessageJob)">
+            <inheritdoc />         
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Data.OpenAccessNotificationsProvider.CreateJobSubscriptionLog">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Data.OpenAccessNotificationsProvider.GetJobSubscriptionLog(System.Guid,Telerik.Sitefinity.Services.Notifications.Model.Subscription)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Data.OpenAccessNotificationsProvider.GetJobSubscriptionLogs">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Data.OpenAccessNotificationsProvider.Delete(Telerik.Sitefinity.Services.Notifications.Model.JobSubscriptionLog)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Data.OpenAccessNotificationsProvider.CreateFailedDelivery">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Data.OpenAccessNotificationsProvider.GetFailedDelivery(System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Data.OpenAccessNotificationsProvider.GetFailedDeliveries">
+            <summary>
+            Get a queryable object for all failed delivery entries.
+            </summary>
+            <returns>Get a queryable object for all failed delivery entries.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Data.OpenAccessNotificationsProvider.Delete(Telerik.Sitefinity.Services.Notifications.Model.FailedDelivery)">
+            <summary>
+            Mark a completed failed delivery entry for removal
+            </summary>
+            <param name="messageJob">The failed delivery entry to delete.</param>         
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Notifications.IBatchSender">
+            <summary>
+             Specifies that the sender could operate on batches
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.IBatchSender.BatchSize">
+            <summary>
+            Gets the size of the batch.
+            </summary>
+            <value>The size of the batch.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.IBatchSender.PauseInterval">
+            <summary>
+            Gets the interval in seconds between batches.
+            </summary>
+            <value>The pause interval.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.IBatchSender.SendMessage(Telerik.Sitefinity.Services.Notifications.IMessageJobRequest,System.Collections.Generic.IEnumerable{Telerik.Sitefinity.Services.Notifications.ISubscriberResponse})">
+            <summary>
+            Sends the message to the given subscribers.
+            </summary>
+            <param name="messageJob">The message info.</param>
+            <param name="subscribers">The subscribers.</param>
+            <returns>Information about the batch send operation.</returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Notifications.MessageTemplateChangeEvent">
+            <summary>
+            Notifies for change in a message template
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.MessageTemplateChangeEvent.Origin">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.MessageTemplateChangeEvent.Id">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.MessageTemplateChangeEvent.Subject">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.MessageTemplateChangeEvent.ItemAction">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.CompletedMessageJob.Id">
+            <summary>
+            Gets or sets the id.
+            </summary>
+            <value>The id.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.CompletedMessageJob.Description">
+            <summary>
+            Gets or sets the description of the job.
+            </summary>
+            <value>The description of the job.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.CompletedMessageJob.TimeStarted">
+            <summary>
+            Gets or sets the time when the job started.
+            </summary>
+            <value>The time  when the job started.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.CompletedMessageJob.TimeCompleted">
+            <summary>
+            Gets or sets the time when the job was completed.
+            </summary>
+            <value>The time  when the job was completed</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.CompletedMessageJob.AccountName">
+            <summary>
+            Gets the application key (a key to filter data by owner).
+            </summary>
+            <value>The application key.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.CompletedMessageJob.ModuleName">
+            <summary>
+            Gets the name of the module (e.g. Forums).
+            </summary>
+            <value>The name of the module.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.FailedDelivery.AccountName">
+            <summary>
+            Gets the application key (a key to filter data by owner).
+            </summary>
+            <value>The application key.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.FailedDelivery.ModuleName">
+            <summary>
+            Gets the name of the module (e.g. Forums).
+            </summary>
+            <value>The name of the module.</value>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Notifications.Model.INotifiable">
+            <summary>
+            Interface use to mark notified objects
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.INotifiable.IsNotified">
+            <summary>
+            Gets or sets a value indicating whether the object is notified.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.INotifiable.Result">
+            <summary>
+            Gets or sets the result type after notification is sent
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.INotifiable.RetryCount">
+            <summary>
+            Gets or sets the retry count
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Notifications.Model.JobSubscriptionLog">
+            <summary>
+            Contains the message job and subscriber relation.
+            It can be used to track the progress of the message job.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Model.JobSubscriptionLog.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Notifications.Model.JobSubscriptionLog" /> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Model.JobSubscriptionLog.#ctor(System.Guid,Telerik.Sitefinity.Services.Notifications.Model.Subscription)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Notifications.Model.JobSubscriptionLog" /> class.
+            </summary>
+            <param name="messageJobId">The message job id.</param>
+            <param name="subscription">The subscription.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.JobSubscriptionLog.MessageJobId">
+            <summary>
+            Gets or sets the message job id.
+            </summary>
+            <value>The message job id.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.JobSubscriptionLog.Subscription">
+            <summary>
+            Gets or sets the subscription.
+            </summary>
+            <value>The subscription.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.JobSubscriptionLog.SubscriptionId">
+            <summary>
+            Gets or sets the subscription id.
+            </summary>
+            <value>The subscription id.</value>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Notifications.Model.MessageJob">
+            <summary>
+            Persistent class for the message job information
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.MessageJob.Id">
+            <summary>
+            Gets or sets the id.
+            </summary>
+            <value>The id.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.MessageJob.JobStatus">
+            <summary>
+            Gets or sets the message job state.
+            </summary>
+            <value>The status.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.MessageJob.FailureDescription">
+            <summary>
+            Gets or sets the failure information. 
+            </summary>
+            <value>The failed job description.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.MessageJob.LastActivityDate">
+            <summary>
+            Gets or sets the last activity date of the message job.
+            </summary>
+            <value>The last activity date.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.MessageJob.MessageTemplateId">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.MessageJob.MessageTemplate">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.MessageJob.SubscriptionsListId">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.MessageJob.Subscribers">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.MessageJob.SenderEmailAddress">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.MessageJob.SenderName">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.MessageJob.SenderProfileType">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.MessageJob.SenderProfileName">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.MessageJob.Description">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.MessageJob.Telerik#Sitefinity#Services#Notifications#IMessageJobRequest#MessageTemplate">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.MessageJob.ClearSubscriptionData">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.MessageJob.AccountName">
+            <summary>
+            Gets the application key (a key to filter data by owner).
+            </summary>
+            <value>The application key.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.MessageJob.ModuleName">
+            <summary>
+            Gets the name of the module (e.g. Forums).
+            </summary>
+            <value>The name of the module.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.MessageJob.CustomMessageHeaders">
+            <summary>
+            Gets or sets the custom message headers for the message.
+            </summary>
+            <value>The custom message headers for the message.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.MessageJob.ExcludedResolvedKeys">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Notifications.Model.MessageTemplate">
+            <summary>
+            Persistent class for the message template
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Model.MessageTemplate.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Notifications.Model.MessageTemplate"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Model.MessageTemplate.#ctor(System.Guid)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Notifications.Model.MessageTemplate"/> class.
+            </summary>
+            <param name="id">The id.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.MessageTemplate.Id">
+            <summary>
+            Gets or sets the unique id of the subscriber.
+            </summary>
+            <value>The id.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.MessageTemplate.ResolveKey">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.MessageTemplate.Subject">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.MessageTemplate.BodyHtml">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.MessageTemplate.PlainTextVersion">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.MessageTemplate.AccountName">
+            <summary>
+            Gets or sets the application key (a key to filter data by owner).
+            </summary>
+            <value>The application key.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.MessageTemplate.ModuleName">
+            <summary>
+            Gets or sets the name of the module (e.g. Forums).
+            </summary>
+            <value>The name of the module.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.MessageTemplate.CustomMessageHeaders">
+            <summary>
+            Gets or sets custom headers for this message.
+            </summary>
+            <value>The custom headers for this message.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.MessageTemplate.LastModified">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.MessageTemplate.LastModifiedById">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.MessageTemplate.LastModifiedByProvider">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.MessageTemplate.TemplateSenderEmailAddress">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.MessageTemplate.TemplateSenderName">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Model.MessageTemplate.GetTitle(System.Globalization.CultureInfo)">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Notifications.Model.Subscriber">
+            <summary>
+            Persistent class for the subscriber information
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Model.Subscriber.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Notifications.Model.Subscriber"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Model.Subscriber.#ctor(System.Guid)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Notifications.Model.Subscriber"/> class.
+            </summary>
+            <param name="id">The id.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.Subscriber.Id">
+            <summary>
+            Gets or sets the unique id of the subscriber.
+            </summary>
+            <value>The id.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.Subscriber.Email">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.Subscriber.FirstName">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.Subscriber.LastName">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.Subscriber.ResolveKey">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.Subscriber.CustomProperties">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.Subscriber.AccountName">
+            <summary>
+            Gets the application key (a key to filter data by owner).
+            </summary>
+            <value>The application key.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.Subscriber.ModuleName">
+            <summary>
+            Gets the name of the module (e.g. Forums).
+            </summary>
+            <value>The name of the module.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.Subscriber.Disabled">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.Subscriber.IsNotified">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.Subscriber.Result">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.Subscriber.RetryCount">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Notifications.Model.ISubscriberResponseExtensions">
+            <summary>
+             Provides methods for manipulating ISubscriberResponse objects
+             </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Model.ISubscriberResponseExtensions.ToDictionary(Telerik.Sitefinity.Services.Notifications.ISubscriberResponse)">
+            <summary>
+            Creates a dictionary with merge tags from the subscriber properties.
+            </summary>
+            <param name="subscriber">The subscriber.</param>
+            <returns></returns>
+        </member>
+        <member name="F:Telerik.Sitefinity.Services.Notifications.Model.ISubscriberResponseExtensions.SubscriberCategory">
+            <summary>
+            Contains the category used as first part in the subscriber merge tags.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Notifications.Model.Subscription">
+            <summary>
+            Persistent class for the subscription information
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Model.Subscription.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Notifications.Model.Subscription"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Model.Subscription.#ctor(System.Guid)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Notifications.Model.Subscription"/> class.
+            </summary>
+            <param name="id">The id.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Notifications.Model.SubscriptionList">
+            <summary>
+            Persistent class for the subscription list information
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Model.SubscriptionList.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Notifications.Model.SubscriptionList"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Model.SubscriptionList.#ctor(System.Guid)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Notifications.Model.SubscriptionList"/> class.
+            </summary>
+            <param name="id">The id.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.SubscriptionList.Id">
+            <summary>
+            Gets the unique identity of the data item.
+            </summary>
+            <value>The id.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.SubscriptionList.ResolveKey">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.SubscriptionList.Title">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.SubscriptionList.Description">
+            <summary>
+            Gets or sets the description.
+            </summary>
+            <value>The description.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.SubscriptionList.AccountName">
+            <summary>
+            Gets the application key (a key to filter data by owner).
+            </summary>
+            <value>The application key.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Model.SubscriptionList.ModuleName">
+            <summary>
+            Gets the name of the module (e.g. Forums).
+            </summary>
+            <value>The name of the module.</value>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Notifications.Sender">
+            <summary>
+            Defines the sending functionality for delivering notification messages.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Sender.GetSender(System.String,System.String)">
+            <summary>
+            Gets the sender with the given name if exists. Otherwise the default one if exists. Otherwise throws an exception.
+            </summary>
+            <param name="profileName">The profile.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Sender.SendMessage(Telerik.Sitefinity.Services.Notifications.Composition.IMessageInfo,Telerik.Sitefinity.Services.Notifications.ISubscriberRequest)">
+            <summary>
+            Sends an instant message to the specified subscriber.
+            </summary>
+            <param name="messageInfo">The message info.</param>
+            <param name="subscriber">The subscriber.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Sender.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing,
+            or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Notifications.NotificationsResources">
+            <summary>
+            Represents string resources for user interface of the notification service.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsResources.#ctor">
+            <summary>
+            Initializes new instance of <see cref="!:NewslettersResources"/> class with the default <see cref="T:Telerik.Sitefinity.Localization.Data.ResourceDataProvider"/>.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsResources.#ctor(Telerik.Sitefinity.Localization.Data.ResourceDataProvider)">
+            <summary>
+            Initializes new instance of <see cref="!:NewslettersResources"/> class with the provided <see cref="T:Telerik.Sitefinity.Localization.Data.ResourceDataProvider"/>.
+            </summary>
+            <param name="dataProvider"><see cref="T:Telerik.Sitefinity.Localization.Data.ResourceDataProvider"/></param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.NotificationsResources.NotificationsResourcesTitle">
+            <summary>
+            Generic Content
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.NotificationsResources.NotificationsResourcesDescription">
+            <summary>
+            Contains localizable resources for Generic Content user interface.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.NotificationsResources.SmtpSettings">
+            <summary>
+            phrase: SMTP Settings
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.NotificationsResources.SmtpTimeoutMustBeNonNegative">
+            <summary>
+            Translated message, similar to "SMTP timeout must be non-negative."
+            </summary>
+            <value>Error message displayed when the user tries to enter a value for SMTP timeout that is less than zero.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.NotificationsResources.SmtpTimeout">
+            <summary>
+            Translated message, similar to "Gets or sets a value that specifies the amount of time after which a synchronous mail sending times out."
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.NotificationsResources.Host">
+            <summary>
+            word: Host
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.NotificationsResources.Port">
+            <summary>
+            word: Port
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.NotificationsResources.Username">
+            <summary>
+            word: Username
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.NotificationsResources.Password">
+            <summary>
+            word: Password
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.NotificationsResources.Domain">
+            <summary>
+            word: Domain
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.NotificationsResources.EnableSSL">
+            <summary>
+            phrase: Enable SSL
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.NotificationsResources.SmtpProfileIsNotSet">
+            <summary>
+            phrase: SmtpHost property set through configuration of notifications service module cannot be an empty string.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.NotificationsResources.SmtpHostCannotBeEmpty">
+            <summary>
+            phrase: SmtpHost property set through configuration of Notifications cannot be an empty string.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.NotificationsResources.DefaultSenderEmailAddressCannotBeEmpty">
+            <summary>
+            phrase: DefaultSenderEmailAddress property cannot be empty.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.NotificationsResources.DefaultSenderEmailAddressNotValid">
+            <summary>
+            phrase: DefaultSenderEmailAddress property does not represent a valid email address.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.NotificationsResources.SmtpPortMustBeInRange">
+            <summary>
+            phrase: SmtpPort property set through configuration of notifications service module must be an integer between 0 and 65535.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.NotificationsResources.ProvideSmtpUserName">
+            <summary>
+            phrase: When SMTP authentication is turned on, you must provide value for the SmtpUserName property.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.NotificationsResources.ProvideSmtpPassword">
+            <summary>
+            phrase: When SMTP authentication is turned on, you must provide value for the SmtpPassword property.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.NotificationsResources.SMTPPortOutOfRange">
+            <summary>
+            phrase: SMTP port number must be a value between 0 and 1023
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.NotificationsResources.Pop3PortOutOfRange">
+            <summary>
+            phrase: POP3 port number must be a value between 0 and 1023
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.NotificationsResources.BatchSizeMustBeInRange">
+            <summary>
+            phrase: BatchSize property set through configuration of notifications service module must be an integer greater than 0.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.NotificationsResources.BatchPauseIntervalMustBeInRange">
+            <summary>
+            phrase: BatchPauseInterval property set through configuration of notifications service module must be an integer greater than 0.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.NotificationsResources.MessageTemplateSyncTitle">
+            <summary>
+            Email Template Sync Title
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.NotificationsResources.MessageTemplatesSyncTitle">
+            <summary>
+            Email Templates Title
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.NotificationsResources.BatchSize">
+            <summary>
+            phrase: The number of emails that will be sent in each group. Default: 100
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.NotificationsResources.BatchPauseInterval">
+            <summary>
+            phrase: The pause interval in seconds between each batch sending operation. Default: 0 (no pause between batches).
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Notifications.NotificationsDataProvider">
+            <summary>
+            Defines the basic functionality that should be implemented by Notifications data providers
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsDataProvider.CreateSubscriptionList">
+            <summary>
+            Create a new <c>SubscriptionList</c> with a random identity
+            </summary>
+            <returns>Created <c>Subscription</c> instance</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsDataProvider.CreateSubscriptionList(System.Guid)">
+            <summary>
+            Create a new <c>SubscriptionList</c> with a explicitly specified identity
+            </summary>
+            <param name="id"><c>SubscriptionList</c> identity</param>
+            <returns>Created <c>Subscription</c> instance</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsDataProvider.GetSubscriptionLists">
+            <summary>
+            Get a queryable object for all subscription liss
+            </summary>
+            <returns>Queryable object for all subscriptions</returns>     
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsDataProvider.GetSubscriptionList(System.Guid)">
+            <summary>
+            Search for a subscription lists by its identity
+            </summary>
+            <param name="id">Searched subscription identity</param>
+            <returns>Found subscription, or <c>null</c> if not found.</returns>        
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsDataProvider.Delete(Telerik.Sitefinity.Services.Notifications.Model.SubscriptionList)">
+            <summary>
+            Mark a subscription list for removal
+            </summary>
+            <param name="subscriptionToDelete">The subscription to delete.</param>       
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsDataProvider.CreateSubscription">
+            <summary>
+            Create a new <c>Subscription</c> and choose a random identity
+            </summary>
+            <returns>Created <c>Subscription</c> instance</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsDataProvider.CreateSubscription(System.Guid)">
+            <summary>
+            Create a new <c>Subscription</c> with a explicitly specified identity
+            </summary>
+            <param name="id"><c>Subscription</c> identity</param>
+            <returns>Created <c>Subscription</c> instance</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsDataProvider.GetSubscriptions">
+            <summary>
+            Get a queryable object for all subscriptions
+            </summary>
+            <returns>Queryable object for all subscriptions</returns>     
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsDataProvider.GetSubscriptionsIncludingSubscriber">
+            <summary>
+            Get a queryable object for all subscriptions including the information for the subscribers
+            </summary>
+            <returns>Queryable object for all subscriptions and their subscribers.</returns>     
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsDataProvider.GetSubscription(System.Guid)">
+            <summary>
+            Search for a subscription by its identity
+            </summary>
+            <param name="id">Searched subscription identity</param>
+            <returns>Found subscription, or <c>null</c> if not found.</returns>        
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsDataProvider.Delete(Telerik.Sitefinity.Services.Notifications.Model.Subscription)">
+            <summary>
+            Mark a subscription for removal
+            </summary>
+            <param name="subscriptionToDelete">The subscription to delete.</param>       
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsDataProvider.CreateSubscriber">
+            <summary>
+            Create a new <c>Subscriber</c> and choose a random identity
+            </summary>
+            <returns>Created <c>Subscriber</c> instance</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsDataProvider.CreateSubscriber(System.Guid)">
+            <summary>
+            Create a new <c>Subscriber</c> with a explicitly specified identity
+            </summary>
+            <param name="id"><c>Subscriber</c> identity</param>
+            <returns>Created <c>Subscriber</c> instance</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsDataProvider.GetSubscribers">
+            <summary>
+            Get a queryable object for all subscribers
+            </summary>
+            <returns>Queryable object for all subscribers</returns>     
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsDataProvider.GetSubscriber(System.Guid)">
+            <summary>
+            Search for a subscriber by its identity
+            </summary>
+            <param name="id">Searched subscriber identity</param>
+            <returns>Found subscriber, or <c>null</c> if not found.</returns>        
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsDataProvider.Delete(Telerik.Sitefinity.Services.Notifications.Model.Subscriber)">
+            <summary>
+            Mark a subscriber for removal
+            </summary>
+            <param name="subscriberToDelete">The subscriber to delete.</param>       
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsDataProvider.CreateMessageTemplate">
+            <summary>
+            Create a new <c>MessageTemplate</c> and choose a random identity
+            </summary>
+            <returns>Created <c>MessageTemplate</c> instance</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsDataProvider.CreateMessageTemplate(System.Guid)">
+            <summary>
+            Create a new <c>MessageTemplate</c> with a explicitly specified identity
+            </summary>
+            <param name="id"><c>MessageTemplate</c> identity</param>
+            <returns>Created <c>MessageTemplate</c> instance</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsDataProvider.GetMessageTemplates">
+            <summary>
+            Get a queryable object for all message templates
+            </summary>
+            <returns>Queryable object for all message templates</returns>     
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsDataProvider.GetMessageTemplate(System.Guid)">
+            <summary>
+            Search for a template by its identity
+            </summary>
+            <param name="id">Searched message template identity</param>
+            <returns>Found message template, or <c>null</c> if not found.</returns>        
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsDataProvider.Delete(Telerik.Sitefinity.Services.Notifications.Model.MessageTemplate)">
+            <summary>
+            Mark a message template for removal
+            </summary>
+            <param name="templateToDelete">The message template to delete.</param>       
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsDataProvider.CreateMessageJob">
+            <summary>
+            Creates a message job and returns it.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsDataProvider.GetMessageJob(System.Guid)">
+            <summary>
+            Gets the message job.
+            </summary>
+            <param name="id">The id of the job that will be returned.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsDataProvider.GetMessageJobs">
+            <summary>
+            Get a queryable object for all MessageJobs.
+            </summary>
+            <returns>Get a queryable object for all MessageJobs.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsDataProvider.Delete(Telerik.Sitefinity.Services.Notifications.Model.MessageJob)">
+            <summary>
+            Mark a message job for removal
+            </summary>
+            <param name="messageJob">The message job to delete.</param>         
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsDataProvider.CreateCompletedMessageJob">
+            <summary>
+            Creates a completed message job and returns it.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsDataProvider.GetCompletedMessageJob(System.Guid)">
+            <summary>
+            Gets the completed message job.
+            </summary>
+            <param name="id">The id of the job that will be returned.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsDataProvider.GetCompletedMessageJobs">
+            <summary>
+            Get a queryable object for all CompletedMessageJobs.
+            </summary>
+            <returns>Get a queryable object for all MessageJobs.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsDataProvider.Delete(Telerik.Sitefinity.Services.Notifications.Model.CompletedMessageJob)">
+            <summary>
+            Mark a completed message job for removal
+            </summary>
+            <param name="messageJob">The message job to delete.</param>         
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsDataProvider.CreateFailedDelivery">
+            <summary>
+            Creates a failed delivery entry returns it.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsDataProvider.GetFailedDelivery(System.Guid)">
+            <summary>
+            Gets the failed delivery entry.
+            </summary>
+            <param name="id">The id of the failed delivery entry that will be returned.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsDataProvider.GetFailedDeliveries">
+            <summary>
+            Get a queryable object for all failed delivery entries.
+            </summary>
+            <returns>Get a queryable object for all failed delivery entries.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsDataProvider.Delete(Telerik.Sitefinity.Services.Notifications.Model.FailedDelivery)">
+            <summary>
+            Mark a completed failed delivery entry for removal
+            </summary>
+            <param name="messageJob">The failed delivery entry to delete.</param>         
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsDataProvider.CreateJobSubscriptionLog">
+            <summary>
+            Creates a JobSubscriptionLog object and returns it.
+            </summary>
+            <returns>The newly created JobSubscriptionLog.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsDataProvider.GetJobSubscriptionLog(System.Guid,Telerik.Sitefinity.Services.Notifications.Model.Subscription)">
+            <summary>
+            Gets the job subscription log.
+            </summary>
+            <param name="messageJobId">The message job id.</param>
+            <param name="subscription">The subscription.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsDataProvider.GetJobSubscriptionLogs">
+            <summary>
+            Get a queryable object for all JobSubscriptionLogs
+            </summary>
+            <returns>Queryable object for all JobSubscriptionLogs</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsDataProvider.Delete(Telerik.Sitefinity.Services.Notifications.Model.JobSubscriptionLog)">
+            <summary>
+            Mark a message job subscription log for removal
+            </summary>
+            <param name="jobSubscriptionLog">The job subscription log to delete.</param>         
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Notifications.NotificationsManager">
+            <summary>
+            Manages the data layer for Forums
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsManager.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Notifications.NotificationsManager"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsManager.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Notifications.NotificationsManager"/> class.
+            </summary>
+            <param name="providerName">Name of the provider.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsManager.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="!:ForumsManager"/> class.
+            </summary>
+            <param name="providerName">
+            The name of the provider. If empty string or null the default provider is set
+            </param>
+            <param name="transactionName">
+            The name of a distributed transaction. If empty string or null this manager will use separate transaction.
+            </param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.NotificationsManager.DefaultProviderDelegate">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.NotificationsManager.ModuleName">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.NotificationsManager.ProvidersSettings">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsManager.GetManager">
+            <summary>
+            Get an instance of the Forums manager using the default provider
+            </summary>
+            <returns>Instance of Forums manager</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsManager.GetManager(System.String)">
+            <summary>
+            Get an instance of the Forums manager by explicitly specifying the required provider to use
+            </summary>
+            <param name="providerName">Name of the provider to use, or null/empty string to use the default provider.</param>
+            <returns>Instance of the Forums manager</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsManager.GetManager(System.String,System.String)">
+            <summary>
+            Get an instance of the Forums manager by explicitly specifying the required provider to use
+            </summary>
+            <param name="providerName">Name of the provider to use, or null/empty string to use the default provider.</param>
+            <param name="transactionName">Name of the transaction.</param>
+            <returns>Instance of the Forums manager</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsManager.CreateSubscriptionList">
+            <summary>
+            Create a new <c>SubscriptionList</c> with a explicitly specified identity
+            </summary>
+            <param name="id"><c>SubscriptionList</c> identity</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsManager.CreateSubscriptionList(System.Guid)">
+            <summary>
+            Create a new <c>SubscriptionList</c> with a explicitly specified identity
+            </summary>
+            <param name="id"><c>SubscriptionList</c> identity</param>
+            <returns>Created <c>Subscription</c> instance</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsManager.GetSubscriptionLists">
+            <summary>
+            Get a queryable object for all subscription list
+            </summary>
+            <returns>Queryable object for all subscriptions</returns>     
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsManager.GetSubscriptionList(System.Guid)">
+            <summary>
+            Search for a subscription lists by its identity
+            </summary>
+            <param name="id">Searched subscription identity</param>
+            <returns>Found subscription, or <c>null</c> if not found.</returns>        
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsManager.Delete(Telerik.Sitefinity.Services.Notifications.Model.SubscriptionList)">
+            <summary>
+            Mark a subscription list for removal
+            </summary>
+            <param name="subscriptionToDelete">The subscription to delete.</param>       
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsManager.CreateSubscription">
+            <summary>
+            Create a new <c>Subscription</c> and choose a random identity
+            </summary>
+            <returns>Created <c>Subscription</c> instance</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsManager.CreateSubscription(System.Guid)">
+            <summary>
+            Create a new <c>Subscription</c> with a explicitly specified identity
+            </summary>
+            <param name="id"><c>Subscription</c> identity</param>
+            <returns>Created <c>Subscription</c> instance</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsManager.GetSubscriptions">
+            <summary>
+            Get a queryable object for all subscriptions
+            </summary>
+            <returns>Queryable object for all subscriptions</returns>     
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsManager.GetSubscriptionsIncludingSubscriber">
+            <summary>
+            Get a queryable object for all subscriptions including the information for the subscribers
+            </summary>
+            <returns>Queryable object for all subscriptions and their subscribers.</returns>  
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsManager.GetSubscription(System.Guid)">
+            <summary>
+            Search for a subscription by its identity
+            </summary>
+            <param name="id">Searched subscription identity</param>
+            <returns>Found subscription, or <c>null</c> if not found.</returns>        
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsManager.Delete(Telerik.Sitefinity.Services.Notifications.Model.Subscription)">
+            <summary>
+            Mark a subscription for removal
+            </summary>
+            <param name="subscriptionToDelete">The subscription to delete.</param>       
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsManager.CreateSubscriber">
+            <summary>
+            Create a new <c>Subscriber</c> and choose a random identity
+            </summary>
+            <returns>Created <c>Subscriber</c> instance</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsManager.CreateSubscriber(System.Guid)">
+            <summary>
+            Create a new <c>Subscriber</c> with a explicitly specified identity
+            </summary>
+            <param name="id"><c>Subscriber</c> identity</param>
+            <returns>Created <c>Subscriber</c> instance</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsManager.GetSubscribers">
+            <summary>
+            Get a queryable object for all subscribers
+            </summary>
+            <returns>Queryable object for all subscribers</returns>     
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsManager.GetSubscriber(System.Guid)">
+            <summary>
+            Search for a subscriber by its identity
+            </summary>
+            <param name="id">Searched subscriber identity</param>
+            <returns>Found subscriber, or <c>null</c> if not found.</returns>        
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsManager.Delete(Telerik.Sitefinity.Services.Notifications.Model.Subscriber)">
+            <summary>
+            Mark a subscriber for removal
+            </summary>
+            <param name="subscriberToDelete">The subscriber to delete.</param>       
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsManager.CreateMessageTemplate">
+            <summary>
+            Create a new <c>MessageTemplate</c> and choose a random identity
+            </summary>
+            <returns>Created <c>MessageTemplate</c> instance</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsManager.CreateMessageTemplate(System.Guid)">
+            <summary>
+            Create a new <c>MessageTemplate</c> with a explicitly specified identity
+            </summary>
+            <param name="id"><c>MessageTemplate</c> identity</param>
+            <returns>Created <c>MessageTemplate</c> instance</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsManager.GetMessageTemplates">
+            <summary>
+            Get a queryable object for all message templates
+            </summary>
+            <returns>Queryable object for all message templates</returns>     
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsManager.GetMessageTemplate(System.Guid)">
+            <summary>
+            Search for a template by its identity
+            </summary>
+            <param name="id">Searched message template identity</param>
+            <returns>Found message template, or <c>null</c> if not found.</returns>        
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsManager.Delete(Telerik.Sitefinity.Services.Notifications.Model.MessageTemplate)">
+            <summary>
+            Mark a message template for removal
+            </summary>
+            <param name="templateToDelete">The message template to delete.</param>       
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsManager.CreateMessageJob">
+            <summary>
+            Creates a message job and returns it.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsManager.GetMessageJob(System.Guid)">
+            <summary>
+            Gets the message job.
+            </summary>
+            <param name="id">The id of the job that will be returned.</param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Telerik.Sitefinity.Services.Notifications.NotificationsManager.GetMessageJobs" -->
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsManager.Delete(Telerik.Sitefinity.Services.Notifications.Model.MessageJob)">
+            <summary>
+            Mark a message job for removal
+            </summary>
+            <param name="subscriptionToDelete">The message job to delete.</param>       
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsManager.CreateCompletedMessageJob">
+            <summary>
+            Creates a completed message job and returns it.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsManager.GetCompletedMessageJob(System.Guid)">
+            <summary>
+            Gets the completed message job.
+            </summary>
+            <param name="id">The id of the job that will be returned.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsManager.GetCompletedMessageJobs">
+            <summary>
+            Get a queryable object for all CompletedMessageJobs.
+            </summary>
+            <returns>Get a queryable object for all MessageJobs.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsManager.Delete(Telerik.Sitefinity.Services.Notifications.Model.CompletedMessageJob)">
+            <summary>
+            Mark a completed message job for removal
+            </summary>
+            <param name="messageJob">The message job to delete.</param>         
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsManager.CreateFailedDelivery">
+            <summary>
+            Creates a failed delivery entry returns it.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsManager.GetFailedDelivery(System.Guid)">
+            <summary>
+            Gets the failed delivery entry.
+            </summary>
+            <param name="id">The id of the failed delivery entry that will be returned.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsManager.GetFailedDeliveries">
+            <summary>
+            Get a queryable object for all failed delivery entries.
+            </summary>
+            <returns>Get a queryable object for all failed delivery entries.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsManager.Delete(Telerik.Sitefinity.Services.Notifications.Model.FailedDelivery)">
+            <summary>
+            Mark a completed failed delivery entry for removal
+            </summary>
+            <param name="messageJob">The failed delivery entry to delete.</param>         
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsManager.CreateJobSubscriptionLog">
+            <summary>
+            Creates a JobSubscriptionLog object and returns it.
+            </summary>
+            <returns>The newly created JobSubscriptionLog.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsManager.GetJobSubscriptionLog(System.Guid,Telerik.Sitefinity.Services.Notifications.Model.Subscription)">
+            <summary>
+            Gets the job subscription log.
+            </summary>
+            <param name="messageJobId">The message job id.</param>
+            <param name="subscription">The subscription.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsManager.GetJobSubscriptionLogs">
+            <summary>
+            Get a queryable object for all JobSubscriptionLogs
+            </summary>
+            <returns>Queryable object for all JobSubscriptionLogs</returns>     
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationsManager.Delete(Telerik.Sitefinity.Services.Notifications.Model.JobSubscriptionLog)">
+            <summary>
+            Mark a message job subscription log for removal
+            </summary>
+            <param name="jobSubscriptionLog">The job subscription log to delete.</param>         
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Notifications.NotificationService">
+            <summary>
+            Local implementation of the Notification service.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.Initialize(Telerik.Sitefinity.Services.ModuleSettings)">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.NotificationService.Interfaces">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.Start">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.Stop">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.Configure">
+            <summary>
+            Configures SiteSync for the message templates
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.GetDefaultSenderProfile(Telerik.Sitefinity.Services.Notifications.ServiceContext,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.GetSenderProfile(Telerik.Sitefinity.Services.Notifications.ServiceContext,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.GetSenderProfiles(Telerik.Sitefinity.Services.Notifications.QueryParameters)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.SaveSenderProfile(Telerik.Sitefinity.Services.Notifications.ServiceContext,Telerik.Sitefinity.Services.Notifications.Configuration.ISenderProfile)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.DeleteSenderProfile(Telerik.Sitefinity.Services.Notifications.ServiceContext,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.CreateSubscriptionList(Telerik.Sitefinity.Services.Notifications.ServiceContext,Telerik.Sitefinity.Services.Notifications.ISubscriptionListRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.UpdateSubscriptionList(Telerik.Sitefinity.Services.Notifications.ServiceContext,System.Guid,Telerik.Sitefinity.Services.Notifications.ISubscriptionListRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.UpdateSubscriptionList(Telerik.Sitefinity.Services.Notifications.ServiceContext,System.String,Telerik.Sitefinity.Services.Notifications.ISubscriptionListRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.GetSubscriptionList(Telerik.Sitefinity.Services.Notifications.ServiceContext,System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.GetSubscriptionList(Telerik.Sitefinity.Services.Notifications.ServiceContext,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.GetSubscriptionLists(Telerik.Sitefinity.Services.Notifications.ServiceContext,Telerik.Sitefinity.Services.Notifications.QueryParameters)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.DeleteSubscriptionList(Telerik.Sitefinity.Services.Notifications.ServiceContext,System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.DeleteSubscriptionList(Telerik.Sitefinity.Services.Notifications.ServiceContext,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.IsSubscribed(Telerik.Sitefinity.Services.Notifications.ServiceContext,System.Guid,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.Subscribe(Telerik.Sitefinity.Services.Notifications.ServiceContext,System.Guid,Telerik.Sitefinity.Services.Notifications.ISubscriberRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.Subscribe(Telerik.Sitefinity.Services.Notifications.ServiceContext,System.Guid,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.Subscribe(Telerik.Sitefinity.Services.Notifications.ServiceContext,System.Guid,System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.Unsubscribe(Telerik.Sitefinity.Services.Notifications.ServiceContext,System.Guid,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.Unsubscribe(Telerik.Sitefinity.Services.Notifications.ServiceContext,System.Guid,System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.CreateSubscriber(Telerik.Sitefinity.Services.Notifications.ServiceContext,Telerik.Sitefinity.Services.Notifications.ISubscriberRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.GetSubscribers(Telerik.Sitefinity.Services.Notifications.ServiceContext,System.Guid,Telerik.Sitefinity.Services.Notifications.QueryParameters)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.GetSubscribersResolveKeys(Telerik.Sitefinity.Services.Notifications.ServiceContext,System.Guid,Telerik.Sitefinity.Services.Notifications.QueryParameters)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.GetSubscriber(Telerik.Sitefinity.Services.Notifications.ServiceContext,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.GetSubscriber(Telerik.Sitefinity.Services.Notifications.ServiceContext,System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.UpdateSubscriber(Telerik.Sitefinity.Services.Notifications.ServiceContext,System.Guid,Telerik.Sitefinity.Services.Notifications.ISubscriberRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.UpdateSubscriber(Telerik.Sitefinity.Services.Notifications.ServiceContext,System.String,Telerik.Sitefinity.Services.Notifications.ISubscriberRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.DeleteSubscriber(Telerik.Sitefinity.Services.Notifications.ServiceContext,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.DeleteSubscriber(Telerik.Sitefinity.Services.Notifications.ServiceContext,System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.GetMessageTemplate(Telerik.Sitefinity.Services.Notifications.ServiceContext,System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.GetMessageTemplates(Telerik.Sitefinity.Services.Notifications.ServiceContext,Telerik.Sitefinity.Services.Notifications.QueryParameters)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.GetSystemMessageTemplates(Telerik.Sitefinity.Services.Notifications.ServiceContext,Telerik.Sitefinity.Services.Notifications.QueryParameters)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.GetSystemMessageTemplate(Telerik.Sitefinity.Services.Notifications.ServiceContext,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.CreateMessageTemplate(Telerik.Sitefinity.Services.Notifications.ServiceContext,Telerik.Sitefinity.Services.Notifications.IMessageTemplateRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.UpdateMessageTemplate(Telerik.Sitefinity.Services.Notifications.ServiceContext,System.Guid,Telerik.Sitefinity.Services.Notifications.IMessageTemplateRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.DeleteMessageTemplate(Telerik.Sitefinity.Services.Notifications.ServiceContext,System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.SendMessage(Telerik.Sitefinity.Services.Notifications.ServiceContext,Telerik.Sitefinity.Services.Notifications.IMessageJobRequest,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.GetMessageJob(Telerik.Sitefinity.Services.Notifications.ServiceContext,System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.GetMessageJobs(Telerik.Sitefinity.Services.Notifications.ServiceContext,Telerik.Sitefinity.Services.Notifications.QueryParameters)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.DeleteMessageJob(Telerik.Sitefinity.Services.Notifications.ServiceContext,System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.GetSentSubscribers(System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.GetUnsuccessfulSubscribers(System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.VerifySenderProfile(System.String,System.String@)">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.NotificationService.SystemContext">
+            <summary>
+            Gets the service context that can be used by the notification service internally.
+            </summary>
+            <value>The system context.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.RefreshProcessedMessageJobs">
+            <summary>
+            Refreshes the last activity date of currently processing message jobs.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.PersistMessageJob(Telerik.Sitefinity.Services.Notifications.ServiceContext,Telerik.Sitefinity.Services.Notifications.IMessageJobRequest,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Stores the job in the database and updates it's status.
+            </summary>
+            <param name="serviceContext">The service context.</param>
+            <param name="messageJob">The message job.</param>
+            <param name="contextItems">Context items used for replacing values inside the message template.</param>
+            <returns>Id of the message job.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.ClearMessageJobLog(System.Guid)">
+            <summary>
+            Clears the message job log on chunks.
+            </summary>
+            <param name="messageJobId">Id of the message job that will have its log cleared.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.NotificationService.GuardSubscriptionListExists(Telerik.Sitefinity.Services.Notifications.ServiceContext,System.Guid,Telerik.Sitefinity.Services.Notifications.NotificationsManager)">
+            <summary>
+            Checks if the subscription list exists and it is accessible from the given context.
+            If it doesn't - an Exception is thrown.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="subscriptionListId">The subscription list id.</param>
+            <param name="manager">The manager.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Notifications.SendResult">
+            <summary>
+            Defines a class returned by the Sender.SendMessage() method after sending a single message
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.SendResult.Type">
+            <summary>
+            Gets or sets the type.
+            </summary>
+            <value>The type.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.SendResult.HandledException">
+            <summary>
+            Gets or sets the handled exception.
+            </summary>
+            <value>The handled exception.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.SendResult.ReturnSuccess">
+            <summary>
+            Returns a predefined SendResult of <see cref="!:elerik.Sitefinity.Services.Notifications.SendResultType.Success"/> type..
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.SendResult.ReturnFailedRecipient(System.Exception)">
+            <summary>
+            Returns a predefined SendResult of <see cref="!:elerik.Sitefinity.Services.Notifications.SendResultType.FailedRecipient"/> type.
+            </summary>
+            <param name="exception">The exception.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.SendResult.ReturnFailed(System.Exception)">
+            <summary>
+            Returns a predefined SendResult of <see cref="!:elerik.Sitefinity.Services.Notifications.SendResultType.Failed"/> type.
+            </summary>
+            <param name="exception">The exception.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Notifications.SendResultType">
+            <summary>
+            Defines the types of the result returned when sending emails
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Services.Notifications.SendResultType.Success">
+            <summary>
+            Indicates successful sending of the message 
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Services.Notifications.SendResultType.FailedRecipient">
+            <summary>
+            Indicates that sending a message to a specific recipient has failed,
+            so the message job should continue with the next subscriber.
+            This result type will not stop the message job
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Services.Notifications.SendResultType.Failed">
+            <summary>
+            Indicates that sending a message has failed and the job should be stopped
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Notifications.Smtp.SmtpSender">
+            <summary>
+            This class provides functionality for sending email messages through Notifications service.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Smtp.SmtpSender.#ctor(Telerik.Sitefinity.Services.Notifications.Configuration.SmtpSenderProfileElement)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Notifications.Smtp.SmtpSender" /> class.
+            </summary>
+            <param name="senderProfile">The sender profile.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Smtp.SmtpSender.SendMessage(Telerik.Sitefinity.Services.Notifications.Composition.IMessageInfo,Telerik.Sitefinity.Services.Notifications.ISubscriberRequest)">
+            <summary>
+            Sends an instant email message to the specified subscriber.
+            </summary>
+            <param name="messageInfo">The message info.</param>
+            <param name="subscriber">The subscriber.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Smtp.SmtpSender.AddMessageHeaders(Telerik.Sitefinity.Services.Notifications.Composition.IMessageInfo,System.Net.Mail.MailMessage)">
+            <summary>
+            Adds the headers from the messageInfo to the actual message
+            </summary>
+            <param name="messageInfo">The message info</param>
+            <param name="message">The message</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Smtp.SmtpSender.BatchSize">
+            <inhetirtdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Smtp.SmtpSender.PauseInterval">
+            <inhetirtdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Smtp.SmtpSender.SendMessage(Telerik.Sitefinity.Services.Notifications.IMessageJobRequest,System.Collections.Generic.IEnumerable{Telerik.Sitefinity.Services.Notifications.ISubscriberResponse})">
+            <inhetirtdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Notifications.Smtp.SmtpSender.SmtpClient">
+            <summary>
+            Gets the configured instance of the <see cref="P:Telerik.Sitefinity.Services.Notifications.Smtp.SmtpSender.SmtpClient"/>.
+            </summary>
+            <returns>An instance of the <see cref="P:Telerik.Sitefinity.Services.Notifications.Smtp.SmtpSender.SmtpClient"/>.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Smtp.SmtpSender.VerifySmtpSettings(Telerik.Sitefinity.Services.Notifications.Configuration.SmtpSenderProfileElement)">
+            <summary>
+            Verifies that all the needed smtp settings are present.
+            </summary>
+            <param name="notificationsConfig">Instance of the configuration</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Notifications.Smtp.SmtpSenderVerifier.IsValidEmail(System.String)">
+            <summary>
+            Determines weather the given email is valid
+            </summary>
+            <param name="email">The email</param>
+            <returns>True if the passed value is a valid email, otherwise false.</returns>
+        </member>
+    </members>
+</doc>

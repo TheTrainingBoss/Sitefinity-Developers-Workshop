@@ -1,0 +1,1510 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Telerik.Sitefinity.EloquaConnector</name>
+    </assembly>
+    <members>
+        <member name="T:Telerik.Sitefinity.EloquaConnector.Client.Forms.IEloquaFormsCache">
+            <summary>
+            Exposes an interface of Eloqua forms client API cache
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.IEloquaFormsCache.GetForms">
+            <summary>
+            Gets all Eloqua forms
+            </summary>
+            <returns>The forms list</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.IEloquaFormsCache.GetForms(Telerik.Sitefinity.EloquaConnector.Enums.FormResponseDepth)">
+            <summary>
+            Gets all Eloqua forms
+            </summary>
+            <param name="formResponseDepth">The level of detail to return.</param>
+            <returns>The forms list</returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.EloquaConnector.Client.Forms.EloquaFormDataSubmitter">
+            <summary>
+            Exposes the interface for the Eloqua form submitter.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.EloquaFormDataSubmitter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.EloquaConnector.Client.Forms.EloquaFormDataSubmitter"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.EloquaFormDataSubmitter.#ctor(Telerik.Sitefinity.EloquaConnector.Configuration.IEloquaConnectorConfigWrapper,System.Net.Http.HttpClient)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.EloquaConnector.Client.Forms.EloquaFormDataSubmitter"/> class.
+            </summary>
+            <param name="eloquaConnectorConfig">The Eloqua connector configuration.</param>
+            <param name="httpClient">The http client that will be used.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.EloquaFormDataSubmitter.SubmitFormData(System.Collections.Generic.IDictionary{System.String,System.String},System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.EloquaFormDataSubmitter.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.EloquaFormDataSubmitter.Dispose(System.Boolean)">
+            <summary>
+            Disposes the managed resources
+            </summary>
+            <param name="disposing">Defines whether a disposing is executing now.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.EloquaFormDataSubmitter.CreateEloquaFormDataContent(System.Collections.Generic.IDictionary{System.String,System.String},System.String,System.String)">
+            <summary>
+            Creates <see cref="T:System.Net.Http.FormUrlEncodedContent"/> object from the provided form data fields.
+            </summary>
+            <param name="fields">The form fields.</param>
+            <param name="formName">The name of the Eloqua form where the data should be posted.</param>
+            <param name="eloquaSiteId">The Eloqua site id.</param>
+            <returns>The <see cref="T:System.Net.Http.FormUrlEncodedContent"/> object.</returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.EloquaConnector.Client.Forms.EloquaFormsCache">
+            <summary>
+            Contains methods for retrieving cached data about eloqua forms.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.EloquaFormsCache.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.EloquaConnector.Client.Forms.EloquaFormsCache"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.EloquaFormsCache.#ctor(Telerik.Sitefinity.EloquaConnector.Client.Forms.IEloquaFormsClient,Telerik.Microsoft.Practices.EnterpriseLibrary.Caching.ICacheManager)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.EloquaConnector.Client.Forms.EloquaFormsCache"/> class.
+            </summary>
+            <param name="eloquaFormsClient">The <see cref="T:Telerik.Sitefinity.EloquaConnector.Client.Forms.IEloquaFormsClient"/> implementation that will be used to get non-cached data.</param>
+            <param name="cacheManager">The <see cref="T:Telerik.Microsoft.Practices.EnterpriseLibrary.Caching.ICacheManager"/> implementation that will be used to cache the data.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.EloquaFormsCache.GetForms">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.EloquaFormsCache.GetForms(Telerik.Sitefinity.EloquaConnector.Enums.FormResponseDepth)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.EloquaFormsCache.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.EloquaFormsCache.Dispose(System.Boolean)">
+            <summary>
+            Disposes the managed resources
+            </summary>
+            <param name="disposing">Defines whether a disposing is executing now.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.EloquaConnector.Client.Forms.EloquaFormsClient">
+            <summary>
+            Represents a Eloqua forms client
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.EloquaFormsClient.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.EloquaConnector.Client.Forms.EloquaFormsClient"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.EloquaFormsClient.#ctor(Telerik.Sitefinity.EloquaConnector.Configuration.IEloquaConnectorConfigWrapper,System.Net.Http.HttpClient,Telerik.Sitefinity.EloquaConnector.Client.Forms.IFormUrlBuilder)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.EloquaConnector.Client.Forms.EloquaFormsClient"/> class.
+            </summary>
+            <param name="eloquaConnectorConfig">The Eloqua connector configuration</param>
+            <param name="httpClient">The http client used</param>
+            <param name="formUrlBuilder">The form URL builder</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.EloquaFormsClient.GetForms">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.EloquaFormsClient.GetForms(Telerik.Sitefinity.EloquaConnector.Enums.FormResponseDepth)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.EloquaFormsClient.GetFormsChunk(Telerik.Sitefinity.EloquaConnector.Enums.FormResponseDepth,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.EloquaFormsClient.GetForm(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.EloquaFormsClient.GetForm(System.Int32,Telerik.Sitefinity.EloquaConnector.Enums.FormResponseDepth)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.EloquaFormsClient.CreateForm(Telerik.Sitefinity.EloquaConnector.Model.EloquaForm)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.EloquaFormsClient.DeleteForm(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.EloquaFormsClient.RetrieveFormData(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.EloquaFormsClient.RetrieveFormData(System.Int32,Telerik.Sitefinity.EloquaConnector.Enums.FormResponseDepth)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.EloquaFormsClient.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.EloquaFormsClient.Dispose(System.Boolean)">
+            <summary>
+            Disposes the managed resources
+            </summary>
+            <param name="disposing">Defines whether a disposing is executing now.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.EloquaFormsClient.GetBaseUrl(System.String,System.String)">
+            <summary>
+            Gets the base URL that the Eloqua API works with
+            </summary>
+            <param name="loginUrl">The Eloqua log in URL</param>
+            <param name="authorizationHeaderValue">The value of the authorization header</param>
+            <returns>The base URL</returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.EloquaConnector.Client.Forms.IEloquaFormDataSubmitter">
+            <summary>
+            Exposes the interface for the Eloqua form submitter.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.IEloquaFormDataSubmitter.SubmitFormData(System.Collections.Generic.IDictionary{System.String,System.String},System.String)">
+            <summary>
+            Submits the field name and values to Eloqua.
+            </summary>
+            <param name="fields">The form fields.</param>
+            <param name="formName">The name of the Eloqua form where the data should be posted.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.EloquaConnector.Client.Forms.IFormUrlBuilder">
+            <summary>
+            Helps us to build URLs for Eloqua REST API
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.IFormUrlBuilder.BuildFormsUrl">
+            <summary>
+            Builds a URL that is used to call the REST API form multiple forms
+            </summary>
+            <returns>The URL</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.IFormUrlBuilder.BuildFormsUrl(Telerik.Sitefinity.EloquaConnector.Enums.FormResponseDepth)">
+            <summary>
+            Builds a URL that is used to call the REST API form multiple forms
+            </summary>
+            <param name="formResponseDepth">The depth of the form response.</param>
+            <returns>The URL</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.IFormUrlBuilder.BuildFormsUrl(Telerik.Sitefinity.EloquaConnector.Enums.FormResponseDepth,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Builds a URL that is used to call the REST API form multiple forms
+            </summary>
+            <param name="formResponseDepth">The depth of the form response.</param>
+            <param name="page">The number of page to return at response.</param>
+            <param name="pageSize">The size of the page to return at response.</param>
+            <returns>The URL</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.IFormUrlBuilder.BuildFormUrl">
+            <summary>
+            Builds a URL that is used to call the REST API for a single form based on the provided parameters.
+            </summary>
+            <returns>The URL</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.IFormUrlBuilder.BuildFormUrl(System.Int32,Telerik.Sitefinity.EloquaConnector.Enums.FormUrlType)">
+            <summary>
+            Builds a URL that is used to call the REST API for a single form based on the provided parameters
+            </summary>
+            <param name="id">Form id if applicable</param>
+            <param name="formType">The type of the form. Which can be Data or Assets</param>
+            <returns>The URL</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.IFormUrlBuilder.BuildFormUrl(System.Int32,Telerik.Sitefinity.EloquaConnector.Enums.FormUrlType,Telerik.Sitefinity.EloquaConnector.Enums.FormResponseDepth,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Builds a URL that is used to call the REST API for a single form based on the provided parameters
+            </summary>
+            <param name="id">Form id if applicable</param>
+            <param name="formType">The type of the form. Which can be Data or Assets</param>
+            <param name="formResponseDepth">The depth of the form response.</param>
+            <param name="page">The number of page to return at response.</param>
+            <param name="pageSize">The size of the page to return at response.</param>
+            <returns>The URL</returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.EloquaConnector.Client.Forms.FormUrlBuilder">
+            <summary>
+            Represents a class that helps us to build URLs for Eloqua REST API.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.FormUrlBuilder.BuildFormsUrl">
+            <summary>
+            Builds a URL that is used to call the REST API form multiple forms.
+            </summary>
+            <returns>The URL</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.FormUrlBuilder.BuildFormsUrl(Telerik.Sitefinity.EloquaConnector.Enums.FormResponseDepth)">
+            <summary>
+            Builds a URL that is used to call the REST API form multiple forms.
+            </summary>
+            <param name="formResponseDepth">The depth of the form response.</param>
+            <returns>The URL</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.FormUrlBuilder.BuildFormsUrl(Telerik.Sitefinity.EloquaConnector.Enums.FormResponseDepth,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Builds a URL that is used to call the REST API form multiple forms.
+            </summary>
+            <param name="formResponseDepth">The depth of the form response.</param>
+            <param name="page">The number of page to return at response.</param>
+            <param name="pageSize">The size of the page to return at response.</param>
+            <returns>The URL</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.FormUrlBuilder.BuildFormUrl">
+            <summary>
+            Builds a URL that is used to call the REST API for a single form based on the provided parameters.
+            </summary>
+            <returns>The URL</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.FormUrlBuilder.BuildFormUrl(System.Int32,Telerik.Sitefinity.EloquaConnector.Enums.FormUrlType)">
+            <summary>
+            Builds a URL that is used to call the REST API for a single form based on the provided parameters.
+            </summary>
+            <param name="id">Form id if applicable.</param>
+            <param name="formType">The type of the form. Which can be Data or Assets.</param>
+            <returns>The URL</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.FormUrlBuilder.BuildFormUrl(System.Int32,Telerik.Sitefinity.EloquaConnector.Enums.FormUrlType,Telerik.Sitefinity.EloquaConnector.Enums.FormResponseDepth,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Builds a URL that is used to call the REST API for a single form based on the provided parameters.
+            </summary>
+            <param name="id">Form id if applicable.</param>
+            <param name="formType">The type of the form. Which can be Data or Assets.</param>
+            <param name="formResponseDepth">The depth of the form response.</param>
+            <param name="page">The number of page to return at response.</param>
+            <param name="pageSize">The size of the page to return at response.</param>
+            <returns>The URL.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.FormUrlBuilder.BuildFormUrlPath(Telerik.Sitefinity.EloquaConnector.Enums.FormUrlType,System.Nullable{System.Int32})">
+            <summary>
+            Builds a URL path that is used to call the REST API based on the provided parameters.
+            </summary>
+            <param name="formType">The type of the form. Which can be Data or Assets.</param>
+            <param name="id">Form id if applicable.</param>
+            <returns>Returns the URL path.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.FormUrlBuilder.BuildFormsUrlPath(Telerik.Sitefinity.EloquaConnector.Enums.FormUrlType)">
+            <summary>
+            Builds a URL path that is used to call the REST API based on the provided parameters.
+            </summary>
+            <param name="formType">The type of the form. Which can be Data or Assets.</param>
+            <returns>Returns the URL path.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.FormUrlBuilder.BuildUrlQuery(Telerik.Sitefinity.EloquaConnector.Enums.FormResponseDepth,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Builds a URL query that is used to call the REST API based on the provided parameters.
+            </summary>
+            <param name="formResponseDepth">The depth of the form response.</param>
+            <param name="page">The number of page to return at response.</param>
+            <param name="pageSize">The size of the page to return at response.</param>
+            <returns>Returns the URL query.</returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.EloquaConnector.Client.Forms.IEloquaFormsClient">
+            <summary>
+            Exposes an interface of Eloqua forms client API
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.IEloquaFormsClient.GetForms">
+            <summary>
+            Gets all Eloqua forms
+            </summary>
+            <returns>The forms list</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.IEloquaFormsClient.GetForms(Telerik.Sitefinity.EloquaConnector.Enums.FormResponseDepth)">
+            <summary>
+            Gets all Eloqua forms
+            </summary>
+            <param name="formResponseDepth">The level of detail to return.</param>
+            <returns>The forms list</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.IEloquaFormsClient.GetForm(System.Int32)">
+            <summary>
+            Gets Eloqua form by Id
+            </summary>
+            <param name="id">The form Id</param>
+            <returns>The form</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.IEloquaFormsClient.GetForm(System.Int32,Telerik.Sitefinity.EloquaConnector.Enums.FormResponseDepth)">
+            <summary>
+            Gets Eloqua form by Id
+            </summary>
+            <param name="id">The form Id</param>
+            <param name="formResponseDepth">The level of detail to return.</param>
+            <returns>The form</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.IEloquaFormsClient.CreateForm(Telerik.Sitefinity.EloquaConnector.Model.EloquaForm)">
+            <summary>
+            Creates an Eloqua form
+            </summary>
+            <param name="eloquaForm">The form that will be created</param>
+            <returns>The created form</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.IEloquaFormsClient.DeleteForm(System.Int32)">
+            <summary>
+            Deletes Eloqua form by Id
+            </summary>
+            <param name="id">The form Id</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.IEloquaFormsClient.RetrieveFormData(System.Int32)">
+            <summary>
+            Retrieves all the posted data to specific Eloqua form
+            </summary>
+            <param name="id">The form Id</param>
+            <returns>A list of all form data submissions</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Client.Forms.IEloquaFormsClient.RetrieveFormData(System.Int32,Telerik.Sitefinity.EloquaConnector.Enums.FormResponseDepth)">
+            <summary>
+            Retrieves all the posted data to specific Eloqua form
+            </summary>
+            <param name="id">The form Id</param>
+            <param name="formResponseDepth">The level of detail to return.</param>
+            <returns>A list of all form data submissions</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Configuration.EloquaConnectorConfgiValidator.EloquaConfigHasRequiredSettings">
+            <summary>
+            Checks whether the Eloqua config has the required settings for the connector to work.
+            </summary>
+            <returns>Returns true if the config has the required settings for the connector. Otherwise, false.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Configuration.EloquaConnectorConfgiValidator.EloquaConfigHasRequiredSettings(Telerik.Sitefinity.EloquaConnector.Configuration.EloquaConnectorConfig)">
+            <summary>
+            Checks whether the Eloqua config has the required settings for the connector to work.
+            </summary>
+            <param name="eloquaConnectorConfig">The Eloqua config object.</param>
+            <returns>Returns true if the config has the required settings for the connector. Otherwise, false.</returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.EloquaConnector.Configuration.EloquaConnectorConfig">
+            <summary>
+            Configuration file for EloquaConnector
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Configuration.EloquaConnectorConfig.EloquaSiteId">
+            <summary>
+            Gets or sets Eloqua Site Id
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Configuration.EloquaConnectorConfig.EloquaFormPostUrl">
+            <summary>
+            Gets or sets Eloqua Forms Post URL
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Configuration.EloquaConnectorConfig.EloquaLoginUrl">
+            <summary>
+            Gets or sets Eloqua Login URL
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Configuration.EloquaConnectorConfig.EloquaUserName">
+            <summary>
+            Gets or sets Eloqua user name
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Configuration.EloquaConnectorConfig.EloquaPassword">
+            <summary>
+            Gets or sets Eloqua user password
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Configuration.EloquaConnectorConfig.EloquaCompanyName">
+            <summary>
+            Gets or sets Eloqua company name
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Configuration.EloquaConnectorConfig.Enabled">
+            <summary>
+            Gets or sets a value indicating whether the connector is enabled
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Configuration.EloquaConnectorConfig.AutocompleteSuggestionsCount">
+            <summary>
+            Gets or sets a value indicating the number of items to return when requesting auto-complete data.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Configuration.EloquaConnectorConfigWrapper.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.EloquaConnector.Configuration.EloquaConnectorConfigWrapper"/> class.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Configuration.EloquaConnectorConfigWrapper.EloquaSiteId">
+            <summary>
+            Gets or sets Eloqua Site Id
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Configuration.EloquaConnectorConfigWrapper.EloquaFormPostUrl">
+            <summary>
+            Gets or sets Eloqua Forms Post URL
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Configuration.EloquaConnectorConfigWrapper.EloquaLoginUrl">
+            <summary>
+            Gets or sets Eloqua Login URL
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Configuration.EloquaConnectorConfigWrapper.EloquaUserName">
+            <summary>
+            Gets or sets Eloqua user name
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Configuration.EloquaConnectorConfigWrapper.EloquaPassword">
+            <summary>
+            Gets or sets Eloqua user password
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Configuration.EloquaConnectorConfigWrapper.EloquaCompanyName">
+            <summary>
+            Gets or sets Eloqua company name
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Configuration.EloquaConnectorConfigWrapper.Enabled">
+            <summary>
+            Gets or sets a value indicating whether the connector is enabled
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Configuration.EloquaConnectorConfigWrapper.AutocompleteSuggestionsCount">
+            <summary>
+            Gets or sets a value indicating the number of items to return when requesting auto-complete data.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.EloquaConnector.Configuration.IEloquaConnectorConfigWrapper">
+            <summary>
+            Represents a source for getting configuration information for Eloqua.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Configuration.IEloquaConnectorConfigWrapper.EloquaSiteId">
+            <summary>
+            Gets or sets Eloqua Site Id
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Configuration.IEloquaConnectorConfigWrapper.EloquaFormPostUrl">
+            <summary>
+            Gets or sets Eloqua Forms Post URL
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Configuration.IEloquaConnectorConfigWrapper.EloquaLoginUrl">
+            <summary>
+            Gets or sets Eloqua Login URL
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Configuration.IEloquaConnectorConfigWrapper.EloquaUserName">
+            <summary>
+            Gets or sets Eloqua user name
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Configuration.IEloquaConnectorConfigWrapper.EloquaPassword">
+            <summary>
+            Gets or sets Eloqua user password
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Configuration.IEloquaConnectorConfigWrapper.EloquaCompanyName">
+            <summary>
+            Gets or sets Eloqua company name
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Configuration.IEloquaConnectorConfigWrapper.Enabled">
+            <summary>
+            Gets or sets a value indicating whether the connector is enabled
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Configuration.IEloquaConnectorConfigWrapper.AutocompleteSuggestionsCount">
+            <summary>
+            Gets or sets a value indicating the number of items to return when requesting auto-complete data.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.EloquaConnector.EloquaConnectorReport">
+            <summary>
+            Represents the usage tracking report of the Eloqua connector
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.EloquaConnectorReport.ModuleName">
+            <summary>
+            Gets or sets the module name
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.EloquaConnectorReport.IsUsed">
+            <summary>
+            Gets or sets a value indicating whether the connector is used
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.EloquaConnector.Enums.ElementDisplayType">
+            <summary>
+            The type of eloqua form field element.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.EloquaConnector.Enums.ElementDisplayType.Submit">
+            <summary>
+            Used when the type of Eloqua form field element is a submit button.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.EloquaConnector.Enums.ElementDisplayType.Text">
+            <summary>
+            Used when the type of Eloqua form field element is an input field.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.EloquaConnector.Enums.ElementDisplayType.TextArea">
+            <summary>
+            Used when the type of Eloqua form field element is a text area.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.EloquaConnector.Enums.ElementDisplayType.SingleSelect">
+            <summary>
+            Used when the type of Eloqua form field element is an single select field.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.EloquaConnector.Enums.ElementDisplayType.Hidden">
+            <summary>
+            Used when the type of Eloqua form field element is hidden field.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.EloquaConnector.Enums.ElementDisplayType.MultiSelect">
+            <summary>
+            Used when the type of Eloqua form field element is multiple pick list field.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.EloquaConnector.Enums.ElementDisplayType.ParagraphText">
+            <summary>
+            Used when the type of Eloqua form field element is paragraph text field.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.EloquaConnector.Enums.ElementDisplayType.Radio">
+            <summary>
+            Used when the type of Eloqua form field element is radio button field.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.EloquaConnector.Enums.ElementDisplayType.Checkbox">
+            <summary>
+            Used when the type of Eloqua form field element is check box field.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.EloquaConnector.Enums.ElementDisplayType.Other">
+            <summary>
+            Used when the type of Eloqua form field element is not one of the described fields.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.EloquaConnector.Enums.FormProcessingType">
+            <summary>
+            The type of eloqua form element.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.EloquaConnector.Enums.FormProcessingType.ExternalEmail">
+            <summary>
+            The form processing type is by external email.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.EloquaConnector.Enums.FormProcessingType.ExternalWebsite">
+            <summary>
+            The form processing type is by external website.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.EloquaConnector.Enums.FormProcessingType.InternallyHosted">
+            <summary>
+            The form processing type is by internal hosted page.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.EloquaConnector.Enums.FormProcessingType.InternalAgentProxyForm">
+            <summary>
+            The form processing type is by agent proxy form.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.EloquaConnector.Enums.FormResponseDepth">
+            <summary>
+            Level of detail returned by the Eloqua API. 
+            Eloqua APIs can retrieve entities at three different levels of depth: minimal, partial, and complete. 
+            Any other values passed are reset to minimal by default.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.EloquaConnector.Enums.FormResponseDepth.Default">
+            <summary>
+            The default level of detail. It can be different for the different endpoints.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.EloquaConnector.Enums.FormResponseDepth.Minimal">
+            <summary>
+            The minimal level of detail.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.EloquaConnector.Enums.FormResponseDepth.Partial">
+            <summary>
+            The partial level of detail.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.EloquaConnector.Enums.FormResponseDepth.Complete">
+            <summary>
+            The complete level of detail.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.EloquaConnector.Enums.FormUrlType">
+            <summary>
+            The form URL type used to build the correct URL for the Eloqua REST API.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.EloquaConnector.Enums.FormUrlType.Data">
+            <summary>
+            Data type is used to call the API responding for the form data submissions (post or retrieve them).
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.EloquaConnector.Enums.FormUrlType.Assets">
+            <summary>
+            Data type is used to call the API responding for the form assets (generating new form, retrieving existing, etc.).
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.EloquaConnector.Enums.FormElementType">
+            <summary>
+            The type of eloqua form element.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.EloquaConnector.Enums.FormElementType.Form">
+            <summary>
+            The form type element.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.EloquaConnector.Enums.FormElementType.FormFieldGroup">
+            <summary>
+            The form field group element.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.EloquaConnector.Enums.FormElementType.FormField">
+            <summary>
+            The form field element.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.EloquaConnector.Enums.FormElementType.ProgressiveProfile">
+            <summary>
+            The progressive profile form field element.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.EloquaConnector.Enums.FormElementType.Other">
+            <summary>
+            The form field is not one of the described types
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.EloquaConnector.Model.EloquaForms">
+            <summary>
+            A class representing Eloqua forms response
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Model.EloquaForms.Elements">
+            <summary>
+            Gets or sets the forms collection
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Model.EloquaForms.Page">
+            <summary>
+            Gets or sets the number of the current page
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Model.EloquaForms.PageSize">
+            <summary>
+            Gets or sets the page size
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Model.EloquaForms.Total">
+            <summary>
+            Gets or sets the total number of items
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.EloquaConnector.Model.EloquaFormFieldValue">
+            <summary>
+            A class representing the Eloqua form field value
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Model.EloquaFormFieldValue.Id">
+            <summary>
+            Gets or sets the form field Id
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Model.EloquaFormFieldValue.Type">
+            <summary>
+            Gets or sets the form field Type
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Model.EloquaFormFieldValue.Value">
+            <summary>
+            Gets or sets the form field Value
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.EloquaConnector.Model.EloquaFormElement">
+            <summary>
+            A class representing Eloqua form element
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Model.EloquaFormElement.Id">
+            <summary>
+            Gets or sets the Id of the element
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Model.EloquaFormElement.Type">
+            <summary>
+            Gets or sets the Type of the element
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Model.EloquaFormElement.Name">
+            <summary>
+            Gets or sets the Name of the element
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Model.EloquaFormElement.HtmlName">
+            <summary>
+            Gets or sets the Html name of the element
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Model.EloquaFormElement.DisplayType">
+            <summary>
+            Gets or sets the display type of the element
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Model.EloquaFormElement.Fields">
+            <summary>
+            Gets or sets the form fields collection when root is group field or progressive profile
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.EloquaConnector.Model.EloquaForm">
+            <summary>
+            A class representing Eloqua form
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Model.EloquaForm.Id">
+            <summary>
+            Gets or sets the form Id
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Model.EloquaForm.Type">
+            <summary>
+            Gets or sets the form Type
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Model.EloquaForm.Name">
+            <summary>
+            Gets or sets the form Name
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Model.EloquaForm.HtmlName">
+            <summary>
+            Gets or sets the form HtmlName
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Model.EloquaForm.Elements">
+            <summary>
+            Gets or sets the form Elements
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Model.EloquaForm.ProcessingType">
+            <summary>
+            Gets or sets the form processing type
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.EloquaConnector.Model.EloquaFormData">
+            <summary>
+            A class representing the Eloqua form data
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Model.EloquaFormData.Id">
+            <summary>
+            Gets or sets the form Id
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Model.EloquaFormData.FieldValues">
+            <summary>
+            Gets or sets the form fields
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.EloquaConnector.Web.Services.DTO.EloquaStatusRequest">
+            <summary>
+            Class that represent service stack request object.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Web.Services.DTO.EloquaStatusRequest.Enabled">
+            <summary>
+            Gets or sets a value indicating whether the status is enabled
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.EloquaConnector.Web.Services.DTO.EloquaConfigurationRequest">
+            <summary>
+            Class that represent service stack request object.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Web.Services.DTO.EloquaConfigurationRequest.SiteId">
+            <summary>
+            Gets or sets the site id
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Web.Services.DTO.EloquaConfigurationRequest.Username">
+            <summary>
+            Gets or sets the user's name
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Web.Services.DTO.EloquaConfigurationRequest.Password">
+            <summary>
+            Gets or sets the password
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Web.Services.DTO.EloquaConfigurationRequest.CompanyName">
+            <summary>
+            Gets or sets the company name
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Web.Services.DTO.EloquaConfigurationRequest.FormPostUrl">
+            <summary>
+            Gets or sets the form post url
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.EloquaConnector.Web.Services.DTO.EloquaFormsRequest">
+            <summary>
+            Class that represent service stack request object.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Web.Services.DTO.EloquaFormsRequest.Term">
+            <summary>
+            Gets or sets the searched text
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Web.Services.DTO.EloquaFormsRequest.Take">
+            <summary>
+            Gets or sets the number of returned results
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.EloquaConnector.Web.Services.EloquaServiceStackPlugin">
+            <summary>
+            Represents a Eloqua plug-in for the search web service.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Web.Services.EloquaServiceStackPlugin.Register(ServiceStack.IAppHost)">
+            <summary>
+            Adding the service routes
+            </summary>
+            <param name="appHost">The service stack appHost</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.EloquaConnector.Web.Services.EloquaWebService">
+            <summary>
+            Class that represents the service stack service.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Web.Services.EloquaWebService.Get(Telerik.Sitefinity.EloquaConnector.Web.Services.DTO.EloquaFormsRequest)">
+            <summary>
+            Method that returns suggestions for eloqua forms.
+            </summary>
+            <param name="request">Request object</param>
+            <returns>Returns suggestions for eloqua forms.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Web.Services.EloquaWebService.Post(Telerik.Sitefinity.EloquaConnector.Web.Services.DTO.EloquaConfigurationRequest)">
+            <summary>
+            Method that saves Eloqua configuration.
+            </summary>
+            <param name="request">Request object</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Web.Services.EloquaWebService.Post(Telerik.Sitefinity.EloquaConnector.Web.Services.DTO.EloquaStatusRequest)">
+            <summary>
+            Changes the state of Eloqua module - enabled/disabled
+            </summary>
+            <param name="request">The state</param>
+            <returns>The module state</returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.EloquaConnector.Web.UI.EloquaConnectorSettings">
+            <summary>
+            Eloqua connector view
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Web.UI.EloquaConnectorSettings.LayoutTemplatePath">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Web.UI.EloquaConnectorSettings.SiteIdTextBox">
+            <summary>
+            Gets the siteId box.
+            </summary>
+            <value>The box.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Web.UI.EloquaConnectorSettings.UsernameTextBox">
+            <summary>
+            Gets the box with user's name.
+            </summary>
+            <value>The box.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Web.UI.EloquaConnectorSettings.PasswordTextBox">
+            <summary>
+            Gets the password box.
+            </summary>
+            <value>The box.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Web.UI.EloquaConnectorSettings.CompanyNameTextBox">
+            <summary>
+            Gets the company name box.
+            </summary>
+            <value>The box.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Web.UI.EloquaConnectorSettings.FormPostUrlTextBox">
+            <summary>
+            Gets the form post url box.
+            </summary>
+            <value>The box.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Web.UI.EloquaConnectorSettings.ConnectButton">
+            <summary>
+            Gets the connect button.
+            </summary>
+            <value>The connect button.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Web.UI.EloquaConnectorSettings.ChangeConnectionButton">
+            <summary>
+            Gets the change connection button.
+            </summary>
+            <value>The button.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Web.UI.EloquaConnectorSettings.DisconnectReconnectButton">
+            <summary>
+            Gets the disconnect reconnect button.
+            </summary>
+            <value>The button.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Web.UI.EloquaConnectorSettings.ErrorMessageWrapper">
+            <summary>
+            Gets the error message control.
+            </summary>
+            <value>The control.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Web.UI.EloquaConnectorSettings.LoadingView">
+            <summary>
+            Gets the loading control.
+            </summary>
+            <value>The control.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Web.UI.EloquaConnectorSettings.GetScriptDescriptors">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Web.UI.EloquaConnectorSettings.GetScriptReferences">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Web.UI.EloquaConnectorSettings.InitializeControls(Telerik.Sitefinity.Web.UI.GenericContainer)">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.EloquaConnector.Web.UI.EloquaScriptWidget">
+            <summary>
+            Eloqua tracking script widget
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.EloquaConnector.Constants.FieldNameConstants">
+            <summary>
+            Contains the names of the system fields that are used in Eloqua forms.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.EloquaConnector.Constants.FieldNameConstants.SubmitPageUrl">
+            <summary>
+            Contains the value for the submit page URL field name.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.EloquaConnector.Constants.FieldNameConstants.CookieWrite">
+            <summary>
+            Contains the value for the cookie write field name.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.EloquaConnector.Constants.FieldNameConstants.CustomerGUID">
+            <summary>
+            Contains the value for the customer Guid field name.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.EloquaConnector.Constants.FieldNameConstants.CampaignId">
+            <summary>
+            Contains the value for the customer Guid field name.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.EloquaConnector.Constants.FieldNameConstants.FormName">
+            <summary>
+            Contains the value for the form name field name.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.EloquaConnector.Constants.FieldNameConstants.SiteId">
+            <summary>
+            Contains the value for the site id field name.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.EloquaConnector.Constants.TrackingCookieNameConstants">
+            <summary>
+            Contains the names of the cookies that are used to track the user.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.EloquaConnector.Constants.TrackingCookieNameConstants.EloquaUserId">
+            <summary>
+            The name of the cookie that contains the Eloqua user Id.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.EloquaConnector.EloquaConnectorModule">
+            <summary>
+            Eloqua connector module
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.EloquaConnectorModule.LandingPageId">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.EloquaConnectorModule.Initialize(Telerik.Sitefinity.Services.ModuleSettings)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.EloquaConnectorModule.Load">
+            <summary>
+            Integrate the module into the system.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.EloquaConnectorModule.Bootstrapper_Initialized(System.Object,Telerik.Sitefinity.Data.ExecutedEventArgs)">
+            <summary>
+            Handles the Initialized event of the Bootstrapper.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:Telerik.Sitefinity.Data.ExecutedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.EloquaConnectorModule.Unload">
+            <summary>
+            This method is invoked during the unload process of an active module from Sitefinity, e.g. when a module is deactivated. For instance this method is also invoked for every active module during a restart of the application. 
+            Typically you will use this method to unsubscribe the module from all events to which it has subscription.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.EloquaConnectorModule.Uninstall(Telerik.Sitefinity.Abstractions.SiteInitializer)">
+            <summary>
+            Uninstall the module from Sitefinity system. Deletes the module artifacts added with Install method.
+            </summary>
+            <param name="initializer">The site initializer instance.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.EloquaConnectorModule.Install(Telerik.Sitefinity.Abstractions.SiteInitializer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.EloquaConnectorModule.GetModuleConfig">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.EloquaConnectorModule.GetVirtualPaths">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.EloquaConnectorModule.Managers">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.EloquaConnectorModule.ConfigEventHandler(Telerik.Sitefinity.Configuration.Events.ConfigEvent)">
+            <summary>
+            Handles the event for config update.
+            </summary>
+            <param name="configEvent">The config change event args.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.EloquaConnectorModule.InitializeFormDataSender">
+            <summary>
+            Initializes the local <see cref="T:Telerik.Sitefinity.EloquaConnector.Forms.EloquaConnectorFormDataSender"/>.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.EloquaConnectorModule.InitializeEloquaFormsCache">
+            <summary>
+            Initializes the forms cache and re initializes the IEloquaFormsClient
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.EloquaConnectorModule.DisposeFormDataSender">
+            <summary>
+            Disposes the local <see cref="T:Telerik.Sitefinity.EloquaConnector.Forms.EloquaConnectorFormDataSender"/>.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.EloquaConnectorModule.DisposeSingletonInstances">
+            <summary>
+            Disposes all singleton instances that have <see cref="T:Telerik.Microsoft.Practices.Unity.ContainerControlledLifetimeManager"/> registered in the local
+            containerControlledLifetimeManagers field.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.EloquaConnectorModule.GetReport">
+            <inheritdoc />
+        </member>
+        <member name="F:Telerik.Sitefinity.EloquaConnector.EloquaConnectorModule.ModuleId">
+            <summary>
+            Id of the module. Used for licensing.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.EloquaConnector.EloquaConnectorModule.ModuleName">
+            <summary>
+            The name of this module
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.EloquaConnector.EloquaConnectorResources">
+            <summary>
+            Localizable strings for the EloquaConnector module
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.EloquaConnectorResources.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.EloquaConnector.EloquaConnectorResources"/> class with the default <see cref="T:Telerik.Sitefinity.Localization.Data.ResourceDataProvider"/>.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.EloquaConnectorResources.#ctor(Telerik.Sitefinity.Localization.Data.ResourceDataProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.EloquaConnector.EloquaConnectorResources"/> class with the provided <see cref="T:Telerik.Sitefinity.Localization.Data.ResourceDataProvider"/>.
+            </summary>
+            <param name="dataProvider">Data provider <see cref="T:Telerik.Sitefinity.Localization.Data.ResourceDataProvider"/></param>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.EloquaConnectorResources.EloquaConnectorResourcesTitle">
+            <summary>
+            Gets EloquaConnector resources title
+            </summary>
+            <value>Eloqua connector labels</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.EloquaConnectorResources.EloquaConnectorResourcesTitlePlural">
+            <summary>
+            Gets EloquaConnector resources title plural
+            </summary>
+            <value>Eloqua connector labels</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.EloquaConnectorResources.EloquaConnectorResourcesDescription">
+            <summary>
+            Gets message: Contains localizable resources for EloquaConnector module.
+            </summary>
+            <value>Contains localizable resources for Eloqua connector module.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.EloquaConnectorResources.EloquaConnectorGroupPageTitle">
+            <summary>
+            Gets phrase: Connector for Eloqua
+            </summary>
+            <value>Connector for Eloqua</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.EloquaConnectorResources.EloquaConnectorGroupPageUrlName">
+            <summary>
+            Gets word: Eloqua
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.EloquaConnectorResources.EloquaConnectorGroupPageDescription">
+            <summary>
+            Gets phrase: Connector for Eloqua group page
+            </summary>
+            <value>Connector for Eloqua group page</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.EloquaConnectorResources.EloquaConnectorPageTitle">
+            <summary>
+            Gets phrase: Connector for Eloqua
+            </summary>
+            <value>Connector for Eloqua</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.EloquaConnectorResources.EloquaConnectorPageUrlName">
+            <summary>
+            Gets word: Settings
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.EloquaConnectorResources.EloquaConnectorPageDescription">
+            <summary>
+            Gets message: Connector for Eloqua
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.EloquaConnectorResources.EloquaFormName">
+            <summary>
+            Gets label: Eloqua form name
+            </summary>
+            <value>Eloqua form name</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.EloquaConnectorResources.EloquaSettings">
+            <summary>
+            Gets label: Eloqua settings
+            </summary>
+            <value>Eloqua settings</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.EloquaConnectorResources.PostDataToEloqua">
+            <summary>
+            Gets label: Post data to Eloqua
+            </summary>
+            <value>Post data to Eloqua</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.EloquaConnectorResources.EloquaCampaignId">
+            <summary>
+            Gets label: Eloqua campaign id
+            </summary>
+            <value>Eloqua campaign id</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.EloquaConnectorResources.EloquaTabFormWidgetInfoText">
+            <summary>
+            Gets message: Form will post data to Eloqua once enabled in the Forms module. Make sure the form you have selected has the proper Eloqua settings there.
+            </summary>
+            <value>Form will post data to Eloqua once enabled in the Forms module. Make sure the form you have selected has the proper Eloqua settings there.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.EloquaConnectorResources.EloquaSiteId">
+            <summary>
+            Gets label: Eloqua site ID
+            </summary>
+            <value>Eloqua site ID</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.EloquaConnectorResources.CompanyName">
+            <summary>
+            Gets label: Company name
+            </summary>
+            <value>Company name</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.EloquaConnectorResources.ConnectToEloquaUsingYourEloquaCredentials">
+            <summary>
+            Gets text: Connect to Eloqua using your Eloqua credentials
+            </summary>
+            <value>Connect to Eloqua using your Eloqua credentials</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.EloquaConnectorResources.Eloqua">
+            <summary>
+            Gets word: Eloqua
+            </summary>
+            <value>Eloqua text</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.EloquaConnectorResources.EloquaFormPostUrl">
+            <summary>
+            Gets label: Eloqua form post URL
+            </summary>
+            <value>Eloqua form post URL</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.EloquaConnectorResources.EloquaLoginUrl">
+            <summary>
+            Gets label: Eloqua login Url
+            </summary>
+            <value>Eloqua login Url</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.EloquaConnectorResources.EloquaUserName">
+            <summary>
+            Gets label: Eloqua user name
+            </summary>
+            <value>Eloqua user name</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.EloquaConnectorResources.EloquaPassword">
+            <summary>
+            Gets label: Eloqua password
+            </summary>
+            <value>Eloqua password</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.EloquaConnectorResources.EloquaCompanyName">
+            <summary>
+            Gets label: Eloqua company name
+            </summary>
+            <value>Eloqua company name</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.EloquaConnectorResources.Enabled">
+            <summary>
+            Gets word: Enabled
+            </summary>
+            <value>text - Enabled</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.EloquaConnectorResources.AutocompleteSuggestionsTitle">
+            <summary>
+            Gets label: Autocomplete suggestions
+            </summary>
+            <value>Autocomplete suggestions</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.EloquaConnectorResources.AutocompleteSuggestionsDescription">
+            <summary>
+            Gets label: Number of suggestions displayed when typing
+            </summary>
+            <value>Number of suggestions displayed when typing</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.EloquaConnectorResources.EloquaSiteIdHintLabel">
+            <summary>
+            Gets the  Site id hint label
+            </summary>
+            <value>In your Eloqua account, go to <i>Settings > Display Preferences > Company Defaults</i>. Copy the value from the <i>Site ID</i> field, for example: <i>123456789</i>.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.EloquaConnectorResources.EloquaCompanyNameHintLabel">
+            <summary>
+            Gets the Company name hint label
+            </summary>
+            <value>In your Eloqua account, go to <i>Settings > Display Preferences > Company Defaults</i>. Copy the value from the <i>Company Name</i> field.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.EloquaConnectorResources.EloquaFormPostUrlHintLabel">
+            <summary>
+            Gets the Form post url hint label
+            </summary>
+            <value>Open any Eloqua form. Go to <i>Actions (>>) > View Form HTML > Integration Details</i>. From the <i>Post URL for this form</i> field, copy the value within the quotation marks, for example: <i>https://s123456789.t.eloqua.com/e/f2</i>.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.EloquaConnectorResources.ErrorSendingEloquaMessage">
+            <summary>
+            Gets the error message occurred while while posting data to Eloqua. For details, check the error logs.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.EloquaConnector.Forms.EloquaConnectorFormDataSender">
+            <summary>
+            Used for sending form data for the Eloqua connector integration.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Forms.EloquaConnectorFormDataSender.DataMappingExtenderKey">
+            <inheritdoc/>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Forms.EloquaConnectorFormDataSender.DesignerExtenderName">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Forms.EloquaConnectorFormDataSender.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.EloquaConnector.Forms.EloquaConnectorFormDataSender"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Forms.EloquaConnectorFormDataSender.#ctor(Telerik.Sitefinity.EloquaConnector.Client.Forms.IEloquaFormDataSubmitter)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.EloquaConnector.Forms.EloquaConnectorFormDataSender"/> class.
+            </summary>
+            <param name="eloquaFormDataSubmitter">The form submitter for Eloqua.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Forms.EloquaConnectorFormDataSender.ShouldSendFormData(Telerik.Sitefinity.Modules.Forms.ConnectorFormDataContext)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Forms.EloquaConnectorFormDataSender.SendFormData(System.Collections.Generic.IDictionary{System.String,System.String},Telerik.Sitefinity.Modules.Forms.ConnectorFormDataContext)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Forms.EloquaConnectorFormDataSender.AddSystemFields(System.Collections.Generic.IDictionary{System.String,System.String},Telerik.Sitefinity.Modules.Forms.ConnectorFormDataContext)">
+            <summary>
+            Adds the system fields to the collection of submitted field data.
+            </summary>
+            <param name="data">The key value data containing the name and value for each submitted field of the form.</param>
+            <param name="dataContext">The data context around the submitted form fields.</param>
+            <returns>Returns the updated key value data, including the system fields.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Forms.EloquaConnectorFormDataSender.OverrideWithQueryStringValues(System.Collections.Generic.IDictionary{System.String,System.String},Telerik.Sitefinity.Modules.Forms.ConnectorFormDataContext)">
+            <summary>
+            Overrides the given collection of submitted field data with values from the query string of the URL where the form was submitted.
+            </summary>
+            <param name="data">The key value data containing the name and value for each submitted field of the form.</param>
+            <param name="dataContext">The data context around the submitted form fields.</param>
+            <returns>Returns the updated key value data, including the system fields.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Forms.EloquaConnectorFormDataSender.GetEloquaCustomerGuid(System.Web.HttpRequestBase)">
+            <summary>
+            Gets the Eloqua customer Guid from the provided <see cref="T:System.Web.HttpRequestBase"/>.
+            </summary>
+            <param name="httpRequest">The <see cref="T:System.Web.HttpRequestBase"/> that the Eloqua customer Guid should be extracted from.</param>
+            <returns>The Eloqua customer Guid.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Forms.EloquaConnectorFormDataSender.GetEloquaCampaignId(Telerik.Sitefinity.Modules.Forms.ConnectorFormDataContext)">
+            <summary>
+            Gets the Eloqua campaign id from the provided <see cref="T:Telerik.Sitefinity.Modules.Forms.ConnectorFormDataContext"/> context.
+            </summary>
+            <param name="dataContext">The <see cref="T:Telerik.Sitefinity.Modules.Forms.ConnectorFormDataContext"/> context.</param>
+            <returns>Returns the Eloqua campaign id.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Forms.EloquaConnectorFormDataSender.GetEloquaFormName(Telerik.Sitefinity.Modules.Forms.ConnectorFormDataContext)">
+            <summary>
+            Gets the Eloqua form name from the provided <see cref="T:Telerik.Sitefinity.Modules.Forms.ConnectorFormDataContext"/> context.
+            </summary>
+            <param name="dataContext">The <see cref="T:Telerik.Sitefinity.Modules.Forms.ConnectorFormDataContext"/> context.</param>
+            <returns>Returns the Eloqua form name.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Forms.EloquaConnectorFormDataSender.CanTrackCurrentUser">
+            <summary>
+            Checks whether the current user can be tracked (GDPR).
+            </summary>
+            <returns>True if the user can be tracked, otherwise false.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Forms.EloquaConnectorFormDataSender.GetQueryStringParameterValue(System.Collections.Specialized.NameValueCollection,System.String)">
+            <summary>
+            Gets the value of a query string parameter from the provided collection and key.
+            </summary>
+            <param name="queryString">The query string collection.</param>
+            <param name="key">The query string parameter key.</param>
+            <returns>The parameter value.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Forms.EloquaConnectorFormDataSender.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Forms.EloquaConnectorFormDataSender.Dispose(System.Boolean)">
+            <summary>
+            Disposes the managed resources
+            </summary>
+            <param name="disposing">Defines whether a disposing is executing now.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.EloquaConnector.Forms.EloquaSettings">
+            <summary>
+            A class representing Eloqua connector settings
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Forms.EloquaSettings.PostDataToEloqua">
+            <summary>
+            Gets or sets a value indicating whether to send data to Eloqua
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.Forms.EloquaSettings.EloquaCampaignId">
+            <summary>
+            Gets or sets the eloqua campaign id
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.EloquaConnector.Exceptions.EloquaConnectorExceptions">
+            <summary>
+            A component used to handle exceptions that occurred in the Eloqua connector module.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Exceptions.EloquaConnectorExceptions.HandleException(System.Exception,System.String)">
+            <summary>
+            Handles the specified <see cref="T:System.Exception" />
+            object according to the rules configured for the translations policy.
+            </summary>
+            <param name="exceptionToHandle">An <see cref="T:System.Exception" /> object.</param>
+            <param name="policyName">Name of the policy.</param>
+            <returns>
+            Whether or not a re-throw is recommended.
+            </returns>
+            <seealso cref="!:ExceptionManager.Process" />
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Exceptions.EloquaConnectorExceptions.HandleException(System.Exception,System.String,System.Exception@)">
+            <summary>
+            Handles the specified <see cref="T:System.Exception" />
+            object according to the rules configured for the translations policy.
+            </summary>
+            <param name="exceptionToHandle">An <see cref="T:System.Exception" /> object.</param>
+            <param name="policyName">Name of the policy.</param>
+            <param name="exceptionToThrow">The new <see cref="T:System.Exception" /> to throw, if any.</param>
+            <returns>
+            Whether or not a re-throw is recommended.
+            </returns>
+            <remarks>
+            If a re-throw is recommended and <paramref name="exceptionToThrow" /> is <see langword="null" />,
+            then the original exception <paramref name="exceptionToHandle" /> should be re-thrown; otherwise,
+            the exception returned in <paramref name="exceptionToThrow" /> should be thrown.
+            </remarks>
+            <seealso cref="!:ExceptionManager.HandleException(Exception, string)" />
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Exceptions.EloquaConnectorExceptions.Process(System.Action,System.String)">
+            <summary>
+            Executes the supplied delegate <paramref name="action" /> and handles
+            any thrown exception according to the rules configured for the translations policy.
+            </summary>
+            <param name="action">The delegate to execute.</param>
+            <param name="policyName">Name of the policy.</param>
+            <seealso cref="!:ExceptionManager.HandleException(Exception, string)" />
+        </member>
+        <member name="T:Telerik.Sitefinity.EloquaConnector.EloquaConnectorDataMappingExtender">
+            <summary>
+            The class defines data mapping between Sitefinity and Eloqua connectors' fields.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.EloquaConnectorDataMappingExtender.Ordinal">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.EloquaConnectorDataMappingExtender.Key">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.EloquaConnectorDataMappingExtender.DependentControlsCssClass">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.EloquaConnectorDataMappingExtender.AutocompleteRequiredControlsCssClass">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.EloquaConnectorDataMappingExtender.GetAutocompleteData(System.String,System.String[])">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.EloquaConnector.EloquaConnectorDataMappingExtender.HasAutocomplete">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.EloquaConnector.Logging.EloquaConnectorLog">
+            <summary>
+            Represents the log for the Eloqua connector functionality.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Logging.EloquaConnectorLog.Write(System.Object,System.Object[])">
+            <summary>
+            Writes the specified log message.
+            </summary>
+            <param name="message">The message to log.</param>
+            <param name="args">The arguments for formatting.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Logging.EloquaConnectorLog.Write(System.Exception,System.Object,System.Object[])">
+            <summary>
+            Writes the specified exception.
+            </summary>
+            <param name="exception">The exception.</param>
+            <param name="message">The message.</param>
+            <param name="args">The args.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Logging.EloquaConnectorLog.Write(System.Exception,System.String@,System.Object,System.Object[])">
+            <summary>
+            Writes the specified exception.
+            </summary>
+            <param name="exception">The exception.</param>
+            <param name="loggedMessage">The logged message.</param>
+            <param name="message">The message.</param>
+            <param name="args">The args.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.EloquaConnector.Startup">
+            <summary>
+            Contains the application startup event handlers registering the required components for the packaging module of Sitefinity.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.EloquaConnector.Startup.OnPreApplicationStart">
+            <summary>
+            Called before the Asp.Net application is started. Subscribes for the logging and exception handling configuration related events.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,1203 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Telerik.Sitefinity.Services.Comments</name>
+    </assembly>
+    <members>
+        <member name="T:Telerik.Sitefinity.Services.Comments.ICommentApi">
+            <summary>
+            Interface that defines the behavior of the comment.
+            Each comment should be related to a parent <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> object.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.ICommentApi.Id">
+            <summary>
+            Gets the id of the <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> object.
+            </summary>
+            <value>
+            The unique id of the comment.
+            </value>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.IThreadEvents">
+            <summary>
+            Base interface for <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> object related events.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.IThreadEvents.Item">
+            <summary>
+            Gets the <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> object that will be persisted to the database.        
+            </summary>
+            <value>
+            The thread item.
+            </value>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.IThreadAverageRatingUpdateEvent">
+            <summary>
+            This event is raised when the average rating of the <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> object is updated
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.CompositeFilter">
+            <summary>
+            Base class that represents common filtering options.
+            The filter options in this class are composite.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.CompositeFilter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Comments.CompositeFilter"/> class.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.CompositeFilter.Skip">
+            <summary>
+            Gets or sets the skip.
+            </summary>
+            <value>
+            The skip.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.CompositeFilter.Take">
+            <summary>
+            Gets or sets the take.
+            </summary>
+            <value>
+            The take.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.CompositeFilter.SortDescending">
+            <summary>
+            Gets or sets a value indicating whether collection should be sorted in descending order.
+            </summary>
+            <value>
+              <c>true</c> if [sort descending]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.CompositeFilter.FromDate">
+            <summary>
+            Gets or sets the date before items are created.
+            </summary>
+            <value>
+            From date.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.CompositeFilter.ToDate">
+            <summary>
+            Gets or sets the date after items are created.
+            </summary>
+            <value>
+            To date.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.CompositeFilter.CustomFilters">
+            <summary>
+            Gets the custom filters collection.
+            </summary>
+            <value>
+            The custom filters.
+            </value>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.CommentFilter">
+            <summary>
+            Comment filter implementation of <see cref="T:Telerik.Sitefinity.Services.Comments.CompositeFilter"/>.
+            This class is used to compose filter based on which a collection of <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> objects should be returned
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.CommentFilter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Comments.CommentFilter"/> class.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.CommentFilter.Status">
+            <summary>
+            Gets list of statuses to filter the <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> objects.
+            </summary>
+            <value>
+            List of statuses.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.CommentFilter.Language">
+            <summary>
+            Gets list of <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> objects languages filter.
+            Exposes a way for retrieving <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> objects by the language of the <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> objects associated with.
+            </summary>
+            <value>
+            List of languages.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.CommentFilter.ThreadType">
+            <summary>
+            Gets list of <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> objects types to filter.
+            Exposes a way for retrieving <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> objects associated with certain <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> objects.
+            </summary>
+            <value>
+            List of thread types.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.CommentFilter.Behavior">
+            <summary>
+            Gets or sets list of behaviors filter.
+            Exposes a way for retrieving <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> objects associated with certain <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> objects with certain behavior.
+            </summary>
+            <value>
+            List of behaviors.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.CommentFilter.AuthorKey">
+            <summary>
+            Gets list of <see cref="T:Telerik.Sitefinity.Services.Comments.IAuthor"/> keys to filter the <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> objects that are associated with.
+            </summary>
+            <value>
+            List of comments author keys.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.CommentFilter.AuthorIpAddress">
+            <summary>
+            Gets or manipulate list of author Ip addresses to filter the comments by their author.
+            </summary>
+            <value>
+            List of comments author keys.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.CommentFilter.CommentKey">
+            <summary>
+            Gets or manipulate list of comment keys to filter the comments.
+            </summary>
+            <value>
+            List of comment keys.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.CommentFilter.ThreadKey">
+            <summary>
+            Gets list of <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> objects keys filter.
+            Exposes a way for retrieving <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> objects associated with certain <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> objects. 
+            </summary>
+            <value>
+            List of thread keys.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.CommentFilter.GroupKey">
+            <summary>
+            Gets or sets a list of <see cref="T:Telerik.Sitefinity.Services.Comments.IGroup"/> objects keys to filter thread. 
+            Exposes a way for retrieving <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> objects in one or more <see cref="T:Telerik.Sitefinity.Services.Comments.IGroup"/> objects. 
+            </summary>
+            <remarks>
+            An <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> object is associated with an <see cref="T:Telerik.Sitefinity.Services.Comments.IGroup"/> object through its parent <see cref="T:Telerik.Sitefinity.Services.Comments.IThread" /> object.
+            </remarks>
+            <value>
+            List of group keys.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.CommentFilter.HasRating">
+            <summary>
+            Gets and sets the flag to filter the comments by existing rating.
+            </summary>
+            <value>
+            Flag if the comment has rating.
+            </value>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.ThreadFilter">
+            <summary>
+            Thread filter implementation of <see cref="T:Telerik.Sitefinity.Services.Comments.CompositeFilter"/>. 
+            This class is used to compose filter based on which a collection of <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> objects should be returned.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.ThreadFilter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Comments.ThreadFilter"/> class.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.ThreadFilter.Language">
+            <summary>
+            Gets list of languages to filter the <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> objects.
+            </summary>
+            <value>
+            List of thread languages.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.ThreadFilter.ThreadType">
+            <summary>
+            Gets or list of thread types to filter the <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> objects.
+            </summary>
+            <value>
+            List of thread types.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.ThreadFilter.ThreadKey">
+            <summary>
+            Gets list of thread keys to filter the <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> objects.
+            </summary>
+            <value>
+            List of thread keys.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.ThreadFilter.GroupKey">
+            <summary>
+            Gets a list of <see cref="T:Telerik.Sitefinity.Services.Comments.IGroup"/> objects keys to filter <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> objects that are associated with. 
+            </summary>
+            <value>
+            List of group keys.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.ThreadFilter.AuthorKey">
+            <summary>
+            Gets list of <see cref="T:Telerik.Sitefinity.Services.Comments.IAuthor"/> keys to filter the <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> objects that are associated with.
+            </summary>
+            <value>
+            List of comments author keys.
+            </value>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.GroupFilter">
+            <summary>
+            Group filter implementation of <see cref="T:Telerik.Sitefinity.Services.Comments.CompositeFilter"/>. 
+            This class is used to compose filters based on which a collection of <see cref="T:Telerik.Sitefinity.Services.Comments.IGroup"/> objects should be returned.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.GroupFilter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Comments.GroupFilter"/> class.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.GroupFilter.GroupKey">
+            <summary>
+            Gets list of group keys to filter the <see cref="T:Telerik.Sitefinity.Services.Comments.IGroup"/> objects.
+            </summary>
+            <value>
+            List of group keys.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.GroupFilter.AuthorKey">
+            <summary>
+            Gets list of <see cref="T:Telerik.Sitefinity.Services.Comments.IAuthor"/> keys to filter the <see cref="T:Telerik.Sitefinity.Services.Comments.IGroup"/> objects that are associated with.
+            </summary>
+            <value>
+            List of comments author keys.
+            </value>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.IAuthor">
+            <summary>
+            Interface that defines the behavior of the author.
+            The author could be associated with <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/>, <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> and <see cref="T:Telerik.Sitefinity.Services.Comments.IGroup"/> objects.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.IAuthor.Key">
+            <summary>
+             Gets or sets the key of the <see cref="T:Telerik.Sitefinity.Services.Comments.IAuthor"/> object. 
+            </summary>
+            <value>
+            The key.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.IAuthor.Name">
+            <summary>
+            Gets or sets the name of the <see cref="T:Telerik.Sitefinity.Services.Comments.IAuthor"/> object.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.IAuthor.Email">
+            <summary>
+            Gets or sets the email of the <see cref="T:Telerik.Sitefinity.Services.Comments.IAuthor"/> object.
+            </summary>
+            <value>
+            The email.
+            </value>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.IComment">
+            <summary>
+            Interface that defines the behavior of the comment.
+            Each comment should be related to a parent <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> object.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.IComment.Key">
+            <summary>
+            Gets or sets the key of the <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> object.
+            </summary>
+            <value>
+            The unique key of the comment.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.IComment.Message">
+            <summary>
+            Gets or sets the body of the message of the <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> object.
+            </summary>
+            <value>
+            The message.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.IComment.Status">
+            <summary>
+            Gets or sets the status of the <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> object.
+            </summary>
+            <value>
+            The status.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.IComment.ThreadKey">
+            <summary>
+            Gets or sets the key of the <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> object that the <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> object is associated with.
+            </summary>
+            <value>
+            The thread key.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.IComment.AuthorIpAddress">
+            <summary>
+            Gets or sets the <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> object author IP address.
+            </summary>
+            <value>
+            The author IP address.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.IComment.Author">
+            <summary>
+            Gets or sets the key of the <see cref="T:Telerik.Sitefinity.Services.Comments.IAuthor"/> object that the <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> object is associated with.
+            </summary>
+            <value>
+            The author.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.IComment.DateCreated">
+            <summary>
+            Gets or sets the date when the <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> object was created.
+            </summary>
+            <value>
+            The date created.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.IComment.CustomData">
+            <summary>
+            Gets or sets the <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> object custom data.
+            </summary>
+            <remarks>
+            This custom data is an extensibility point that can be used to store custom data for the <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> object.
+            </remarks>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.IComment.LastModified">
+            <summary>
+            Gets or sets the date of the last modification of <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> object.
+            </summary>
+            <value>
+            The last modified date.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.IComment.LastModifiedBy">
+            <summary>
+             Gets or sets the <see cref="T:Telerik.Sitefinity.Services.Comments.IAuthor"/> that last modification of <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> object.
+            </summary>
+            <value>
+            The author.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.IComment.Rating">
+            <summary>
+            Gets or sets the rating.
+            </summary>
+            <value>
+            The rating.
+            </value>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.ICommentEvent">
+            <summary>
+            Base interface for <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> object related events.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.ICommentEvent.Item">
+            <summary>
+            Gets the <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> object that will be persisted to the database.        
+            </summary>
+            <value>
+            The comment item.
+            </value>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.ICommentCreatingEvent">
+            <summary>
+            This event is raised during the creation of <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> object, before the transaction is completed.
+            Throwing exception by the handler will cancel the action and rollback the current transaction.
+            </summary>
+            <remarks>
+            Note that changes of the <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> object properties should be persisted to the database.
+            </remarks>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.ICommentCreatedEvent">
+            <summary>
+            This event is raised after an <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> object is created.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.ICommentUpdatingEvent">
+            <summary>
+            This event is raised during <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> object update, before the transaction is completed.
+            Throwing exception by the handler will cancel the action and rollback the current transaction.
+            </summary>
+            <remarks>
+            Note that changes of the updated <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> object properties should be persisted to the database.
+            </remarks>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.ICommentUpdatingEvent.OriginalItem">
+            <summary>
+            Gets the <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> object as it is before the update.
+            </summary>
+            <value>
+            The original comment item.
+            </value>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.ICommentUpdatedEvent">
+            <summary>
+            This event is raised after an <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> object is updated.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.ICommentDeletingEvent">
+            <summary>
+            This event is raised during the deletion of <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> object, before the transaction is completed.
+            Throwing exception by the handler will cancel the action and rollback the current transaction.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.ICommentDeletedEvent">
+            <summary>
+            This event is raised after an <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> object is deleted.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.ICommentWithRatingCreatingEvent">
+            <summary>
+            This event is raised during the creation of <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> object, before the transaction is completed.
+            Throwing exception by the handler will cancel the action and rollback the current transaction.
+            </summary>
+            <remarks>
+            Note that changes of the <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> object properties should be persisted to the database.
+            </remarks>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.ICommentWithRatingCreatingEvent.OriginalThread">
+            <summary>
+            Gets the <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> object to which the <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> will be linked. 
+            This is the thread object before the <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> is added to it.
+            </summary>
+            <value>
+            The thread item.
+            </value>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.ICommentWithRatingCreatedEvent">
+            <summary>
+            This event is raised after an <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> object is created.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.ICommentWithRatingCreatedEvent.Thread">
+            <summary>
+            Gets the <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> object to which the <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> is linked. 
+            This is the thread object after the <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> is added to it.
+            </summary>
+            <value>
+            The thread item.
+            </value>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.ICommentWithRatingUpdatingEvent">
+            <summary>
+            This event is raised during <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> object update, before the transaction is completed.
+            Throwing exception by the handler will cancel the action and rollback the current transaction.
+            </summary>
+            <remarks>
+            Note that changes of the updated <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> object properties should be persisted to the database.
+            </remarks>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.ICommentWithRatingUpdatingEvent.OriginalThread">
+            <summary>
+            Gets the <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> object to which the <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> is linked. 
+            This is the thread object before the <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> is updated.
+            </summary>
+            <value>
+            The thread item.
+            </value>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.ICommentWithRatingUpdatedEvent">
+            <summary>
+            This event is raised after an <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> object is updated.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.ICommentWithRatingUpdatedEvent.Thread">
+            <summary>
+            Gets the <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> object to which the <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> is linked. 
+            This is the thread object after the <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> is updated.
+            </summary>
+            <value>
+            The thread item.
+            </value>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.ICommentWithRatingDeletingEvent">
+            <summary>
+            This event is raised during the deletion of <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> object, before the transaction is completed.
+            Throwing exception by the handler will cancel the action and rollback the current transaction.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.ICommentWithRatingDeletingEvent.Thread">
+            <summary>
+            Gets the <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> object to which the <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> is linked. 
+            This is the thread object before the <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> is deleted.
+            </summary>
+            <value>
+            The thread item.
+            </value>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.ICommentWithRatingDeletedEvent">
+            <summary>
+            This event is raised after an <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> object is deleted.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.ICommentWithRatingDeletedEvent.Thread">
+            <summary>
+            Gets the <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> object to which the <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> was linked. 
+            This is the thread object after the <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> is deleted.
+            </summary>
+            <value>
+            The thread item.
+            </value>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.Notifications.SubscriptionData">
+            <summary>
+            Comments notification subscription data class that contains the information needed to subscribe users to <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> objects notifications.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.Notifications.SubscriptionData.ThreadKey">
+            <summary>
+            Gets or sets the key of the <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> object.
+            </summary>
+            <value>
+            The thread key.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.Notifications.SubscriptionData.ThreadType">
+            <summary>
+            Gets or sets the type of the <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> object.
+            </summary>
+            <value>
+            The thread type.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.Notifications.SubscriptionData.SubscriberKey">
+            <summary>
+            Gets or sets the subscriber key. Represents the id of the authenticated subscriber.
+            The subscriber email should be retrieved by the subscriber key.
+            </summary>
+            <value>
+            The subscriber key.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.Notifications.SubscriptionData.SubscriberEmail">
+            <summary>
+            Gets or sets the email of the subscriber.
+            </summary>
+            <remarks>
+            Note that this property will be used if <see cref="P:Telerik.Sitefinity.Services.Comments.Notifications.SubscriptionData.SubscriberKey"/> property is not populated.
+            </remarks>
+            <value>
+            The subscriber email.
+            </value>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.Notifications.ICommentNotificationsStrategy">
+            <summary>
+            Interface that defines the behavior of the notification strategy that is responsible for notifications for <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> objects.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Notifications.ICommentNotificationsStrategy.Subscribe(Telerik.Sitefinity.Services.Comments.Notifications.SubscriptionData)">
+            <summary>
+            Subscribes a user or email to receive notifications.
+            </summary>
+            <param name="subscriptionData">The request with subscription information.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Notifications.ICommentNotificationsStrategy.Unsubscribe(Telerik.Sitefinity.Services.Comments.Notifications.SubscriptionData)">
+            <summary>
+            Unsubscribes a user or email to receive notifications.
+            </summary>
+            <param name="subscriptionData">The request with subscription information.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Notifications.ICommentNotificationsStrategy.IsSubscribed(Telerik.Sitefinity.Services.Comments.Notifications.SubscriptionData)">
+            <summary>
+            Determines whether the specified user is subscribed.
+            </summary>
+            <param name="subscriptionData">The request with subscription information.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Notifications.ICommentNotificationsStrategy.HandleEvent(Telerik.Sitefinity.Services.Comments.ICommentEvent)">
+            <summary>
+            Handles the given <see cref="T:Telerik.Sitefinity.Services.Comments.ICommentEvent"/> event. Eventually sends notifications based on the event.
+            </summary>
+            <param name="event">The event.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.ICommentService">
+            <summary>
+            Represents the service which executes CRUD operations over <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/>, <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> and <see cref="T:Telerik.Sitefinity.Services.Comments.IGroup"/> objects.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.ICommentService.CreateComment(Telerik.Sitefinity.Services.Comments.IComment)">
+            <summary>
+            Creates the <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> object.
+            </summary>
+            <param name="comment">The comment.</param>
+            <returns><see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/></returns>
+            <exception cref="T:System.ArgumentNullException">When comment is null.</exception>
+            <exception cref="T:System.ArgumentException">When comment.Message, comment.ThreadKey or comment.Author are null.</exception>
+            <exception cref="!:ItemNotFoundException">When comment parentThread is not found.</exception>
+            <exception cref="T:System.InvalidOperationException">When comment parentThread.IsClosed is <code>true</code>.</exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.ICommentService.CreateComments(System.Collections.Generic.IEnumerable{Telerik.Sitefinity.Services.Comments.IComment})">
+            <summary>
+            Creates <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> objects.
+            </summary>
+            <param name="comments">The comments.</param>
+            <returns><see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/></returns>
+            <exception cref="T:System.ArgumentNullException">When comment is null.</exception>
+            <exception cref="T:System.ArgumentException">When comment.Message, comment.ThreadKey or comment.Author are null.</exception>
+            <exception cref="!:ItemNotFoundException">When a comment parentThread is not found.</exception>
+            <exception cref="T:System.InvalidOperationException">When a comment parentThread.IsClosed is <code>true</code>.</exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.ICommentService.GetComment(System.String)">
+            <summary>
+            Gets the <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> object by Key. Returns the <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> object if found, otherwise returns null.
+            </summary>
+            <param name="commentKey">The comment key.</param>
+            <exception cref="T:System.ArgumentNullException">When commentKey is null.</exception>
+            <returns><see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/>, if the comment is found. Otherwise returns <code>null</code></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.ICommentService.GetComments(System.String)">
+            <summary>
+            Gets all <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> objects in the thread.
+            </summary>
+            <param name="threadKey">The thread key.</param>
+            <exception cref="T:System.ArgumentNullException">When threadKey is null</exception>
+            <returns><see cref="T:System.Collections.Generic.IEnumerable`1"/></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.ICommentService.GetComments(Telerik.Sitefinity.Services.Comments.CommentFilter)">
+            <summary>
+            Gets the <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> objects by <see cref="T:Telerik.Sitefinity.Services.Comments.CommentFilter"/>.
+            </summary>
+            <param name="filter">The filter.</param>
+            <returns><see cref="T:System.Collections.Generic.IEnumerable`1"/></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.ICommentService.GetComments(Telerik.Sitefinity.Services.Comments.CommentFilter,System.Int32@)">
+            <summary>
+            Gets the <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> objects by <see cref="T:Telerik.Sitefinity.Services.Comments.CommentFilter"/>.
+            </summary>
+            <param name="filter">The filter.</param>
+            <param name="totalCount">The total count.</param>        
+            <returns><see cref="T:System.Collections.Generic.IEnumerable`1"/></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.ICommentService.UpdateComment(Telerik.Sitefinity.Services.Comments.IComment)">
+            <summary>
+            Updates the <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> object.
+            </summary>        
+            <param name="comment">The comment.</param>
+            <exception cref="T:System.ArgumentNullException">When comment is null.</exception>
+            <exception cref="T:System.ArgumentException">When comment.Message, comment.ThreadKey or comment.Author are null.</exception>
+            <exception cref="!:ItemNotFoundException">When comment is not found.</exception>        
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.ICommentService.UpdateComments(System.Collections.Generic.IEnumerable{Telerik.Sitefinity.Services.Comments.IComment})">
+            <summary>
+            Updates the <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> objects.
+            </summary>        
+            <param name="comments">The comments.</param>
+            <exception cref="T:System.ArgumentNullException">When comment is null.</exception>
+            <exception cref="T:System.ArgumentException">When comment.Message, comment.ThreadKey or comment.Author are null.</exception>
+            <exception cref="!:ItemNotFoundException">When a comment is not found.</exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.ICommentService.DeleteComment(System.String)">
+            <summary>
+            Deletes the <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> object by commentKey.
+            </summary>
+            <param name="commentKey">The comment key.</param>
+            <exception cref="T:System.ArgumentNullException">When commentKey is null</exception>
+            <exception cref="!:ItemNotFoundException">When comment is not found.</exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.ICommentService.DeleteComments(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Deletes the <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> objects by commentKeys.
+            </summary>
+            <param name="commentKeys">The comment keys.</param>
+            <exception cref="T:System.ArgumentNullException">When commentKeys are null</exception>
+            <exception cref="!:ItemNotFoundException">When a comment is not found.</exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.ICommentService.CreateThread(Telerik.Sitefinity.Services.Comments.IThread)">
+            <summary>
+            Creates the <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> object.
+            </summary>
+            <param name="thread">The thread.</param>
+            <exception cref="T:System.ArgumentNullException">When thread, thread.Title, thread.Type or thread.Author are null.</exception>
+            <returns><see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.ICommentService.GetThread(System.String)">
+            <summary>
+            Gets the <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> object by threadKey. Returns the <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> object if found, otherwise returns null
+            </summary>
+            <param name="threadKey">The thread key.</param>
+            <exception cref="T:System.ArgumentNullException">When threadKey is null or empty</exception>
+            <returns><see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/>, if the thread is found. Otherwise returns <code>null</code></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.ICommentService.GetThreads(System.String)">
+            <summary>
+            Gets all <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> objects in an <see cref="T:Telerik.Sitefinity.Services.Comments.IGroup"/> object, by groupKey.
+            </summary>
+            <param name="groupKey">The group key.</param>
+            <exception cref="T:System.ArgumentNullException">When groupKey is null or empty</exception>
+            <returns><see cref="T:System.Collections.Generic.IEnumerable`1"/></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.ICommentService.GetThreads(Telerik.Sitefinity.Services.Comments.ThreadFilter)">
+            <summary>
+            Gets the <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> objects by <see cref="T:Telerik.Sitefinity.Services.Comments.ThreadFilter"/>.
+            </summary>
+            <param name="filter">The filter.</param>
+            <returns><see cref="T:System.Collections.Generic.IEnumerable`1"/></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.ICommentService.GetThreads(Telerik.Sitefinity.Services.Comments.ThreadFilter,System.Int32@)">
+            <summary>
+            Gets the <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> objects by <see cref="T:Telerik.Sitefinity.Services.Comments.ThreadFilter"/>.
+            </summary>
+            <param name="filter">The filter.</param>
+            <param name="totalCount">The total count.</param>
+            <returns><see cref="T:System.Collections.Generic.IEnumerable`1"/></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.ICommentService.UpdateThread(Telerik.Sitefinity.Services.Comments.IThread)">
+            <summary>
+            Updates the <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> object.
+            </summary>        
+            <param name="thread">The thread.</param>
+            <exception cref="!:ItemNotFoundException">When thread is not found.</exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.ICommentService.DeleteThread(System.String)">
+            <summary>
+            Deletes the <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> object by commentKey.
+            </summary>
+            <param name="threadKey">The thread key.</param>
+            <exception cref="T:System.ArgumentNullException">When threadKey is null or empty.</exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.ICommentService.CreateGroup(Telerik.Sitefinity.Services.Comments.IGroup)">
+            <summary>
+            Creates the <see cref="T:Telerik.Sitefinity.Services.Comments.IGroup"/> object.
+            </summary>
+            <param name="group">The group.</param>
+            <exception cref="T:System.ArgumentNullException">When group is null or group.Name is nullOrEmpty.</exception>
+            <returns><see cref="T:Telerik.Sitefinity.Services.Comments.IGroup"/></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.ICommentService.GetGroup(System.String)">
+            <summary>
+            Gets the <see cref="T:Telerik.Sitefinity.Services.Comments.IGroup"/> object by groupKey. Returns the <see cref="T:Telerik.Sitefinity.Services.Comments.IGroup"/> object if found, otherwise returns null.
+            </summary>
+            <param name="groupKey">The group key.</param>
+            <exception cref="T:System.ArgumentNullException">When groupKey is null or empty</exception>
+            <returns><see cref="T:Telerik.Sitefinity.Services.Comments.IGroup"/>, if the group is found. Otherwise returns <code>null</code></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.ICommentService.GetGroups(Telerik.Sitefinity.Services.Comments.GroupFilter)">
+            <summary>
+            Gets the <see cref="T:Telerik.Sitefinity.Services.Comments.IGroup"/> objects by <see cref="T:Telerik.Sitefinity.Services.Comments.GroupFilter"/>.
+            </summary>
+            <param name="filter">The filter.</param>
+            <returns><see cref="T:System.Collections.Generic.IEnumerable`1"/></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.ICommentService.GetGroups(Telerik.Sitefinity.Services.Comments.GroupFilter,System.Int32@)">
+            <summary>
+            Gets the <see cref="T:Telerik.Sitefinity.Services.Comments.IGroup"/> objects by filter.
+            </summary>
+            <param name="filter">The filter.</param>
+            <param name="totalCount">The total count.</param>
+            <returns><see cref="T:System.Collections.Generic.IEnumerable`1"/></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.ICommentService.DeleteGroup(System.String)">
+            <summary>
+            Deletes the <see cref="T:Telerik.Sitefinity.Services.Comments.IGroup"/> object by groupKey.
+            </summary>
+            <param name="groupKey">The thread key.</param>
+            <exception cref="T:System.ArgumentNullException">When groupKey is null or empty.</exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.ICommentService.Subscribe(Telerik.Sitefinity.Services.Comments.Notifications.SubscriptionData)">
+            <summary>
+            Subscribe to comments notifications. By subscribing to comments notifications, the user will receive emails when new <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> objects are created.
+            </summary>
+            <param name="subsctiptionData">Comments notification subscription data. Contains the information needed to subscribe users to comments notifications.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.ICommentService.Unsubscribe(Telerik.Sitefinity.Services.Comments.Notifications.SubscriptionData)">
+            <summary>
+            Unsubscribe from comments notifications. By unsubscribing from comments notifications, the user will stop receive emails when new <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> objects are created.
+            </summary>
+            <param name="subsctiptionData">Comments notification subscription data. Contains the information needed to unsubscribe users to comments notifications.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.ICommentService.IsSubscribed(Telerik.Sitefinity.Services.Comments.Notifications.SubscriptionData)">
+            <summary>
+            Checks whether a user is subscribed to <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> objects notifications.
+            </summary>
+            <param name="subsctiptionData">Comments notification subscription data. Contains the information needed to check if user is subscribed to comments notifications.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.IGroup">
+            <summary>
+            Interface that defines the behavior of the group.
+            The group is a parent object of <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> objects and indirect parent of <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> objects.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.IGroup.Key">
+            <summary>
+            Gets or sets the key of the <see cref="T:Telerik.Sitefinity.Services.Comments.IGroup"/> object.
+            </summary>
+            <value>
+            The unique key of the group.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.IGroup.Name">
+            <summary>
+            Gets or sets the name of the <see cref="T:Telerik.Sitefinity.Services.Comments.IGroup"/> object.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.IGroup.Description">
+            <summary>
+            Gets or sets the description of the <see cref="T:Telerik.Sitefinity.Services.Comments.IGroup"/> object.
+            </summary>
+            <value>
+            The description.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.IGroup.Author">
+            <summary>
+            Gets or sets the key of the <see cref="T:Telerik.Sitefinity.Services.Comments.IAuthor"/> object that the <see cref="T:Telerik.Sitefinity.Services.Comments.IGroup"/> object is associated with.
+            </summary>
+            <value>
+            The author that created the group.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.IGroup.DateCreated">
+            <summary>
+            Gets or sets the date when the <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> object was created.
+            </summary>
+            <value>
+            The date created.
+            </value>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.IThread">
+            <summary>
+            Interface that defines the behavior of the thread.
+            Each thread should be related to a parent <see cref="T:Telerik.Sitefinity.Services.Comments.IGroup"/> object.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.IThread.Key">
+            <summary>
+            Gets or sets the key of the <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> object.
+            </summary>
+            <value>
+            The unique key of the thread.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.IThread.Type">
+            <summary>
+            Gets or sets the type of the <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> object.
+            </summary>
+            <value>
+            The type of the thread
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.IThread.Behavior">
+            <summary>
+            Gets or sets the behavior of the <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> object.
+            </summary>
+            <value>
+            The behavior of the thread
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.IThread.Title">
+            <summary>
+            Gets or sets the title of the <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> object.
+            </summary>
+            <value>
+            The title.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.IThread.Language">
+            <summary>
+            Gets or sets the language of the <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> object.
+            </summary>
+            <value>
+            The language of the thread.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.IThread.CommentsCount">
+            <summary>
+            Gets or sets the count of the <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> objects associated with the <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> object.
+            </summary>
+            <value>
+            The comments count in this thread.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.IThread.IsClosed">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> object is closed.
+            </summary>
+            <value>
+              <c>true</c> if this instance is closed; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.IThread.GroupKey">
+            <summary>
+            Gets or sets the key of the <see cref="T:Telerik.Sitefinity.Services.Comments.IGroup"/> object that the <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> object is associated with.
+            </summary>
+            <value>
+            The group key.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.IThread.DataSource">
+            <summary>
+            Gets or sets the data source of the <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> object.
+            </summary>
+            <value>
+            The data source.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.IThread.Author">
+            <summary>
+            Gets or sets the key of the <see cref="T:Telerik.Sitefinity.Services.Comments.IAuthor"/> object that the <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> object is associated with.
+            </summary>
+            <value>
+            The author that created the thread.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.IThread.DateCreated">
+            <summary>
+            Gets or sets the date when the <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> object was created.
+            </summary>
+            <value>
+            The date created.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.IThread.AverageRating">
+            <summary>
+            Gets or sets the average rating.
+            </summary>
+            <value>
+            The average rating.
+            </value>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.Proxies.AuthorProxy">
+            <summary>
+            Proxy class that implements <see cref="T:Telerik.Sitefinity.Services.Comments.IAuthor"/> interface. 
+            The <see cref="T:Telerik.Sitefinity.Services.Comments.IAuthor"/> object could be associated with <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/>, <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> and <see cref="T:Telerik.Sitefinity.Services.Comments.IGroup"/> objects.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Proxies.AuthorProxy.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Comments.Proxies.AuthorProxy"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Proxies.AuthorProxy.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Comments.Proxies.AuthorProxy"/> class.
+            </summary>
+            <param name="authorKey">The author key.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Proxies.AuthorProxy.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Comments.Proxies.AuthorProxy"/> class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="email">The email.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.Proxies.AuthorProxy.Key">
+            <summary>
+            Gets or sets the key of the <see cref="T:Telerik.Sitefinity.Services.Comments.IAuthor"/> object.
+            Represents the id of the user created the <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/>, <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> or <see cref="T:Telerik.Sitefinity.Services.Comments.IGroup"/> object.
+            </summary>
+            <value>
+            The author key.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.Proxies.AuthorProxy.Name">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.Proxies.AuthorProxy.Email">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.Proxies.CommentProxy">
+            <summary>
+            Proxy class that implements <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> interface.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Proxies.CommentProxy.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Comments.Proxies.CommentProxy"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Proxies.CommentProxy.#ctor(System.String,System.String,Telerik.Sitefinity.Services.Comments.IAuthor,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Comments.Proxies.CommentProxy"/> class.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="threadKey">The thread key.</param>
+            <param name="author">The author.</param>
+            <param name="authorIpAddress">The author IP address.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Proxies.CommentProxy.#ctor(System.String,System.String,Telerik.Sitefinity.Services.Comments.IAuthor,System.String,System.Nullable{System.Decimal})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Comments.Proxies.CommentProxy"/> class.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="threadKey">The thread key.</param>
+            <param name="author">The author.</param>
+            <param name="authorIpAddress">The author IP address.</param>
+            <param name="rating">The rating.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.Proxies.CommentProxy.Id">
+            <summary>
+            Gets or sets the comment unique key.
+            </summary>
+            <value>
+            The unique key of the comment.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.Proxies.CommentProxy.Key">
+            <summary>
+            Gets or sets the comment unique key.
+            </summary>
+            <value>
+            The unique key of the comment.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.Proxies.CommentProxy.Message">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.Proxies.CommentProxy.Status">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.Proxies.CommentProxy.ThreadKey">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.Proxies.CommentProxy.AuthorIpAddress">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.Proxies.CommentProxy.Author">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.Proxies.CommentProxy.DateCreated">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.Proxies.CommentProxy.CustomData">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.Proxies.CommentProxy.LastModified">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.Proxies.CommentProxy.LastModifiedBy">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.Proxies.CommentProxy.Rating">
+            <summary>
+            Gets or sets the rating part of the comment.
+            </summary>
+            <value>
+            The comment rating.
+            </value>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.Proxies.GroupProxy">
+            <summary>
+            Proxy class that implements <see cref="T:Telerik.Sitefinity.Services.Comments.IGroup"/> interface.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Proxies.GroupProxy.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Comments.Proxies.GroupProxy"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Proxies.GroupProxy.#ctor(System.String,System.String,Telerik.Sitefinity.Services.Comments.IAuthor)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Comments.Proxies.GroupProxy"/> class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="description">The description.</param>
+            <param name="author">The author.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.Proxies.GroupProxy.Key">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.Proxies.GroupProxy.Name">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.Proxies.GroupProxy.Description">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.Proxies.GroupProxy.Author">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.Proxies.GroupProxy.DateCreated">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.Proxies.ThreadProxy">
+            <summary>
+            Proxy class that implements <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> interface.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Proxies.ThreadProxy.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Comments.Proxies.ThreadProxy"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Proxies.ThreadProxy.#ctor(System.String,System.String,System.String,Telerik.Sitefinity.Services.Comments.IAuthor)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Comments.Proxies.ThreadProxy"/> class.
+            </summary>
+            <param name="title">The title.</param>
+            <param name="type">The type.</param>
+            <param name="groupКey">The group key.</param>
+            <param name="author">The author.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.Proxies.ThreadProxy.Key">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.Proxies.ThreadProxy.Type">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.Proxies.ThreadProxy.Behavior">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.Proxies.ThreadProxy.CommentsCount">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.Proxies.ThreadProxy.Title">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.Proxies.ThreadProxy.Language">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.Proxies.ThreadProxy.IsClosed">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.Proxies.ThreadProxy.GroupKey">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.Proxies.ThreadProxy.DataSource">
+            <summary>
+            Gets or sets the data source of the <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> object.    
+            </summary>
+            <remarks>
+            The default implementation uses the provider name of the item associated with the <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> object.
+            </remarks>
+            <example>
+            The provider name of a news item.
+            </example>
+            <value>
+            The data source.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.Proxies.ThreadProxy.Author">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.Proxies.ThreadProxy.DateCreated">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.Proxies.ThreadProxy.AverageRating">
+            <summary>
+            Gets or sets the average rating of the thread.
+            </summary>
+            <value>
+            The thread average rating.
+            </value>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.StatusConstants">
+            <summary>
+            Comments statuses
+            </summary>
+        </member>
+    </members>
+</doc>

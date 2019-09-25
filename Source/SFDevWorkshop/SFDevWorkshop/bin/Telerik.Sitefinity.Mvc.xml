@@ -1,0 +1,2607 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Telerik.Sitefinity.Mvc</name>
+    </assembly>
+    <members>
+        <member name="T:Telerik.Sitefinity.Mvc.ActionFilters.FileResultFilterAttribute">
+            <summary>
+            This class represents <see cref="T:Telerik.Sitefinity.Mvc.ActionFilters.StandaloneResponseFilterAttribute"/>  and is meant to handle the response for actions that will return FileResult.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.ActionFilters.FileResultFilterAttribute.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Mvc.ActionFilters.FileResultFilterAttribute"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.ActionFilters.FileResultFilterAttribute.OnActionExecuted(System.Web.Mvc.ActionExecutedContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.Mvc.ActionFilters.HandleNotFoundResultActionFilterAttribute">
+            <summary>
+            This action filter handles HttpNotFoundResult, return not found (404) response and terminate further execution.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.ActionFilters.HandleNotFoundResultActionFilterAttribute.OnActionExecuted(System.Web.Mvc.ActionExecutedContext)">
+            <summary>
+            Called by the ASP.NET MVC framework after the action method executes.
+            </summary>
+            <param name="filterContext">The filter context.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.Mvc.ActionFilters.HttpStatusCodeFilterAttribute">
+            <summary>
+            This class provides functionality for lazy evaluation of an action result of type <see cref="T:System.Web.Mvc.HttpStatusCodeResult"/>.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.ActionFilters.HttpStatusCodeFilterAttribute.OnActionExecuted(System.Web.Mvc.ActionExecutedContext)">
+            <summary>
+            Called by the ASP.NET MVC framework after the action method executes.
+            </summary>
+            <param name="filterContext">The filter context.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.Mvc.ActionFilters.JsonResultFilterAttribute">
+            <summary>
+            This class represents <see cref="T:Telerik.Sitefinity.Mvc.ActionFilters.StandaloneResponseFilterAttribute"/>  and is meant to handle the response for actions that will return JsonResult
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.ActionFilters.JsonResultFilterAttribute.OnActionExecuted(System.Web.Mvc.ActionExecutedContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.Mvc.ActionFilters.PerformanceFilterAttribute">
+            <summary>
+            This class represents <see cref="T:System.Web.Mvc.ActionFilterAttribute"/>  and is meant to log performance characteristics of the executed action.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.ActionFilters.PerformanceFilterAttribute.OnActionExecuting(System.Web.Mvc.ActionExecutingContext)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.ActionFilters.PerformanceFilterAttribute.OnActionExecuted(System.Web.Mvc.ActionExecutedContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.Mvc.ActionFilters.StandaloneResponseFilterAttribute">
+            <summary>
+            This class represents <see cref="T:System.Web.Mvc.ActionFilterAttribute"/>  and is meant to alter the HttpResponse content.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.ActionFilters.StandaloneResponseFilterAttribute.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Mvc.ActionFilters.StandaloneResponseFilterAttribute"/> class.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.ActionFilters.StandaloneResponseFilterAttribute.Proccess">
+            <summary>
+            Gets or sets a value indicating whether current request requires standalone response.
+            </summary>
+            <value>
+            <c>true</c> if current request requires standalone response; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.ActionFilters.StandaloneResponseFilterAttribute.OnActionExecuted(System.Web.Mvc.ActionExecutedContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.Mvc.ActionFilters.UrlParamsResolvedActionFilterAttribute">
+            <summary>
+            This action filter is registered globally in order to handle HttpNotFound action results returned by widget actions.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.ActionFilters.UrlParamsResolvedActionFilterAttribute.OnActionExecuted(System.Web.Mvc.ActionExecutedContext)">
+            <summary>
+            Called by the ASP.NET MVC framework after the action method executes.
+            </summary>
+            <param name="filterContext">The filter context.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.Mvc.ActionResults.ActionResultExtensions">
+            <summary>
+            Extensions for the action results.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.ActionResults.ActionResultExtensions.AddDownloadFileNameHeader(System.Web.Mvc.FileResult,System.Web.HttpResponseBase)">
+            <summary>
+            Adds the download file name in the response header.
+            </summary>
+            <param name="fileResult">The file result.</param>
+            <param name="rs">The http response.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.Mvc.ActionResults.LazyFileContentResult">
+            <summary>
+            This class provides functionality for lazy evaluation of the writing the <see cref="T:Telerik.Sitefinity.Mvc.ActionResults.LazyFileContentResult"/> output to the response object.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.ActionResults.LazyFileContentResult.#ctor(System.Web.Mvc.FileContentResult)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Mvc.ActionResults.LazyFileContentResult"/> class.
+            </summary>
+            <param name="fileResult">The original FileContentResult.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.ActionResults.LazyFileContentResult.WriteFile(System.Web.HttpResponseBase)">
+            <summary>
+            Writes the file to the response.
+            </summary>
+            <param name="response">The response.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.Mvc.ActionResults.LazyFilePathResult">
+            <summary>
+            This class provides functionality for lazy evaluation of the writing the <see cref="T:System.Web.Mvc.FilePathResult"/> output to the response object.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.ActionResults.LazyFilePathResult.#ctor(System.Web.Mvc.FilePathResult)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Mvc.ActionResults.LazyFilePathResult"/> class.
+            </summary>
+            <param name="fileResult">The original FilePathResult.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.ActionResults.LazyFilePathResult.WriteFile(System.Web.HttpResponseBase)">
+            <summary>
+            Writes the file to the response.
+            </summary>
+            <param name="response">The response.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.Mvc.ActionResults.LazyFileStreamResult">
+            <summary>
+            This class provides functionality for lazy evaluation of the writing the <see cref="T:Telerik.Sitefinity.Mvc.ActionResults.LazyFileStreamResult"/> output to the response object.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.ActionResults.LazyFileStreamResult.#ctor(System.Web.Mvc.FileStreamResult)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Mvc.ActionResults.LazyFileStreamResult"/> class.
+            </summary>
+            <param name="fileResult">The original FileStreamResult.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.ActionResults.LazyFileStreamResult.WriteFile(System.Web.HttpResponseBase)">
+            <summary>
+            Writes the file to the response.
+            </summary>
+            <param name="response">The response.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.Mvc.ControlBehaviorResolver">
+            <summary>
+            Provides methods for resolving the behavior descriptor object of a <see cref="T:System.Web.UI.Control"/> control.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.ControlBehaviorResolver.GetBehaviorObject(System.Web.UI.Control)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.ControlBehaviorResolver.GetBehaviorObjectType(Telerik.Sitefinity.Pages.Model.ControlData)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.ControlBehaviorResolver.GetPersistedProperties(Telerik.Sitefinity.Pages.Model.ControlData)">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.Mvc.ControllerActionInvoker">
+            <summary>
+            This class provides functionality for delegating request processing to an action of a MVC controller.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.ControllerActionInvoker.Context">
+            <summary>
+            Gets or sets the instance of the <see cref="T:Telerik.Sitefinity.Mvc.MvcHttpContext"/> which is 
+            a specialized HttpContext dynamically created and used by MVC controllers.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.ControllerActionInvoker.TryInvokeAction(Telerik.Sitefinity.Mvc.Proxy.MvcProxyBase,System.String@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.ControllerActionInvoker.DeserializeControllerProperties(Telerik.Sitefinity.Mvc.Proxy.MvcProxyBase)">
+            <summary>
+            Populates the controller properties by restoring their values from  <see cref="P:Telerik.Sitefinity.Mvc.Proxy.MvcProxyBase.SerializedSettings"/>.
+            </summary>
+            <param name="proxyControl">The proxy control.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.ControllerActionInvoker.ShouldProcessRequest(Telerik.Sitefinity.Mvc.Proxy.MvcProxyBase)">
+            <summary>
+            Determines whether the execution of the controller action should proceed depending on request parameters.
+            </summary>
+            <param name="proxyControl">The proxy control.</param>
+            <returns>
+            If controller action should be executed
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.ControllerActionInvoker.ShouldProcessRequest(System.Web.Mvc.ControllerBase)">
+            <summary>
+            Gets a value indicating whether the controller should process the current request.
+            </summary>
+            <param name="controller">The controller.</param>
+            <returns>
+            A value indicating whether the controller should process the current request.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.ControllerActionInvoker.SetHttpContext(Telerik.Sitefinity.Mvc.Proxy.MvcProxyBase)">
+            <summary>
+            Changes the current context with temporary context and set it as context of proxyControl.
+            </summary>
+            <param name="proxyControl">The proxy control.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.ControllerActionInvoker.InitializeControllerContext(Telerik.Sitefinity.Mvc.Proxy.MvcProxyBase)">
+            <summary>
+            Initialize the Controller.
+            </summary>
+            <param name="proxyControl">The proxy control.</param>
+            <exception cref="T:System.ArgumentNullException">httpContext</exception>
+            <remarks>
+            Sets the <see cref="T:System.Web.Mvc.ControllerContext" /> of the proxy control depending on the current page request.
+            </remarks>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.ControllerActionInvoker.InitializeRouteParameters(Telerik.Sitefinity.Mvc.Proxy.MvcProxyBase)">
+            <summary>
+            Builds the request context for the proxy control.
+            </summary>
+            <param name="proxyControl">The proxy control.</param>
+            <exception cref="T:System.ArgumentNullException"> originalContext </exception>
+            <remarks>
+            On this step is defined the route parameters and the action that should be executed.
+            </remarks>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.ControllerActionInvoker.ExecuteController(Telerik.Sitefinity.Mvc.Proxy.MvcProxyBase)">
+            <summary>
+            Executes the controller and ends the response if needed.
+            </summary>
+            <param name="proxyControl">The proxy control.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.ControllerActionInvoker.SetPageProperties(Telerik.Sitefinity.Mvc.Proxy.MvcProxyBase)">
+            <summary>
+            Sets the page properties depending on the controller values of the proxy control.
+            </summary>
+            <param name="proxyControl">The proxy control.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.ControllerActionInvoker.SetPageSeoProperties(Telerik.Sitefinity.Mvc.Proxy.MvcProxyBase,Telerik.Sitefinity.Mvc.MetadataModel,System.Collections.Generic.IEnumerable{System.ComponentModel.PropertyDescriptor},System.String)">
+            <summary>
+            Sets the page SEO properties depending on the controller values of the proxy control.
+            </summary>
+            <param name="proxyControl">The proxy control.</param>
+            <param name="metadata">The meta data.</param>
+            <param name="properties">The properties.</param>
+            <param name="initialPageTitle">The initial page title.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.ControllerActionInvoker.SetPageOpenGraphProperties(Telerik.Sitefinity.Mvc.Proxy.MvcProxyBase,Telerik.Sitefinity.Mvc.MetadataModel,System.Collections.Generic.IEnumerable{System.ComponentModel.PropertyDescriptor},System.String)">
+            <summary>
+            Sets the page OpenGraph properties depending on the controller values of the proxy control.
+            </summary>
+            <param name="proxyControl">The proxy control.</param>
+            <param name="metadata">The meta data.</param>
+            <param name="properties">The properties.</param>
+            <param name="initialPageTitle">The initial page title.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.ControllerActionInvoker.RestoreHttpContext(System.String,System.Web.HttpContext)">
+            <summary>
+            Restores the HTTP context and adds the control output the the response.
+            </summary>
+            <param name="output">The output.</param>
+            <param name="initialContext">The context.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.ControllerActionInvoker.HandleStandaloneResponse(System.String)">
+            <summary>
+            Adds the control output to response. In case executed action is marked with <see cref="T:Telerik.Sitefinity.Mvc.ActionFilters.StandaloneResponseFilterAttribute" /> the response will be cleared before adding the control output.
+            </summary>
+            <param name="output">The output.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.ControllerActionInvoker.GetCastValue(System.ComponentModel.PropertyDescriptor,Telerik.Sitefinity.Mvc.Proxy.MvcProxyBase)">
+            <summary>
+            Gets a property value from proxy control and casts it to the type specified in the property descriptor.
+            </summary>
+            <param name="propDesc">Property description.</param>
+            <param name="proxyControl">The proxy control.</param>
+            <returns>The value casted to the specified type.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.ControllerActionInvoker.CloneHttpContext(System.Web.HttpContext)">
+            <summary>
+            Clones the HTTP context.
+            </summary>
+            <param name="context">The context.</param>
+            <returns>Cloned HTTP context.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.ControllerActionInvoker.Populate(System.Web.HttpContext,System.Web.HttpContext)">
+            <summary>
+            Populates the target <see cref="T:System.Web.HttpContext"/> from the source values.
+            </summary>
+            <param name="source">The source.</param>
+            <param name="target">The target.</param>
+        </member>
+        <member name="F:Telerik.Sitefinity.Mvc.ControllerActionInvoker.StandaloneResponse">
+            <summary>
+            A constant used as a flag at System.Web.HttpContext indicating that response should be completed.
+            The value could be set at MVC controller when PartialViewResult is being returned.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Mvc.ControllerActionInvoker.StandaloneResponseAction">
+            <summary>
+            A constant used as a flag in System.Web.HttpContext.Items indicating that there is an action that should be executed against the original response object.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Mvc.ControllerActionInvoker.IsInPureModeKey">
+            <summary>
+            A constant used as a key in the HttpContext items that shows if the page is in pure mode.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Mvc.ControllerActionInvoker.ShouldProcessRequestKey">
+            <summary>
+            A constant used as a key in the controller's view data in order to persist whether the controller should handle the request.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Mvc.ControllerActionInvoker.SfRedirectUrlKey">
+            <summary>
+            A constant used as a key in the controller's route data in order to persist whether the controller should redirect the request.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Mvc.ControllerActionInvoker.PageTitleModes">
+            <summary>
+            Page Title modes
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Mvc.ControllerActionInvoker.PageTitleModes.Replace">
+            <summary>
+            The replace
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Mvc.ControllerActionInvoker.PageTitleModes.Append">
+            <summary>
+            The append
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Mvc.ControllerActionInvoker.PageTitleModes.Hierarchy">
+            <summary>
+            The hierarchy
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Mvc.ControllerActionInvoker.PageTitleModes.DoNotSet">
+            <summary>
+            The do not set
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Mvc.ControllerNameAttribute">
+            <summary>
+            Attribute used to specify controller name.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.ControllerNameAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Mvc.ControllerNameAttribute"/> class.
+            </summary>
+            <param name="controllerName">Name of the controller being proxied.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.ControllerNameAttribute.ControllerName">
+            <summary>
+            Gets the name of the controller that is being proxied.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Mvc.ControllerToolboxItemAttribute">
+            <summary>
+            Attribute which is used to decorate types that implement <see cref="T:System.Web.Mvc.IController"/> interface
+            to instruct Sitefinity to include the controller in the page editor toolbox.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.ControllerToolboxItemAttribute.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Mvc.ControllerToolboxItemAttribute"/> class.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.ControllerToolboxItemAttribute.Name">
+            <summary>
+            Gets or sets the name of the toolbox item.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.ControllerToolboxItemAttribute.Title">
+            <summary>
+            Gets or sets the title of the toolbox item.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.ControllerToolboxItemAttribute.Description">
+            <summary>
+            Gets or sets the description of the toolbox item.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.ControllerToolboxItemAttribute.ResourceClassId">
+            <summary>
+            Gets or sets the resource class id of the toolbox item.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.ControllerToolboxItemAttribute.SectionName">
+            <summary>
+            Gets or sets the name of the section in which the item should be placed.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.ControllerToolboxItemAttribute.ModuleName">
+            <summary>
+            Gets or sets the module name the toolbox item depends on.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.ControllerToolboxItemAttribute.CssClass">
+            <summary>
+            Gets or sets the CSS class for this item.
+            </summary>
+            <value>The CSS class.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.ControllerToolboxItemAttribute.Toolbox">
+            <summary>
+            Gets or sets the toolbox in which the controller is registered.
+            </summary>
+            <value>The toolbox.</value>
+        </member>
+        <member name="T:Telerik.Sitefinity.Mvc.ControllerWrapper">
+            <summary>
+            This class represents wrapper around <see cref="T:System.Web.Mvc.Controller"/>
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.ControllerWrapper.#ctor(System.Web.Mvc.Controller)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Mvc.ControllerWrapper"/> class.
+            </summary>
+            <param name="controller">The controller.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.ControllerWrapper.CallHandleUnknownAction(System.String)">
+            <summary>
+            Calls the handle unknown action.
+            </summary>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.ControllerWrapper.Execute">
+            <summary>
+            Executes this instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.ControllerWrapper.TrySaveTempData">
+            <summary>
+            Tries to save temporary data.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Mvc.ISitefinityControllerFactory">
+            <summary>
+            Represents controller factory for Sitefinity.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.ISitefinityControllerFactory.RegisterController(System.String,System.Type)">
+            <summary>
+            Registers the controller in the controller registry.
+            </summary>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="controllerType">Type of the controller.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.ISitefinityControllerFactory.ResolveControllerName(System.Type)">
+            <summary>
+            Resolves the name of the controller by its proxy type.
+            </summary>
+            <param name="proxyType">Type of the proxy.</param>
+            <returns>The controller name.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.ISitefinityControllerFactory.ResolveControllerName(Telerik.Sitefinity.Mvc.Proxy.MvcProxyBase)">
+            <summary>
+            Resolves the name of the controller by its proxy.
+            </summary>
+            <param name="proxy">The proxy.</param>
+            <returns>The controller name.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.ISitefinityControllerFactory.ResolveControllerType(System.String)">
+            <summary>
+            Gets the type that represents the controller.
+            </summary>
+            <param name="controllerName">Name of the controller.</param>
+            <returns>
+            An instance of <see cref="T:System.Type" /> representing the type of the controller.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.ISitefinityControllerFactory.UnregisterController(System.String)">
+            <summary>
+            Unregisters the controller from the controller registry.
+            </summary>
+            <param name="controllerName">Name of the controller.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.Mvc.MetadataModel">
+            <summary>
+            Metadata model class
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.MetadataModel.MetaTitle">
+            <summary>
+            Gets or sets the meta title field name.
+            </summary>
+            <value>
+            The meta title field name.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.MetadataModel.MetaDescription">
+            <summary>
+            Gets or sets the meta description field name.
+            </summary>
+            <value>
+            The meta description field name.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.MetadataModel.OpenGraphTitle">
+            <summary>
+            Gets or sets the open graph title field name.
+            </summary>
+            <value>
+            The open graph title field name.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.MetadataModel.OpenGraphDescription">
+            <summary>
+            Gets or sets the open graph description field name.
+            </summary>
+            <value>
+            The open graph description field name.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.MetadataModel.OpenGraphType">
+            <summary>
+            Gets or sets the open graph type of the object.
+            </summary>
+            <value>
+            The meta open graph of the object.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.MetadataModel.Url">
+            <summary>
+            Gets or sets the open graph URL.
+            </summary>
+            <value>
+            The open graph URL.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.MetadataModel.OpenGraphImage">
+            <summary>
+            Gets or sets the open graph image URL.
+            </summary>
+            <value>
+            The open graph image URL.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.MetadataModel.OpenGraphVideo">
+            <summary>
+            Gets or sets the open graph video URL.
+            </summary>
+            <value>
+            The meta open graph URL.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.MetadataModel.SiteName">
+            <summary>
+            Gets or sets the meta name of the site.
+            </summary>
+            <value>
+            The meta name of the site.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.MetadataModel.PageTitleMode">
+            <summary>
+            Gets or sets the page title mode.
+            </summary>
+            <value>
+            The page title mode.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.MetadataModel.SEOEnabled">
+            <summary>
+            Gets or sets if SEO is enabled.
+            </summary>
+            <value>
+            True or False.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.MetadataModel.OpenGraphEnabled">
+            <summary>
+            Gets or sets if OpenGraph is enabled.
+            </summary>
+            <value>
+            True or False.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.MetadataModel.SEOEnabledPerWidget">
+            <summary>
+            Gets or sets if SEO is enabled for the current widget.
+            </summary>
+            <value>
+            True or False.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.MetadataModel.OpenGraphEnabledPerWidget">
+            <summary>
+            Gets or sets if OpenGraph is enabled for the current widget.
+            </summary>
+            <value>
+            True or False.
+            </value>
+        </member>
+        <member name="T:Telerik.Sitefinity.Mvc.MvcCore">
+            <summary>
+            Main class for the ASP.NET MVC support in Sitefinity.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.MvcCore.EnableMvcSupport">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.MvcCore.RegisterActionFilters">
+            <summary>
+            Registers global action filters.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.MvcCore.RegisterAllAreas">
+            <summary>
+            Registers all areas in an ASP.NET MVC application.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.MvcCore.GetControllerScanner">
+            <summary>
+            Gets a new <see cref="T:Telerik.Sitefinity.Mvc.Store.ControllerScanner"/> instance.
+            </summary>
+            <returns>A new controller scanner instance.</returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Mvc.MvcHttpContext">
+            <summary>
+            This class extends default <see cref="T:System.Web.HttpContextWrapper"/>
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.MvcHttpContext.#ctor(System.Web.HttpContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Mvc.MvcHttpContext"/> class.
+            </summary>
+            <param name="context">The context.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.MvcHttpContext.Request">
+            <summary>
+            Gets the <see cref="T:System.Web.HttpRequestBase" /> object for the current HTTP request.
+            </summary>
+            <returns>The current HTTP request.</returns>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.MvcHttpContext.Response">
+            <summary>
+            Gets the <see cref="T:System.Web.HttpResponseBase" /> object for the current HTTP response.
+            </summary>
+            <returns>The current HTTP response.</returns>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.MvcHttpContext.Output">
+            <summary>
+            Gets the output.
+            </summary>
+            <value>
+            The output.
+            </value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.MvcHttpContext.Initialize(System.Web.HttpContext)">
+            <summary>
+            Initializes the specified context.
+            </summary>
+            <param name="context">The context.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.Mvc.MvcProxyBaseExtensions">
+            <summary>
+            Contains extension methods for <see cref="T:Telerik.Sitefinity.Mvc.Proxy.MvcProxyBase"/> objects.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.MvcProxyBaseExtensions.GetController(Telerik.Sitefinity.Mvc.Proxy.MvcProxyBase)">
+            <summary>
+            Gets the controller of the <see cref="T:Telerik.Sitefinity.Mvc.Proxy.MvcProxyBase"/> control by first attempting a cast to 
+            <see cref="T:Telerik.Sitefinity.Mvc.Proxy.MvcControllerProxy"/> and accessing its Controller property. If that fails the method
+            will create a new controller based on the controller name using the currently configured 
+            <see cref="T:System.Web.Mvc.IControllerFactory"/>.
+            </summary>
+            <param name="mvcProxyBase">The MVC proxy base.</param>
+            <returns>A controller instance.</returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Mvc.MvcRequest">
+            <summary>
+            This class extends <see cref="T:System.Web.HttpRequestWrapper"/>.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.MvcRequest.#ctor(System.Web.HttpRequest)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Mvc.MvcRequest"/> class.
+            </summary>
+            <param name="originalRequest">The original request.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.MvcRequest.IsLocal">
+            <summary>
+            Gets a value that indicates whether the request is from the local computer.
+            </summary>
+            <returns>true if the request is from the local computer; otherwise, false.</returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Mvc.MvcRequestContextBuilder">
+            <summary>
+            This class provides functionality for building a special RequestContext used by controllers
+            that are placed on Sitefinity pages.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.MvcRequestContextBuilder.BuildContext(System.String,Telerik.Sitefinity.Mvc.MvcHttpContext,System.Web.Routing.RequestContext,System.Web.Mvc.Controller)">
+            <summary>
+            Builds a new instance of <see cref="T:System.Web.Routing.RequestContext" /> from the http context and original request context.
+            </summary>
+            <param name="defaultControllerName">Name of the default controller for which the MVC request context is being built.</param>
+            <param name="httpContext">The instance of the <see cref="T:Telerik.Sitefinity.Mvc.MvcHttpContext" />.</param>
+            <param name="originalContext">The original <see cref="T:System.Web.Routing.RequestContext" /> for the Sitefinity page.</param>
+            <param name="controller">The controller.</param>
+            <returns>
+            An instance of the <see cref="T:System.Web.Routing.RequestContext" /> that will be passed to the controller.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            httpContext
+            or
+            originalContext
+            </exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.MvcRequestContextBuilder.SetRouteParameters(System.String[],System.Web.Routing.RequestContext,System.Web.Mvc.Controller,System.String)">
+            <summary>
+            Sets the route parameters.
+            </summary>
+            <param name="originalParams">The original parameters.</param>
+            <param name="mvcRequestContext">The MVC request context.</param>
+            <param name="controller">The controller.</param>
+            <param name="defaultControllerName">Default name of the controller.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.MvcRequestContextBuilder.GetRouteParams(System.Web.Routing.RequestContext)">
+            <summary>
+            Gets the original route parameters.
+            </summary>
+            <param name="originalContext">The original context.</param>
+            <returns>Original route parameters.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.MvcRequestContextBuilder.GetControllerParamsResolved(System.Web.HttpContextBase)">
+            <summary>
+            Gets the value indicating whether a controller has resolved the route parameters in the given context.
+            </summary>
+            <param name="context">The context.</param>
+            <returns>Whether the controller has resolved the route parameters.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.MvcRequestContextBuilder.SetControllerParamsResolved(System.Web.HttpContextBase,System.Boolean)">
+            <summary>
+            Sets the value indicating whether a controller has resolved the route parameters in the given context.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="resolved">Whether the controller has resolved the route parameters.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.Mvc.MvcResponse">
+            <summary>
+            Instances of this class represent a fake response object that is used for rendering Sitefinity MVC widgets.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.MvcResponse.#ctor(System.Web.HttpResponse,System.IO.TextWriter)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Mvc.MvcResponse"/> class.
+            </summary>
+            <param name="response">The response.</param>
+            <param name="writer">The writer.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.MvcResponse.#ctor(System.Web.HttpResponse)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Mvc.MvcResponse"/> class.
+            </summary>
+            <param name="response">The response.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.MvcResponse.RedirectToUrl">
+            <summary>
+            Gets the redirect to URL if the response should redirect.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.MvcResponse.PageResponse">
+            <summary>
+            Gets or sets the response of the page that contains the <see cref="T:Telerik.Sitefinity.Mvc.Proxy.MvcControllerProxy"/> widget.
+            </summary>
+            <remarks>The response object used by the original WebForms Page.</remarks>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.MvcResponse.ShouldEndResponse">
+            <summary>
+            Gets or sets a value indicating whether the response should be ended after the execution of the controller.
+            </summary>
+            <value>
+              <c>true</c> if should end the response; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.MvcResponse.Redirect(System.String)">
+            <summary>
+            Redirects a request to the specified URL.
+            </summary>
+            <param name="url">The target location.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.MvcResponse.Redirect(System.String,System.Boolean)">
+            <summary>
+            Redirects a request to the specified URL and specifies whether execution of the current process should terminate.
+            </summary>
+            <param name="url">The target location.</param>
+            <param name="endResponse">true to terminate the current process.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.MvcResponse.RedirectPermanent(System.String)">
+            <summary>
+            Performs a permanent redirect from the requested URL to the specified URL.
+            </summary>
+            <param name="url">The URL to redirect the request to.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.MvcResponse.RedirectPermanent(System.String,System.Boolean)">
+            <summary>
+            Performs a permanent redirect from the requested URL to the specified URL, and provides the option to complete the response.
+            </summary>
+            <param name="url">The URL to redirect the request to.</param>
+            <param name="endResponse">true to terminate the response; otherwise false. The default is false.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.MvcResponse.RedirectToRoute(System.Object)">
+            <summary>
+            When overridden in a derived class, redirects the request to a new URL by using route parameter values.
+            </summary>
+            <param name="routeValues">The route parameter values.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.MvcResponse.RedirectToRoute(System.String)">
+            <summary>
+            When overridden in a derived class, redirects the request to a new URL by using a route name.
+            </summary>
+            <param name="routeName">The name of the route.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.MvcResponse.RedirectToRoute(System.String,System.Object)">
+            <summary>
+            When overridden in a derived class, redirects the request to a new URL by using route parameter values and a route name.
+            </summary>
+            <param name="routeName">The name of the route.</param>
+            <param name="routeValues">The route parameter values.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.MvcResponse.RedirectToRoute(System.String,System.Web.Routing.RouteValueDictionary)">
+            <summary>
+            Redirects to route.
+            </summary>
+            <param name="routeName">Name of the route.</param>
+            <param name="routeValues">The route values.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.MvcResponse.RedirectToRoute(System.Web.Routing.RouteValueDictionary)">
+            <summary>
+            Redirects to route.
+            </summary>
+            <param name="routeValues">The route values.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.MvcResponse.RedirectToRoutePermanent(System.Object)">
+            <summary>
+            When overridden in a derived class, performs a permanent redirection from the requested URL to a new URL by using route parameter values.
+            </summary>
+            <param name="routeValues">The route parameter values.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.MvcResponse.RedirectToRoutePermanent(System.Web.Routing.RouteValueDictionary)">
+            <summary>
+            Redirects to route permanent.
+            </summary>
+            <param name="routeValues">The route values.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.MvcResponse.RedirectToRoutePermanent(System.String)">
+            <summary>
+            When overridden in a derived class, performs a permanent redirection from the requested URL to a new URL by using a route name.
+            </summary>
+            <param name="routeName">The name of the route.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.MvcResponse.RedirectToRoutePermanent(System.String,System.Object)">
+            <summary>
+            When overridden in a derived class, performs a permanent redirection from the requested URL to a new URL by using the route parameter values and the name of the route that correspond to the new URL.
+            </summary>
+            <param name="routeName">The name of the route.</param>
+            <param name="routeValues">The route parameter values.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.MvcResponse.RedirectToRoutePermanent(System.String,System.Web.Routing.RouteValueDictionary)">
+            <summary>
+            Redirects to route permanent.
+            </summary>
+            <param name="routeName">Name of the route.</param>
+            <param name="routeValues">The route values.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.MvcResponse.AddCacheDependency(System.Web.Caching.CacheDependency[])">
+            <summary>
+            When overridden in a derived class, associates cache dependencies with the response that enable the response to be invalidated if it is cached and if the specified dependencies change.
+            </summary>
+            <param name="dependencies">A file, cache key, or <see cref="T:System.Web.Caching.CacheDependency" /> object to add to the list of application dependencies.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.MvcResponse.AddCacheItemDependencies(System.String[])">
+            <summary>
+            Makes the validity of a cached item dependent on the specified items in the cache.
+            </summary>
+            <param name="cacheKeys">An array that contains the keys of the items that the cached response is dependent on.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.MvcResponse.AddCacheItemDependencies(System.Collections.ArrayList)">
+            <summary>
+            Makes the validity of a cached response dependent on the specified items in the cache.
+            </summary>
+            <param name="cacheKeys">A collection that contains the keys of the items that the cached response is dependent on.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.MvcResponse.AddCacheItemDependency(System.String)">
+            <summary>
+            Makes the validity of a cached response dependent on the specified item in the cache.
+            </summary>
+            <param name="cacheKey">The key of the item that the cached response is dependent on.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.MvcResponse.AddFileDependencies(System.String[])">
+            <summary>
+            Adds an array of file names to the collection of file names on which the current response is dependent.
+            </summary>
+            <param name="filenames">An array of files names to add.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.MvcResponse.AddFileDependencies(System.Collections.ArrayList)">
+            <summary>
+            Adds file names to the collection of file names on which the current response is dependent.
+            </summary>
+            <param name="filenames">The names of the files to add.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.MvcResponse.AddFileDependency(System.String)">
+            <summary>
+            Adds a single file name to the collection of file names on which the current response is dependent.
+            </summary>
+            <param name="filename">The name of the file to add.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.Mvc.Proxy.Security.ItemAccessException">
+            <summary>
+            This type of exception is thrown when user does not have sufficient permissions for an item.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Proxy.Security.ItemAccessException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Mvc.Proxy.Security.ItemAccessException"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Proxy.Security.ItemAccessException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Mvc.Proxy.Security.ItemAccessException"/> class.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Proxy.Security.ItemAccessException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Mvc.Proxy.Security.ItemAccessException"/> class.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="innerException">The inner exception.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.Mvc.Proxy.Security.UnauthorizedPageAccessEvent">
+            <summary>
+            An event notifying that the current user was denied to access the requested front-end page.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.Proxy.Security.UnauthorizedPageAccessEvent.Origin">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.Proxy.Security.UnauthorizedPageAccessEvent.HttpContext">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.Proxy.Security.UnauthorizedPageAccessEvent.Page">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.Proxy.Security.UnauthorizedPageAccessEvent.RedirectStrategy">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.Proxy.Security.UnauthorizedPageAccessEvent.RedirectUrl">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Proxy.Security.UnauthorizedPageAccessEvent.#ctor(System.Web.HttpContextBase,Telerik.Sitefinity.Web.PageSiteNode,Telerik.Sitefinity.Web.Events.RedirectStrategyType,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Mvc.Proxy.Security.UnauthorizedPageAccessEvent" /> class.
+            </summary>
+            <param name="httpContext">The HTTP context.</param>
+            <param name="page">The page.</param>
+            <param name="redirectStrategy">The redirect strategy.</param>
+            <param name="origin">The origin.</param>
+            <param name="redirectUrl">The redirect URL.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.Mvc.Proxy.ControllerPropertySerializer">
+            <summary>
+            Provides functionality for serializing and deserializing properties
+            of the <see cref="T:System.Web.Mvc.Controller" /> objects.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Proxy.ControllerPropertySerializer.Serialize(System.Web.Mvc.Controller)">
+            <summary>
+            Serializes the properties of the <see cref="T:System.Web.Mvc.Controller"/> instance
+            into the XML format string.
+            </summary>
+            <param name="controller">
+            The instance of the <see cref="T:System.Web.Mvc.Controller"/> that should be serialized.
+            </param>
+            <returns>
+            The string with the serialized properties in the XML format.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Proxy.ControllerPropertySerializer.Deserialize(System.Web.Mvc.Controller,System.String)">
+            <summary>
+            Deserializes the properties (XML format) and sets them on the passed instance
+            of the <see cref="T:System.Web.Mvc.Controller"/>.
+            </summary>
+            <param name="controller">
+            The instance of <see cref="T:System.Web.Mvc.Controller"/> to which the properties should
+            be passed.
+            </param>
+            <param name="properties">
+            Xml serialized properties of the controller.
+            </param>
+        </member>
+        <member name="T:Telerik.Sitefinity.Mvc.Proxy.ControllerSettings">
+            <summary>
+            Dynamic object which is used to persist the properties of the controller through the proxy.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Proxy.ControllerSettings.#ctor(System.Web.Mvc.Controller)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Mvc.Proxy.ControllerSettings"/> class.
+            </summary>
+            <param name="controller">The controller.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.Proxy.ControllerSettings.Values">
+            <summary>
+            Gets the controller values.
+            </summary>
+            <value>
+            The values.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.Proxy.ControllerSettings.Properties">
+            <summary>
+            Gets the controller properties.
+            </summary>
+            <value>
+            The properties of the controller.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.Proxy.ControllerSettings.Controller">
+            <summary>
+            Gets the controller.
+            </summary>
+            <value>
+            The controller.
+            </value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Proxy.ControllerSettings.GetDynamicMemberNames">
+            <summary>
+            Returns the enumeration of all dynamic member names.
+            </summary>
+            <returns>
+            A sequence that contains dynamic member names.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Proxy.ControllerSettings.TryGetMember(System.Dynamic.GetMemberBinder,System.Object@)">
+            <summary>
+            Provides the implementation for operations that get member values. Classes derived from the <see cref="T:System.Dynamic.DynamicObject" /> class can override this method to specify dynamic behavior for operations such as getting a value for a property.
+            </summary>
+            <param name="binder">Provides information about the object that called the dynamic operation. The binder.Name property provides the name of the member on which the dynamic operation is performed. For example, for the Console.WriteLine(sampleObject.SampleProperty) statement, where sampleObject is an instance of the class derived from the <see cref="T:System.Dynamic.DynamicObject" /> class, binder.Name returns "SampleProperty". The binder.IgnoreCase property specifies whether the member name is case-sensitive.</param>
+            <param name="result">The result of the get operation. For example, if the method is called for a property, you can assign the property value to <paramref name="result" />.</param>
+            <returns>
+            true if the operation is successful; otherwise, false. If this method returns false, the run-time binder of the language determines the behavior. (In most cases, a run-time exception is thrown.)
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Proxy.ControllerSettings.TrySetMember(System.Dynamic.SetMemberBinder,System.Object)">
+            <summary>
+            Provides the implementation for operations that set member values. Classes derived from the <see cref="T:System.Dynamic.DynamicObject" /> class can override this method to specify dynamic behavior for operations such as setting a value for a property.
+            </summary>
+            <param name="binder">Provides information about the object that called the dynamic operation. The binder.Name property provides the name of the member to which the value is being assigned. For example, for the statement sampleObject.SampleProperty = "Test", where sampleObject is an instance of the class derived from the <see cref="T:System.Dynamic.DynamicObject" /> class, binder.Name returns "SampleProperty". The binder.IgnoreCase property specifies whether the member name is case-sensitive.</param>
+            <param name="value">The value to set to the member. For example, for sampleObject.SampleProperty = "Test", where sampleObject is an instance of the class derived from the <see cref="T:System.Dynamic.DynamicObject" /> class, the <paramref name="value" /> is "Test".</param>
+            <returns>
+            true if the operation is successful; otherwise, false. If this method returns false, the run-time binder of the language determines the behavior. (In most cases, a language-specific run-time exception is thrown.)
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Proxy.ControllerSettings.SetDefaultControllerValues">
+            <summary>
+            This method gets the current values of the controller properties. It should be called in the constructor.
+            This is a solution for bug 202030. 
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Mvc.Proxy.MvcControllerProxy">
+            <summary>
+            The proxy control which is used to use ASP.NET MVC Views within Sitefinity pages.
+            </summary>
+            <remarks>
+            The output of this control will be cached on pages that use output caching. Use
+            MvcSubstitutionControllerProxy if you want the proxy to render
+            every time (not be cached).
+            </remarks>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.Proxy.MvcControllerProxy.Settings">
+            <summary>
+            Gets or sets a dynamic object which is used to persist the properties of the controller.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.Proxy.MvcControllerProxy.Controller">
+            <summary>
+            Gets  the instance of <see cref="P:Telerik.Sitefinity.Mvc.Proxy.MvcControllerProxy.Controller"/> that
+            is being proxied.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.Proxy.MvcControllerProxy.Context">
+            <summary>
+            Gets or sets the instance of the <see cref="T:Telerik.Sitefinity.Mvc.MvcHttpContext"/> which is 
+            a specialized HttpContext dynamically created and used by MVC controllers.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Proxy.MvcControllerProxy.OnControllerInitialized(System.Web.Mvc.Controller)">
+            <summary>
+            Invoked when Controller property is initialized.
+            </summary>
+            <param name="controller">The newly initialized controller.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Proxy.MvcControllerProxy.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Sends server control content to a provided <see cref="T:System.Web.UI.HtmlTextWriter"/>
+            object, which writes the content to be rendered on the client.
+            </summary>
+            <param name="writer">
+            The <see cref="T:System.Web.UI.HtmlTextWriter"/> object
+            that receives the server control content. 
+            </param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Proxy.MvcControllerProxy.OnPreRender(System.EventArgs)">
+            <summary>
+            Executes the cotroller on PreRender event.
+            </summary>
+            <remarks>
+            Please leave this method here. Executing the controller in the Render method is too late, because some of the things cannot be applied to the page.
+            We should execute controllers on PreRender to set page titles and other such things.
+            </remarks>
+            <param name="e">An <see cref="T:System.EventArgs"/> object that contains the event data</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Proxy.MvcControllerProxy.ThrowNotAuthorisedException(System.String)">
+            <summary>
+            Throws the not authorized exception.
+            </summary>
+            <param name="eventOrigin">The event origin.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.Proxy.MvcControllerProxy.ControllerFactory">
+            <summary>
+            Gets the controller factory for this instance.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Mvc.Proxy.MvcPropertySerializer">
+            <summary>
+            This class provides functionality for serializing and deserializing properties
+            that are being proxied by the MvcProxyBase type or one of it's inheritors.
+            </summary>
+            <remarks>
+            The MvcProxyBase is a ASP.NET WebForms control which proxies an ASP.NET MVC
+            controller inside of Sitefinity pages and / or Page Editor.
+            </remarks>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Proxy.MvcPropertySerializer.SerializeProperties(Telerik.Sitefinity.Pages.Model.ControlProperty)">
+            <summary>
+            Serializes the proxy property into a string.
+            </summary>
+            <param name="proxyProperty">
+            The instance of the <see cref="T:Telerik.Sitefinity.Pages.Model.ControlProperty"/> that contains the
+            properties of the MVC controller.
+            </param>
+            <returns>
+            A string that represents serialized properties.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Proxy.MvcPropertySerializer.DeserializeProperties(System.String,System.Object)">
+            <summary>
+            Deserializes the serialized properties and sets them on the instance of
+            the object being proxied by the <see cref="T:Telerik.Sitefinity.Mvc.Proxy.MvcProxyBase"/>.
+            </summary>
+            <param name="serializedProperties">
+            String representing the serialized properties.
+            </param>
+            <param name="proxyInstance">
+            Instance of the object on which the properties should be set, once deserialized.
+            </param>
+        </member>
+        <member name="T:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.ControllerSettingsPropertyDescriptor">
+            <summary>
+            Represents the special property descriptor for the controller settings persisted
+            with the MVC proxy. This property descriptor serializes and deserializes the
+            XML representation of the properties of <see cref="T:System.Web.Mvc.Controller"/>.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.ControllerSettingsPropertyDescriptor.#ctor(System.Reflection.PropertyInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.ControllerSettingsPropertyDescriptor"/> class.
+            </summary>
+            <param name="propertyInfo">The property information.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.ControllerSettingsPropertyDescriptor.Converter">
+            <summary>
+            Gets the type converter for this property.
+            </summary>
+            <returns>
+            A <see cref="T:System.ComponentModel.TypeConverter"/> that is used to
+            convert the <see cref="T:System.Type"/> of this property.
+            </returns>
+            <PermissionSet>
+            <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode"/>
+            </PermissionSet>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.ControllerSettingsPropertyDescriptor.CanResetValue(System.Object)">
+            <summary>
+            When overridden in a derived class, returns whether resetting an object changes its value.
+            </summary>
+            <param name="component">The component to test for reset capability.</param>
+            <returns>
+            true if resetting the component changes its value; otherwise, false.
+            </returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.ControllerSettingsPropertyDescriptor.GetChildProperties(Telerik.Sitefinity.Pages.Model.ControlProperty)">
+            <summary>
+            Gets the child properties based on the specified <paramref name="data" />.
+            </summary>
+            <param name="data">The data.</param>
+            <returns>
+            A collection of property descriptors.
+            </returns>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.ControllerSettingsPropertyDescriptor.ComponentType">
+            <summary>
+            When overridden in a derived class, gets the type of the component this property is bound to.
+            </summary>
+            <returns>A <see cref="T:System.Type" /> that represents the type of component this property is bound to. When the <see cref="M:System.ComponentModel.PropertyDescriptor.GetValue(System.Object)" /> or <see cref="M:System.ComponentModel.PropertyDescriptor.SetValue(System.Object,System.Object)" /> methods are invoked, the object specified might be an instance of this type.</returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.ControllerSettingsPropertyDescriptor.Category">
+            <summary>
+            Gets the name of the category to which the member belongs, as specified in the <see cref="T:System.ComponentModel.CategoryAttribute" />.
+            </summary>
+            <returns>The name of the category to which the member belongs. If there is no <see cref="T:System.ComponentModel.CategoryAttribute" />, the category name is set to the default category, Misc.</returns>
+            <PermissionSet>
+            <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode, ControlEvidence" />
+            </PermissionSet>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.ControllerSettingsPropertyDescriptor.Attributes">
+            <summary>
+            Gets the collection of attributes for this member.
+            </summary>
+            <returns>An <see cref="T:System.ComponentModel.AttributeCollection" /> that provides the attributes for this member, or an empty collection if there are no attributes in the <see cref="P:System.ComponentModel.MemberDescriptor.AttributeArray" />.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.ControllerSettingsPropertyDescriptor.GetValue(System.Object)">
+            <summary>
+            Gets the XML serialized string representing the properties and values
+            of the <see cref="T:System.Web.Mvc.Controller"/>.
+            </summary>
+            <param name="component">
+            Instance of the <see cref="T:Telerik.Sitefinity.Mvc.Proxy.MvcProxyBase"/> on which the property is defined.
+            </param>
+            <returns>
+            The string value which is XML serialized representation of the <see cref="T:System.Web.Mvc.Controller"/>
+            properties.
+            </returns>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.ControllerSettingsPropertyDescriptor.IsReadOnly">
+            <summary>
+            When overridden in a derived class, gets a value indicating whether this property is read-only.
+            </summary>
+            <returns>true if the property is read-only; otherwise, false.</returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.ControllerSettingsPropertyDescriptor.PropertyType">
+            <summary>
+            When overridden in a derived class, gets the type of the property.
+            </summary>
+            <returns>A <see cref="T:System.Type" /> that represents the type of the property.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.ControllerSettingsPropertyDescriptor.ResetValue(System.Object)">
+            <summary>
+            When overridden in a derived class, resets the value for this property of the component to the default value.
+            </summary>
+            <param name="component">The component with the property value that is to be reset to the default value.</param>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.ControllerSettingsPropertyDescriptor.SetValue(System.Object,System.Object)">
+            <summary>
+            When overridden in a derived class, sets the value of the component to a different value.
+            </summary>
+            <param name="component">The component with the property value that is to be set.</param>
+            <param name="value">The new value.</param>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.ControllerSettingsPropertyDescriptor.ShouldSerializeValue(System.Object)">
+            <summary>
+            When overridden in a derived class, determines a value indicating whether the value of this property needs to be persisted.
+            </summary>
+            <param name="component">The component with the property to be examined for persistence.</param>
+            <returns>
+            true if the property should be persisted; otherwise, false.
+            </returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.ControllerSettingsPropertyDescriptor.GetControllerInstanceFromName(System.String)">
+            <summary>
+            Gets an instance of a controller from the supplied controller name
+            </summary>
+            <param name="controllerName">Name of the controller.</param>
+            <returns>An instance of the controller if one can be created or null.</returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.ControllerSettingsTypeConverter">
+            <summary>
+            Represents the type converter for the ControllerSettings property.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.ControllerSettingsTypeConverter.GetPropertiesSupported(System.ComponentModel.ITypeDescriptorContext)">
+            <summary>
+            Returns whether this object supports properties, using the specified context.
+            </summary>
+            <returns>
+            true if <see cref="M:System.ComponentModel.TypeConverter.GetProperties(System.Object)"/>
+            should be called to find the properties of this object; otherwise, false.
+            </returns>
+            <param name="context">
+            An <see cref="T:System.ComponentModel.ITypeDescriptorContext"/> that provides a format context. 
+            </param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.ControllerSettingsTypeConverter.GetProperties(System.ComponentModel.ITypeDescriptorContext,System.Object,System.Attribute[])">
+            <summary>
+            Returns a collection of properties for the type of array specified by
+            the value parameter, using the specified context and attributes.
+            </summary>
+            <returns>
+            A <see cref="T:System.ComponentModel.PropertyDescriptorCollection"/>
+            with the properties that are exposed for this data type, or null if there are
+            no properties.
+            </returns>
+            <param name="context">
+            An <see cref="T:System.ComponentModel.ITypeDescriptorContext"/>
+            that provides a format context. 
+            </param>
+            <param name="value">
+            An <see cref="T:System.Object"/> that specifies the type of array for 
+            which to get properties. 
+            </param>
+            <param name="attributes">
+            An array of type <see cref="T:System.Attribute"/> that is used as a filter. 
+            </param>
+        </member>
+        <member name="T:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.ControllerSettingsTypeDescriptor">
+            <summary>
+            Provides <see cref="T:System.ComponentModel.CustomTypeDescriptor"/> for the ControllerSettings in MVC Proxy control.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.ControllerSettingsTypeDescriptor.#ctor(System.Type,System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.ControllerSettingsTypeDescriptor"/> class.
+            </summary>
+            <param name="objectType">Type of the object.</param>
+            <param name="instance">The instance.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.ControllerSettingsTypeDescriptor.GetProperties">
+            <summary>
+            Returns a collection of property descriptors for the object represented by this type descriptor.
+            </summary>
+            <returns>
+            A <see cref="T:System.ComponentModel.PropertyDescriptorCollection" /> containing the property descriptions for the object represented by this type descriptor. The default is <see cref="F:System.ComponentModel.PropertyDescriptorCollection.Empty" />.
+            </returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.DynamicPropertyDescriptor">
+            <summary>
+            This class defines dynamic property descriptor.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.DynamicPropertyDescriptor.#ctor(System.String,Telerik.Sitefinity.Mvc.Proxy.IControllerSettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.DynamicPropertyDescriptor"/> class.
+            </summary>
+            <param name="propertyName">Name of the property.</param>
+            <param name="instance">The instance.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.DynamicPropertyDescriptor.Attributes">
+            <summary>
+            Gets the collection of attributes for this member.
+            </summary>
+            <returns>An <see cref="T:System.ComponentModel.AttributeCollection" /> that provides the attributes for this member, or an empty collection if there are no attributes in the <see cref="P:System.ComponentModel.MemberDescriptor.AttributeArray" />.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.DynamicPropertyDescriptor.CanResetValue(System.Object)">
+            <summary>
+            When overridden in a derived class, returns whether resetting an object changes its value.
+            </summary>
+            <param name="component">The component to test for reset capability.</param>
+            <returns>
+            true if resetting the component changes its value; otherwise, false.
+            </returns>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.DynamicPropertyDescriptor.ComponentType">
+            <summary>
+            When overridden in a derived class, gets the type of the component this property is bound to.
+            </summary>
+            <returns>A <see cref="T:System.Type" /> that represents the type of component this property is bound to. When the <see cref="M:System.ComponentModel.PropertyDescriptor.GetValue(System.Object)" /> or <see cref="M:System.ComponentModel.PropertyDescriptor.SetValue(System.Object,System.Object)" /> methods are invoked, the object specified might be an instance of this type.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.DynamicPropertyDescriptor.GetValue(System.Object)">
+            <summary>
+            When overridden in a derived class, gets the current value of the property on a component.
+            </summary>
+            <param name="component">The component with the property for which to retrieve the value.</param>
+            <returns>
+            The value of a property for a given component.
+            </returns>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.DynamicPropertyDescriptor.IsReadOnly">
+            <summary>
+            When overridden in a derived class, gets a value indicating whether this property is read-only.
+            </summary>
+            <returns>true if the property is read-only; otherwise, false.</returns>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.DynamicPropertyDescriptor.PropertyType">
+            <summary>
+            When overridden in a derived class, gets the type of the property.
+            </summary>
+            <returns>A <see cref="T:System.Type" /> that represents the type of the property.</returns>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.DynamicPropertyDescriptor.Category">
+            <summary>
+            Gets the name of the category to which the member belongs, as specified in the <see cref="T:System.ComponentModel.CategoryAttribute" />.
+            </summary>
+            <returns>The name of the category to which the member belongs. If there is no <see cref="T:System.ComponentModel.CategoryAttribute" />, the category name is set to the default category, Misc.</returns>
+            <PermissionSet>
+            <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode, ControlEvidence" />
+            </PermissionSet>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.DynamicPropertyDescriptor.ResetValue(System.Object)">
+            <summary>
+            When overridden in a derived class, resets the value for this property of the component to the default value.
+            </summary>
+            <param name="component">The component with the property value that is to be reset to the default value.</param>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.DynamicPropertyDescriptor.SetValue(System.Object,System.Object)">
+            <summary>
+            When overridden in a derived class, sets the value of the component to a different value.
+            </summary>
+            <param name="component">The component with the property value that is to be set.</param>
+            <param name="value">The new value.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.DynamicPropertyDescriptor.ShouldSerializeValue(System.Object)">
+            <summary>
+            When overridden in a derived class, determines a value indicating whether the value of this property needs to be persisted.
+            </summary>
+            <param name="component">The component with the property to be examined for persistence.</param>
+            <returns>
+            true if the property should be persisted; otherwise, false.
+            </returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="T:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.MvcProxyTypeDescriptor">
+            <summary>
+            This class defines <see cref="T:System.ComponentModel.CustomTypeDescriptor"/> for MVC Proxy.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.MvcProxyTypeDescriptor.#ctor(System.Type)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.MvcProxyTypeDescriptor"/> class.
+            </summary>
+            <param name="objectType">Type of the object.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.MvcProxyTypeDescriptor.GetProperties">
+            <summary>
+            Returns a collection of property descriptors for the object represented by this type descriptor.
+            </summary>
+            <returns>
+            A <see cref="T:System.ComponentModel.PropertyDescriptorCollection" /> containing the property descriptions for the object represented by this type descriptor. The default is <see cref="F:System.ComponentModel.PropertyDescriptorCollection.Empty" />.
+            </returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.StaticPropertyDescriptor">
+            <summary>
+            This class defines <see cref="T:System.ComponentModel.PropertyDescriptor"/>.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.StaticPropertyDescriptor.#ctor(System.Reflection.PropertyInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.StaticPropertyDescriptor"/> class.
+            </summary>
+            <param name="propertyInfo">The property information.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.StaticPropertyDescriptor.IsBrowsable">
+            <summary>
+            Gets a value indicating whether the member is browsable, as specified in the <see cref="T:System.ComponentModel.BrowsableAttribute" />.
+            </summary>
+            <returns>true if the member is browsable; otherwise, false. If there is no <see cref="T:System.ComponentModel.BrowsableAttribute" />, the property value is set to the default, which is true.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.StaticPropertyDescriptor.CanResetValue(System.Object)">
+            <summary>
+            When overridden in a derived class, returns whether resetting an object changes its value.
+            </summary>
+            <param name="component">The component to test for reset capability.</param>
+            <returns>
+            true if resetting the component changes its value; otherwise, false.
+            </returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.StaticPropertyDescriptor.ComponentType">
+            <summary>
+            When overridden in a derived class, gets the type of the component this property is bound to.
+            </summary>
+            <returns>A <see cref="T:System.Type" /> that represents the type of component this property is bound to. When the <see cref="M:System.ComponentModel.PropertyDescriptor.GetValue(System.Object)" /> or <see cref="M:System.ComponentModel.PropertyDescriptor.SetValue(System.Object,System.Object)" /> methods are invoked, the object specified might be an instance of this type.</returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.StaticPropertyDescriptor.Attributes">
+            <summary>
+            Gets the collection of attributes for this member.
+            </summary>
+            <returns>An <see cref="T:System.ComponentModel.AttributeCollection" /> that provides the attributes for this member, or an empty collection if there are no attributes in the <see cref="P:System.ComponentModel.MemberDescriptor.AttributeArray" />.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.StaticPropertyDescriptor.GetValue(System.Object)">
+            <summary>
+            When overridden in a derived class, gets the current value of the property on a component.
+            </summary>
+            <param name="component">The component with the property for which to retrieve the value.</param>
+            <returns>
+            The value of a property for a given component.
+            </returns>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.StaticPropertyDescriptor.IsReadOnly">
+            <summary>
+            When overridden in a derived class, gets a value indicating whether this property is read-only.
+            </summary>
+            <returns>true if the property is read-only; otherwise, false.</returns>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.StaticPropertyDescriptor.PropertyType">
+            <summary>
+            When overridden in a derived class, gets the type of the property.
+            </summary>
+            <returns>A <see cref="T:System.Type" /> that represents the type of the property.</returns>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.StaticPropertyDescriptor.Category">
+            <summary>
+            Gets the name of the category to which the member belongs, as specified in the <see cref="T:System.ComponentModel.CategoryAttribute" />.
+            </summary>
+            <returns>The name of the category to which the member belongs. If there is no <see cref="T:System.ComponentModel.CategoryAttribute" />, the category name is set to the default category, Misc.</returns>
+            <PermissionSet>
+            <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode, ControlEvidence" />
+            </PermissionSet>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.StaticPropertyDescriptor.ResetValue(System.Object)">
+            <summary>
+            When overridden in a derived class, resets the value for this property of the component to the default value.
+            </summary>
+            <param name="component">The component with the property value that is to be reset to the default value.</param>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.StaticPropertyDescriptor.SetValue(System.Object,System.Object)">
+            <summary>
+            When overridden in a derived class, sets the value of the component to a different value.
+            </summary>
+            <param name="component">The component with the property value that is to be set.</param>
+            <param name="value">The new value.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Proxy.TypeDescription.StaticPropertyDescriptor.ShouldSerializeValue(System.Object)">
+            <summary>
+            When overridden in a derived class, determines a value indicating whether the value of this property needs to be persisted.
+            </summary>
+            <param name="component">The component with the property to be examined for persistence.</param>
+            <returns>
+            true if the property should be persisted; otherwise, false.
+            </returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="T:Telerik.Sitefinity.Mvc.Rendering.PureMvcPageResolver">
+            <summary>
+            Pure MVC mode implementation of the virtual file resolver. This implementation
+            is used for pages that work in pure MVC mode.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Rendering.PureMvcPageResolver.Exists(Telerik.Sitefinity.Abstractions.VirtualPath.PathDefinition,System.String)">
+            <summary>
+            Determines whether a file with the specified virtual path exists.
+            </summary>
+            <param name="definition">The path definition.</param>
+            <param name="virtualPath">The virtual path to check.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Rendering.PureMvcPageResolver.Open(Telerik.Sitefinity.Abstractions.VirtualPath.PathDefinition,System.String)">
+            <summary>
+            Opens the the file with the specified virtual path.
+            </summary>
+            <param name="definition">The definition.</param>
+            <param name="virtualPath">The virtual path.</param>
+            <returns></returns>
+            <exception cref="T:System.InvalidOperationException">Invalid SiteMap node specified. Either the current group node doesn't have child nodes or the current user does not have rights to view any of the child nodes.</exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Rendering.PureMvcPageResolver.RenderPage(System.Text.StringBuilder,Telerik.Sitefinity.Pages.Model.PageData,System.Web.Routing.RequestContext,System.String)">
+            <summary>
+            Renders the page.
+            </summary>
+            <param name="sb">The sb.</param>
+            <param name="pageData">The page data.</param>
+            <param name="context">The context.</param>
+            <param name="virtualPath">The virtual path.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Rendering.PureMvcPageResolver.WriteAllHolders(Telerik.Sitefinity.Abstractions.VirtualPath.CursorCollection,System.Text.StringBuilder,System.String)">
+            <summary>
+            Writes all holders.
+            </summary>
+            <param name="placeHolders">The place holders.</param>
+            <param name="output">The output.</param>
+            <param name="name">The name.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Rendering.PureMvcPageResolver.WriteAllHolders(Telerik.Sitefinity.Abstractions.VirtualPath.CursorCollection,System.Text.StringBuilder,System.String,Telerik.Sitefinity.Pages.Model.PageData,System.String)">
+            <summary>
+            Writes all holders.
+            </summary>
+            <param name="placeHolders">The place holders.</param>
+            <param name="output">The output.</param>
+            <param name="name">The name.</param>
+            <param name="pageData">The page data.</param>
+            <param name="theme">The theme.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Rendering.PureMvcPageResolver.ProcessStringTemplate(System.String,System.Text.StringBuilder,Telerik.Sitefinity.Abstractions.VirtualPath.CursorCollection,Telerik.Sitefinity.Abstractions.VirtualPath.DirectiveCollection)">
+            <summary>
+            Processes the string template.
+            </summary>
+            <param name="template">The template.</param>
+            <param name="output">The output.</param>
+            <param name="placeHolders">The place holders.</param>
+            <param name="directives">The directives.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.Rendering.PureMvcPageResolver.DefaultFrontendPageTemplate">
+            <summary>
+            Gets the default frontend page template.
+            </summary>
+            <value>
+            The default frontend page template.
+            </value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Rendering.PureMvcPageResolver.GenerateThemeStylesheetRegistrations(Telerik.Sitefinity.Mvc.Rendering.PageProxy,System.String)">
+            <summary>
+            Generates HTML link tags to include CSS for all style sheets needed on the page (coming from the theme).
+            Provides an alternative for MVC where resources are inserted as pure HTML link tags instead of a ResourceLinks control, which is the case in the
+            WebForms and hybrid modes.
+            </summary>
+            <param name="pageProxy">The page proxy.</param>
+            <param name="theme">The name of the theme</param>
+            <returns></returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Mvc.Rendering.TagGenerator">
+            <summary>
+            This class provides methods for rendering tags used by pure MVC pages.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Rendering.TagGenerator.GetGeneratorMetaTag">
+            <summary>
+            Generates the generator meta tag.
+            </summary>
+            <returns>
+            The meta tag with generator information.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Rendering.TagGenerator.GetRobotsMetaTag(Telerik.Sitefinity.Pages.Model.PageData)">
+            <summary>
+            Generates the robots meta tag.
+            </summary>
+            <param name="pageData">
+            The information about the page.
+            </param>
+            <returns>
+            Robots meta tag if page is not crawlable, otherwise empty string.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Rendering.TagGenerator.GetSitefinityLogo(System.String,System.Web.UI.Page)">
+            <summary>
+            Generates mandatory Sitefinity logo if the licenseType is needs it.
+            </summary>
+            <param name="licenseType">The type of license user is using on the website.</param>
+            <param name="page">The page.</param>
+            <returns>
+            A logo markup if license needs it; otherwise null.
+            </returns>
+            <exception cref="T:System.ArgumentNullException"> licenseType </exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Rendering.TagGenerator.GetDescriptionTag(Telerik.Sitefinity.Pages.Model.PageData)">
+            <summary>
+            Generates the page description meta tag from page data
+            </summary>
+            <param name="pageData">The information about the page.</param>
+            <returns>Description meta tag if page has set description, otherwise null</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Rendering.TagGenerator.GetDescriptionTag(System.String)">
+            <summary>
+            Generates the page description meta tag from an arbitrary string
+            </summary>
+            <param name="description">The description string</param>
+            <returns>Description metatag</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Rendering.TagGenerator.GetKeywordsTag(Telerik.Sitefinity.Pages.Model.PageData)">
+            <summary>
+            Generates the page keywords meta tag from page data
+            </summary>
+            <param name="pageData">The information about the page</param>
+            <returns>Keywords meta tag if page has set keywords, otherwise null</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Rendering.TagGenerator.GetKeywordsTag(System.String)">
+            <summary>
+            Generates the page keywords meta tag from a comma separated string
+            </summary>
+            <param name="keywords">The comma separated keywords string</param>
+            <returns>Keywords meta tag</returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Mvc._SitefinityController">
+            <summary>
+            This class extends <see cref="T:System.Web.Mvc.Controller"/>.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc._SitefinityController.Execute">
+            <summary>
+            Executes this instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc._SitefinityController.RedirectToAction(System.String,System.String,System.Web.Routing.RouteValueDictionary)">
+            <summary>
+            Redirects to the specified action using the action name, controller name, and route values.
+            </summary>
+            <param name="actionName">The name of the action.</param>
+            <param name="controllerName">The name of the controller.</param>
+            <param name="routeValues">The parameters for a route.</param>
+            <returns>
+            The redirect result object.
+            </returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Mvc.SitefinityControllerFactory">
+            <summary>
+            Represents controller factory for Sitefinity.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.SitefinityControllerFactory.ResolveControllerName(Telerik.Sitefinity.Mvc.Proxy.MvcProxyBase)">
+            <summary>
+            Resolves the name of the controller by its proxy.
+            </summary>
+            <param name="proxy">The proxy.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">proxy</exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.SitefinityControllerFactory.ResolveControllerName(System.Type)">
+            <summary>
+            Resolves the name of the controller by its proxy type.
+            </summary>
+            <param name="proxyType">Type of the proxy.</param>
+            <returns>
+            The controller name.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">proxyType</exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.SitefinityControllerFactory.RegisterController(System.String,System.Type)">
+            <summary>
+            Registers the controller in the controller registry.
+            </summary>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="controllerType">Type of the controller.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.SitefinityControllerFactory.UnregisterController(System.String)">
+            <summary>
+            Unregisters the controller from the controller registry.
+            </summary>
+            <param name="controllerName">Name of the controller.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.SitefinityControllerFactory.ResolveControllerType(System.String)">
+            <summary>
+            Gets the type that represents the controller.
+            </summary>
+            <param name="controllerName">Name of the controller.</param>
+            <returns>
+            An instance of <see cref="T:System.Type" /> representing the type of the controller.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.SitefinityControllerFactory.CreateController(System.Web.Routing.RequestContext,System.String)">
+            <summary>
+            Creates the specified controller by using the specified request context.
+            </summary>
+            <returns>The controller.</returns>
+            <param name="requestContext">
+            The context of the HTTP request, which includes the HTTP context and route data.
+            </param>
+            <param name="controllerName">The name of the controller.</param>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="requestContext"/> parameter is null.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+            The <paramref name="controllerName"/> parameter is null or empty.
+            </exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.SitefinityControllerFactory.GetControllerInstance(System.Web.Routing.RequestContext,System.Type)">
+            <summary>
+            Retrieves the controller instance for the specified request context and controller type.
+            </summary>
+            <returns>The controller instance.</returns>
+            <param name="requestContext">
+            The context of the HTTP request, which includes the HTTP context and route data.
+            </param>
+            <param name="controllerType">The type of the controller.</param>
+            <exception cref="T:System.Web.HttpException">
+            <paramref name="controllerType"/> is null.</exception>
+            <exception cref="T:System.ArgumentException">
+            <paramref name="controllerType"/> cannot be assigned.</exception>
+            <exception cref="T:System.InvalidOperationException">
+            An instance of <paramref name="controllerType"/> cannot be created.
+            </exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.SitefinityControllerFactory.GetControllerTypeName(System.String)">
+            <summary>
+            Gets the full type name of the controller, based on it's shortened name.
+            </summary>
+            <param name="controllerName">
+            Shortened name of the controller.
+            </param>
+            <returns>
+            Full type name of the controller.
+            </returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Mvc.SitefinityMvcRoute">
+            <summary>
+            Represents route for Sitefinity MVC implementation.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.SitefinityMvcRoute.GetRouteData(System.Web.HttpContextBase)">
+            <summary>When overridden in a derived class, returns route information about the request.
+            </summary>
+            <returns>
+            An object that contains the values from the route definition if the
+            route matches the current request, or null if the route does not match the request.
+            </returns>
+            <param name="httpContext">
+            An object that encapsulates information about the HTTP request.
+            </param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.SitefinityMvcRoute.GetVirtualPath(System.Web.Routing.RequestContext,System.Web.Routing.RouteValueDictionary)">
+            <summary>
+            When overridden in a derived class, checks whether the route matches
+            the specified values, and if so, generates a URL and retrieves information about
+            the route.
+            </summary>
+            <returns>
+            An object that contains the generated URL and information about the
+            route, or null if the route does not match <paramref name="values"/>.
+            </returns>
+            <param name="requestContext">
+            An object that encapsulates information about the requested route.
+            </param>
+            <param name="values">An object that contains the parameters for a route.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.SitefinityMvcRoute.GetCurrentNode">
+            <summary>
+            Gets the current node.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.SitefinityMvcRoute.GenerateVirtualPath(System.Web.Routing.RouteValueDictionary,System.Web.Routing.RequestContext)">
+            <summary>
+            Generates the virtual path.
+            </summary>
+            <param name="values">The values.</param>
+            <param name="requestContext">The request context.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Mvc.SitefinityViewEngine">
+            <summary>
+            Sitefinity MVC View engine. This class is used to manage MVC views inside of Sitefinity.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.SitefinityViewEngine.GetControllerName(System.Web.Mvc.ControllerBase)">
+            <summary>
+            This method gets the name of the controller. It will remove "Controller" prefix if present.
+            </summary>
+            <param name="controller">
+            Instance of the <see cref="T:System.Web.Mvc.ControllerBase"/> type.
+            </param>
+            <returns>
+            The name of the controller. If present, "Controller" suffix will be removed.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.SitefinityViewEngine.FindPartialView(System.Web.Mvc.ControllerContext,System.String,System.Boolean)">
+            <summary>Finds the specified partial view by using the specified controller context.
+            </summary>
+            <returns>The partial view.</returns>
+            <param name="controllerContext">The controller context.</param>
+            <param name="partialViewName">The name of the partial view.</param>
+            <param name="useCache">true to specify that the view engine returns the cached
+            view, if a cached view exists; otherwise, false.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.SitefinityViewEngine.FindView(System.Web.Mvc.ControllerContext,System.String,System.String,System.Boolean)">
+            <summary>
+            Finds the specified view by using the specified controller context.
+            </summary>
+            <returns>The page view.</returns>
+            <param name="controllerContext">The controller context.</param>
+            <param name="viewName">The name of the view.</param>
+            <param name="masterName">The name of the master.</param>
+            <param name="useCache">true to specify that the view engine returns the cached
+            view, if a cached view exists; otherwise, false.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.SitefinityViewEngine.ReleaseView(System.Web.Mvc.ControllerContext,System.Web.Mvc.IView)">
+            <summary>
+            Releases the specified view by using the specified controller context.
+            </summary>
+            <param name="controllerContext">
+            The controller context.
+            </param>
+            <param name="view">
+            The view.
+            </param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.SitefinityViewEngine.GetViewPath(System.Web.Mvc.ControllerContext,System.String,System.String)">
+            <summary>
+            Gets the path to the view or partial view, depending on the isPartial switch.
+            </summary>
+            <param name="controllerContext">The instance of the <see cref="T:System.Web.Mvc.ControllerContext" /> containing the information resolve the view.</param>
+            <param name="viewName">Explicitly set name of the view.</param>
+            <param name="areaName">Name of the area.</param>
+            <returns>
+            The path of the view.
+            </returns>
+            <exception cref="T:System.ArgumentNullException"> controller </exception>
+            <exception cref="T:System.InvalidOperationException">No action name has been specified in the RouteData. View cannot be resolved.</exception>
+            <remarks>
+            The logic for generating the view path is following:
+            ~/{MvcRootFolder}/Views/{ControllerName}/{ViewName}.cshtml
+            </remarks>
+        </member>
+        <member name="T:Telerik.Sitefinity.Mvc.Startup">
+            <summary>
+            Contains the application startup event handles related to the MVC functionality of Sitefinity.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Startup.OnPreApplicationStart">
+            <summary>
+            Called before the Asp.Net application is started.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Mvc.Store.ControllerInfo">
+            <summary>
+            Holds the information about controller that is relevant to Sitefinity.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.Store.ControllerInfo.ControllerType">
+            <summary>
+            Gets or sets the type of the controller.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.Store.ControllerInfo.IncludeInToolbox">
+            <summary>
+            Gets or sets a value indicating whether to include in toolbox.
+            </summary>
+            <value>
+              <c>true</c> if to include in toolbox; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.Store.ControllerInfo.DefaultToolboxItemName">
+            <summary>
+            Gets or sets the default name of the toolbox item that will represent the
+            controller.
+            </summary>
+            <remarks>
+            This value may be later changed through the toolbox configurations.
+            </remarks>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.Store.ControllerInfo.DefaultToolboxItemTitle">
+            <summary>
+            Gets or sets the default title of the toolbox item that will represent
+            the controller.
+            </summary>
+            <remarks>
+            This value may be later changed through the toolbox configurations.
+            </remarks>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.Store.ControllerInfo.DefaultToolboxItemDescription">
+            <summary>
+            Gets or sets the default description of the toolbox item that will represent
+            the controller.
+            </summary>
+            <remarks>
+            This value may be later changed through the toolbox configurations.
+            </remarks>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.Store.ControllerInfo.ResourceClassId">
+            <summary>
+            Gets or sets the resource class id of the toolbox item that will represent
+            the controller.
+            </summary>
+            <remarks>
+            This value may be later changed through the toolbox configurations.
+            </remarks>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.Store.ControllerInfo.DefaultToolboxSectionName">
+            <summary>
+            Gets or sets the default name of the toolbox section in which the
+            toolbox item representing the controller should be added.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.Store.ControllerInfo.DefaultToolboxModuleName">
+            <summary>
+            Gets or sets the default module name of the toolbox item.
+            </summary>
+            <value>
+            The default module name of the toolbox item.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.Store.ControllerInfo.DefaultToolboxCssClass">
+            <summary>
+            Gets or sets the default CSS class of the toolbox item.
+            </summary>
+            <value>
+            The default CSS class of the toolbox item.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Mvc.Store.ControllerInfo.Toolbox">
+            <summary>
+            Gets or sets the toolbox in which the controller is registered.
+            </summary>
+            <value>The toolbox.</value>
+        </member>
+        <member name="T:Telerik.Sitefinity.Mvc.Store.ControllerScanner">
+            <summary>
+            This class provides functionality for scanning controllers in the application
+            and mapping the proxies to the controllers.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Store.ControllerScanner.#ctor(System.Web.HttpContextBase)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Mvc.Store.ControllerScanner"/> class.
+            </summary>
+            <param name="context">
+            The instance of the <see cref="T:System.Web.HttpContextBase"/> used to obtain the web 
+            application assembly.
+            </param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Store.ControllerScanner.ScanControllers">
+            <summary>
+            Scans the application for the controllers.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Store.ControllerScanner.RegisterControllersInStore(System.Type[])">
+            <summary>
+            Registers all controllers with the controller store.
+            </summary>
+            <param name="controllers">
+            Array of <see cref="T:System.Type"/> objects that represent controllers.
+            </param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Store.ControllerScanner.GetControllers">
+            <summary>
+            Gets the array of all types that implement <see cref="T:System.Web.Mvc.IController"/> interface
+            and are present in Sitefinity web application assembly.
+            </summary>
+            <returns>
+            Array of types.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Store.ControllerScanner.GetAssembliesForScanning">
+            <summary>
+            Gets the list of assemblies that should be scanned for types that implement
+            <see cref="T:System.Web.Mvc.IController"/> interface.
+            </summary>
+            <returns>
+            Array of the <see cref="T:System.Reflection.Assembly"/> type.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Store.ControllerScanner.GetWebAppAssembly">
+            <summary>
+            Gets the assembly of the web application.
+            </summary>
+            <returns>
+            The instance of <see cref="T:System.Reflection.Assembly"/> representing the web application assembly.
+            </returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Mvc.Store.ControllerStore">
+            <summary>
+            Represents the store of all controllers in Sitefinity application.
+            </summary>
+            <remarks>
+            This class contains infrastructure code used in Feather and/or Feather Widgets, so it's API should not be relied on.
+            </remarks>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Store.ControllerStore.RemoveController(System.Type)">
+            <summary>
+            Removes the controller from the controller store.
+            </summary>
+            <param name="controllerType">
+            Type of the controller to be removed from the store.
+            </param>
+            <returns>
+            true if controller has been removed; otherwise false.
+            </returns>
+            <remarks>
+            This method contains infrastructure code used in Feather and/or Feather Widgets, so it's API should not be relied on.
+            </remarks>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Store.ControllerStore.ClearControllers">
+            <summary>
+            Clears the controllers from the controller store.
+            </summary>
+            <remarks>
+            This method contains infrastructure code used in Feather and/or Feather Widgets, so it's API should not be relied on.
+            </remarks>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Store.ControllerStore.Controllers">
+            <summary>
+            Gets the query of the <see cref="T:Telerik.Sitefinity.Mvc.Store.ControllerInfo"/> objects which provide information
+            about all the controllers that are present in the controller store.
+            </summary>
+            <returns>
+            Query of the <see cref="T:Telerik.Sitefinity.Mvc.Store.ControllerInfo"/> objects.
+            </returns>
+            <remarks>
+            This method contains infrastructure code used in Feather and/or Feather Widgets, so it's API should not be relied on.
+            </remarks>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Store.ControllerStore.AddController(System.Type,Telerik.Sitefinity.Configuration.IConfigManager)">
+            <summary>
+            Adds the new controller to the controller store.
+            </summary>
+            <param name="controllerType">
+            Type of the controller to be added to the store.
+            </param>
+            <param name="configManager">
+            Instance of the <see cref="T:Telerik.Sitefinity.Configuration.IConfigManager"/> used to add the controller to
+            the toolboxes if necessary.
+            </param>
+            <exception cref="T:System.ArgumentException">
+            thrown if the type cannot be assigned to the <see cref="T:System.Web.Mvc.IController"/> interface.
+            </exception>
+            <remarks>
+            This method contains infrastructure code used in Feather and/or Feather Widgets, so it's API should not be relied on.
+            </remarks>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Store.ControllerStore.GetMvcProxyControlName">
+            <summary>
+            Gets the name of the MVC proxy control.
+            </summary>
+            <returns></returns>
+            <remarks>
+            This method contains infrastructure code used in Feather and/or Feather Widgets, so it's API should not be relied on.
+            </remarks>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Store.ControllerStore.GetConfigManager">
+            <summary>
+            Gets the configuration manager.
+            </summary>
+            <returns>
+            The instance of <see cref="T:Telerik.Sitefinity.Configuration.ConfigManager"/>.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Store.ControllerStore.CreateControllerInfo(System.Type)">
+            <summary>
+            Creates a new instance of the <see cref="T:Telerik.Sitefinity.Mvc.Store.ControllerInfo" /> from the type
+            of the controller.
+            </summary>
+            <param name="controllerType">Type of the controller for which the controller info should be generated.</param>
+            <returns>
+            Collection of the <see cref="T:Telerik.Sitefinity.Mvc.Store.ControllerInfo" /> objects.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Store.ControllerStore.AddControllerToPageToolbox(System.Collections.Generic.IEnumerable{Telerik.Sitefinity.Mvc.Store.ControllerInfo},Telerik.Sitefinity.Modules.Pages.Configuration.ToolboxesConfig@,Telerik.Sitefinity.Configuration.IConfigManager,System.Boolean@)">
+            <summary>
+            Tries to add the controller to the page toolbox, if applicable and haven't already
+            been added.
+            </summary>
+            <param name="controllerInfos">The controller information.</param>
+            <param name="toolboxConfig">The toolbox configuration.</param>
+            <param name="configManager">The configuration manager.</param>
+            <param name="editing">Is configuration in editing mode.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Mvc.Store.ControllerStore.AddControllerToPageToolbox(Telerik.Sitefinity.Mvc.Store.ControllerInfo,Telerik.Sitefinity.Modules.Pages.Configuration.ToolboxesConfig@,Telerik.Sitefinity.Configuration.IConfigManager,System.Boolean@)">
+            <summary>
+            Tries to add the controller to the page toolbox, if applicable and haven't already
+            been added.
+            </summary>
+            <param name="controllerInfo">The instance of <see cref="T:Telerik.Sitefinity.Mvc.Store.ControllerInfo" /> which describes the controller.</param>
+            <param name="toolboxConfig">The toolbox configuration.</param>
+            <param name="configManager">The toolbox configManager.</param>
+            <param name="editing">Is configuration in editing mode.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.UI.MVC.Helpers.HybridForm">
+            <summary>
+            This class defines form that will be used in hybrid mode.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.UI.MVC.Helpers.HybridForm.#ctor(System.Web.Mvc.ViewContext,System.String,System.String,System.Web.Mvc.FormMethod,System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.UI.MVC.Helpers.HybridForm"/> class.
+            </summary>
+            <param name="viewContext">The view context.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="formName">Name of the form.</param>
+            <param name="method">The method.</param>
+            <param name="htmlAttributes">The HTML attributes.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.UI.MVC.Helpers.HybridForm.#ctor(System.Web.Mvc.ViewContext,System.String,System.String,System.Web.Mvc.FormMethod,System.Object,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.UI.MVC.Helpers.HybridForm"/> class.
+            </summary>
+            <param name="viewContext">The view context.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="formName">Name of the form.</param>
+            <param name="method">The method.</param>
+            <param name="htmlAttributes">The HTML attributes.</param>
+            <param name="appendControllerId">if set to <c>true</c> [append controller identifier].</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.UI.MVC.Helpers.HybridForm.#ctor(System.Web.Mvc.ViewContext,System.String,System.String,System.Object,System.Web.Mvc.FormMethod,System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.UI.MVC.Helpers.HybridForm"/> class.
+            </summary>
+            <param name="viewContext">The view context.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="formName">Name of the form.</param>
+            <param name="routeValues">The route values.</param>
+            <param name="method">The method.</param>
+            <param name="htmlAttributes">The HTML attributes.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.UI.MVC.Helpers.HybridForm.#ctor(System.Web.Mvc.ViewContext,System.String,System.String,System.Object,System.Web.Mvc.FormMethod,System.Object,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.UI.MVC.Helpers.HybridForm"/> class.
+            </summary>
+            <param name="viewContext">The view context.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="formName">Name of the form.</param>
+            <param name="routeValues">The route values.</param>
+            <param name="method">The method.</param>
+            <param name="htmlAttributes">The HTML attributes.</param>
+            <param name="appendControllerId">if set to <c>true</c> [append controller identifier].</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.UI.MVC.Helpers.HybridForm.#ctor(System.Web.Mvc.ViewContext,System.String,System.String,System.Web.Routing.RouteValueDictionary,System.Web.Mvc.FormMethod,System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.UI.MVC.Helpers.HybridForm"/> class.
+            </summary>
+            <param name="viewContext">The view context.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="formName">Name of the form.</param>
+            <param name="routeValueDictionary">The route value dictionary.</param>
+            <param name="method">The method.</param>
+            <param name="htmlAttributes">The HTML attributes.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.UI.MVC.Helpers.HybridForm.#ctor(System.Web.Mvc.ViewContext,System.String,System.String,System.Web.Routing.RouteValueDictionary,System.Web.Mvc.FormMethod,System.Object,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.UI.MVC.Helpers.HybridForm"/> class.
+            </summary>
+            <param name="viewContext">The view context.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="formName">Name of the form.</param>
+            <param name="routeValueDictionary">The route value dictionary.</param>
+            <param name="method">The method.</param>
+            <param name="htmlAttributes">The HTML attributes.</param>
+            <param name="appendControllerId">if set to <c>true</c> [append controller identifier].</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.UI.MVC.Helpers.HybridForm.#ctor(System.String,System.String,System.Web.Mvc.ViewContext,System.Web.Mvc.FormMethod,System.Object,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.UI.MVC.Helpers.HybridForm"/> class.
+            </summary>
+            <param name="actionName">Name of the action.</param>
+            <param name="formName">Name of the form.</param>
+            <param name="viewContext">The view context.</param>
+            <param name="method">The method.</param>
+            <param name="htmlAttributes">The HTML attributes.</param>
+            <param name="appendControllerId">if set to <c>true</c> [append controller identifier].</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.UI.MVC.Helpers.HybridForm.IsInPureMode">
+            <summary>
+            Gets a value indicating whether is in pure mode.
+            </summary>
+            <value>
+              <c>true</c> if is in pure mode; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:Telerik.Sitefinity.UI.MVC.Helpers.HybridForm.WriteStartTag">
+            <summary>
+            Writes the start tag.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.UI.MVC.Helpers.HybridForm.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.UI.MVC.Helpers.InlineEditingHelper">
+            <summary>
+            Class representation of the inline editing helper
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.UI.MVC.Helpers.InlineEditingHelper.GetInlineEditingManagerResources(Telerik.Sitefinity.Mvc.Rendering.PageProxy,System.Boolean)">
+            <summary>
+            Returns the resources needed for the Inline editing manager control
+            </summary>
+            <param name="pageProxy">The page proxy.</param>
+            <param name="loadExternalScripts">if set to <c>true</c> [load external scripts].</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.UI.MVC.Helpers.InlineEditingHelper.GetInlineEditingManagerHiddenFields">
+            <summary>
+            Returns the hidden fields with set values need for the inline editing manager control
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.UI.MVC.Helpers.InlineEditingHelper.GetInlineEditingManagerControl">
+            <summary>
+            Returns the inline editing control
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.UI.MVC.SitefinityExtensions">
+            <summary>
+            This class provides extension method for common MVC functionalities.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.UI.MVC.SitefinityExtensions.BeginFormSitefinity(System.Web.Mvc.HtmlHelper)">
+            <summary>
+            Writes an opening div tag to the response. When the user submits the form, the request will be processed by an action method.
+            </summary>
+            <param name="htmlHelper">
+            The object being extended.
+            </param>
+            <returns>
+            An instance of the <see cref="T:Telerik.Sitefinity.UI.MVC.Helpers.HybridForm"/>.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.UI.MVC.SitefinityExtensions.BeginFormSitefinity(System.Web.Mvc.HtmlHelper,System.Boolean)">
+            <summary>
+            Writes an opening div tag to the response. When the user submits the form, the request will be processed by an action method.
+            </summary>
+            <param name="htmlHelper">
+            The object being extended.
+            </param>
+            <param name="appendControllerId">
+            Indicates whether the controller Id should be included in the action url.
+            </param>
+            <returns>
+            An instance of the <see cref="T:Telerik.Sitefinity.UI.MVC.Helpers.HybridForm"/>.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.UI.MVC.SitefinityExtensions.BeginFormSitefinity(System.Web.Mvc.HtmlHelper,System.Object)">
+            <summary>
+            Writes an opening div tag to the response. When the user submits the form, the request will be processed by an action method.
+            </summary>
+            <param name="htmlHelper">The object being extended.</param>
+            <param name="routeValues">The route values.</param>
+            <returns>
+            An instance of the <see cref="T:Telerik.Sitefinity.UI.MVC.Helpers.HybridForm" />.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.UI.MVC.SitefinityExtensions.BeginFormSitefinity(System.Web.Mvc.HtmlHelper,System.Web.Routing.RouteValueDictionary)">
+            <summary>
+            Writes an opening div tag to the response. When the user submits the form, the request will be processed by an action method.
+            </summary>
+            <param name="htmlHelper">
+            The object being extended.
+            </param>
+            <param name="routeValues">
+            An instance of <see cref="T:System.Web.Routing.RouteValueDictionary"/> used to pass the parameters to the route.
+            </param>
+            <returns>
+            An instance of the <see cref="T:Telerik.Sitefinity.UI.MVC.Helpers.HybridForm"/>.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.UI.MVC.SitefinityExtensions.BeginFormSitefinity(System.Web.Mvc.HtmlHelper,System.String,System.String)">
+            <summary>
+            Writes an opening div tag to the response. When the user submits the form, the request will be processed by an action method.
+            </summary>
+            <param name="htmlHelper">
+            The object being extended.
+            </param>
+            <param name="actionName">
+            Name of the action that should be invoked when form is submitted.
+            </param>
+            <param name="formName">
+            Name of the form. If multiple forms are present, this overload should be used.
+            </param>
+            <returns>
+            An instance of the <see cref="T:Telerik.Sitefinity.UI.MVC.Helpers.HybridForm"/>.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.UI.MVC.SitefinityExtensions.BeginFormSitefinity(System.Web.Mvc.HtmlHelper,System.String,System.String,System.Object,System.Boolean)">
+            <summary>
+            Writes an opening div tag to the response. When the user submits the form, the request will be processed by an action method.
+            </summary>
+            <param name="htmlHelper">
+            The object being extended.
+            </param>
+            <param name="actionName">
+            Name of the action that should be invoked when form is submitted.
+            </param>
+            <param name="formName">
+            Name of the form. If multiple forms are present, this overload should be used.
+            </param>
+            <param name="routeValues">
+            An object which represents the route values.
+            </param>
+            <param name="appendControllerId">
+            Indicates whether the controller Id should be included in the action url.
+            </param>
+            <returns>
+            An instance of the <see cref="T:Telerik.Sitefinity.UI.MVC.Helpers.HybridForm"/>.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.UI.MVC.SitefinityExtensions.BeginFormSitefinity(System.Web.Mvc.HtmlHelper,System.String,System.String,System.Object)">
+            <summary>
+            Writes an opening div tag to the response. When the user submits the form, the request will be processed by an action method.
+            </summary>
+            <param name="htmlHelper">
+            The object being extended.
+            </param>
+            <param name="actionName">
+            Name of the action that should be invoked when form is submitted.
+            </param>
+            <param name="formName">
+            Name of the form. If multiple forms are present, this overload should be used.
+            </param>
+            <param name="routeValues">
+            An object which represents the route values.
+            </param>
+            <returns>
+            An instance of the <see cref="T:Telerik.Sitefinity.UI.MVC.Helpers.HybridForm"/>.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.UI.MVC.SitefinityExtensions.BeginFormSitefinity(System.Web.Mvc.HtmlHelper,System.String,System.String,System.Web.Routing.RouteValueDictionary)">
+            <summary>
+            Writes an opening div tag to the response. When the user submits the form, the request will be processed by an action method.
+            </summary>
+            <param name="htmlHelper">
+            The object being extended.
+            </param>
+            <param name="actionName">
+            Name of the action that should be invoked when form is submitted.
+            </param>
+            <param name="formName">
+            Name of the form. If multiple forms are present, this overload should be used.
+            </param>
+            <param name="routeValues">
+            An instance of <see cref="T:System.Web.Routing.RouteValueDictionary"/> used to pass the parameters to the route.
+            </param>
+            <returns>
+            An instance of the <see cref="T:Telerik.Sitefinity.UI.MVC.Helpers.HybridForm"/>.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.UI.MVC.SitefinityExtensions.BeginFormSitefinity(System.Web.Mvc.HtmlHelper,System.String,System.String,System.Web.Mvc.FormMethod)">
+            <summary>
+            Writes an opening div tag to the response. When the user submits the form, the request will be processed by an action method.
+            </summary>
+            <param name="htmlHelper">
+            The object being extended.
+            </param>
+            <param name="actionName">
+            Name of the action that should be invoked when form is submitted.
+            </param>
+            <param name="formName">
+            Name of the form. If multiple forms are present, this overload should be used.
+            </param>
+            <param name="method">
+            Method used to submit a form.
+            </param>
+            <returns>
+            An instance of the <see cref="T:Telerik.Sitefinity.UI.MVC.Helpers.HybridForm"/>.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.UI.MVC.SitefinityExtensions.BeginFormSitefinity(System.Web.Mvc.HtmlHelper,System.String,System.String,System.Web.Routing.RouteValueDictionary,System.Web.Mvc.FormMethod)">
+            <summary>
+            Writes an opening div tag to the response. When the user submits the form, the request will be processed by an action method.
+            </summary>
+            <param name="htmlHelper">
+            The object being extended.
+            </param>
+            <param name="actionName">
+            Name of the action that should be invoked when form is submitted.
+            </param>
+            <param name="formName">
+            Name of the form. If multiple forms are present, this overload should be used.
+            </param>
+            <param name="routeValues">
+            An instance of <see cref="T:System.Web.Routing.RouteValueDictionary"/> used to pass the parameters to the route.
+            </param>
+            <param name="method">
+            Method used to submit a form.
+            </param>
+            <returns>
+            An instance of the <see cref="T:Telerik.Sitefinity.UI.MVC.Helpers.HybridForm"/>.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.UI.MVC.SitefinityExtensions.BeginFormSitefinity(System.Web.Mvc.HtmlHelper,System.String,System.String,System.Web.Mvc.FormMethod,System.Object)">
+            <summary>
+            Writes an opening div tag to the response. When the user submits the form, the request will be processed by an action method.
+            </summary>
+            <param name="htmlHelper">
+            The object being extended.
+            </param>
+            <param name="actionName">
+            Name of the action that should be invoked when form is submitted.
+            </param>
+            <param name="formName">
+            Name of the form. If multiple forms are present, this overload should be used.
+            </param>
+            <param name="method">
+            Method used to submit a form.
+            </param>
+            <param name="htmlAttributes">
+            Html attributes to be applied to the form.
+            </param>
+            <returns>
+            An instance of the <see cref="T:Telerik.Sitefinity.UI.MVC.Helpers.HybridForm"/>.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.UI.MVC.SitefinityExtensions.BeginFormSitefinity(System.Web.Mvc.HtmlHelper,System.String,System.String,System.Web.Mvc.FormMethod,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Writes an opening div tag to the response. When the user submits the form, the request will be processed by an action method.
+            </summary>
+            <param name="htmlHelper">
+            The object being extended.
+            </param>
+            <param name="actionName">
+            Name of the action that should be invoked when form is submitted.
+            </param>
+            <param name="formName">
+            Name of the form. If multiple forms are present, this overload should be used.
+            </param>
+            <param name="method">
+            Method used to submit a form.
+            </param>
+            <param name="htmlAttributes">
+            Html attributes to be applied to the form.
+            </param>
+            <returns>
+            An instance of the <see cref="T:Telerik.Sitefinity.UI.MVC.Helpers.HybridForm"/>.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.UI.MVC.SitefinityExtensions.BeginFormSitefinity(System.Web.Mvc.HtmlHelper,System.String,System.String,System.Object,System.Web.Mvc.FormMethod,System.Object)">
+            <summary>
+            Writes an opening div tag to the response. When the user submits the form, the request will be processed by an action method.
+            </summary>
+            <param name="htmlHelper">
+            The object being extended.
+            </param>
+            <param name="actionName">
+            Name of the action that should be invoked when form is submitted.
+            </param>
+            <param name="formName">
+            Name of the form. If multiple forms are present, this overload should be used.
+            </param>
+            <param name="routeValues">
+            An object which represents the route values.
+            </param>
+            <param name="method">
+            Method used to submit a form.
+            </param>
+            <param name="htmlAttributes">
+            Html attributes to be applied to the form.
+            </param>
+            <returns>
+            An instance of the <see cref="T:Telerik.Sitefinity.UI.MVC.Helpers.HybridForm"/>.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.UI.MVC.SitefinityExtensions.BeginFormSitefinity(System.Web.Mvc.HtmlHelper,System.String,System.String,System.Web.Routing.RouteValueDictionary,System.Web.Mvc.FormMethod,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Writes an opening div tag to the response. When the user submits the form, the request will be processed by an action method.
+            </summary>
+            <param name="htmlHelper">
+            The object being extended.
+            </param>
+            <param name="actionName">
+            Name of the action that should be invoked when form is submitted.
+            </param>
+            <param name="formName">
+            Name of the form. If multiple forms are present, this overload should be used.
+            </param>
+            <param name="routeValues">
+            An instance of <see cref="T:System.Web.Routing.RouteValueDictionary"/> representing the values of the route.
+            </param>
+            <param name="method">
+            Method used to submit a form.
+            </param>
+            <param name="htmlAttributes">
+            Html attributes to be applied to the form.
+            </param>
+            <returns>
+            An instance of the <see cref="T:Telerik.Sitefinity.UI.MVC.Helpers.HybridForm"/>.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.UI.MVC.SitefinityExtensions.BeginFormSitefinity(System.Web.Mvc.HtmlHelper,System.String,System.String,System.Web.Routing.RouteValueDictionary,System.Web.Mvc.FormMethod,System.Collections.Generic.IDictionary{System.String,System.Object},System.Boolean)">
+            <summary>
+            Writes an opening div tag to the response. When the user submits the form, the request will be processed by an action method.
+            </summary>
+            <param name="htmlHelper">
+            The object being extended.
+            </param>
+            <param name="actionName">
+            Name of the action that should be invoked when form is submitted.
+            </param>
+            <param name="formName">
+            Name of the form. If multiple forms are present, this overload should be used.
+            </param>
+            <param name="routeValues">
+            An instance of <see cref="T:System.Web.Routing.RouteValueDictionary"/> representing the values of the route.
+            </param>
+            <param name="method">
+            Method used to submit a form.
+            </param>
+            <param name="htmlAttributes">
+            Html attributes to be applied to the form.
+            </param>
+            <param name="appendControllerId">
+            Indicates whether the controller Id should be included in the action url.
+            </param>
+            <returns>
+            An instance of the <see cref="T:Telerik.Sitefinity.UI.MVC.Helpers.HybridForm"/>.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.UI.MVC.SitefinityExtensions.InlineEditingManager(System.Web.Mvc.HtmlHelper,System.Nullable{System.Boolean})">
+            <summary>
+            This method adds an Inline Editing Manager to any page if the current user is authenticated
+            </summary>
+            <param name="htmlHelper">The HTML helper.</param>
+            <param name="loadExternalScripts">Parameter shows when explicitly we need to load the external JavaScript libraries</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

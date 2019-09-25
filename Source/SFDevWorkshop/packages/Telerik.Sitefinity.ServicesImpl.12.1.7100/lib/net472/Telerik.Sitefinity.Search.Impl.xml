@@ -1,0 +1,2544 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Telerik.Sitefinity.Search.Impl</name>
+    </assembly>
+    <members>
+        <member name="T:Telerik.Sitefinity.Search.Impl.BasicSettings.SearchBasicSettingsView">
+            <summary>
+            The basic settings view of the Search module.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Search.Impl.BasicSettings.SearchBasicSettingsView.GetScriptDescriptors">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Search.Impl.BasicSettings.SearchBasicSettingsView.GetScriptReferences">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Impl.BasicSettings.SearchBasicSettingsView.TestConnectionBtn">
+            <summary>
+            Gets the control that tests the connection.
+            </summary>
+            <value>The open selector.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Impl.BasicSettings.SearchBasicSettingsView.AzureSearchServiceName">
+            <summary>
+            Gets the control that stores the search service name.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Impl.BasicSettings.SearchBasicSettingsView.AzureAdminKey">
+            <summary>
+            Gets the control that stores the API admin key.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Impl.BasicSettings.SearchBasicSettingsView.AzureSearchServicePanel">
+            <summary>
+            Gets the reference to azure content panel.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Impl.BasicSettings.SearchBasicSettingsView.LuceneSearchServicePanel">
+            <summary>
+            Gets the reference to lucene content panel.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Impl.BasicSettings.SearchBasicSettingsView.ElasticsearchServicePanel">
+            <summary>
+            Gets the reference to elasticsearch content panel.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Impl.BasicSettings.SearchBasicSettingsView.SearchEngineChoiceField">
+            <summary>
+            Gets the reference to the "UseDefault" choice field.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Impl.BasicSettings.SearchBasicSettingsView.TestConnectionLoadingPanel">
+            <summary>
+            Gets the reference to the test connection loading panel.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Impl.BasicSettings.SearchBasicSettingsView.LuceneServiceIndexFolder">
+            <summary>
+            Gets the reference to the Lucene service index folder field control.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Impl.BasicSettings.SearchBasicSettingsView.LayoutTemplatePath">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Search.Impl.BasicSettings.SearchBasicSettingsView.InitializeControls(Telerik.Sitefinity.Web.UI.GenericContainer)">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Impl.BasicSettings.SearchBasicSettingsView.LayoutTemplateName">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Impl.BasicSettings.SearchBasicSettingsView.TagKey">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.Search.Impl.BasicSettings.SearchSettingsContract">
+            <summary>
+            Represents the model for basic Azure Search settings.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Impl.BasicSettings.SearchSettingsContract.AzureSearchServiceName">
+            <summary>
+            Gets or sets a value indicating the URL of the search service.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Impl.BasicSettings.SearchSettingsContract.AzureServiceAdminKey">
+            <summary>
+            Gets or sets a value indicating the API admin key that should be used.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Impl.BasicSettings.SearchSettingsContract.CurrentServiceName">
+            <summary>
+            Gets or sets a value indicating the current active search service.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Impl.BasicSettings.SearchSettingsContract.LuceneServiceIndexFolder">
+            <summary>
+            Gets or sets a value indicating the index folder for the Lucene search service.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Impl.BasicSettings.SearchSettingsContract.ElasticsearchUri">
+            <summary>
+            Gets or sets a value indicating the Elasticsearch URI.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Search.Impl.BasicSettings.SearchSettingsContract.LoadDefaults(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Search.Impl.BasicSettings.SearchSettingsContract.SaveDefaults">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.Search.Impl.AzureSearch.AzureSearchResultSet">
+            <summary>
+            Contains search result information from an Azure search.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Search.Impl.AzureSearch.AzureSearchResultSet.#ctor(Microsoft.Azure.Search.Models.DocumentSearchResult)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Search.Impl.AzureSearch.AzureSearchResultSet"/> class.
+            </summary>
+            <param name="response">The response containing search results from an Azure Search index.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Impl.AzureSearch.AzureSearchResultSet.HitCount">
+            <summary>
+            Gets the hit count
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Search.Impl.AzureSearch.AzureSearchResultSet.GetEnumerator">
+            <summary>
+            The enumerator
+            </summary>
+            <returns>Enumerator of IDocuments</returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Search.Impl.Elasticsearch.ElasticResultSet">
+            <summary>
+            Contains search result information from Elasticsearch.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Search.Impl.Elasticsearch.ElasticResultSet.#ctor(Nest.ISearchResponse{System.Object})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Search.Impl.Elasticsearch.ElasticResultSet"/> class.
+            </summary>
+            <param name="response">The response from Elasticsearch</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Impl.Elasticsearch.ElasticResultSet.HitCount">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Search.Impl.Elasticsearch.ElasticResultSet.System#Collections#Generic#IEnumerable{Telerik#Sitefinity#Services#Search#Data#IDocument}#GetEnumerator">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Search.Impl.Elasticsearch.ElasticResultSet.System#Collections#IEnumerable#GetEnumerator">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Search.Impl.Elasticsearch.ElasticResultSet.GetEnumerator">
+            <summary>
+            Method that returns the enumerator for the IEnumerator interface.
+            </summary>
+            <returns>The enumerator</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Search.Impl.Elasticsearch.ElasticResultSet.GetEnumeratorGeneric">
+            <summary>
+            Method that returns the enumerator for the generic IEnumerator interface.
+            </summary>
+            <returns>The generic enumerator</returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Search.Impl.Elasticsearch.ElasticsearchService">
+            <summary>
+            Implements Sitefinity search service that utilizes Elasticsearch engine. 
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Search.Impl.Elasticsearch.ElasticsearchService.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Search.Impl.Elasticsearch.ElasticsearchService"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Search.Impl.Elasticsearch.ElasticsearchService.Search(Telerik.Sitefinity.Services.Search.ISearchQuery)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Search.Impl.Elasticsearch.ElasticsearchService.Search(Telerik.Sitefinity.Services.Search.ISearchQuery,Telerik.Sitefinity.Search.SearchOptions)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Search.Impl.Elasticsearch.ElasticsearchService.CreateIndex(System.String,System.Collections.Generic.IEnumerable{Telerik.Sitefinity.Services.Search.IFieldDefinition})">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Search.Impl.Elasticsearch.ElasticsearchService.UpdateIndex(System.String,System.Collections.Generic.IEnumerable{Telerik.Sitefinity.Services.Search.Data.IDocument})">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Search.Impl.Elasticsearch.ElasticsearchService.IndexExists(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Search.Impl.Elasticsearch.ElasticsearchService.DeleteIndex(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Search.Impl.Elasticsearch.ElasticsearchService.RemoveDocuments(System.String,System.Collections.Generic.IEnumerable{Telerik.Sitefinity.Services.Search.Data.IDocument})">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Search.Impl.Elasticsearch.ElasticsearchService.RemoveDocument(System.String,Telerik.Sitefinity.Services.Search.Data.IField)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Search.Impl.Elasticsearch.ElasticsearchService.TestConnectivity">
+            <inheritdoc />
+        </member>
+        <member name="F:Telerik.Sitefinity.Search.Impl.Elasticsearch.ElasticsearchService.ElasticUriParameter">
+            <summary>
+            The parameter used to store the Elastic uri in the configuration
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Search.Impl.Elasticsearch.ElasticsearchService.ServiceName">
+            <summary>
+            The name of the service stored in the configuration
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Search.Impl.HealthChecks.SearchServiceConnectivityCheck">
+            <summary>
+            Defines a functionality that checks if search service is working.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Search.Impl.HealthChecks.SearchServiceConnectivityCheck.RunCore">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.Search.Impl.Services.DTO.SettingsRequest">
+            <summary>
+            Class that represent the service stack settings search request object.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Impl.Services.DTO.SettingsRequest.IndexId">
+            <summary>
+            Gets or sets the name of the index
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Impl.Services.DTO.SettingsRequest.SuggestionFields">
+            <summary>
+            Gets or sets the fields used to retrieve suggestions
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Impl.Services.DTO.SettingsRequest.SectionName">
+            <summary>
+            Gets or sets the section name when we search in a specific section.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Impl.Services.DTO.SettingsRequest.Text">
+            <summary>
+            Gets or sets the text
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Impl.Services.DTO.SettingsRequest.Take">
+            <summary>
+            Gets or sets the page size
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Impl.Services.DTO.SettingsRequest.Skip">
+            <summary>
+            Gets or sets the page number
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Search.Impl.Services.DTO.SuggestionsRequest">
+            <summary>
+            Class that represent the service stack suggestions request object.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Impl.Services.DTO.SuggestionsRequest.IndexName">
+            <summary>
+            Gets or sets the name of the index
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Impl.Services.DTO.SuggestionsRequest.SuggestionFields">
+            <summary>
+            Gets or sets the fields used to retrieve suggestions
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Impl.Services.DTO.SuggestionsRequest.Text">
+            <summary>
+            Gets or sets the text
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Impl.Services.DTO.SuggestionsRequest.Language">
+            <summary>
+            Gets or sets the language of the request
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Search.Impl.Services.DTO.TestConnectionRequest">
+            <summary>
+            Class that represent the service stack request object.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Impl.Services.DTO.TestConnectionRequest.AzureServiceAdminKey">
+            <summary>
+            Gets or sets a value indicating the API key.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Impl.Services.DTO.TestConnectionRequest.AzureSearchServiceName">
+            <summary>
+            Gets or sets a value indicating the azure search service name
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Search.Impl.Services.DTO.SettingDto">
+            <summary>
+            Setting data transfer object used for the search web service
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Impl.Services.DTO.SettingDto.Title">
+            <summary>
+            Gets or sets the title
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Impl.Services.DTO.SettingDto.SectionName">
+            <summary>
+            Gets or sets the name of the section
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Impl.Services.DTO.SettingDto.FullSettingName">
+            <summary>
+            Gets or sets the full section name
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Impl.Services.DTO.SettingDto.Path">
+            <summary>
+            Gets or sets the path
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Impl.Services.DTO.SettingDto.VisiblePath">
+            <summary>
+            Gets or sets the path
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Impl.Services.DTO.SettingDto.FullPath">
+            <summary>
+            Gets or sets the full path
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Search.Impl.Services.DTO.SettingsResponse">
+            <summary>
+            Class that represents the service stack settings search response
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Impl.Services.DTO.SettingsResponse.Results">
+            <summary>
+            Gets or sets the suggestions result
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Search.Impl.Services.DTO.SuggestionsResponse">
+            <summary>
+            Class that represents the service stack suggestions response object.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Impl.Services.DTO.SuggestionsResponse.Suggestions">
+            <summary>
+            Gets or sets the suggestions result
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Search.Impl.Services.DTO.TestConnectionResponse">
+            <summary>
+            Class that represents the service stack response object.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Impl.Services.DTO.TestConnectionResponse.Result">
+            <summary>
+            Gets or sets a value indicating whether the call to the service was successful.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Search.Impl.Services.SearchWebService">
+            <summary>
+            Class that represents the service stack service.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Search.Impl.Services.SearchWebService.Any(Telerik.Sitefinity.Search.Impl.Services.DTO.TestConnectionRequest)">
+            <summary>
+            Method that tests the connection to the azure search service.
+            </summary>
+            <param name="request">Request object</param>
+            <returns>Returns a value indicating whether the call to the service was successful.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Search.Impl.Services.SearchWebService.Get(Telerik.Sitefinity.Search.Impl.Services.DTO.SuggestionsRequest)">
+            <summary>
+            Gets search suggestions
+            </summary>
+            <param name="request">The request</param>
+            <returns>The suggestions response</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Search.Impl.Services.SearchWebService.Get(Telerik.Sitefinity.Search.Impl.Services.DTO.SettingsRequest)">
+            <summary>
+            Gets settings
+            </summary>
+            <param name="request">The request</param>
+            <returns>The settings response</returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Search.Impl.Services.SearchServiceStackPlugin">
+            <summary>
+            Represents a ServiceStack plug-in for the search web service.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Search.Impl.Services.SearchServiceStackPlugin.Register(ServiceStack.IAppHost)">
+            <summary>
+            Adding the recycle bin service routes
+            </summary>
+            <param name="appHost">The service stack appHost</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Impl.Web.UI.AdvancedSettingsSearchControl.SearchTextBox">
+            <summary>
+            Gets the search text box
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Impl.Web.UI.AdvancedSettingsSearchControl.HowToEnableMessage">
+            <summary>
+            Gets the message label
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Impl.Web.UI.AdvancedSettingsSearchControl.LayoutTemplatePath">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Search.Impl.Web.UI.AdvancedSettingsSearchControl.InitializeControls(Telerik.Sitefinity.Web.UI.GenericContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Search.Impl.Web.UI.AdvancedSettingsSearchControl.GetRequiredCoreScripts">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Search.Impl.Web.UI.AdvancedSettingsSearchControl.GetScriptDescriptors">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Search.Impl.Web.UI.AdvancedSettingsSearchControl.GetScriptReferences">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.Search.Impl.Web.UI.Public.SearchQueryValidator">
+            <summary>
+            This class provides methods for validation of search query.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Search.Impl.Web.UI.Public.SearchQueryValidator.Validate(System.String@,System.String@)">
+            <summary>
+            Validates the passed user input against the defined validation rules
+            </summary>
+            <param name="searchQuery">user input</param>
+            <param name="message">message from the config section if input is invalid</param>
+            <returns>the modified user input according the rules
+            defined in the config section and the message for the rule applied
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Search.Impl.Web.UI.Public.SearchQueryValidator.GetValidationRules">
+            <summary>
+            Gets the validation rules.
+            </summary>
+            <returns>List of validation rules.</returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Search.Configuration.SearchServiceSettings">
+            <summary>
+            Represents the configuration elements associated with a search service.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Search.Configuration.SearchServiceSettings.#ctor(Telerik.Sitefinity.Configuration.ConfigElement)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Search.Configuration.SearchServiceSettings"/> class.
+            </summary>
+            <param name="parent">The parent element.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Configuration.SearchServiceSettings.Parameters">
+            <summary>
+            Gets or sets a value indicating a collection of user-defined parameters for the search service.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Configuration.SearchServiceSettings.Name">
+            <summary>
+            Gets or sets a value indicating the name of the search service configured by this class.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Configuration.SearchServiceSettings.Title">
+            <summary>
+            Gets or sets a value indicating the user friendly, localizable name.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Configuration.SearchServiceSettings.ResourceClassId">
+            <summary>
+            Gets or sets the global resource class ID for retrieving localized strings.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.Configuration.SearchServiceSettings.TypeName">
+            <summary>
+            Gets or sets a value indicating the type name.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Search.SearchModuleReport">
+            <summary>
+            Represents the usage tracking report of the Search module
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.SearchModuleReport.ModuleName">
+            <summary>
+            Gets or sets the module name
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.SearchModuleReport.IsUsed">
+            <summary>
+            Gets or sets a value indicating whether the module is used
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Search.AzureSearchService">
+            <summary>
+            Implements Sitefinity search service that utilizes AzureSearch engine. 
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.AzureSearchService.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.AzureSearchService.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Search.AzureSearchService"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.AzureSearchService.Search(Telerik.Sitefinity.Services.Search.ISearchQuery)">
+            <summary>
+            The main search method
+            </summary>
+            <param name="query">The search query</param>
+            <returns>IResultSet result</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.AzureSearchService.Search(Telerik.Sitefinity.Services.Search.ISearchQuery,Telerik.Sitefinity.Search.SearchOptions)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.AzureSearchService.UpdateIndex(System.String,System.Collections.Generic.IEnumerable{Telerik.Sitefinity.Services.Search.Data.IDocument})">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.AzureSearchService.RemoveDocuments(System.String,System.Collections.Generic.IEnumerable{Telerik.Sitefinity.Services.Search.Data.IDocument})">
+            <summary>
+            Removes all documents
+            </summary>
+            <param name="indexName">The index name</param>
+            <param name="documents">The documents</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.AzureSearchService.RemoveDocument(System.String,Telerik.Sitefinity.Services.Search.Data.IField)">
+            <summary>
+            Removes the document
+            </summary>
+            <param name="indexName">The index name</param>
+            <param name="identityField">The identity field</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.AzureSearchService.IndexExists(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.AzureSearchService.DeleteIndex(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.AzureSearchService.CreateIndex(System.String,System.Collections.Generic.IEnumerable{Telerik.Sitefinity.Services.Search.IFieldDefinition})">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.AzureSearchService.TestConnectivity">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.AzureSearchService.Dispose(System.Boolean)">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged native resources.
+            </summary>
+            <param name="disposing">The disposing parameter</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.AzureSearchService.ApplySearchOptions(System.String,System.Boolean,Telerik.Sitefinity.Search.SearchOptions)">
+            <summary>
+            Appends asterisk if not present in the term
+            </summary>
+            <param name="queryText">The term</param>
+            <param name="isExactMatchEnabled">The configuration parameter</param>
+            <param name="searchOptions">The search options</param>
+            <returns>The formatted string</returns>
+        </member>
+        <member name="F:Telerik.Sitefinity.Services.Search.AzureSearchService.AzureServiceAdminKey">
+            <summary>
+            Property name for API key parameter.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Services.Search.AzureSearchService.AzureSearchServiceName">
+            <summary>
+            Property name for service URL.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Services.Search.AzureSearchService.CombineSearchTermsWithOr">
+            <summary>
+            When enabled the AzureSearch will construct the query using OR instead of AND ( when having more than one word in the search box )
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Services.Search.AzureSearchService.ServiceName">
+            <summary>
+            Name of the search service.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Search.Configuration.SearchConfig">
+            <summary>
+            Class that represents the search configuration file.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Configuration.SearchConfig.ContentViewControls">
+            <summary>
+            Gets a collection of data Content View Controls.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Configuration.SearchConfig.SearchInputValidation">
+            <summary>
+            Gets a CrawlerCredentialsSettings object that represents the credentials used by the crawler to authenticate
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Configuration.SearchConfig.SearchServices">
+            <summary>
+            Gets a collection of search service settings.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Configuration.SearchConfig.StopWords">
+            <summary>
+            Gets or sets the the search stop words.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Configuration.SearchConfig.EnableFilterByViewPermissions">
+            <summary>
+            Gets or sets a value indicating whether filtering is enabled.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Configuration.SearchConfig.CurrentSearchService">
+            <summary>
+            Gets or sets the current active Search service.
+            </summary>        
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Configuration.SearchConfig.IndexBufferCapacity">
+            <summary>
+            Gets or sets a value indicating the index buffer capacity.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Configuration.SearchConfig.IndexBufferFlushInterval">
+            <summary>
+            Gets or sets a value indicating the index buffer flush interval.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Configuration.SearchConfig.WriteLockRemoveInterval">
+            <summary>
+            Gets a value indicating how long a write.lock file can exists before it is removed (in seconds).
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Configuration.SearchConfig.IndexFolder">
+            <summary>
+            Gets a value indicating the index folder of the lucene search service.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Configuration.SearchConfig.MaxSuggestionsCount">
+            <summary>
+            Gets or sets a value indicating the maximum suggestions count.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Configuration.SearchConfig.MaxSuggestionLength">
+            <summary>
+            Gets or sets a value indicating the maximum suggestion length.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Configuration.SearchConfig.MinSuggestLength">
+            <summary>
+            Gets or sets a value indicating the minimum text length before suggestions appear.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Configuration.SearchConfig.EnableExactMatch">
+            <summary>
+            Gets or sets a value indicating whether the results will be exactly matched
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Configuration.SearchConfig.Upgrade(System.Version,System.Version)">
+            <summary>
+            Method that is used to perform upgrade from old to new version.
+            </summary>
+            <param name="oldVersion">Version to upgrade from.</param>
+            <param name="newVersion">Version to upgrade to.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Configuration.SearchConfig.GetSearchStopWords">
+            <summary>
+            Retrieves the search stop words.
+            </summary>
+            <returns>Search stop words.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Configuration.SearchConfig.GetSearchStopWordsAsArray">
+            <summary>
+            Gets the search stop words as array.
+            </summary>
+            <returns>Array of the search stop words.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Configuration.SearchConfig.SetProperties">
+            <summary>
+            Sets the default values for Lucene search service properties.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Configuration.SearchConfig.OnPropertiesInitialized">
+            <summary>
+            Called after the properties of this instance have been initialized.
+            Load default values here.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Configuration.SearchConfig.ConfigureInitialSearchStopWords">
+            <summary>
+            Configures the initial search stop words.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Search.Configuration.SearchValidationElement">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Configuration.SearchValidationElement.#ctor(Telerik.Sitefinity.Configuration.ConfigElement)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Search.Configuration.SearchValidationElement"/> class.
+            </summary>
+            <param name="parent">The parent element.</param>
+            <remarks>
+            ConfigElementCollection generally needs to have a parent, however, sometimes it is necessary
+            to create a collection in memory only which is then used later on in the context of a parent.
+            Therefore, is the element is of ConfigElementCollection, exception for a non existing parent
+            will not be thrown.
+            </remarks>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Configuration.SearchValidationElement.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="!:FieldControlElement"/> class.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Configuration.SearchValidationElement.MatchPattern">
+            <summary>
+            The pattern to match against
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Configuration.SearchValidationElement.ReplacementString">
+            <summary>
+            The replacement expression
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Configuration.SearchValidationElement.Enabled">
+            <summary>
+            Indicates wherever the element is active and should be used.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Configuration.SearchValidationElement.MatchAlert">
+            <summary>
+            The text of the message that should be shown when match succeeded.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Search.Data.SitefinityCustomScoreQuery">
+            <summary>
+            Default Sitefinity inheritor for Lucene CustomScoreQuery
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Data.SitefinityCustomScoreQuery.#ctor(Lucene.Net.Search.Query,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Search.Data.SitefinityCustomScoreQuery"/> class.
+            </summary>
+            <param name="subQuery">The Lucene query</param>
+            <param name="excludeContentAge">A value indicating whether the content age should be included in the score calculation</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Data.SitefinityCustomScoreQuery.GetCustomScoreProvider(Lucene.Net.Index.IndexReader)">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Search.Data.SitefinityCustomScoreQuery.CustomizedScoreProvider">
+            <summary>
+            The custom score provider for <see cref="T:Telerik.Sitefinity.Services.Search.Data.SitefinityCustomScoreQuery"/>
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Data.SitefinityCustomScoreQuery.CustomizedScoreProvider.#ctor(Lucene.Net.Index.IndexReader,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Search.Data.SitefinityCustomScoreQuery.CustomizedScoreProvider"/> class.
+            </summary>
+            <param name="reader">The index reader</param>
+            <param name="excludeContentAge">A value indicating whether the content age should be included in the score calculation</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Data.SitefinityCustomScoreQuery.CustomizedScoreProvider.CustomScore(System.Int32,System.Single,System.Single[])">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Data.SitefinityCustomScoreQuery.CustomizedScoreProvider.CalculateBoost(System.Int32)">
+            <summary>
+            Calculates the boost, based on the content's age
+            </summary>
+            <param name="days">Content's age in days</param>
+            <returns>The boost</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Data.DefaultResultSet.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Data.DefaultResultSet.Enumerator.Current">
+            <summary>
+            Gets the current.
+            </summary>
+            <value>The current.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Data.DefaultResultSet.Enumerator.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Data.DefaultResultSet.Enumerator.System#Collections#IEnumerator#Current">
+            <summary>
+            Gets the current.
+            </summary>
+            <value>The current.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Data.DefaultResultSet.Enumerator.MoveNext">
+            <summary>
+            Advances the enumerator to the next element of the collection.
+            </summary>
+            <returns>
+            true if the enumerator was successfully advanced to the next element; false if the enumerator has passed the end of the collection.
+            </returns>
+            <exception cref="T:System.InvalidOperationException">The collection was modified after the enumerator was created. </exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Data.DefaultResultSet.Enumerator.Reset">
+            <summary>
+            Sets the enumerator to its initial position, which is before the first element in the collection.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">The collection was modified after the enumerator was created. </exception>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Search.Data.LuceneSearchService">
+            <summary>
+            Implements Sitefinity search service that utilizes Lucene.Net search engine. 
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Data.LuceneSearchService.Search(Telerik.Sitefinity.Services.Search.ISearchQuery)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Data.LuceneSearchService.Search(Telerik.Sitefinity.Services.Search.ISearchQuery,Telerik.Sitefinity.Search.SearchOptions)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Data.LuceneSearchService.UpdateIndex(System.String,System.Collections.Generic.IEnumerable{Telerik.Sitefinity.Services.Search.Data.IDocument})">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Data.LuceneSearchService.RemoveDocuments(System.String,System.Collections.Generic.IEnumerable{Telerik.Sitefinity.Services.Search.Data.IDocument})">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Data.LuceneSearchService.RemoveDocument(System.String,Telerik.Sitefinity.Services.Search.Data.IField)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Data.LuceneSearchService.IndexExists(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Data.LuceneSearchService.DeleteIndex(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Data.LuceneSearchService.CreateIndex(System.String,System.Collections.Generic.IEnumerable{Telerik.Sitefinity.Services.Search.IFieldDefinition})">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Data.LuceneSearchService.GetAnalyzer">
+            <summary>
+            Gets a resolved instance of type <see cref="!:Telerik.Sitefinity.Utilities.Lucene.Net.Analysis.Analyzer"/>.
+            </summary>
+            <returns>The analyzer</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Data.LuceneSearchService.GetCataloguePath(System.String)">
+            <summary>
+            Gets the path for a specified search index
+            </summary>
+            <param name="indexName">The name of the search index</param>
+            <returns>The path to the index</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Data.LuceneSearchService.GetDocument(Lucene.Net.Documents.Document)">
+            <summary>
+            Creates a new publishing system document from Lucene document
+            </summary>
+            <param name="luceneDoc">The Lucene document</param>
+            <returns>The publishing system document</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Data.LuceneSearchService.BuildQuery(Telerik.Sitefinity.Services.Search.ISearchQuery)">
+            <summary>
+            Builds the string query that will be passed to Lucene
+            </summary>
+            <param name="input">The input query object</param>
+            <returns>The string query</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Data.LuceneSearchService.BuildQuery(Telerik.Sitefinity.Services.Search.ISearchQuery,Telerik.Sitefinity.Search.SearchOptions)">
+            <summary>
+            Builds the string query that will be passed to Lucene
+            </summary>
+            <param name="input">The input query object</param>
+            <param name="searchOptions">The searchOptions</param>
+            <returns>The string query</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Data.LuceneSearchService.BuildSearchFilter(Telerik.Sitefinity.Services.Search.ISearchQuery)">
+            <summary>
+            Builds the search filter
+            </summary>
+            <param name="query">The search query</param>
+            <returns>The filter</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Data.LuceneSearchService.BuildLuceneQuery(System.String,Telerik.Sitefinity.Search.SearchOptions,Lucene.Net.Search.Searcher)">
+            <summary>
+            Builds the Lucene query, used to retrieve results
+            </summary>
+            <param name="compiledQuery">The compiled string query</param>
+            <param name="searchOptions">The search options</param>
+            <param name="searcher">The searcher</param>
+            <returns>The Lucene query</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Data.LuceneSearchService.GetIndexFolder">
+            <summary>
+            Gets the index folder path.
+            </summary>
+            <returns>Path of the index folder.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Data.LuceneSearchService.ApplySearchOptions(System.String,System.Boolean,Telerik.Sitefinity.Search.SearchOptions)">
+            <summary>
+            Appends asterisk if not present in the term
+            </summary>
+            <param name="queryText">The term</param>
+            <param name="isExactMatchEnabled">The configuration parameter</param>
+            <param name="searchOptions">The search options</param>
+            <returns>The formatted string</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Data.LuceneSearchService.RemoveRedundantLockFile(System.String)">
+            <summary>
+            Hack: This method removes write.lock file from search index directory.
+            Sometimes this file is not removed by lucene itself and needs to be manually removed.
+            This is fixed in latest lucene and the upgrade will fix it.
+            </summary>
+            <param name="indexName">The name of the search index</param>
+        </member>
+        <member name="F:Telerik.Sitefinity.Services.Search.Data.LuceneSearchService.LuceneServiceIndexFolder">
+            <summary>
+            Property name for index folder parameter.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Services.Search.Data.LuceneSearchService.ServiceName">
+            <summary>
+            Property name for service name.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Services.Search.Data.LuceneSearchService.LuceneServiceWriteLockRemoveInterval">
+            <summary>
+            Property name for the write lock remove interval.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Services.Search.Data.LuceneSearchService.ExcludeContentAgeFromScoreCalculation">
+            <summary>
+            Property name for excluding content age in search score calculation
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Search.Data.IDocumentExtensions">
+            <summary>
+            Contains extension methods related to the IDocument interface.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Data.IDocumentExtensions.SetContentLinks(System.Collections.Generic.IEnumerable{Telerik.Sitefinity.Services.Search.Data.IDocument},System.Boolean)">
+            <summary>
+            Sets the "Link" property of the search results.
+            </summary>
+            <param name="documents">The documents.</param>
+            <param name="setLinksOnlyFromCurrentSite">A value indicating whether only links from current site should be set.</param>
+            <returns>IEnumerable with documents with links</returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Search.SearchFilterClause">
+            <summary>
+            An implementation for search filter clause
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.SearchFilterClause.#ctor(System.String,System.Object,Telerik.Sitefinity.Services.Search.FilterOperator)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Search.SearchFilterClause"/> class.
+            </summary>
+            <param name="field">The field</param>
+            <param name="value">The value</param>
+            <param name="filterOperator">The operator</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchFilterClause.Field">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchFilterClause.Value">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchFilterClause.FilterOperator">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Search.SearchFilter">
+            <summary>
+            The implementation for search filter
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.SearchFilter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Search.SearchFilter"/> class.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchFilter.Clauses">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchFilter.Groups">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchFilter.Operator">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.SearchFilter.AddClause(Telerik.Sitefinity.Services.Search.ISearchFilterClause)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.SearchFilter.AddFilter(Telerik.Sitefinity.Services.Search.ISearchFilter)">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Search.LuceneQueryBuilder">
+            <summary>
+            The default implementation of ISearchQueryBuilder for Lucene search engine.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.LuceneQueryBuilder.#ctor(Telerik.Sitefinity.Services.Search.Data.LuceneSearchService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Search.LuceneQueryBuilder"/> class.
+            </summary>
+            <param name="service">The search service</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.LuceneQueryBuilder.#ctor(Telerik.Sitefinity.Services.Search.Data.LuceneSearchService,Telerik.Sitefinity.Search.SearchOptions)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Search.LuceneQueryBuilder"/> class.
+            </summary>
+            <param name="service">The search service</param>
+            <param name="searchOptions">The search options</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.LuceneQueryBuilder.GetQuery">
+            <summary>
+            Gets the query as a string
+            </summary>
+            <returns>The query</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.LuceneQueryBuilder.AddTerm(System.String,System.String)">
+            <summary>
+            Adds a term to the builder
+            </summary>
+            <param name="field">Term field</param>
+            <param name="text">Term text</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.LuceneQueryBuilder.AddTerm(System.String,System.String,System.Single)">
+            <summary>
+            Adds a term to the builder
+            </summary>
+            <param name="field">Term field</param>
+            <param name="text">Term text</param>
+            <param name="boost">Term boost for the term</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.LuceneQueryBuilder.CreateGroup(Telerik.Sitefinity.Services.Search.QueryOperator)">
+            <summary>
+             Opens a new group to the builder
+            </summary>
+            <param name="queryOperator">The group operator</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.LuceneQueryBuilder.CloseGroup">
+            <summary>
+            Closes the last group
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Search.Model.Document">
+            <summary>
+            The model for search documents
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Model.Document.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Search.Model.Document"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Model.Document.#ctor(System.Collections.Generic.IEnumerable{Telerik.Sitefinity.Services.Search.Data.IField},System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Search.Model.Document"/> class.
+            </summary>
+            <param name="fields">The fields to include in the document</param>
+            <param name="identityField">The identity field</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Model.Document.IdentityField">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Model.Document.DocumentId">
+            <summary>
+            Gets the identity field for the document in the search index
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Model.Document.Fields">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Model.Document.ItemId">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Model.Document.ItemType">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Model.Document.ItemProvider">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Model.Document.AdditionalData">
+            <summary>
+            Gets or sets the additional data
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Model.Document.GetValue(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Model.Document.SetValue(System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Model.Document.GetDynamicMemberNames">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Model.Document.TryGetMember(System.Dynamic.GetMemberBinder,System.Object@)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Model.Document.TrySetMember(System.Dynamic.SetMemberBinder,System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Model.Document.GetAttributes">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Model.Document.GetClassName">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Model.Document.GetComponentName">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Model.Document.GetConverter">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Model.Document.GetDefaultEvent">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Model.Document.GetDefaultProperty">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Model.Document.GetEditor(System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Model.Document.GetEvents(System.Attribute[])">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Model.Document.GetEvents">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Model.Document.GetProperties(System.Attribute[])">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Model.Document.GetProperties">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Model.Document.GetPropertyOwner(System.ComponentModel.PropertyDescriptor)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Model.Document.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Model.Document.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Model.Document.GetSupportedValue(System.Object)">
+            <summary>
+            For now, search only supports string, string[] and DateTime. Everything else is converted to string.
+            </summary>
+            <param name="value">The original value</param>
+            <returns>The value that will go to the search engine</returns>
+        </member>
+        <member name="F:Telerik.Sitefinity.Services.Search.Model.Document.IdentityFieldName">
+            <summary>
+            The name of the identity field
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Search.Publishing.Field">
+            <summary>
+            Represents atomic data used by the IDocument interface
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Publishing.Field.Name">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Publishing.Field.Value">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Publishing.Field.Attributes">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Search.Publishing.SearchIndexOutboundPipe">
+            <summary>
+            Represents publishing point pipe for search index.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Publishing.SearchIndexOutboundPipe.Definition">
+            <summary>
+            Defines the data structure of the medium this pipe works with
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Publishing.SearchIndexOutboundPipe.Name">
+            <summary>
+            Gets the name.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Publishing.SearchIndexOutboundPipe.GetDefaultSettings">
+            <summary>
+            Gets the default settings.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Publishing.SearchIndexOutboundPipe.GetTemplatePipeSettings">
+            <summary>
+            Used to get the default settings for this pipe, without creating persistent object
+            </summary>
+            <returns>The settings</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Publishing.SearchIndexOutboundPipe.GetDefaultMappings">
+            <summary>
+            Used to get the default mappings for this pipe
+            </summary>
+            <returns>The settings</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Publishing.SearchIndexOutboundPipe.GetFields">
+            <summary>
+            Gets the fields.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Publishing.SearchIndexOutboundPipe.Initialize(Telerik.Sitefinity.Publishing.Model.PipeSettings)">
+            <summary>
+            Initializes the specified pipe settings.
+            </summary>
+            <param name="pipeSettings">The pipe settings.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Publishing.SearchIndexOutboundPipe.CanProcessItem(System.Object)">
+            <summary>
+            Determines whether this instance [can process item] the specified item.
+            </summary>
+            <param name="item">The item.</param>
+            <returns>
+            	<c>true</c> if this instance [can process item] the specified item; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Publishing.SearchIndexOutboundPipe.GetConvertedItemsForMapping(Telerik.Sitefinity.Publishing.WrapperObject)">
+            <summary>
+            Gets the converted items for mapping.
+            </summary>
+            <param name="wrapperObject">The wrapper object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Publishing.SearchIndexOutboundPipe.PushData(System.Collections.Generic.IList{Telerik.Sitefinity.Publishing.PublishingSystemEventInfo})">
+            <summary>
+            Pushes the data.
+            </summary>
+            <param name="items">The items.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Publishing.SearchIndexOutboundPipe.IncludeScheduledItems(System.Collections.Generic.ISet{Telerik.Sitefinity.Services.Search.Data.IDocument},System.Collections.Generic.ISet{Telerik.Sitefinity.Services.Search.Data.IDocument})">
+            <summary>
+            Matches documents, which are about to be indexed synchronously, with
+            scheduled documents.
+            If there is overlap, then the scheduled documents will be included for immediate processing.
+            We need this in order to make sure that indexing is not reordered due to mixing of
+            synchronous and asynchronous operations.
+            </summary>
+            <param name="toAdd">Documents that are about to be immediately added to the index.</param>
+            <param name="toDelete">Documents that are about to be immediately removed from the index.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Publishing.SearchIndexOutboundPipe.FlushBuffer">
+            <summary>
+            Flushes the buffer.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Publishing.SearchIndexOutboundPipe.PublishingPoint">
+            <summary>
+            Gets or sets the publishing point.
+            </summary>
+            <value>The publishing point.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Publishing.SearchIndexOutboundPipe.EnhanceWrapperObject(Telerik.Sitefinity.Publishing.WrapperObject,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Enhances the current wrapper object, adding mappings for the additional search index fields
+            </summary>
+            <param name="obj">The WrapperObject that will be enhanced</param>
+            <param name="additionalProperties">The additional fields, defined in the search index</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Publishing.SearchRegisteredObject.System#Web#Hosting#IRegisteredObject#Stop(System.Boolean)">
+            <summary>
+            Stops the thread pool and unregisters it from the hosting environment to allow 
+            the application domain to be unloaded. Called automatically by the ASP.NET.
+            </summary>
+            <param name="immediate">true to indicate the registered object should unregister
+            from the hosting environment before returning; otherwise, false.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Publishing.SearchIndexingTask.TraceAddedPredicate">
+            <summary>
+            Gets a predicate, that can be used to check whether a log line is a document added event.
+            First parameter is the log message, and second is the index name.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Publishing.SearchIndexingTask.TraceRemovedPredicate">
+            <summary>
+            Gets a predicate, that can be used to check whether a log line is a document removed event.
+            First parameter is the log message, and second is the index name.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Search.SearchQuery">
+            <summary>
+            The implementation for search query
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchQuery.IndexName">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchQuery.Text">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchQuery.SearchFields">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchQuery.HighlightedFields">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchQuery.OrderBy">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchQuery.Skip">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchQuery.Take">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchQuery.SearchGroup">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchQuery.Filter">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchQuery.EnableExactMatch">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Search.SearchDefinitions">
+            <summary>
+            This is a static class used to initialize the properties for all ContentView control views
+            of supplied by default for the search module.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.SearchDefinitions.DefineSearchBackendContentView(Telerik.Sitefinity.Configuration.ConfigElement)">
+            <summary>
+            Defines the ContentView control for Search on the backend
+            </summary>
+            <param name="parent">The parent configuration element.</param>
+            <returns>A configured instance of <see cref="T:Telerik.Sitefinity.Web.UI.ContentUI.Config.ContentViewControlElement"/>.</returns>
+        </member>
+        <member name="F:Telerik.Sitefinity.Services.Search.SearchDefinitions.BackendDefinitionName">
+            <summary>
+            Name of the <see cref="T:Telerik.Sitefinity.Web.UI.ContentUI.Contracts.IContentViewControlDefinition"/> for the Search module
+            on the backend.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Services.Search.SearchDefinitions.BackendListViewName">
+            <summary>
+            Name of the <see cref="T:Telerik.Sitefinity.Web.UI.ContentUI.Contracts.IContentViewDefinition"/> for the list view of the Search
+            module on the backend.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Services.Search.SearchDefinitions.BackendEditViewName">
+            <summary>
+            Name of the <see cref="T:Telerik.Sitefinity.Web.UI.ContentUI.Contracts.IContentViewDefinition"/> for the edit view of the Search
+            module on the backend.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Services.Search.SearchDefinitions.BackendInsertViewName">
+            <summary>
+            Name of the <see cref="T:Telerik.Sitefinity.Web.UI.ContentUI.Contracts.IContentViewDefinition"/> for the insert view of the Search
+            module on the backend.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Services.Search.SearchDefinitions.SearchResourceClassId">
+            <summary>
+            Localization resources' class Id for Search
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Services.Search.SearchDefinitions.LabelsResourceClassId">
+            <summary>
+            Localization resources' class Id for Labels
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Services.Search.SearchDefinitions.ItemTemplate">
+            <summary>
+            Localization resources' class Id for Labels
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Services.Search.SearchDefinitions.FrontendTitlesOnlySearchResultsViewName">
+            <summary>
+            Titles only search results view name.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Services.Search.SearchDefinitions.FrontendSearchResultsViewName">
+            <summary>
+            Search results view name.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Search.SearchModule">
+            <summary>
+            Publishing module - maintains initialization and installation
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchModule.Managers">
+            <summary>
+            Gets the CLR types of all data managers provided by this module.
+            </summary>
+            <value>An array of <see cref="T:System.Type"/> objects.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchModule.LandingPageId">
+            <summary>
+            Gets the landing page id for each module inherit from <see cref="T:Telerik.Sitefinity.Services.SecuredModuleBase"/> class.
+            </summary>
+            <value>The landing page id.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.SearchModule.Initialize(Telerik.Sitefinity.Services.ModuleSettings)">
+            <summary>
+            Initializes the service with specified settings.
+            </summary>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.SearchModule.Install(Telerik.Sitefinity.Abstractions.SiteInitializer)">
+            <summary>
+            Installs this module in Sitefinity system.
+            </summary>
+            <param name="initializer">The Site Initializer. A helper class for installing Sitefinity modules.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.SearchModule.Load">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.SearchModule.GetSecurityRoots(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.SearchModule.GetReport">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.SearchModule.Upgrade(Telerik.Sitefinity.Abstractions.SiteInitializer,System.Version)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.SearchModule.GetVirtualPaths">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.SearchModule.GetModuleConfig">
+            <inheritdoc />
+        </member>
+        <member name="F:Telerik.Sitefinity.Services.Search.SearchModule.ModuleName">
+            <summary>
+            Search module name
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Services.Search.SearchModule.HomePageId">
+            <summary>
+            ID of the landing page for the search module
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Services.Search.SearchModule.SearchVirtualPath">
+            <summary>
+            The virtual path key for Search module
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Services.Search.SearchModule.AdvancedSettingsIndexTitle">
+            <summary>
+            The title for the advanced settings search index
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Services.Search.SearchModule.AdvancedSettingsIndexId">
+            <summary>
+            The id for the advanced settings index
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Services.Search.SearchModule.ResourceClassId">
+            <summary>
+            ID of the resource class used for localization of messages
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Search.SearchQueryGroup">
+            <summary>
+            The implementation for search group
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.SearchQueryGroup.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Search.SearchQueryGroup"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.SearchQueryGroup.#ctor(Telerik.Sitefinity.Services.Search.QueryOperator)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Search.SearchQueryGroup"/> class.
+            </summary>
+            <param name="searchGroupOperator">The group operator</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchQueryGroup.Terms">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchQueryGroup.Groups">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchQueryGroup.Operator">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.SearchQueryGroup.AddTerm(Telerik.Sitefinity.Services.Search.ISearchTerm)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.SearchQueryGroup.AddGroup(Telerik.Sitefinity.Services.Search.ISearchGroup)">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Search.SearchResources">
+            <summary>
+            Represents string resources for UI labels.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.SearchResources.#ctor">
+            <summary>
+            Initializes new instance of <see cref="T:Telerik.Sitefinity.Services.Search.SearchResources"/> class with the default <see cref="T:Telerik.Sitefinity.Localization.Data.ResourceDataProvider"/>.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.SearchResources.#ctor(Telerik.Sitefinity.Localization.Data.ResourceDataProvider)">
+            <summary>
+            Initializes new instance of <see cref="T:Telerik.Sitefinity.Services.Search.SearchResources"/> class with the provided <see cref="T:Telerik.Sitefinity.Localization.Data.ResourceDataProvider"/>.
+            </summary>
+            <param name="dataProvider"><see cref="T:Telerik.Sitefinity.Localization.Data.ResourceDataProvider"/></param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.SearchResourcesTitle">
+            <summary>
+            Search and Indexing
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.SearchResourcesTitlePlural">
+            <summary>
+            Search and Indexing
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.SearchResourcesDescription">
+            <summary>
+            Contains localizable resources for Search and Indexing service module.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.ModuleTitle">
+            <summary>
+            Search indexes
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.ModuleDescription">
+            <summary>
+            Provides user interface for creating and managing indexes and controlling search behaviors.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.SearchHtmlTitle">
+            <summary>
+            Search and Indexing
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.SearchIndexes">
+            <summary>
+            phrase: Search indexes
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.CreateSearchIndex">
+            <summary>
+            phrase: Create a search index
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.EditSearchIndex">
+            <summary>
+            phrase: Edit a search index
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.Reindex">
+            <summary>
+            phrase: Start indexing now
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.LastIndexing">
+            <summary>
+            phrase: Last indexing
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.Name">
+            <summary>
+            word: Name
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.Index">
+            <summary>
+            word: Index
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.AutoIndex">
+            <summary>
+            phrase: Auto-index
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.NotAutoIndex">
+            <summary>
+            phrase: Not auto-index
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.CreateThisSearchIndex">
+            <summary>
+            phrase: Create this search index
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.SaveChanges">
+            <summary>
+            phrase: Save changes
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.NameCannotBeEmpty">
+            <summary>
+            Phrase: Name cannot be empty
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.NoSearchIndexes">
+            <summary>
+            Phrase: No search indexes have been created yet
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.WhatDoYouWantToDoNow">
+            <summary>
+            phrase: What do you want to do now?
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.BackToItems">
+            <summary>
+            phrase:Go back
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.PageGroupNodeTitle">
+            <summary>
+            Messsage: Search indexes
+            </summary>
+            <value>Page group for the Search module.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.SearchUrlName">
+            <summary>
+            Messsage: Search
+            </summary>
+            <value>Search URL name.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.PageGroupNodeDescription">
+            <summary>
+            Messsage: Page group for the Search module
+            </summary>
+            <value>Search Page Group Description</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.Search">
+            <summary>
+            Word: Search
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.SearchBoxTitle">
+            <summary>
+            Control name: Search
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.SearchBoxDescription">
+            <summary>
+            Control description: A search box control for entering search criteria.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.SearchResultsTitle">
+            <summary>
+            Control name: Search results
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.SearchResultsDescription">
+            <summary>
+            Control description: A control for displaying search results.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.InvalidIndex">
+            <summary>
+            phrase: Invalid index: {0}
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.SearchResultsViewFriendlyName">
+            <summary>
+            Phrase: Search results - list
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.Scope">
+            <summary>
+            Word: Search
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.DefineWhatTypeOfContentWillBeIndexed">
+            <summary>
+            Word: "Define what type of content will be indexed"
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.SearchResultsStatusMessage">
+            <summary>
+            Phrase: {0} search results for <strong>{1}</strong>
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.SearchBoxEmptyLinkText">
+            <summary>
+            phrase: Set where to search
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.SearchBoxDesignerIndexTitle">
+            <summary>
+            phrase: Which feed to display?
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.SearchBoxDesignerRequiredIndexMessage">
+            <summary>
+            phrase: Please select where to search.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.SearchBoxDesignerIndexDescription">
+            <summary>
+            phrase: Here are listed search indexes created in<br /><em>Administration &gt; Search indexes</em>
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.SearchBoxDesignerPageTitle">
+            <summary>
+            phrase: Where to display search results?
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.SearchBoxDesignerRequiredPageMessage">
+            <summary>
+            phrase: Please select where to display search results.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.SearchBoxDesignerPageDescription">
+            <summary>
+            phrase: This is the page where you have <strong>dropped <em>Search results</em> widget</strong>
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.SearchBoxDesignerNoSearchIndexesCreated">
+            <summary>
+            phrase: No search indexes created
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.ShowSearchBoxAbove">
+            <summary>
+            phrase: Show search box above the results
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.ShowSearchBoxBelow">
+            <summary>
+            phrase: Show search box below the results
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.DuplicateSearchIndexTitle">
+            <summary>
+            Error message: Duplicate search index name
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.SelectIndex">
+            <summary>
+            phrase: Select index
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.SearchConfig">
+            <summary>
+            phrase: Search settings
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.IndexingInProgress">
+            <summary>
+            phrase: Indexing in progress...
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.AdvancedSection">
+            <summary>
+            Phrase: Advanced (for developers)
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.AdditionalFieldsTitle">
+            <summary>
+            Phrase: Additional fields for indexing
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.AdditionalFieldsDescription">
+            <summary>
+            Phrase: You can manually include different fields (static or dynamic) in the search index. Note that these fields should be of type short or long text. Separate with comma.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.AdditionalFieldsExample">
+            <summary>
+            Phrase: Example: Author, SourceName
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.AdditionalFieldsErrorMessage">
+            <summary>
+            Phrase: You have entered invalid symbols. Use letters, numbers and "_" symbol.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.SearchResultsStatusMessageShort">
+            <summary>
+            Phrase: Search results for <strong>{0}</strong>
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.AzureDescription">
+            <summary>
+            Description for Azure Search
+            </summary>
+            <value>Azure Search is a search-as-a-service solution that allows developers to incorporate search capabilities into their applications without having to worry about the complexities of full-text search and without having to deploy, maintain or manage any infrastructure.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.AzureConnect">
+            <summary>
+            Label: Connect to Azure Search
+            </summary>
+            <value>Connect to Azure Search</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.LuceneSettings">
+            <summary>
+            Label: Lucene Settings
+            </summary>
+            <value>Lucene Settings</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.ServiceApiKey">
+            <summary>
+            Label: Admin API key
+            </summary>
+            <value>API key</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.SearchServiceName">
+            <summary>
+            Label: Search service name
+            </summary>
+            <value>Search service name</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.TestConnectionLabel">
+            <summary>
+            Label: Test connection
+            </summary>
+            <value>Test connection</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.ServerConnectivity">
+            <summary>
+            Label: Server connectivity
+            </summary>
+            <value>Server connectivity</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.SuccessStatus">
+            <summary>
+            Label: Successfully connected to Azure Search
+            </summary>
+            <value>Successfully connected to Azure Search</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.FailStatus">
+            <summary>
+            Label: Azure Search is not accessible
+            </summary>
+            <value>Azure Search is not accessible</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.ExampleLabel">
+            <summary>
+            Label: Example
+            </summary>
+            <value>Example:</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.ExampleSiteLabel">
+            <summary>
+            Label: http://www.mysite.com
+            </summary>
+            <value>http://www.mysite.com</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.SearchServiceDescription">
+            <summary>
+            Label: Which search service to use in your site?
+            </summary>
+            <value>Which search service to use in your site?</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.CurrentSearchService">
+            <summary>
+            Label: Current search service
+            </summary>
+            <value>Current search service</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.CurrentSearchServiceDescription">
+            <summary>
+            Label: Defines the current search service
+            </summary>
+            <value>Defines the current search service</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.SearchServiceType">
+            <summary>
+            Label: Name of the type of the search service that should be used.
+            </summary>
+            <value>Name of the type of the search service that should be used.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.IndexFolder">
+            <summary>
+            Label: Index Folder
+            </summary>
+            <value>Index Folder</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.LuceneSearchServiceTitle">
+            <summary>
+            Label: Lucene (default)
+            </summary>
+            <value>Lucene (default)</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.WhereIndexFilesStored">
+            <summary>
+            Label: Where search index files are stored
+            </summary>
+            <value>Lucene (default)</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.AzureSearchServiceTitle">
+            <summary>
+            Label: Azure Search
+            </summary>
+            <value>Azure Search</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.ElasticsearchURL">
+            <summary>
+            phrase: Elasticsearch URL
+            </summary>
+            <value>Elasticsearch URL</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.ExampleSiteUrl">
+            <summary>
+            phrase: Example: http://mysite:9200
+            </summary>
+            <value>Example: http://mysite:9200</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.Elasticsearch">
+            <summary>
+            word: Elasticsearch
+            </summary>
+            <value>Elasticsearch</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.ConnectToElasticSearch">
+            <summary>
+            word: ConnectToElasticSearch
+            </summary>
+            <value>ConnectToElasticSearch</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.RequiredField">
+            <summary>
+            Label: Required field
+            </summary>
+            <value>Required field</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.MaxSuggestionsCountTitle">
+            <summary>
+            phrase: Maximum suggestions count
+            </summary>
+            <value>Maximum suggestions count</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.MaxSuggestionsCountDescription">
+            <summary>
+            phrase: The maximum amount of suggestions that can be retreived
+            </summary>
+            <value>The maximum amount of suggestions that can be retreived</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.MaxSuggestionLengthTitle">
+            <summary>
+            phrase: Maximum suggestion length
+            </summary>
+            <value>Maximum suggestion length</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.MaxSuggestionLengthDescription">
+            <summary>
+            phrase: The maximum length of a single suggestion
+            </summary>
+            <value>The maximum length of a single suggestion</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.EnableExactMatchTitle">
+            <summary>
+            phrase: Enable exact match
+            </summary>
+            <value>Enable exact match</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.EnableExactMatchDescription">
+            <summary>
+            phrase: Enables the exact match of words. If disabled StartsWith search will be performed ( using asterisk at the end ).
+            </summary>
+            <value>Enables the exact match of words. If disabled StartsWith search will be performed ( using asterisk at the end ).</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.IndexContentFrom">
+            <summary>
+            Phrase: Index content from...
+            </summary>
+            <value>Index content from...</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.AllSites">
+            <summary>
+            Label: All sites
+            </summary>
+            <value>All sites</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.ThisSiteOnly">
+            <summary>
+            Label: This site only
+            </summary>
+            <value>This site only</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.SearchNotification">
+            <summary>
+            Label: After changing the search service or location, any existing indexes should be manually re-indexed, otherwise they won’t work.
+            </summary>
+            <value>After changing the search service or location, any existing indexes should be manually re-indexed, otherwise they won’t work.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.MinSuggestLengthTitle">
+            <summary>
+            phrase: Minimum suggest length
+            </summary>
+            <value>Minimum suggest length</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.MinSuggestLengthDescription">
+            <summary>
+            phrase: The minimum length required to start suggesting
+            </summary>
+            <value>The minimum length required to start suggesting</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.SystemIndexCannotBeDeletedFormat">
+            <summary>
+            format: \"{0}\" is a system index and cannot be deleted.
+            </summary>
+            <value>"\"{0}\" is a system index and cannot be deleted."</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.TopLevelPath">
+            <summary>
+            phrase: On top level
+            </summary>
+            <value>On top level</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.OneLevelPath">
+            <summary>
+            phrase: Under {0}
+            </summary>
+            <value>Under {0}</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.TwoLevelPath">
+            <summary>
+            phrase: Under {0} > {1}
+            </summary>
+            <value>Under {0} > {1}</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.MultiLevelPath">
+            <summary>
+            phrase: Under {0} >...> {1}
+            </summary>
+            <value>Under {0} >...> {1}</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.HowToEnableAdvancedSettingsSearchMessage">
+            <summary>
+            message: To enable search in Advanced settings, you need to reindex the settings content. Go to Administration > Search indexes > System indexes. The operation may take several minutes.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchResources.SearchSettingsPlaceholder">
+            <summary>
+            message: Search settings...
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Search.SearchResultsBuilder">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.SearchResultsBuilder.Search(System.String,System.String,System.String[],System.String[],System.Int32,System.Int32,System.Int32@,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Search.SearchTerm">
+            <summary>
+            An implementation for search term
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchTerm.Field">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.SearchTerm.Value">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Search.Web.UI.IndexesView">
+            <summary>
+            Displays a list of search indexes.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchBox">
+            <summary>
+            Represents Search widget.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchBox.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchBox"/> class.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchBox.Query">
+            <summary>
+            Gets or sets the query.
+            </summary>
+            <value>The query.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchBox.LayoutTemplateName">
+            <summary>
+            Gets the name of the embedded layout template.
+            </summary>
+            <value></value>
+            <remarks>
+            Override this property to change the embedded template to be used with the dialog
+            </remarks>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchBox.LayoutTemplatePath">
+            <summary>
+            Gets or sets the path of the external template to be used by the control.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchBox.WordsMode">
+            <summary>
+            Gets or sets the word mode for indexing service to search wihtin.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchBox.ResultsPageId">
+            <summary>
+            Gets or sets the results page id.
+            </summary>
+            <value>The results page id.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchBox.ResultsUrl">
+            <summary>
+            Gets or sets the URL to the results page.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchBox.SearchIndexPipeId">
+            <summary>
+            Gets or sets the ID of the search index pipe from which the search catalogue is resolved.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchBox.IndexCatalogue">
+            <summary>
+            Gets or sets the index catalogue.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchBox.SiteRootName">
+            <summary>
+            Gets or sets the name of the site root.
+            </summary>
+            <value>The name of the site root.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchBox.Embedded">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchBox"/> is embedded.
+            </summary>
+            <value><c>true</c> if embedded; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchBox.SuggestionFields">
+            <summary>
+            Gets or sets the suggestion fields
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchBox.DisableSuggestions">
+            <summary>
+            Gets or sets the value, indicating if the suggestions should be disabled
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchBox.TagKey">
+            <summary>
+            Gets the <see cref="T:System.Web.UI.HtmlTextWriterTag"/> value that corresponds to this Web server control. This property is used primarily by control developers.
+            </summary>
+            <value></value>
+            <returns>One of the <see cref="T:System.Web.UI.HtmlTextWriterTag"/> enumeration values.</returns>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchBox.SearchTextBox">
+            <summary>
+            Gets the search text box.
+            </summary>
+            <value>The search text box.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchBox.SearchButton">
+            <summary>
+            Gets the search button.
+            </summary>
+            <value>The search button.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchBox.CreateContainer(System.Web.UI.ITemplate)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchBox.InitializeControls(Telerik.Sitefinity.Web.UI.GenericContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchBox.GetRequiredCoreScripts">
+            <summary>
+            Gets the required by the control, core library scripts predefined in the <see cref="T:Telerik.Sitefinity.Modules.Pages.ScriptRef"/> enum.
+            </summary>
+            <example>
+            // The defaults are:
+            ScriptRef.MicrosoftAjax |
+            ScriptRef.MicrosoftAjaxWebForms |
+            ScriptRef.JQuery |
+            ScriptRef.JQueryValidate |
+            ScriptRef.JQueryCookie |
+            ScriptRef.TelerikSitefinity |
+            ScriptRef.QueryString;
+            </example>
+            <returns>A <see cref="T:Telerik.Sitefinity.Modules.Pages.ScriptRef"/> enum value indicating the mix of library scripts that the control requires.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchBox.GetScriptDescriptors">
+            <summary>
+            Gets a collection of script descriptors that represent ECMAScript (JavaScript) client components.
+            </summary>
+            <returns>
+            An <see cref="T:System.Collections.IEnumerable"/> collection of <see cref="T:System.Web.UI.ScriptDescriptor"/> objects.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchBox.GetScriptReferences">
+            <summary>
+            Gets a collection of <see cref="T:System.Web.UI.ScriptReference"/> objects that define script resources that the control requires.
+            </summary>
+            <returns>
+            An <see cref="T:System.Collections.IEnumerable"/> collection of <see cref="T:System.Web.UI.ScriptReference"/> objects.
+            </returns>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchBox.IsEmpty">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchBox.GetProvider">
+            <summary>
+            Gets the sitemap provider.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Search.Web.UI.Public.WordsMode">
+            <summary>
+            Defines different word mode for indexing service to search within 
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchBoxDesigner">
+            <summary>
+            Designer for the SearchBox control
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchBoxDesigner.LayoutTemplateName">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchBoxDesigner.LayoutTemplatePath">
+            <summary>
+            Gets or sets the path of the external template to be used by the control.
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchBoxDesigner.InitializeControls(Telerik.Sitefinity.Web.UI.GenericContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchBoxDesigner.GetScriptDescriptors">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchBoxDesigner.GetScriptReferences">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchBoxDesigner.PageSelectorContainer">
+            <summary>
+            Gets the jquery UI dialog which shows "Select a page" dialog
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchResults">
+            <summary>
+            Represents the control for displaying search results
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchResults.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchResults"/> class.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchResults.LayoutTemplateName">
+            <summary>
+            Gets the name of the embedded layout template.
+            </summary>
+            <value></value>
+            <remarks>
+            Override this property to change the embedded template to be used with the dialog
+            </remarks>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchResults.ShowTopSearchBox">
+            <summary>
+            Gets or sets a value indicating whether [show top search box].
+            </summary>
+            <value><c>true</c> if [show top search box]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchResults.ShowBottomSearchBox">
+            <summary>
+            Gets or sets a value indicating whether [show bottom search box].
+            </summary>
+            <value>
+            	<c>true</c> if [show bottom search box]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchResults.ShowLinksOnlyFromCurrentSite">
+            <summary>
+            Gets or sets a value indicating whether results only links from current site should be shown.
+            </summary>
+            <value>
+            A value indicating whether results only links from current site should be shown.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchResults.AllowPaging">
+            <summary>
+            Defines wheter it is possible to page through posts or all posts should be
+            displayed on one page.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchResults.PageKey">
+            <summary>
+            Defines query string name used to set the current shown page when paging is enabled
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchResults.ItemsPerPage">
+            <summary>
+            If paging is allowed, this property specifies how many posts per page should
+            be displayed.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchResults.EscapeSpecialChars">
+            <summary>
+            Defines regex pattern to match the search terms against
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchResults.UrlEvaluationMode">
+            <summary>
+            Gets or sets the URL evaluation mode - URL segments or query string.
+            This property is used by all controls on a page that have URL Evaluators. Information for interpreting a url
+            for a specific item or page is passed either through the URL itself or through the QueryString. The
+            value of this property indicates which one is used.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchResults.ViewType">
+            <summary>
+            Gets or sets the type of the view control.
+            </summary>
+            <value>The type of the view control.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchResults.IndexCatalogue">
+            <summary>
+            gets the selected indexing catalogue
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchResults.Query">
+            <summary>
+            Gets the query passed from the search page
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchResults.WordsMode">
+            <summary>
+            Gets the mode passed from the search page
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchResults.Rules">
+            <summary>
+            Returns all Regex rules for search input validation
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchResults.SearchFields">
+            <summary>
+            Gets or sets the fields which will be used in the search.
+            </summary>
+            <value>The fields used in the search.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchResults.HighlightedFields">
+            <summary>
+            Gets or sets the fields that will be used when generating a search summary for particular document.
+            </summary>
+            <value>The fields used in search summary.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchResults.ResultsStats">
+            <summary>
+            Gets the reference to the label control that displays the results status.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchResults.ResultsList">
+            <summary>
+            Gets the results list.
+            </summary>
+            <value>The results list.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchResults.Pager">
+            <summary>
+            Gets the pager.
+            </summary>
+            <value>The pager.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchResults.TopSearchBox">
+            <summary>
+            Gets the top search box.
+            </summary>
+            <value>The top search box.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchResults.BottomSearchBox">
+            <summary>
+            Gets the bottom search box.
+            </summary>
+            <value>The bottom search box.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchResults.OnPreRender(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:System.Web.UI.Control.PreRender"/> event.
+            </summary>
+            <param name="e">An <see cref="T:System.EventArgs"/> object that contains the event data.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchResults.InitializeControls(Telerik.Sitefinity.Web.UI.GenericContainer)">
+            <summary>
+            Initializes the controls.
+            </summary>
+            <param name="container"></param>
+            <remarks>
+            Initialize your controls in this method. Do not override CreateChildControls method.
+            </remarks>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchResults.ConfigurePager(System.Int32)">
+            <summary>
+            Configures the pager.
+            </summary>
+            <param name="vrtualItemCount">The vrtual item count.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchResults.ValidateQuery(System.String@,System.String@)">
+            <summary>
+            Validates the passed user input against the defined validation rules
+            </summary>
+            <param name="searchQuery">user input</param>
+            <param name="message">message from the config section if input is invalid</param>
+            <returns>the modified user input according the rules
+            defined in the config section and the message for the rule applied
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchResults.GetSearcher">
+            <summary>
+            Gets a search builder that will be used to get a result of documents.
+            Override this method if you want to use a custom Searcher class.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchResults.InputMatch">
+            <summary>
+            Defines an object holding the search/searchInputValidation section values.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchResultsDesigner">
+            <summary>
+            Designer control for the <see cref="T:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchResults"/> view control.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchResultsDesigner.LayoutTemplateName">
+            <summary>
+            Gets the name of the embedded layout template.
+            </summary>
+            <value></value>
+            <remarks>
+            Override this property to change the embedded template to be used with the dialog
+            </remarks>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchResultsDesigner.LayoutTemplatePath">
+            <summary>
+            Gets or sets the path of the external template to be used by the control.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchResultsDesigner.MasterViewNameList">
+            <summary>
+            Gets the choice field listing all possible layout templates
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchResultsDesigner.ShowSearchBoxPositionChoiceField">
+            <summary>
+            Choicefield that sets the position where to show the SearchBox
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchResultsDesigner.TemplateTitle">
+            <summary>
+            Gets the Label control representing the title of the selected control template
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchResultsDesigner.EditTemplateLink">
+            <summary>
+            Gets the link that opens up the dialog for editing the currently selected control template
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchResultsDesigner.CreateTemplateLink">
+            <summary>
+            Gets the link that opens up the dialog for creating a new control template
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchResultsDesigner.RadWindowManager">
+            <summary>
+            Gets the correct instance of RadWindowManager
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchResultsDesigner.WidgetEditorDialog">
+            <summary>
+            Gets the reference to widget editor dialog
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchResultsDesigner.ModifyWidgetTemplatePermission">
+            <summary>
+            Gets whether the user has the permissions to modify the widget templates
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchResultsDesigner.InitializeControls(Telerik.Sitefinity.Web.UI.GenericContainer)">
+            <summary>
+            Initializes the controls.
+            </summary>
+            <param name="container">The container.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchResultsDesigner.GetScriptDescriptors">
+            <summary>
+            Gets the script descriptors.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchResultsDesigner.GetScriptReferences">
+            <summary>
+            Gets the script references.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.Public.SearchResultsDesigner.TagKey">
+            <summary>
+            Gets the <see cref="T:System.Web.UI.HtmlTextWriterTag"/> value that corresponds to this Web server control. This property is used primarily by control developers.
+            </summary>
+            <value></value>
+            <returns>One of the <see cref="T:System.Web.UI.HtmlTextWriterTag"/> enumeration values.</returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Search.Web.UI.SearchPanel">
+            <summary>
+            Represents the control panel for Search and Indexing service module.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Web.UI.SearchPanel.#ctor">
+            <summary>
+            Initializes new instance of <see cref="T:Telerik.Sitefinity.Services.Search.Web.UI.SearchPanel"/>.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Web.UI.SearchPanel.CreateViews">
+            <summary>
+            Loads configured views.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.SearchPanel.PartialRequestContext">
+            <summary>
+            An object that encapsulates information about the requested route.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Web.UI.SearchPanel.ParentRouteHandler">
+            <summary>
+            Gets or sets the parent route handler.
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Web.UI.SearchPanel.CreateRoutes">
+            <summary>
+            Creates a collection of objects that derive from the
+            <see cref="T:System.Web.Routing.RouteBase"/> class.
+            </summary>
+            <returns>
+            An object that contains all the routes in the collection.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Web.UI.SearchPanel.RegisterChildRouteHandlers(System.Collections.Generic.IList{Telerik.Sitefinity.Web.RouteInfo})">
+            <summary>
+            Registers child partial route handlers.
+            </summary>
+            <param name="list">A list of <see cref="T:Telerik.Sitefinity.Web.RouteInfo"/> objects.</param>
+        </member>
+    </members>
+</doc>

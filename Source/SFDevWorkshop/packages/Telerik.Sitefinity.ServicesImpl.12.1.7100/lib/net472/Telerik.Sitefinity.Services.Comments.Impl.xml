@@ -1,0 +1,422 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Telerik.Sitefinity.Services.Comments.Impl</name>
+    </assembly>
+    <members>
+        <member name="T:Telerik.Sitefinity.Services.Comments.Impl.CommentsDataProvider">
+            <summary>
+            Defines the basic functionality that should be implemented by Comments data providers
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.CommentsDataProvider.CreateItem(System.Type,System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.CommentsDataProvider.GetItem(System.Type,System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.CommentsDataProvider.GetItemOrDefault(System.Type,System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.CommentsDataProvider.GetItems(System.Type,System.String,System.String,System.Int32,System.Int32,System.Nullable{System.Int32}@)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.CommentsDataProvider.DeleteItem(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.CommentsManager.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Comments.Impl.CommentsManager"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.CommentsManager.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Comments.Impl.CommentsManager"/> class.
+            </summary>
+            <param name="providerName">Name of the provider.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.CommentsManager.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Comments.Impl.CommentsManager"/> class.
+            </summary>
+            <param name="providerName">
+            The name of the provider. If empty string or null the default provider is set
+            </param>
+            <param name="transactionName">
+            The name of a distributed transaction. If empty string or null this manager will use separate transaction.
+            </param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.Impl.CommentsManager.DefaultProviderDelegate">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.Impl.CommentsManager.ModuleName">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.CommentsManager.GetManager">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.CommentsManager.GetManager(System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.CommentsManager.GetManager(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.Impl.CommentsManager.ProvidersSettings">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.CommentService.Initialize(Telerik.Sitefinity.Services.ModuleSettings)">
+            <summary>
+            Initializes the service with specified settings.
+            </summary>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.Impl.CommentService.NotificationStrategy">
+            <summary>
+            Gets the notification strategy.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.CommentService.Subscribe(Telerik.Sitefinity.Services.Comments.Notifications.SubscriptionData)">
+            <summary>
+            Subscribe to comments notifications. By subscribing to comments notifications, the user will receive emails when new comments are created.
+            </summary>
+            <param name="subsctiptionData">Comments notification subscription data. Contains the information needed to subscribe users to comments notifications.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.CommentService.Unsubscribe(Telerik.Sitefinity.Services.Comments.Notifications.SubscriptionData)">
+            <summary>
+            Unsubscribe from comments notifications. By unsubscribing from comments notifications, the user will stop receive emails when new comments are created.
+            </summary>
+            <param name="subsctiptionData">Comments notification subscription data. Contains the information needed to unsubscribe users to comments notifications.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.CommentService.IsSubscribed(Telerik.Sitefinity.Services.Comments.Notifications.SubscriptionData)">
+            <summary>
+            Checks whether a user is subscribed to comments notifications.
+            </summary>
+            <param name="subsctiptionData">Comments notification subscription data. Contains the information needed to check if user is subscribed to comments notifications.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.CommentService.GetServiceContext">
+            <summary>
+            Gets the service context.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.CommentService.GetActionMessageTemplates">
+            <summary>
+            Gets the supported action message templates
+            </summary>
+            <returns>The action message templates</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.Data.CommentsFluentMapping.#ctor(Telerik.Sitefinity.Model.IDatabaseMappingContext)">
+            <summary>
+            Fluent mapping for the comments persistent classes
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.Impl.Data.CommentsFluentMetadataSource">
+            <summary>
+            Collection of ORM mappings needed for open access comments provider
+            </summary>    
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.Data.OpenAccessCommentsProvider.CreateGroup">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.Data.OpenAccessCommentsProvider.CreateGroup(System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.Data.OpenAccessCommentsProvider.GetGroup(System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.Data.OpenAccessCommentsProvider.GetGroups">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.Data.OpenAccessCommentsProvider.Delete(Telerik.Sitefinity.Services.Comments.Impl.Model.Group)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.Data.OpenAccessCommentsProvider.CreateThread">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.Data.OpenAccessCommentsProvider.CreateThread(System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.Data.OpenAccessCommentsProvider.GetThread(System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.Data.OpenAccessCommentsProvider.GetThreads">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.Data.OpenAccessCommentsProvider.Delete(Telerik.Sitefinity.Services.Comments.Impl.Model.Thread)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.Data.OpenAccessCommentsProvider.CreateComment">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.Data.OpenAccessCommentsProvider.CreateComment(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.Data.OpenAccessCommentsProvider.GetComment(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.Data.OpenAccessCommentsProvider.GetComments">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.Data.OpenAccessCommentsProvider.Delete(Telerik.Sitefinity.Services.Comments.Impl.Model.Comment)">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.Impl.Data.OpenAccessCommentsProvider.CurrentSchemaVersionNumber">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.Data.OpenAccessCommentsProvider.OnUpgrading(Telerik.Sitefinity.Data.OA.UpgradingContext,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.Data.OpenAccessCommentsProvider.OnUpgraded(Telerik.Sitefinity.Data.OA.UpgradingContext,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.Data.OpenAccessCommentsProvider.GetMetaDataSource(Telerik.Sitefinity.Model.IDatabaseMappingContext)">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.Impl.Data.OpenAccessCommentsProvider.Context">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.Impl.Events.CommentCreatingEvent">
+            <summary>
+            CommentCreatingEvent will be raised before saving the comment
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.Impl.Events.CommentCreatedEvent">
+            <summary>
+            CommentCreatedEvent will be raised after saving the comment
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.Impl.Events.CommentUpdatingEvent">
+            <summary>
+            CommentUpdatingEvent will be raised before updating the comment
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.Impl.Events.CommentUpdatedEvent">
+            <summary>
+            CommentUpdatedEvent will be raised after updating the comment
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.Impl.Events.CommentDeletingEvent">
+            <summary>
+            CommentDeletingEvent will be raised before deleting the comment
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.Impl.Events.CommentDeletedEvent">
+            <summary>
+            CommentUpdatedEvent will be raised after deleting the comment
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.Impl.Events.CommentWithRatingCreatingEvent">
+            <summary>
+            CommentWithRatingCreatingEvent will be raised before saving the comment with rating
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.Impl.Events.CommentWithRatingCreatedEvent">
+            <summary>
+            CommentWithRatingCreatedEvent will be raised after saving the comment with rating
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.Impl.Events.CommentWithRatingUpdatingEvent">
+            <summary>
+            CommentWithRatingUpdatingEvent will be raised before updating the comment with rating
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.Impl.Events.CommentWithRatingUpdatedEvent">
+            <summary>
+            CommentWithRatingUpdatedEvent will be raised after updating the comment with rating
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.Impl.Events.CommentWithRatingDeletingEvent">
+            <summary>
+            CommentWithRatingDeletingEvent will be raised before deleting the comment with rating
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.Impl.Events.CommentWithRatingDeletedEvent">
+            <summary>
+            CommentWithRatingDeletedEvent will be raised after deleting the comment with rating
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.Impl.Events.ThreadAverageRatingUpdateEvent">
+            <summary>
+            This event is raised when the average rating of the <see cref="T:Telerik.Sitefinity.Services.Comments.IThread"/> object is updated
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.Impl.Model.Comment">
+            <summary>
+            Persistent class for the information related to a single comment
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.Model.Comment.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Comments.Impl.Model.Comment"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.Model.Comment.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Comments.Impl.Model.Comment"/> class.
+            </summary>
+            <param name="key">The id.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.Model.Comment.GetKeysOfDependentObjects">
+            <summary>
+            Gets a collection of <see cref="!:CacheDependencyNotifiedObject"/>.
+            The <see cref="!:CacheDependencyNotifiedObject"/> represents a key for which cached items could be subscribed for notification.
+            When notified, all cached objects with dependency on the provided keys will expire.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.Impl.Model.Group">
+            <summary>
+            Persistent class for the information related to a group
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.Model.Group.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Comments.Impl.Model.Group"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.Model.Group.#ctor(System.Guid)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Comments.Impl.Model.Group"/> class.
+            </summary>
+            <param name="key">The id.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.Impl.Model.Thread">
+            <summary>
+            Persistent class for the information related to a thread
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.Model.Thread.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Comments.Impl.Model.Thread"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.Model.Thread.#ctor(System.Guid)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Comments.Impl.Model.Thread"/> class.
+            </summary>
+            <param name="id">The id.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.Model.Thread.GetKeysOfDependentObjects">
+            <summary>
+            Gets a collection of <see cref="!:CacheDependencyNotifiedObject"/>.
+            The <see cref="!:CacheDependencyNotifiedObject"/> represents a key for which cached items could be subscribed for notification.
+            When notified, all cached objects with dependency on the provided keys will expire.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Comments.Impl.Notifications.CommentNotificationsStrategy">
+            <summary>
+            Notification strategy that is responsible for notifications for <see cref="T:Telerik.Sitefinity.Services.Comments.IComment"/> objects..
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.Notifications.CommentNotificationsStrategy.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Comments.Impl.Notifications.CommentNotificationsStrategy"/> class.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Comments.Impl.Notifications.CommentNotificationsStrategy.ServiceContext">
+            <summary>
+            Gets the service context to use for NotificationsService.
+            </summary>
+            <value>
+            The service context.
+            </value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.Notifications.CommentNotificationsStrategy.Subscribe(Telerik.Sitefinity.Services.Comments.Notifications.SubscriptionData)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.Notifications.CommentNotificationsStrategy.Unsubscribe(Telerik.Sitefinity.Services.Comments.Notifications.SubscriptionData)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.Notifications.CommentNotificationsStrategy.IsSubscribed(Telerik.Sitefinity.Services.Comments.Notifications.SubscriptionData)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.Notifications.CommentNotificationsStrategy.HandleEvent(Telerik.Sitefinity.Services.Comments.ICommentEvent)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.Notifications.CommentNotificationsStrategy.Notify(Telerik.Sitefinity.Services.Comments.ICommentEvent)">
+            <summary>
+            Notifies all subscribers from the related subscriptions to the specified <see cref="T:Telerik.Sitefinity.Services.Comments.ICommentEvent"/> event.
+            </summary>
+            <param name="@event">The event.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.Notifications.CommentNotificationsStrategy.GetSubscriptionListKeys(Telerik.Sitefinity.Services.Comments.ICommentEvent)">
+            <summary>
+            Gets the subscription list keys that should be notified for the specified <see cref="T:Telerik.Sitefinity.Services.Comments.ICommentEvent"/> event.
+            </summary>
+            <param name="event">The event.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.Notifications.CommentNotificationsStrategy.GetDynamicSubscribers(Telerik.Sitefinity.Services.Comments.ICommentEvent)">
+            <summary>
+            Gets a dynamic list of subscribers that should be notified based on the specified <see cref="T:Telerik.Sitefinity.Services.Comments.ICommentEvent"/> event.
+            </summary>
+            <param name="event">The comment event.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.Notifications.CommentNotificationsStrategy.GetMessageTemplate(Telerik.Sitefinity.Services.Comments.ICommentEvent)">
+            <summary>
+            Gets the message template for the specified <see cref="T:Telerik.Sitefinity.Services.Comments.ICommentEvent"/> event.
+            </summary>
+            <param name="event">The event.</param>
+            <returns>Message template</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.Notifications.CommentNotificationsStrategy.GetNewReviewMessageTemplate">
+            <summary>
+            Gets the message template for new review
+            </summary>
+            <returns>Message template</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.Notifications.CommentNotificationsStrategy.GetNewCommentMessageTemplate">
+            <summary>
+            Gets the message template for new comment
+            </summary>
+            <returns>Message template</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.Notifications.CommentNotificationsStrategy.ShouldNotify(Telerik.Sitefinity.Services.Comments.ICommentEvent)">
+            <summary>
+            Checks whether subscribers should be notified for the given <see cref="T:Telerik.Sitefinity.Services.Comments.ICommentEvent"/> event.
+            </summary>
+            <param name="@event">The event.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.Notifications.CommentNotificationsStrategy.GetContextItems(Telerik.Sitefinity.Services.Comments.IComment)">
+            <summary>
+            Gets the context items that are used to replace merge tags in the notification message template.
+            </summary>
+            <param name="comment">The comment.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.Notifications.CommentNotificationsStrategy.PopulateAuthorInfo(Telerik.Sitefinity.Services.Comments.IAuthor)">
+            <summary>
+            Populates the <see cref="T:Telerik.Sitefinity.Services.Comments.IAuthor"/> object information.
+            </summary>
+            <param name="author">The author.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.Notifications.CommentNotificationsStrategy.GetSubscriptionListResolveKey(Telerik.Sitefinity.Services.Comments.Notifications.SubscriptionData)">
+            <summary>
+            Gets the subscription list resolve key.
+            </summary>
+            <param name="subscriptionData">The subscription data.</param>
+            <exception cref="T:System.InvalidOperationException">Insufficient subscription data. Please provide ThreadKey or ThreadType.</exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.Notifications.CommentNotificationsStrategy.SendNotification(System.String,System.Collections.Generic.IDictionary{System.String,System.String},Telerik.Sitefinity.Services.Notifications.IMessageTemplateRequest,System.String,System.String)">
+            <summary>
+            Notifies all subscribers for the specified subscription.
+            </summary>
+            <param name="subscriptionListKey">The subscription list key.</param>
+            <param name="contextItems">The context items.</param>
+            <param name="messageTemplate">The message template.</param>
+            <param name="senderProfileName">Name of the sender profile.</param>
+            <param name="authorEmail">Author email. It will be excluded from sending.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Comments.Impl.Notifications.CommentNotificationsStrategy.SendNotification(System.Collections.Generic.IEnumerable{Telerik.Sitefinity.Services.Notifications.ISubscriberRequest},System.Collections.Generic.IDictionary{System.String,System.String},Telerik.Sitefinity.Services.Notifications.IMessageTemplateRequest,System.String,System.String)">
+            <summary>
+            Notifies the specified enumeration of subscribers.
+            </summary>
+            <param name="subscribers">The subscribers.</param>
+            <param name="contextItems">The context items.</param>
+            <param name="messageTemplate">The message template.</param>
+            <param name="senderProfileName">Name of the sender profile.</param>
+            <param name="authorEmail">The author email.</param>
+        </member>
+    </members>
+</doc>

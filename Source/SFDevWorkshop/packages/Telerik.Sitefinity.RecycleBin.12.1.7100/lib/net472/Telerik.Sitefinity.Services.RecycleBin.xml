@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Telerik.Sitefinity.Services.RecycleBin</name>
+    </assembly>
+    <members>
+        <member name="T:Telerik.Sitefinity.Services.RecycleBin.IRecycleBinService">
+            <summary>
+            Defines the common Recycle Bin services capabilities.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.RecycleBin.IRecycleBinService.CreateRecycleBinItemFrom(System.Type,System.Guid,System.String,System.String[])">
+            <summary>
+            Creates a Recycle Bin record from the specified data item.
+            The data item is identified by its <paramref name="itemType"/>, <paramref name="itemId"/>, <paramref name="providerName"/> and <paramref name="languages"/>.
+            </summary>
+            <param name="itemType">The type of the item to mark as deleted.</param>
+            <param name="itemId">The id of the item to mark as deleted.</param>
+            <param name="providerName">The item provider name.</param>
+            <param name="languages">The specific language translations that are stored with the item.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.RecycleBin.IRecycleBinService.DeleteRecycleBinItem(System.Type,System.Guid,System.String,System.String[])">
+            <summary>
+            Permanently deletes a Recycle Bin record from data item.
+            The data item is identified by its <paramref name="itemType"/>, <paramref name="itemId"/>, <paramref name="providerName"/> and <paramref name="languages"/>.
+            </summary>
+            <param name="itemType">Type of the item.</param>
+            <param name="itemId">The item id.</param>
+            <param name="providerName">Name of the provider.</param>
+            <param name="languages">The specific language translations that identify the item.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.RecycleBin.IRecycleBinService.RecycleBinItemExists(System.Type,System.Guid,System.String,System.String[])">
+            <summary>
+            Checks if a recycle bin item already exists.
+            The item is identified by its <paramref name="itemType"/>, <paramref name="itemId"/>, <paramref name="providerName"/> and <paramref name="languages"/>.
+            </summary>
+            <param name="itemType">The type of the item.</param>
+            <param name="itemId">The item id of the item.</param>
+            <param name="providerName">The name of the provider that identify the item.</param>
+            <param name="languages">The specific language translations that identify the item.</param>
+            <returns><c>True</c> if item exists, otherwise <c>false</c></returns>
+        </member>
+    </members>
+</doc>

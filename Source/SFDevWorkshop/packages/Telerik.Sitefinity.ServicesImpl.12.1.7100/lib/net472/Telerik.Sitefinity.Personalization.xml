@@ -1,0 +1,337 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Telerik.Sitefinity.Personalization</name>
+    </assembly>
+    <members>
+        <member name="T:Telerik.Sitefinity.Personalization.ICriterionEvaluator">
+            <summary>
+            Defines the evaluator of personalization criterion.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Personalization.ICriterionEvaluator.IsMatch(System.String,Telerik.Sitefinity.Personalization.IPersonalizationTestContext)">
+            <summary>
+            Determines if the current user is a match for the given criterion.
+            </summary>
+            <param name="settings">
+            The serialized settings with which the criterion has been configured.
+            </param>
+            <param name="testContext">
+            Personalization test context populated by the personalization test console.
+            </param>
+            <remarks>
+            Use the testContext.IsInTestMode property to determine if evaluation is running in the test mode.
+            </remarks>
+            <returns>
+            True if the criterion is matched; otherwise false.
+            </returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Personalization.ICriterionValidator">
+            <summary>
+            Validates whether the criterion settings are still relevance and up-to-date.
+            </summary>
+            <remarks>
+            To plug in validation for a certain criterion, register 
+            a named implementation of this interface in the container
+            using the criterion name as a name.
+            </remarks>
+        </member>
+        <member name="M:Telerik.Sitefinity.Personalization.ICriterionValidator.Validate(System.String,System.String)">
+            <summary>
+            Validates whether the settings stored in the criterion value are still relevant and up-to-date.
+            </summary>
+            <param name="settings">
+            The serialized settings with which the criterion has been configured.
+            </param>
+            <param name="criterionDisplayName">
+            The display name with which the criterion has been configured.
+            </param>
+            <returns>A <see cref="T:Telerik.Sitefinity.Personalization.CriterionValidationResult"/> instance.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Personalization.ICriterionValidator.IsAvailable">
+            <summary>
+            Determines whether this instance is available.
+            </summary>
+            <returns>Whether the criterion is available in personalization module.</returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Personalization.CriterionValidationResult">
+            <summary>
+            Represents the result of criterion value validation (<see cref="M:Telerik.Sitefinity.Personalization.ICriterionValidator.Validate(System.String,System.String)"/>).
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Personalization.CriterionValidationResult.IsValid">
+            <summary>
+            Gets or sets a value indicating whether the criterion settings are valid.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Personalization.CriterionValidationResult.ErrorId">
+            <summary>
+            Gets or sets the error Id. Use this value differentiate between errors.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Personalization.CriterionValidationResult.ErrorMessage">
+            <summary>
+            Gets or sets human readable message explaining the validation failure.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Personalization.IPersonalizable">
+            <summary>
+            Interface that marks the personalization controls.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Personalization.IPersonalizationService">
+            <summary>
+            Defines the personalization service.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Personalization.IPersonalizationService.GetUserSegment(System.Guid)">
+            <summary>
+            Gets the segment to which the current user belongs to.
+            </summary>
+            <param name="pageDataId">The page data identifier.</param>
+            <returns>
+            An instance of the <see cref="T:Telerik.Sitefinity.Personalization.ISegment" /> type.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Personalization.IPersonalizationService.GetWidgetSegmentIds(System.Linq.ILookup{System.Guid,System.Guid},System.Linq.ILookup{System.Guid,System.Guid},System.Collections.Generic.IEnumerable{System.Guid},System.Collections.Specialized.NameValueCollection,System.Boolean,System.String)">
+            <summary>
+            Gets the IDs of the segments used on the page to which the current context belongs to.
+            </summary>
+            <param name="pageSegmentsLookup">A lookup containing all segment ids used on the page grouped by control ID including from templates</param>
+            <param name="pageSegmentsFromTemplatesLookup">A lookup containing segments used on the page grouped by control ID, only if the control is part of the page template</param>
+            <param name="controlsToTrack">A collection with ids of controls that should be tracked (for which events should be raised).</param>
+            <param name="keys">QueryString keys to build the test context with them</param>
+            <param name="raiseEvents">Variable that indicates whether this method needs to fire any events</param>
+            <param name="currentPageNodeUrl">The url of the current page</param>
+            <returns>A dictionary where key is the control ID and value is the ID of a segment to which the current context belongs to and used for personalization of the control</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Personalization.IPersonalizationService.IsPagePersonalizationTarget(System.Guid,System.String)">
+            <summary>
+            Determines whether the page is a personalization target.
+            </summary>
+            <param name="pageId">Id of the page site node.</param>
+            <param name="pageUrl">Url of the page.</param>
+            <returns>
+            True if page participates in at least one of personalization criteria;
+            otherwise false.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Personalization.IPersonalizationService.GetAllSegments">
+            <summary>
+            Gets all active segments.
+            </summary>
+            <returns>List with all segments</returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Personalization.IPersonalizationTestContext">
+            <summary>
+            Defines the testing context; used by personalization test console.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Personalization.IPersonalizationTestContext.Item(System.String)">
+            <summary>
+            Gets or sets the property with the specified key.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Personalization.IPersonalizationTestContext.VisitDuration">
+            <summary>
+            Gets or sets the visit duration value.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Personalization.IPersonalizationTestContext.VisitDurationUnit">
+            <summary>
+            Gets or sets the visit duration unit.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Personalization.IPersonalizationTestContext.VisitDurationPeriod">
+            <summary>
+            Gets or sets the visit duration period.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Personalization.IPersonalizationTestContext.LandingUrl">
+            <summary>
+            Gets or sets the landing url.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Personalization.IPersonalizationTestContext.IPAddress">
+            <summary>
+            Gets or sets the test ip address.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Personalization.IPersonalizationTestContext.SelectedSegmentsIds">
+            <summary>
+            Gets the value which indicates which particular segments are being tested.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Personalization.IPersonalizationTestContext.IsInTestMode">
+            <summary>
+            Gets the value which indicates weather the personalization is running in the test mode.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Personalization.IPersonalizationTestContext.ReferralUrl">
+            <summary>
+            Gets or sets the test referral url.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Personalization.IPersonalizationTestContext.SearchKeywords">
+            <summary>
+            Gets or sets the search keywords.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Personalization.IPersonalizationTestContext.Location">
+            <summary>
+            Gets or sets the location.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Personalization.IPersonalizationTestContext.ProfileType">
+            <summary>
+            Gets or sets the profile type.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Personalization.IPersonalizationTestContext.ProfileFields">
+            <summary>
+            Gets or sets the serialized list of profile fields and their test values.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Personalization.IPersonalizationTestContext.TimeOfDayHour">
+            <summary>
+            Gets or sets the time of the day hour.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Personalization.IPersonalizationTestContext.TimeOfDayMinute">
+            <summary>
+            Gets or sets the time of the day minute.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Personalization.IPersonalizationTestContext.PurchasedProducts">
+            <summary>
+            Gets or sets the serialized list of the purchased products and their test values.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Personalization.IPersonalizationTestContext.TestPrice">
+            <summary>
+            Gets or sets the lower end of the price range.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Personalization.IPersonalizationTestContext.PurchasesDepartments">
+            <summary>
+            Gets or sets the serialized list of departments from which the user has purchased.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Personalization.IPersonalizationTestContext.PurchasesTags">
+            <summary>
+            Gets or sets the serialized list of tags that have been used to tag products which have been purchased.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Personalization.IPersonalizationTestContext.PurchasesProductTypes">
+            <summary>
+            Gets or sets the serialized list of product types that have been purchased.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Personalization.IPersonalizationTestContext.VisitedPageId">
+            <summary>
+            Gets or sets the visited page id.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Personalization.IPersonalizationTestContext.VisitedPageProvider">
+            <summary>
+            Gets or sets the visited page provider.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Personalization.IPersonalizationTestContext.VisitedPageUrl">
+            <summary>
+            Gets or sets the visited page url.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Personalization.IPersonalizationTestContext.Roles">
+            <summary>
+            Gets or sets the user role id
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Personalization.IPersonalizationTestContext.Contains(System.String)">
+            <summary>
+            Determines whether [contains] [the specified property].
+            </summary>
+            <param name="property">The property.</param>
+            <returns></returns>
+        </member>
+        <member name="P:Telerik.Sitefinity.Personalization.IPersonalizationTestContext.QueryStringName">
+            <summary>
+            Gets or sets the query string name.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Personalization.IPersonalizationTestContext.QueryStringValue">
+            <summary>
+            Gets or sets the query string value.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Personalization.IPersonalizedWidgetResolver">
+            <summary>
+            Defines the common methods for resolving / rendering personalized widgets.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Personalization.IPersonalizedWidgetResolver.ResolveWrapperType(System.Type)">
+            <summary>
+            Resolves the type of the wrapper control, used instead of the original control on the page.
+            </summary>
+            <param name="widgetType">Type of the widget.</param>
+            <returns>The type of the wrapper control, placed instead of the original control on the page</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Personalization.IPersonalizedWidgetResolver.AppendPersonalizationProperties(System.Text.StringBuilder,Telerik.Sitefinity.Pages.Model.ControlData,System.Type,System.Guid,System.Boolean@)">
+            <summary>
+            Appends the properties used for personalization to the output string.
+            </summary>
+            <param name="output">The output string.</param>
+            <param name="controlData">The control data.</param>
+            <param name="controlType">Type of the control.</param>
+            <param name="pageDataId">The page data id.</param>
+            <param name="appendAllProperties">if set to <c>true</c> [all properties should be added to the control].</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.Personalization.ISegment">
+            <summary>
+            Defines the user segment used for personalization.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Personalization.ISegment.Id">
+            <summary>
+            Gets the unique identity of the data item.
+            </summary>
+            <value>The id.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Personalization.ISegment.Name">
+            <summary>
+            Gets or sets the name of the segment.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Personalization.ISegmentEditor">
+            <summary>
+            An interface for segment editors
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Personalization.ISegmentEditor.Name">
+            <summary>
+            Gets the name of the editor
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Personalization.ISegmentEditor.Title">
+            <summary>
+            Gets the user friendly title of the editor
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Personalization.ISegmentEditor.IsVisible">
+            <summary>
+            Returns if the editor is visible. In most cases if the editor has no data to show it should not be visible.
+            </summary>
+            <returns>A flag indicating if the editor is visible</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Personalization.ISegmentEditor.GetCriteriaEditor">
+            <summary>
+            Gets the criteria editor control
+            </summary>
+            <returns>The criteria editor control</returns>
+            <remarks>The control must have a client side implementation, containing the methods 
+            "setGroups(criteriaGroups)" that selects the correct UI and 
+            "getGroups()" that gets the selected criteria groups</remarks>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,917 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Telerik.Sitefinity.HubSpotConnector</name>
+    </assembly>
+    <members>
+        <member name="T:Telerik.Sitefinity.HubSpotConnector.Client.Forms.IHubSpotFormsCache">
+            <summary>
+            Exposes the interface of HubSpot forms client API cache.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.HubSpotConnector.Client.Forms.IHubSpotFormsProvider">
+            <summary>
+            Exposes the interface of the HubSpot client API.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Client.Forms.IHubSpotFormsProvider.GetForms">
+            <summary>
+            Gets all HubSpot forms.
+            </summary>
+            <returns>The forms list.</returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.HubSpotConnector.Client.Forms.HubSpotFormDataSubmitter">
+            <summary>
+            Represents a HubSpot forms client
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Client.Forms.HubSpotFormDataSubmitter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.HubSpotConnector.Client.Forms.HubSpotFormDataSubmitter"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Client.Forms.HubSpotFormDataSubmitter.#ctor(Telerik.Sitefinity.HubSpotConnector.Configuration.HubSpotConnectorConfig,System.Net.Http.HttpClient,Telerik.Sitefinity.HubSpotConnector.Client.Forms.IFormUrlBuilder)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.HubSpotConnector.Client.Forms.HubSpotFormDataSubmitter"/> class.
+            </summary>
+            <param name="hubSpotConnectorConfig">The HubSpot connector configuration</param>
+            <param name="httpClient">The http client used</param>
+            <param name="formUrlBuilder">The form URL builder</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Client.Forms.HubSpotFormDataSubmitter.SubmitFormData(System.Collections.Generic.IDictionary{System.String,System.String},System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Client.Forms.HubSpotFormDataSubmitter.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Client.Forms.HubSpotFormDataSubmitter.Dispose(System.Boolean)">
+            <summary>
+            Disposes the managed resources
+            </summary>
+            <param name="disposing">Defines whether a disposing is executing now.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.HubSpotConnector.Client.Forms.HubSpotFormsCache">
+            <summary>
+            Contains methods for retrieving cached HubSpot forms.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Client.Forms.HubSpotFormsCache.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.HubSpotConnector.Client.Forms.HubSpotFormsCache"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Client.Forms.HubSpotFormsCache.#ctor(Telerik.Sitefinity.HubSpotConnector.Client.Forms.IHubSpotFormsProvider,Telerik.Microsoft.Practices.EnterpriseLibrary.Caching.ICacheManager)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.HubSpotConnector.Client.Forms.HubSpotFormsCache"/> class.
+            </summary>
+            <param name="hubSpotFormsProvider">The <see cref="T:Telerik.Sitefinity.HubSpotConnector.Client.Forms.IHubSpotFormsProvider"/> implementation that will be used to get non-cached data.</param>
+            <param name="cacheManager">The <see cref="T:Telerik.Microsoft.Practices.EnterpriseLibrary.Caching.ICacheManager"/> implementation that will be used to get cached data.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Client.Forms.HubSpotFormsCache.GetForms">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Client.Forms.HubSpotFormsCache.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Client.Forms.HubSpotFormsCache.Dispose(System.Boolean)">
+            <summary>
+            Disposes the managed resources
+            </summary>
+            <param name="disposing">Defines whether a disposing is executing now.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.HubSpotConnector.Client.Forms.IHubSpotFormDataSubmitter">
+            <summary>
+            Exposes the interface of the HubSpot client API
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Client.Forms.IHubSpotFormDataSubmitter.SubmitFormData(System.Collections.Generic.IDictionary{System.String,System.String},System.Guid)">
+            <summary>
+            Submits the provided form data to the HubSpot form with the provided Guid. 
+            </summary>
+            <param name="fields">The list of names and values for the form fields.</param>
+            <param name="formGuid">The Guid of the HubSpot form where the data should be posted.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.HubSpotConnector.Client.Forms.FormUrlBuilder">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Client.Forms.FormUrlBuilder.BuildFormUrl(System.Guid,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Client.Forms.FormUrlBuilder.BuildFormsUrl(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Client.Forms.FormUrlBuilder.BuildSubmitFormDataUrl(System.String,System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Client.Forms.FormUrlBuilder.BuildUrlQuery(System.String)">
+            <summary>
+            Builds a URL query that is used to call the REST API based on the provided parameters.
+            </summary>
+            <param name="apiKey">The depth of the form response.</param>
+            <returns>Returns the URL query.</returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.HubSpotConnector.Client.Forms.HubSpotFormsClient">
+            <summary>
+            Represents a HubSpot forms client
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Client.Forms.HubSpotFormsClient.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.HubSpotConnector.Client.Forms.HubSpotFormsClient"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Client.Forms.HubSpotFormsClient.#ctor(Telerik.Sitefinity.HubSpotConnector.Configuration.HubSpotConnectorConfig,System.Net.Http.HttpClient,Telerik.Sitefinity.HubSpotConnector.Client.Forms.IFormUrlBuilder)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.HubSpotConnector.Client.Forms.HubSpotFormsClient"/> class.
+            </summary>
+            <param name="hubSpotConnectorConfig">The HubSpot connector configuration</param>
+            <param name="httpClient">The http client used</param>
+            <param name="formUrlBuilder">The form URL builder</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Client.Forms.HubSpotFormsClient.GetForms">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Client.Forms.HubSpotFormsClient.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Client.Forms.HubSpotFormsClient.Dispose(System.Boolean)">
+            <summary>
+            Disposes the managed resources
+            </summary>
+            <param name="disposing">Defines whether a disposing is executing now.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.HubSpotConnector.Client.Forms.IFormUrlBuilder">
+            <summary>
+            Builds form URLs for HubSpot REST API calls.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Client.Forms.IFormUrlBuilder.BuildFormUrl(System.Guid,System.String)">
+            <summary>
+            Builds a URL that is used to call the REST API for a single form.
+            </summary>
+            <param name="formGuid">The id of the form.</param>
+            <param name="apiKey">The API key.</param>
+            <returns>The URL path and query.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Client.Forms.IFormUrlBuilder.BuildFormsUrl(System.String)">
+            <summary>
+            Builds a URL that is used to call the REST API for multiple forms.
+            </summary>
+            <param name="apiKey">The API key.</param>
+            <returns>The URL path and query.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Client.Forms.IFormUrlBuilder.BuildSubmitFormDataUrl(System.String,System.Guid)">
+            <summary>
+            Builds a URL that is used to submit data to a form.
+            </summary>
+            <param name="portalId">The portal ID.</param>
+            <param name="formGuid">The form Guid.</param>
+            <returns>The URL path and query.</returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.HubSpotConnector.Client.Forms.IHubSpotFormsClient">
+            <summary>
+            Exposes the interface of HubSpot forms client API.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Client.Forms.IHubSpotFormsClient.CreateForm(Telerik.Sitefinity.HubSpotConnector.Model.HubSpotForm)">
+            <summary>
+            Creates an HubSpot form
+            </summary>
+            <param name="hubSpotForm">The form that will be created</param>
+            <returns>The created form</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Client.Forms.IHubSpotFormsClient.DeleteForm(System.Guid)">
+            <summary>
+            Deletes HubSpot form by Id
+            </summary>
+            <param name="id">The form Id</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.HubSpotConnector.Configuration.HubSpotConnectorConfig">
+            <summary>
+            Configuration file for HubSpotConnector
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.Configuration.HubSpotConnectorConfig.HubSpotPortalId">
+            <summary>
+            Gets or sets HubSpot Portal ID
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.Configuration.HubSpotConnectorConfig.HubSpotApiKey">
+            <summary>
+            Gets or sets HubSpot API key
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.Configuration.HubSpotConnectorConfig.HubSpotApiUrl">
+            <summary>
+            Gets or sets HubSpot API URL
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.Configuration.HubSpotConnectorConfig.HubSpotFormUploadUrl">
+            <summary>
+            Gets or sets HubSpot API URL
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.Configuration.HubSpotConnectorConfig.Enabled">
+            <summary>
+            Gets or sets a value indicating whether the connector is enabled
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.Configuration.HubSpotConnectorConfig.AutocompleteSuggestionsCount">
+            <summary>
+            Gets or sets a value indicating the number of items to return when requesting auto-complete data.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorReport">
+            <summary>
+            Represents the usage tracking report of the HubSpot connector
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorReport.ModuleName">
+            <summary>
+            Gets or sets the module name
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorReport.IsUsed">
+            <summary>
+            Gets or sets a value indicating whether the connector is used
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.HubSpotConnector.Exceptions.HubSpotConnectorExceptions">
+            <summary>
+            A component used to handle exceptions that occurred in the HubSpot connector module.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Exceptions.HubSpotConnectorExceptions.HandleException(System.Exception,System.String)">
+            <summary>
+            Handles the specified <see cref="T:System.Exception" />
+            object according to the rules configured for the translations policy.
+            </summary>
+            <param name="exceptionToHandle">An <see cref="T:System.Exception" /> object.</param>
+            <param name="policyName">Name of the policy.</param>
+            <returns>
+            Whether or not a re-throw is recommended.
+            </returns>
+            <seealso cref="!:ExceptionManager.Process" />
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Exceptions.HubSpotConnectorExceptions.HandleException(System.Exception,System.String,System.Exception@)">
+            <summary>
+            Handles the specified <see cref="T:System.Exception" />
+            object according to the rules configured for the translations policy.
+            </summary>
+            <param name="exceptionToHandle">An <see cref="T:System.Exception" /> object.</param>
+            <param name="policyName">Name of the policy.</param>
+            <param name="exceptionToThrow">The new <see cref="T:System.Exception" /> to throw, if any.</param>
+            <returns>
+            Whether or not a re-throw is recommended.
+            </returns>
+            <remarks>
+            If a re-throw is recommended and <paramref name="exceptionToThrow" /> is <see langword="null" />,
+            then the original exception <paramref name="exceptionToHandle" /> should be re-thrown; otherwise,
+            the exception returned in <paramref name="exceptionToThrow" /> should be thrown.
+            </remarks>
+            <seealso cref="!:ExceptionManager.HandleException(Exception, string)" />
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Exceptions.HubSpotConnectorExceptions.Process(System.Action,System.String)">
+            <summary>
+            Executes the supplied delegate <paramref name="action" /> and handles
+            any thrown exception according to the rules configured for the translations policy.
+            </summary>
+            <param name="action">The delegate to execute.</param>
+            <param name="policyName">Name of the policy.</param>
+            <seealso cref="!:ExceptionManager.HandleException(Exception, string)" />
+        </member>
+        <member name="T:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorResources">
+            <summary>
+            Localizable strings for the HubSpotConnector module
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorResources.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorResources"/> class with the default <see cref="T:Telerik.Sitefinity.Localization.Data.ResourceDataProvider"/>.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorResources.#ctor(Telerik.Sitefinity.Localization.Data.ResourceDataProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorResources"/> class with the provided <see cref="T:Telerik.Sitefinity.Localization.Data.ResourceDataProvider"/>.
+            </summary>
+            <param name="dataProvider">Data provider <see cref="T:Telerik.Sitefinity.Localization.Data.ResourceDataProvider"/></param>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorResources.HubSpotConnectorResourcesTitle">
+            <summary>
+            Gets HubSpotConnector resources title
+            </summary>
+            <value>HubSpot connector labels</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorResources.HubSpotConnectorResourcesTitlePlural">
+            <summary>
+            Gets HubSpotConnector resources title plural
+            </summary>
+            <value>HubSpot connector labels</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorResources.HubSpotConnectorResourcesDescription">
+            <summary>
+            Gets message: Contains localizable resources for HubSpotConnector module.
+            </summary>
+            <value>Contains localizable resources for HubSpot connector module.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorResources.HubSpotConnectorGroupPageTitle">
+            <summary>
+            Gets phrase: Connector for HubSpot
+            </summary>
+            <value>Connector for HubSpot</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorResources.HubSpotConnectorGroupPageUrlName">
+            <summary>
+            Gets word: HubSpot
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorResources.HubSpotConnectorGroupPageDescription">
+            <summary>
+            Gets phrase: Connector for HubSpot group page
+            </summary>
+            <value>Connector for HubSpot group page</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorResources.HubSpotConnectorPageTitle">
+            <summary>
+            Gets phrase: Connector for HubSpot
+            </summary>
+            <value>Connector for HubSpot</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorResources.HubSpotConnectorPageUrlName">
+            <summary>
+            Gets word: Settings
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorResources.HubSpotConnectorPageDescription">
+            <summary>
+            Gets message: Connector for HubSpot
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorResources.HubSpotFormName">
+            <summary>
+            Gets label: HubSpot form name
+            </summary>
+            <value>HubSpot form name</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorResources.HubSpotSettings">
+            <summary>
+            Gets label: HubSpot settings
+            </summary>
+            <value>HubSpot settings</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorResources.PostDataToHubSpot">
+            <summary>
+            Gets label: Post data to HubSpot
+            </summary>
+            <value>Post data to HubSpot</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorResources.HubSpotTabFormWidgetInfoText">
+            <summary>
+            Gets message: Form will post data to HubSpot once enabled in the Forms module. Make sure the form you have selected has the proper HubSpot settings there.
+            </summary>
+            <value>Form will post data to HubSpot once enabled in the Forms module. Make sure the form you have selected has the proper HubSpot settings there.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorResources.ConnectToHubSpotUsingYourHubSpotCredentials">
+            <summary>
+            Gets text: Connect to HubSpot using your HubSpot credentials
+            </summary>
+            <value>Connect to HubSpot using your HubSpot credentials</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorResources.HubSpot">
+            <summary>
+            Gets word: HubSpot
+            </summary>
+            <value>HubSpot text</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorResources.HubSpotPortalId">
+            <summary>
+            Gets label: HubSpot Portal ID
+            </summary>
+            <value>HubSpot Portal ID</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorResources.HubSpotHubIdHintLabel">
+            <summary>
+            Gets the Hub ID hint label
+            </summary>
+            <value>In your HubSpot account, click on your <i>account name</i> in the top right corner. Your Hub ID will appear in the menu under your account name, for example: <i>1234567</i>.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorResources.HubSpotApiKey">
+            <summary>
+            Gets label: HubSpot API key
+            </summary>
+            <value>HubSpot API key</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorResources.HubSpotApiKeyHintLabel">
+            <summary>
+            Gets the API key hint label
+            </summary>
+            <value>In your HubSpot account, click on your <i>account name</i> in the top right corner, then click <i>Integrations</i>. Click <i>HubSpot API key</i> in the left sidebar menu. If a key has never been generated for your account, click <i>Create new key</i>. Click <i>Copy</i> to copy the API key to your clipboard. Example value: <i>e20ddb05-57ef-4411-97e6-b9e5d2e4d2ec</i>.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorResources.HubSpotApiUrl">
+            <summary>
+            Gets label: HubSpot API URL
+            </summary>
+            <value>HubSpot API URL</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorResources.HubSpotFormUploadUrl">
+            <summary>
+            Gets label: HubSpot form upload URL
+            </summary>
+            <value>HubSpot form upload URL</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorResources.Enabled">
+            <summary>
+            Gets word: Enabled
+            </summary>
+            <value>text - Enabled</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorResources.AutocompleteSuggestionsCount">
+            <summary>
+            Gets label: Autocomplete suggestions count
+            </summary>
+            <value>Autocomplete suggestions count</value>
+        </member>
+        <member name="T:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorModule">
+            <summary>
+            HubSpot connector module
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorModule.LandingPageId">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorModule.Initialize(Telerik.Sitefinity.Services.ModuleSettings)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorModule.Load">
+            <summary>
+            Integrate the module into the system.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorModule.Bootstrapper_Initialized(System.Object,Telerik.Sitefinity.Data.ExecutedEventArgs)">
+            <summary>
+            Handles the Initialized event of the Bootstrapper.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:Telerik.Sitefinity.Data.ExecutedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorModule.Unload">
+            <summary>
+            This method is invoked during the unload process of an active module from Sitefinity, e.g. when a module is deactivated. For instance this method is also invoked for every active module during a restart of the application. 
+            Typically you will use this method to unsubscribe the module from all events to which it has subscription.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorModule.Uninstall(Telerik.Sitefinity.Abstractions.SiteInitializer)">
+            <summary>
+            Uninstall the module from Sitefinity system. Deletes the module artifacts added with Install method.
+            </summary>
+            <param name="initializer">The site initializer instance.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorModule.Install(Telerik.Sitefinity.Abstractions.SiteInitializer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorModule.GetModuleConfig">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorModule.GetVirtualPaths">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorModule.Managers">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorModule.ConfigEventHandler(System.Object,Telerik.Sitefinity.Data.ExecutedEventArgs)">
+            <summary>
+            Handles the event for config update.
+            </summary>
+            <param name="sender">The sender of the event.</param>
+            <param name="e">The event arguments.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorModule.InitializeTrackingInitializer">
+            <summary>
+            Uninitializes the local <see cref="T:Telerik.Sitefinity.HubSpotConnector.TrackingInitializer"/>.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorModule.UninitializeTrackingInitializer">
+            <summary>
+            Uninitialize the local <see cref="T:Telerik.Sitefinity.HubSpotConnector.TrackingInitializer"/>.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorModule.InitializeFormDataSender">
+            <summary>
+            Initializes the local <see cref="T:Telerik.Sitefinity.HubSpotConnector.Forms.HubSpotConnectorFormDataSender"/>.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorModule.InitializeHubSpotFormsCache">
+            <summary>
+            Initializes the forms cache and re initializes the IHubSpotFormsClient
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorModule.DisposeFormDataSender">
+            <summary>
+            Disposes the local <see cref="T:Telerik.Sitefinity.HubSpotConnector.Forms.HubSpotConnectorFormDataSender"/>.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorModule.DisposeSingletonInstances">
+            <summary>
+            Disposes all singleton instances that have <see cref="T:Telerik.Microsoft.Practices.Unity.ContainerControlledLifetimeManager"/> registered in the local
+            containerControlledLifetimeManagers field.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorModule.HubSpotConfigHasRequiredSettings">
+            <summary>
+            Checks whether the HubSpot config has the required settings for the connector to work.
+            </summary>
+            <returns>Returns true if the config has the required settings for the connector. Otherwise, false.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorModule.HubSpotConfigHasRequiredSettings(Telerik.Sitefinity.HubSpotConnector.Configuration.HubSpotConnectorConfig)">
+            <summary>
+            Checks whether the HubSpot config has the required settings for the connector to work.
+            </summary>
+            <param name="hubSpotConnectorConfig">The HubSpot config object.</param>
+            <returns>Returns true if the config has the required settings for the connector. Otherwise, false.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorModule.GetReport">
+            <inheritdoc />
+        </member>
+        <member name="F:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorModule.ModuleId">
+            <summary>
+            Id of the module. Used for licensing.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorModule.ModuleName">
+            <summary>
+            The name of this module.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.HubSpotConnector.HubSpotConnectorModule.ConnectorName">
+            <summary>
+            The name of the connector.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.HubSpotConnector.Forms.HubSpotConnectorDataMappingExtender">
+            <summary>
+            The class defines data mapping between Sitefinity and HubSpot connectors' fields.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.Forms.HubSpotConnectorDataMappingExtender.Ordinal">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.Forms.HubSpotConnectorDataMappingExtender.Key">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.Forms.HubSpotConnectorDataMappingExtender.DependentControlsCssClass">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.Forms.HubSpotConnectorDataMappingExtender.AutocompleteRequiredControlsCssClass">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Forms.HubSpotConnectorDataMappingExtender.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.HubSpotConnector.Forms.HubSpotConnectorDataMappingExtender"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Forms.HubSpotConnectorDataMappingExtender.#ctor(Telerik.Sitefinity.HubSpotConnector.Client.Forms.IHubSpotFormsProvider,Telerik.Sitefinity.HubSpotConnector.Configuration.HubSpotConnectorConfig)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.HubSpotConnector.Forms.HubSpotConnectorDataMappingExtender"/> class.
+            </summary>
+            <param name="hubSpotFormsProvider">The <see cref="T:Telerik.Sitefinity.HubSpotConnector.Client.Forms.IHubSpotFormsProvider"/> instance that will be used in the class.</param>
+            <param name="hubSpotConnectorConfig">The <see cref="T:Telerik.Sitefinity.HubSpotConnector.Configuration.HubSpotConnectorConfig"/> instance that will be used in the class.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Forms.HubSpotConnectorDataMappingExtender.GetAutocompleteData(System.String,System.String[])">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.Forms.HubSpotConnectorDataMappingExtender.HasAutocomplete">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.HubSpotConnector.Forms.HubSpotConnectorFormDataSender">
+            <summary>
+            Used for sending form data for the HubSpot connector integration.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.Forms.HubSpotConnectorFormDataSender.DataMappingExtenderKey">
+            <inheritdoc/>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.Forms.HubSpotConnectorFormDataSender.DesignerExtenderName">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Forms.HubSpotConnectorFormDataSender.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.HubSpotConnector.Forms.HubSpotConnectorFormDataSender"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Forms.HubSpotConnectorFormDataSender.#ctor(Telerik.Sitefinity.HubSpotConnector.Client.Forms.IHubSpotFormDataSubmitter,Telerik.Sitefinity.HubSpotConnector.Client.Forms.IHubSpotFormsProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.HubSpotConnector.Forms.HubSpotConnectorFormDataSender"/> class.
+            </summary>
+            <param name="hubSpotFormDataSubmitter">The <see cref="T:Telerik.Sitefinity.HubSpotConnector.Client.Forms.IHubSpotFormDataSubmitter"/> instance that will be used in the class.</param>
+            <param name="hubSpotFormsProvider">The <see cref="T:Telerik.Sitefinity.HubSpotConnector.Client.Forms.IHubSpotFormsProvider"/> instance that will be used in the class.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Forms.HubSpotConnectorFormDataSender.ShouldSendFormData(Telerik.Sitefinity.Modules.Forms.ConnectorFormDataContext)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Forms.HubSpotConnectorFormDataSender.SendFormData(System.Collections.Generic.IDictionary{System.String,System.String},Telerik.Sitefinity.Modules.Forms.ConnectorFormDataContext)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Forms.HubSpotConnectorFormDataSender.AddHubSpotContext(System.Collections.Generic.IDictionary{System.String,System.String},Telerik.Sitefinity.Modules.Forms.ConnectorFormDataContext)">
+            <summary>
+            Adds the JSON HubSpot context field to the collection of submitted field data.
+            </summary>
+            <param name="data">The key value data containing the name and value for each submitted field of the form.</param>
+            <param name="dataContext">The data context around the submitted form fields.</param>
+            <returns>Returns the updated key value data, including the JSON HubSpot context field.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Forms.HubSpotConnectorFormDataSender.GetHutkCookieValue(System.Web.HttpRequestBase)">
+            <summary>
+            Gets the HubSpot hutk cookie from the provided <see cref="T:System.Web.HttpRequestBase"/>.
+            </summary>
+            <param name="httpRequest">The <see cref="T:System.Web.HttpRequestBase"/> that the HubSpot hutk cookie value should be extracted from.</param>
+            <returns>The HubSpot hutk cookie.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Forms.HubSpotConnectorFormDataSender.GetFormGuid(Telerik.Sitefinity.Modules.Forms.ConnectorFormDataContext)">
+            <summary>
+            Gets the HubSpot form guid from the provided <see cref="T:Telerik.Sitefinity.Modules.Forms.ConnectorFormDataContext"/>.
+            </summary>
+            <param name="dataContext">The data context around the submitted form fields.</param>
+            <returns>The HubSpot form guid.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Forms.HubSpotConnectorFormDataSender.CanTrackCurrentUser">
+            <summary>
+            Checks whether the current user can be tracked (GDPR).
+            </summary>
+            <returns>True if the user can be tracked, otherwise false.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Forms.HubSpotConnectorFormDataSender.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Forms.HubSpotConnectorFormDataSender.Dispose(System.Boolean)">
+            <summary>
+            Disposes the managed resources
+            </summary>
+            <param name="disposing">Defines whether a disposing is executing now.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.HubSpotConnector.Forms.HubSpotFormsConnectorDefinitionsExtender">
+            <summary>
+            Extends forms definitions by adding HubSpot specific fields in the form properties.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.Forms.HubSpotFormsConnectorDefinitionsExtender.Ordinal">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Forms.HubSpotFormsConnectorDefinitionsExtender.AddConnectorSettings(Telerik.Sitefinity.Configuration.ConfigElementDictionary{System.String,Telerik.Sitefinity.Web.UI.Fields.Config.FieldDefinitionElement})">
+            <inheritdoc/>
+        </member>
+        <member name="T:Telerik.Sitefinity.HubSpotConnector.Forms.HubSpotFormsConnectorDesignerExtender">
+            <summary>
+            Extends the designer of the Forms widget by adding new settings for HubSpot. 
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.Forms.HubSpotFormsConnectorDesignerExtender.Title">
+            <inheritdoc/>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.Forms.HubSpotFormsConnectorDesignerExtender.Name">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Forms.HubSpotFormsConnectorDesignerExtender.GetProperties">
+            <inheritdoc/>
+        </member>
+        <member name="T:Telerik.Sitefinity.HubSpotConnector.Logging.HubSpotConnectorLog">
+            <summary>
+            Represents the log for the HubSpot connector functionality.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Logging.HubSpotConnectorLog.Write(System.Object,System.Object[])">
+            <summary>
+            Writes the specified log message.
+            </summary>
+            <param name="message">The message to log.</param>
+            <param name="args">The arguments for formatting.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Logging.HubSpotConnectorLog.Write(System.Exception,System.Object,System.Object[])">
+            <summary>
+            Writes the specified exception.
+            </summary>
+            <param name="exception">The exception.</param>
+            <param name="message">The message.</param>
+            <param name="args">The args.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Logging.HubSpotConnectorLog.Write(System.Exception,System.String@,System.Object,System.Object[])">
+            <summary>
+            Writes the specified exception.
+            </summary>
+            <param name="exception">The exception.</param>
+            <param name="loggedMessage">The logged message.</param>
+            <param name="message">The message.</param>
+            <param name="args">The args.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.Model.HubSpotForm.PortalId">
+            <summary>
+            Gets or sets the form Portal ID.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.Model.HubSpotForm.Guid">
+            <summary>
+            Gets or set the form Guid.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.Model.HubSpotForm.Name">
+            <summary>
+            Gets or sets the form name.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.Model.HubSpotForm.FormFieldGroups">
+            <summary>
+            Gets or sets the list of form field groups.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.HubSpotConnector.Web.Services.DTO.HubSpotConfigurationRequest">
+            <summary>
+            Class that represent service stack request object.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.Web.Services.DTO.HubSpotConfigurationRequest.PortalId">
+            <summary>
+            Gets or sets the portal id
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.Web.Services.DTO.HubSpotConfigurationRequest.ApiKey">
+            <summary>
+            Gets or sets the API key
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.HubSpotConnector.Web.Services.DTO.HubSpotStatusRequest">
+            <summary>
+            Class that represent service stack request object.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.Web.Services.DTO.HubSpotStatusRequest.Enabled">
+            <summary>
+            Gets or sets a value indicating whether the status is enabled
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.HubSpotConnector.Web.Services.DTO.HubSpotFormsRequest">
+            <summary>
+            Class that represent service stack request object.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.Web.Services.DTO.HubSpotFormsRequest.Term">
+            <summary>
+            Gets or sets the searched text
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.Web.Services.DTO.HubSpotFormsRequest.Take">
+            <summary>
+            Gets or sets the number of returned results
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.HubSpotConnector.Web.Services.HubSpotServiceStackPlugin">
+            <summary>
+            Represents a HubSpot plug-in for the search web service.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Web.Services.HubSpotServiceStackPlugin.Register(ServiceStack.IAppHost)">
+            <summary>
+            Adding the service routes
+            </summary>
+            <param name="appHost">The service stack appHost</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.HubSpotConnector.Web.Services.HubSpotWebService">
+            <summary>
+            Class that represents the service stack service.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Web.Services.HubSpotWebService.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.HubSpotConnector.Web.Services.HubSpotWebService"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Web.Services.HubSpotWebService.#ctor(Telerik.Sitefinity.HubSpotConnector.Client.Forms.IHubSpotFormsProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.HubSpotConnector.Web.Services.HubSpotWebService"/> class.
+            </summary>
+            <param name="hubSpotFormsProvider">The <see cref="T:Telerik.Sitefinity.HubSpotConnector.Client.Forms.IHubSpotFormsProvider"/> instance that will be used in the class.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Web.Services.HubSpotWebService.Get(Telerik.Sitefinity.HubSpotConnector.Web.Services.DTO.HubSpotFormsRequest)">
+            <summary>
+            Method that returns suggestions for hubSpot forms.
+            </summary>
+            <param name="request">Request object</param>
+            <returns>Returns suggestions for hubSpot forms.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Web.Services.HubSpotWebService.Post(Telerik.Sitefinity.HubSpotConnector.Web.Services.DTO.HubSpotConfigurationRequest)">
+            <summary>
+            Method that saves HubSpot configuration.
+            </summary>
+            <param name="request">Request object</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Web.Services.HubSpotWebService.Post(Telerik.Sitefinity.HubSpotConnector.Web.Services.DTO.HubSpotStatusRequest)">
+            <summary>
+            Changes the state of HubSpot module - enabled/disabled
+            </summary>
+            <param name="request">The state</param>
+            <returns>The module state</returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.HubSpotConnector.Web.UI.HubSpotConnectorSettings">
+            <summary>
+            HubSpot connector view
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.Web.UI.HubSpotConnectorSettings.LayoutTemplatePath">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.Web.UI.HubSpotConnectorSettings.PortalIdTextBox">
+            <summary>
+            Gets the siteId box.
+            </summary>
+            <value>The box.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.Web.UI.HubSpotConnectorSettings.ApiKeyTextBox">
+            <summary>
+            Gets the box with user's name.
+            </summary>
+            <value>The box.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.Web.UI.HubSpotConnectorSettings.ConnectButton">
+            <summary>
+            Gets the connect button.
+            </summary>
+            <value>The connect button.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.Web.UI.HubSpotConnectorSettings.ChangeConnectionButton">
+            <summary>
+            Gets the change connection button.
+            </summary>
+            <value>The button.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.Web.UI.HubSpotConnectorSettings.DisconnectReconnectButton">
+            <summary>
+            Gets the disconnect reconnect button.
+            </summary>
+            <value>The button.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.Web.UI.HubSpotConnectorSettings.ErrorMessageWrapper">
+            <summary>
+            Gets the error message control.
+            </summary>
+            <value>The control.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.HubSpotConnector.Web.UI.HubSpotConnectorSettings.LoadingView">
+            <summary>
+            Gets the loading control.
+            </summary>
+            <value>The control.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Web.UI.HubSpotConnectorSettings.GetScriptDescriptors">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Web.UI.HubSpotConnectorSettings.GetScriptReferences">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Web.UI.HubSpotConnectorSettings.InitializeControls(Telerik.Sitefinity.Web.UI.GenericContainer)">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.HubSpotConnector.Web.UI.HubSpotScriptWidget">
+            <summary>
+            HubSpot tracking script widget
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.HubSpotConnector.Startup">
+            <summary>
+            Contains the application startup event handlers registering the required components for the packaging module of Sitefinity.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.Startup.OnPreApplicationStart">
+            <summary>
+            Called before the Asp.Net application is started. Subscribes for the logging and exception handling configuration related events.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.HubSpotConnector.TrackingInitializer">
+            <summary>
+            Initializes the tracking scripts for HubSpot client side tracking.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.TrackingInitializer.Initialize">
+            <summary>
+            Initializes the tracking scripts for HubSpot client side tracking.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.TrackingInitializer.Uninitialize">
+            <summary>
+            Uninitializes the tracking scripts for HubSpot client side tracking.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.TrackingInitializer.OnPagePreRenderCompleteEventHandler(Telerik.Sitefinity.Web.Events.IPagePreRenderCompleteEvent)">
+            <summary>
+            Called when IPagePreRenderCompleteEvent event is fired.
+            </summary>
+            <param name="args">The event arguments.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.HubSpotConnector.TrackingInitializer.ShouldRenderHubSpotScriptControl(Telerik.Sitefinity.Web.Events.IPagePreRenderCompleteEvent)">
+            <summary>
+            Returns whether the script control should be rendered on the page based on the provided <see cref="T:Telerik.Sitefinity.Web.Events.IPagePreRenderCompleteEvent"/> args.
+            </summary>
+            <param name="args">The event arguments.</param>
+            <returns>
+                <c>true</c> if the script control should be rendered; otherwise, <c>false</c>.
+            </returns>
+        </member>
+    </members>
+</doc>

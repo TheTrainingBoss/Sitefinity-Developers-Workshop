@@ -1,0 +1,188 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Telerik.Sitefinity.Azure</name>
+    </assembly>
+    <members>
+        <member name="T:Telerik.Sitefinity.Azure.BlobStorage.AzureBlobSettingsView">
+            <summary>
+            Basic settings wizard view for configuring the connection to Azure blob storage
+            </summary>
+            <remarks>
+            Expected provider parameters connectionString, containerName
+            </remarks>
+        </member>
+        <member name="P:Telerik.Sitefinity.Azure.BlobStorage.AzureBlobSettingsView.LayoutTemplatePath">
+            <summary>
+            Gets or sets the path of the external template to be used by the control.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Azure.BlobStorage.AzureBlobSettingsView.AccountName">
+            <summary>
+            Gets the name of the account UI control.
+            </summary>
+            <value>The name of the account.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Azure.BlobStorage.AzureBlobSettingsView.AccountKey">
+            <summary>
+            Gets the account key UI control.
+            </summary>
+            <value>The account key.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Azure.BlobStorage.AzureBlobSettingsView.ContainerName">
+            <summary>
+            Gets the name of the container UI control.
+            </summary>
+            <value>The name of the container.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Azure.BlobStorage.AzureBlobSettingsView.PublicHost">
+            <summary>
+            Gets the public host UI control.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Azure.BlobStorage.AzureBlobSettingsView.DefaultEndpointsProtocol">
+            <summary>
+            Gets the default endpoints protocol UI control.
+            </summary>
+            <value>The default endpoints protocol.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Azure.BlobStorage.AzureBlobSettingsView.UseDevStorage">
+            <summary>
+            Gets the check box UI control, indicating if local development storage will be used
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Azure.BlobStorage.AzureBlobSettingsView.Settings">
+            <summary>
+            Gets or sets the blob storage settings.
+            </summary>
+            <value>The settings.</value>
+            <remarks>
+            Expected provider parameters connectionString, containerName
+            </remarks>
+        </member>
+        <member name="P:Telerik.Sitefinity.Azure.BlobStorage.AzureBlobSettingsView.LayoutTemplateName">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Azure.BlobStorage.AzureBlobSettingsView.InitializeControls(Telerik.Sitefinity.Web.UI.GenericContainer)">
+            <summary>
+            Initializes the settings view controls.
+            </summary>
+            <param name="container">The container</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Azure.BlobStorage.AzureBlobSettingsView.TagKey">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Azure.BlobStorage.AzureBlobSettingsView.GetAzureConnectionStringFromUI">
+            <summary>
+            Gets the azure connection string from the UI Controls
+            </summary>
+            <returns>The connection string</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Azure.BlobStorage.AzureBlobSettingsView.PopulateUIFromConnectionString(System.String,System.String)">
+            <summary>
+            Populates the UI controls from connection string.
+            </summary>
+            <param name="azureConnectionString">The azure connection string.</param>
+            <param name="sas">The shared access signature.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.Azure.BlobStorage.AzureBlobStorageProvider">
+            <summary>
+            Implements a logic for persisting BLOB data in Azure Blob Storage
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Azure.BlobStorage.AzureBlobStorageProvider.ConnectionStringKey">
+            <summary>
+            The connection string key constant
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Azure.BlobStorage.AzureBlobStorageProvider.ContainerNameKey">
+            <summary>
+            The container name constant
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Azure.BlobStorage.AzureBlobStorageProvider.PublicHostKey">
+            <summary>
+            The public host key constant
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Azure.BlobStorage.AzureBlobStorageProvider.SharedAccessSignatureKey">
+            <summary>
+            The shared access signature key constant
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Azure.BlobStorage.AzureBlobStorageProvider.ParallelOperationThreadCountKey">
+            <summary>
+            The parallel operations count key constant
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Azure.BlobStorage.AzureBlobStorageProvider.GetUploadStream(Telerik.Sitefinity.BlobStorage.IBlobContent)">
+            <summary>
+            Gets the upload stream.
+            </summary>
+            <param name="content">The content.</param>
+            <returns>The upload stream</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Azure.BlobStorage.AzureBlobStorageProvider.GetDownloadStream(Telerik.Sitefinity.BlobStorage.IBlobContent)">
+            <summary>
+            Gets the download stream.
+            </summary>
+            <param name="content">The content.</param>
+            <returns>The download stream</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Azure.BlobStorage.AzureBlobStorageProvider.DownloadToStream(Telerik.Sitefinity.BlobStorage.IBlobContent,System.IO.Stream)">
+            <summary>
+            Downloads a content to the stream
+            </summary>
+            <param name="content">The content</param>
+            <param name="target">The target stream</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Azure.BlobStorage.AzureBlobStorageProvider.Delete(Telerik.Sitefinity.BlobStorage.IBlobContentLocation)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Azure.BlobStorage.AzureBlobStorageProvider.BlobExists(Telerik.Sitefinity.BlobStorage.IBlobContentLocation)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Azure.BlobStorage.AzureBlobStorageProvider.SetProperties(Telerik.Sitefinity.BlobStorage.IBlobContentLocation,Telerik.Sitefinity.BlobStorage.IBlobProperties)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Azure.BlobStorage.AzureBlobStorageProvider.GetProperties(Telerik.Sitefinity.BlobStorage.IBlobContentLocation)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Azure.BlobStorage.AzureBlobStorageProvider.GetItemUrl(Telerik.Sitefinity.BlobStorage.IBlobContentLocation)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Azure.BlobStorage.AzureBlobStorageProvider.Copy(Telerik.Sitefinity.BlobStorage.IBlobContentLocation,Telerik.Sitefinity.BlobStorage.IBlobContentLocation)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Azure.BlobStorage.AzureBlobStorageProvider.Move(Telerik.Sitefinity.BlobStorage.IBlobContentLocation,Telerik.Sitefinity.BlobStorage.IBlobContentLocation)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Azure.BlobStorage.AzureBlobStorageProvider.HasSameLocation(Telerik.Sitefinity.Modules.Libraries.BlobStorage.BlobStorageProvider)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Azure.BlobStorage.AzureBlobStorageProvider.InitializeStorage(System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Initializes the storage.
+            </summary>
+            <param name="config">The config.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Azure.BlobStorage.AzureBlobStorageProvider.CreateBlobClient(System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Creates a blob client
+            </summary>
+            <param name="config">The config to use</param>
+            <returns>The blob client</returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Azure.Initializer">
+            <summary>
+            Defines the initialization logic for the assembly
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Azure.Initializer.Initialize">
+            <summary>
+            Initializes this instance.
+            </summary>
+        </member>
+    </members>
+</doc>

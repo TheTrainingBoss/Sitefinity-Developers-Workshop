@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Telerik.Sitefinity.Audit.Elasticsearch</name>
+    </assembly>
+    <members>
+        <member name="T:Telerik.Sitefinity.Audit.Elasticsearch.ElasticsearchAuditLogger">
+            <summary>
+            The Audit logger that logs data to Elasticsearch
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Audit.Elasticsearch.ElasticsearchAuditLogger.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Audit.Elasticsearch.ElasticsearchAuditLogger"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Audit.Elasticsearch.ElasticsearchAuditLogger.Log(Telerik.Sitefinity.AuditTrail.IAuditInfo)">
+            <summary>
+            Logs the specified info.
+            </summary>
+            <param name="info">The info.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.Audit.Elasticsearch.ElasticsearchAuditConfig">
+            <summary>
+            Represents the configuration section for Elasticsearch module.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Audit.Elasticsearch.ElasticsearchAuditConfig.InitializeDefaultProviders(Telerik.Sitefinity.Configuration.ConfigElementDictionary{System.String,Telerik.Sitefinity.Configuration.DataProviderSettings})">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Audit.Elasticsearch.ElasticsearchAuditConfig.ElasticsearchUri">
+            <summary>
+            Gets or sets a value indicating the address of the Elasticsearch server.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Audit.Elasticsearch.ElasticsearchAuditConfig.IndexName">
+            <summary>
+            Gets or sets a value indicating the name of the Elasticsearch index.
+            </summary>        
+        </member>
+        <member name="T:Telerik.Sitefinity.Audit.Elasticsearch.ElasticsearchAuditModule">
+            <summary>
+            Custom Sitefinity content module 
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Audit.Elasticsearch.ElasticsearchAuditModule.LandingPageId">
+            <summary>
+            Gets the landing page id for the module.
+            </summary>
+            <value>The landing page id.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Audit.Elasticsearch.ElasticsearchAuditModule.Managers">
+            <summary>
+            Gets the CLR types of all data managers provided by this module.
+            </summary>
+            <value>An array of <see cref="T:System.Type" /> objects.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Audit.Elasticsearch.ElasticsearchAuditModule.Initialize(Telerik.Sitefinity.Services.ModuleSettings)">
+            <summary>
+            Initializes the service with specified settings.
+            This method is called every time the module is initializing (on application startup by default)
+            </summary>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Audit.Elasticsearch.ElasticsearchAuditModule.GetModuleConfig">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Audit.Elasticsearch.ElasticsearchAuditModule.Install(Telerik.Sitefinity.Abstractions.SiteInitializer)">
+            <summary>
+            Installs the specified initializer.
+            </summary>
+            <param name="initializer">The initializer.</param>
+        </member>
+        <member name="F:Telerik.Sitefinity.Audit.Elasticsearch.ElasticsearchAuditModule.ModuleName">
+            <summary>
+            The Module Name
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Audit.Elasticsearch.ElasticsearchAuditResources">
+            <summary>
+            Localizable strings for the ElasticsearchAudit module
+            </summary>
+            <remarks>
+            You can use Sitefinity Thunder to edit this file.
+            To do this, open the file's context menu and select Edit with Thunder.
+            </remarks>
+            <a href="http://docs.sitefinity.com/import-events-from-facebook-create-the-resources-class">Import events from Facebook: Create the resources class</a>
+        </member>
+    </members>
+</doc>

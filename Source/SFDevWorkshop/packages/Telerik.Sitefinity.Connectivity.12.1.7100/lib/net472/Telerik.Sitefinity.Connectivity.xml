@@ -1,0 +1,1816 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Telerik.Sitefinity.Connectivity</name>
+    </assembly>
+    <members>
+        <member name="T:Telerik.Sitefinity.Connectivity.CachedItemWrapper`1">
+            <summary>
+            The class wraps the item that need to be cached and the timestamp when it is added to the cache.
+            </summary>
+            <typeparam name="T">The type of cached items</typeparam>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.CachedItemWrapper`1.Item">
+            <summary>
+            Gets or sets the item.
+            </summary>
+            <value>
+            The item.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.CachedItemWrapper`1.AddedToCacheTimeStamp">
+            <summary>
+            Gets or sets the caching timestamp.
+            </summary>
+            <value>
+            The added to cache time stamp.
+            </value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.CachedItemWrapper`1.NeedsRefresh(System.Int32)">
+            <summary>
+            Checks whether the cached item needs to be updated.
+            </summary>
+            <param name="minutesThreshold">Number of minutes after which the items needs to be refreshed.</param>
+            <returns>True if item needs to be updated, otherwise false.</returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Connectivity.Configuration.BaseConnectorConfig">
+            <summary>
+            Represents base configuration section.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Configuration.BaseConnectorConfig.TriggerListSyncCompletionEvent">
+            <summary>
+            Gets or sets a value indicating whether to trigger an event when list synchronization is completed.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Connectivity.Configuration.LogicalGroupConfigElement">
+            <summary>
+            Logical group configuration element.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Configuration.LogicalGroupConfigElement.LogicalOperator">
+            <summary>
+            Gets or sets the logical operator for all conditions and subgroups.
+            </summary>
+            <value>The logical operator.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Configuration.LogicalGroupConfigElement.LogicalGroups">
+            <summary>
+            Gets the logical groups.
+            </summary>
+            <value>The logical groups.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Configuration.LogicalGroupConfigElement.FilterConditions">
+            <summary>
+            Gets the simple conditions.
+            </summary>
+            <value>The simple conditions.</value>
+        </member>
+        <member name="T:Telerik.Sitefinity.Connectivity.Configuration.FilterConditionConfigElement">
+            <summary>
+            Filter condition configuration.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Configuration.FilterConditionConfigElement.ComparisonOperator">
+            <summary>
+            Gets or sets the comparison operator.
+            </summary>
+            <value>The comparison operator.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Configuration.FilterConditionConfigElement.FieldName">
+            <summary>
+            Gets or sets the name of the field.
+            </summary>
+            <value>The name of the field.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Configuration.FilterConditionConfigElement.FieldValue">
+            <summary>
+            Gets or sets the field value.
+            </summary>
+            <value>The field value.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Configuration.FilterConditionConfigElement.FieldDefaultValue">
+            <summary>
+            Gets or sets the field default value.
+            </summary>
+            <value>The field value.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Configuration.FilterConditionConfigElement.FieldTypeFullName">
+            <summary>
+            Gets or sets the full name of the field Clr type.
+            </summary>
+            <value>The full name of the field type.</value>
+        </member>
+        <member name="T:Telerik.Sitefinity.Connectivity.Converters.DestinationListFilterConverter">
+            <summary>
+            Converter used to filter the destination lists.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Converters.DestinationListFilterConverter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Connectivity.Converters.SourceListFilterConverter" /> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Converters.SourceListFilterConverter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Connectivity.Converters.SourceListFilterConverter" /> class.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Connectivity.Converters.ListFilterConverter">
+            <summary>
+            Base Converter used to filter a list.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Converters.ListFilterConverter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Connectivity.Converters.ListFilterConverter" /> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Converters.ListFilterConverter.#ctor(Telerik.OpenAccess.DataAdapter.Converter.ConverterConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Connectivity.Converters.ListFilterConverter" /> class.
+            </summary>
+            <param name="listFilter">The list filter.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Converters.ListFilterConverter.CanSort">
+            <summary>
+            Gets the can sort.
+            </summary>
+            <value>The can sort.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Converters.ListFilterConverter.CanCompare">
+            <summary>
+            Gets the can compare.
+            </summary>
+            <value>The can compare.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Converters.ListFilterConverter.Compare(Telerik.OpenAccess.DataAdapter.Sync.SyncAdapterBase,Telerik.OpenAccess.DataAdapter.Sync.SyncAdapterBase,System.Object,System.Object,System.String,System.String)">
+            <summary>
+            Compares the specified source adapter.
+            </summary>
+            <param name="sourceAdapter">The source adapter.</param>
+            <param name="destinationAdapter">The destination adapter.</param>
+            <param name="sourceObject">The source object.</param>
+            <param name="destinationObject">The destination object.</param>
+            <param name="sourceFieldName">Name of the source field.</param>
+            <param name="destinationFieldName">Name of the destination field.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Converters.ListFilterConverter.Copy(Telerik.OpenAccess.DataAdapter.Sync.SyncAdapterBase,Telerik.OpenAccess.DataAdapter.Sync.SyncAdapterBase,System.Object,System.Object,System.String,System.String)">
+            <summary>
+            Copies the specified source adapter.
+            </summary>
+            <param name="sourceAdapter">The source adapter.</param>
+            <param name="destinationAdapter">The destination adapter.</param>
+            <param name="sourceObject">The source object.</param>
+            <param name="destinationObject">The destination object.</param>
+            <param name="sourceFieldName">Name of the source field.</param>
+            <param name="destinationFieldName">Name of the destination field.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.Connectivity.Events.IListSyncCompletedEvent">
+            <summary>
+            A contract for event notification containing information about synchronized list items.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Events.IListSyncCompletedEvent.ListName">
+            <summary>
+            Gets the name of the sync list.
+            </summary>
+            <value>
+            The name of the list.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Events.IListSyncCompletedEvent.ProviderName">
+            <summary>
+            Gets the name of the provider.
+            </summary>
+            <value>The name of the provider.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Events.IListSyncCompletedEvent.SitefinityDataTypeName">
+            <summary>
+            Gets the name of the Sitefinity data type.
+            </summary>
+            <value>The name of the Sitefinity data type.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Events.IListSyncCompletedEvent.Items">
+            <summary>
+            Gets the sync items list.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Events.IListSyncCompletedEvent.SyncAction">
+            <summary>
+            Gets the sync action.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Connectivity.Events.ListSyncCompletedEvent">
+            <summary>
+            The default implementation of the IListSyncCompletedEvent event.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Events.ListSyncCompletedEvent.Origin">
+            <summary>
+            Gets or sets a value specifying the origin of the event.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Events.ListSyncCompletedEvent.ListName">
+            <summary>
+            Gets the name of the sync list.
+            </summary>
+            <value>
+            The name of the list.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Events.ListSyncCompletedEvent.ProviderName">
+            <summary>
+            Gets the name of the provider.
+            </summary>
+            <value>The name of the provider.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Events.ListSyncCompletedEvent.SitefinityDataTypeName">
+            <summary>
+            Gets the name of the Sitefinity data type.
+            </summary>
+            <value>The name of the Sitefinity data type.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Events.ListSyncCompletedEvent.Items">
+            <summary>
+            Gets the sync items list.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Events.ListSyncCompletedEvent.SyncAction">
+            <summary>
+            Gets the sync action.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Connectivity.Filtering.FilterHelper">
+            <summary>
+            Filters helper.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Filtering.FilterHelper.TryBuildFilterCondition(Telerik.Sitefinity.Connectivity.Configuration.LogicalGroupConfigElement,Telerik.OpenAccess.DataAdapter.Query.DataOperation@)">
+            <summary>
+            If a filter is set, it is converted to a Octopus LogicalCondition object.
+            </summary>
+            <param name="filterConfig">The filter configuration.</param>
+            <param name="query">The query.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Filtering.FilterHelper.TryGetField(Telerik.Sitefinity.Connectivity.Configuration.LogicalGroupConfigElement,System.String,Telerik.Sitefinity.Connectivity.Configuration.FilterConditionConfigElement@)">
+            <summary>
+            Returns the element with the first occurrence of the given field.
+            </summary>
+            <param name="group">The group.</param>
+            <param name="fieldName">Name of the field.</param>
+            <param name="filterField">The filter field.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Filtering.FilterHelper.GetOperator(Telerik.Sitefinity.Connectivity.Configuration.FilterConditionConfigElement)">
+            <summary>
+            Converts the operator to Octopus Operator object.
+            </summary>
+            <param name="group">The group.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Filtering.FilterHelper.GetOperator(Telerik.Sitefinity.Connectivity.Configuration.LogicalGroupConfigElement)">
+            <summary>
+            Converts the operator to Octopus Operator object.
+            </summary>
+            <param name="group">The group.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Filtering.FilterHelper.GetFilterConverterConfiguration(System.String,System.String,System.String,Telerik.OpenAccess.DataAdapter.Converter.ConverterConfiguration,System.Boolean)">
+            <summary>
+            Gets the converter configuration.
+            </summary>
+            <param name="sourceField">The source field.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Filtering.FilterHelper.GetFilterFields(Telerik.Sitefinity.Connectivity.Configuration.LogicalGroupConfigElement)">
+            <summary>
+            Gets the filter fields with their default values.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Connectivity.Filtering.ComparisonOperator">
+            <summary>
+            Filters comparison operations
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Connectivity.Filtering.LogicalOperator">
+            <summary>
+            Logical operator.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Connectivity.Metadata.SitefinityMetadataAdapterBase">
+            <summary>
+            This is a base class that defines methods to return metadata for the content types present in a data source.     
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Metadata.SitefinityMetadataAdapterBase.#ctor(Telerik.OpenAccess.DataAdapter.Sync.AdapterConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Connectivity.Metadata.SitefinityMetadataAdapterBase" /> class.
+            </summary>
+            <param name="configuraiton">The configuration.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Metadata.SitefinityMetadataAdapterBase.AdapterConfiguration">
+            <summary>
+            Gets or sets the adapter configuration.
+            </summary>
+            <value>The adapter configuration.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Metadata.SitefinityMetadataAdapterBase.ForwardMap(System.Collections.Generic.IList{Telerik.OpenAccess.DataAdapter.Metadata.Description})">
+            <summary>
+            This method generates the required leg specific metadata based on the specified mapping. 
+            Classes that implement this method should set the 'AdapterConfiguration.IsForwardMapped' property to 'true'
+            </summary>
+            <param name="metadata">The metadata.</param>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Metadata.SitefinityMetadataAdapterBase.GetDefaultMapCapabilities">
+            <summary>
+            Returns a 'DefaultMapCapabilities' instance that defines defaults for various properties that are used to decide how to handle and compare data during the sync
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Metadata.SitefinityMetadataAdapterBase.GetListNames">
+            <summary>
+            Gets the names of the content types that the underlying data source exposes.
+            </summary>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Metadata.SitefinityMetadataAdapterBase.GetLists(System.String[])">
+            <summary>
+            Gets the metadata for the specified content types
+            </summary>
+            <param name="listNames">The list names.</param>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Metadata.SitefinityMetadataAdapterBase.GetMetadataTransform(Telerik.OpenAccess.DataAdapter.Metadata.DefaultMapCapabilities,System.Boolean)">
+            <summary>
+            Returns a IMetadataTransform implementation that is used to obtain leg specific metadata based on given metadata for the opposite leg.
+            </summary>
+            <param name="capabilities">The capabilities.</param>
+            <param name="isBase">if set to <c>true</c> [is base].</param>
+            <returns></returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Connectivity.Metadata.SitefinityMetadataTransformBase">
+            <summary>
+            This is a base class that defines methods to translate provided Description and FieldDescription to provider specific metadata.
+            Based on the provider specific rules, the derived classes can return metadata with modified names or types.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Metadata.SitefinityMetadataTransformBase.#ctor(Telerik.OpenAccess.DataAdapter.Sync.AdapterConfiguration,Telerik.OpenAccess.DataAdapter.Metadata.DefaultMapCapabilities)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Connectivity.Metadata.SitefinityMetadataTransformBase" /> class.
+            </summary>
+            <param name="configuration">The configuration.</param>
+            <param name="capabilities">The capabilities.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Metadata.SitefinityMetadataTransformBase.AdapterConfiguration">
+            <summary>
+            Gets or sets the adapter configuration.
+            </summary>
+            <value>The adapter configuration.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Metadata.SitefinityMetadataTransformBase.MapCapabilities">
+            <summary>
+            Gets or sets the map capabilities.
+            </summary>
+            <value>The map capabilities.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Metadata.SitefinityMetadataTransformBase.SourceDescription">
+            <summary>
+            Gets or sets the source description.
+            </summary>
+            <value>The source description.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Metadata.SitefinityMetadataTransformBase.TransformMetaList(Telerik.OpenAccess.DataAdapter.Metadata.Description)">
+            <summary>
+            Given a Description this method should return the provider specific Description object. The returned Description object is then used by the sync process
+            to work with the provider specific SyncAdapterBase implementation.
+            </summary>
+            <param name="sourceList">The source list.</param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Telerik.Sitefinity.Connectivity.Metadata.SitefinityMetadataTransformBase.TransformMetaField(Telerik.OpenAccess.DataAdapter.Metadata.FieldDescription)" -->
+        <member name="M:Telerik.Sitefinity.Connectivity.Metadata.SitefinityMetadataTransformBase.GetPkField">
+            <summary>
+            This method should return a FieldDescription object that defines the identity field for the Description object returned by the 'TransformMetaList' method.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Metadata.SitefinityMetadataTransformBase.GetCCField">
+            <summary>
+            This method should return a FieldDescription object that defines the concurrency field for the Description object returned by the 'TransformMetaList' method.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Connectivity.Adapters.SitefinitySyncAdapterBase">
+            <summary>
+            Base adapter used for synchronization between Sitefinity items and other systems. 
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Adapters.SitefinitySyncAdapterBase.#ctor(Telerik.OpenAccess.DataAdapter.Sync.AdapterConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Connectivity.Adapters.SitefinitySyncAdapterBase" /> class.
+            </summary>
+            <param name="adapterConfiguration">The adapter configuration.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Adapters.SitefinitySyncAdapterBase.SupportsTransactions">
+            <summary>
+            Gets a value indicating whether transitions are supported.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Adapters.SitefinitySyncAdapterBase.SyncLifecycleManager">
+            <summary>
+            Gets the synchronization lifecycle manager.
+            </summary>
+            <value>
+            The synchronization lifecycle manager.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Adapters.SitefinitySyncAdapterBase.SyncContext">
+            <summary>
+            Gets the synchronization context.
+            </summary>
+            <value>
+            The synchronization context.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Adapters.SitefinitySyncAdapterBase.TriggerListSyncCompletionEvent">
+            <summary>
+            Trigger an event when list synchronization is completed
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Adapters.SitefinitySyncAdapterBase.HasChanged">
+            <summary>
+            Explicitly set that the context has been changed.
+            </summary>
+            <value>The has changed.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Adapters.SitefinitySyncAdapterBase.PushChanges(System.Boolean)">
+            <summary>
+            Depending on the Transaction size, octopus decide when to commit. The first place where octopus do this is when the transaction size is reached for the existing objects, 
+            the second place is when when the transaction size is reached for the new objects, and the third time is when the sync is complete and the commit flag will be true.
+            </summary>
+            <param name="commit"></param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Adapters.SitefinitySyncAdapterBase.CreateNewInstance(System.Object)">
+            <summary>
+            It will pass in the id value from the opposite side. Based on the mapping you can use this id or create a new object with a new id and assign the external id to a field. 
+            </summary>
+            <param name="idValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Adapters.SitefinitySyncAdapterBase.ClearChanges">
+            <summary>
+            This is called when something fails and we need to rollback the changes. The adapter has to be Flushing in order this method to mean something. 
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Adapters.SitefinitySyncAdapterBase.Dispose">
+            <summary>
+            This is called in the end of the sync.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Adapters.SitefinitySyncAdapterBase.GetNewEntries(System.Int32,System.String)">
+            <summary>
+            GetNewEntries should return entries if the sort order for new entries is not well defined.
+            </summary>
+            <remarks>
+            If the correlation id is calculable only on one side and the other side sets zero or null as value, 
+            the entries have to be returned by this method. In all other cases, the new entries are processed by the GetNextPage 
+            call and an empty list should be returned here.
+            </remarks>
+            <param name="pageSize">The maximum amount of items to return. Used to reduce the memory consumption during sync.</param>
+            <param name="fieldName">The name of the correlation field. The paged results must be ordered by this column.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Adapters.SitefinitySyncAdapterBase.GetItems(System.String,System.Collections.IList)">
+            <summary>
+            When the correlationField can not be reliably sorted then this methods should return the objects with the specified correlation field values. This is called until all the changed object are retrieved.
+            </summary>
+            <param name="correlationFieldName">Name of the correlation field.</param>
+            <param name="correlationFieldValues">The correlation field values.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Adapters.SitefinitySyncAdapterBase.GetItem(System.String,System.Object)">
+            <summary>
+            Gets the item by correlation field name.
+            </summary>
+            <param name="correlationFieldName">Name of the correlation field.</param>
+            <param name="correlationFieldValue">The correlation field value.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException">The Sitefinity adapter can only work with Guid. The correlation field name has to be the 'Id' property;Id</exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Adapters.SitefinitySyncAdapterBase.GetItemForUpsert(System.Object,System.Object)">
+            <summary>
+            This is update and insert. When the data comes only from the one side and going to the other and nothing more. 
+            </summary>
+            <param name="correlationValue">the correlation value</param>
+            <param name="idValue">if you need to create a new object this the the Id value for the object, same for update.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Adapters.SitefinitySyncAdapterBase.GetNextPage(System.Int32,System.String)">
+            <summary>
+            Returns items for sync comparison
+            </summary>
+            <remarks>
+            This is the central entry point for the sync operation. Each adapter is asked to return the next set of items 
+            that should be processed by the sync operation. 
+            One field has been marked as correlation field. The correlation field value is used to correlated the data from the source
+            and destination adapter. The values must be unique and sortable.
+            The data is sorted by the correlation field (the name is passed in) and paged by the supported page size. The adapter
+            is responsible to store all information to calculate the next page during the subsequent calls.
+            </remarks>
+            <param name="pageSize">The maximum amount of items to return. Used to reduce the memory consumption during sync.</param>
+            <param name="fieldName">The name of the correlation field. The paged results must be ordered by this column. </param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Adapters.SitefinitySyncAdapterBase.Insert(System.Object[])">
+            <summary>
+            This method is used to insert new items that are coming from the other side.
+            </summary>
+            <param name="data">This is always one object. The one created in the CreateNewInstance method.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Adapters.SitefinitySyncAdapterBase.Update(System.Object[])">
+            <summary>
+            This method is used to update items that are coming from the other side.
+            </summary>
+            <param name="data">This is always one object. The one created in the CreateNewInstance method.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Adapters.SitefinitySyncAdapterBase.Delete(System.Object[])">
+            <summary>
+            This method is used to delete items that are coming from the other side.
+            </summary>
+            <param name="data">This is always one object. The one created in the CreateNewInstance method.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Adapters.SitefinitySyncAdapterBase.Delete(System.Tuple{System.Object,System.Object}[])">
+            <summary>
+            ImportType.UploadMode this is going to delete everything in the current system based on the ids that are coming from the other side.
+            </summary>
+            <param name="IdAndCorrelationValues"></param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Adapters.SitefinitySyncAdapterBase.BeginImport">
+            <summary>
+            BeginImport is called before the sync process starts.
+            </summary>
+            <remarks>
+            All required resources or configuration should be checked here. 
+            No configuration errors during the sync process should be generated if this method returned false.
+            </remarks>
+            <returns>true if all necessary resources are configured right, false if not.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Adapters.SitefinitySyncAdapterBase.BeginList(Telerik.OpenAccess.DataAdapter.Metadata.Description)">
+            <summary>
+            List mapping specific initialization
+            </summary>
+            <param name="description">The abstract metadata of the list that is going to be processed</param>
+            <remarks>
+            InitializeList is called before a list synchronization is started. 
+            If a list specific initialization is needed, it should be implemented here.
+            </remarks>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Adapters.SitefinitySyncAdapterBase.EndList">
+            <summary>
+            This method is called after each List in the mapping is processed
+            </summary>
+            <remarks>
+            Any list specific cleanup should be implemented here.
+            </remarks>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Adapters.SitefinitySyncAdapterBase.HasChanges">
+            <summary>
+            It will detect if the adapter has any changes or not.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Adapters.SitefinitySyncAdapterBase.GetValue(System.Object,System.String)">
+            <summary>
+            This method is used by the Octopus to get property values from the Sitefinity item and copy them to the other systems objects.
+            </summary>
+            <param name="data">the sitefinity item.</param>
+            <param name="fieldName">the field which value is going to be retrieved.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Adapters.SitefinitySyncAdapterBase.SetValue(System.Object,System.Object,System.String)">
+            <summary>
+            This method is used by Octopus to set property values from the other system to the Sitefinity item that is being synced.
+            </summary>
+            <param name="data">This is the sitefinity item</param>
+            <param name="value">This is the old value</param>
+            <param name="fieldName">This is the field that is going to be set</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Adapters.SitefinitySyncAdapterBase.MarkAsChanged">
+            <summary>
+            Explicitly set that the destination context has been changed.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Adapters.SitefinitySyncAdapterBase.SetLStringValue(System.ComponentModel.PropertyDescriptor,System.Object,System.Object)">
+            <summary>
+            Sets the LString value.
+            </summary>
+            <param name="propertyDescriptor">The property descriptor.</param>
+            <param name="value">The value.</param>
+            <param name="component">The component.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Adapters.SitefinitySyncAdapterBase.GetLStringValue(System.ComponentModel.PropertyDescriptor,System.Object)">
+            <summary>
+            Gets the LString value.
+            </summary>
+            <param name="propertyDescriptor">The property descriptor.</param>
+            <param name="component">The component.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Adapters.SitefinitySyncAdapterBase.UploadStream(System.String,System.IO.Stream,Telerik.Sitefinity.Connectivity.SitefinitySyncItem,System.String)">
+            <summary>
+            Uploads the stream.
+            </summary>
+            <param name="title">The title.</param>
+            <param name="stream">The stream.</param>
+            <param name="syncItem">The synchronization item.</param>
+            <param name="destinationFieldName">Name of the destination field.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Adapters.SitefinitySyncAdapterBase.DownloadStream(System.Object)">
+            <summary>
+            Downloads the stream from the item. Can be used if you sync images or files.
+            </summary>
+            <param name="item">The item.</param>
+            <returns>Stream with the data</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Adapters.SitefinitySyncAdapterBase.GetItemForUpdate(Telerik.Sitefinity.Connectivity.SitefinitySyncItem)">
+            <summary>
+            Gets an item that is going to be updated. Can be used if you sync images or files.
+            </summary>
+            <param name="syncItem">The synchronization item.</param>
+            <returns>The temp state of the item.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Adapters.SitefinitySyncAdapterBase.AddSyncItem(Telerik.Sitefinity.Connectivity.SyncAction,System.Object[])">
+            <summary>
+            Adds the synchronize item.
+            </summary>
+            <param name="syncAction">The synchronize action.</param>
+            <param name="data">The data.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.Connectivity.StringExtensions">
+            <summary>
+            String extensions related to the Sitefinity connectors.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.StringExtensions.CastToType(System.String,System.Type)">
+            <summary>
+            Casts the type of the value to.
+            </summary>
+            <param name="valueString">The value string.</param>
+            <param name="type">The type.</param>
+            <returns>The casted value</returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Connectivity.DestinationImportStatus">
+            <summary>
+            Destination import statuses.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Connectivity.SyncEventsContext">
+            <summary>
+            This class is responsible for publishing notifications when connector has finished synchronizing items.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SyncEventsContext.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Connectivity.SyncEventsContext"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SyncEventsContext.RaiseEvents(System.String,System.String,System.String)">
+            <summary>
+            Raises the events.
+            </summary>
+            <param name="listName">Name of the list.</param>
+            <param name="providerName">Name of the provider.</param>
+            <param name="typeName">Name of the Sitefinity data type.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SyncEventsContext.AddSyncItems(System.Collections.Generic.IEnumerable{Telerik.Sitefinity.Connectivity.SitefinitySyncItem},Telerik.Sitefinity.Connectivity.SyncAction)">
+            <summary>
+            Adds the synchronize items.
+            </summary>
+            <param name="data">The data.</param>
+            <param name="action">The action.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.Connectivity.SyncFailedException">
+            <summary>
+            Thrown when Connector synchronization fails.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SyncFailedException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Connectivity.SyncFailedException"/> class.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SyncFailedException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Connectivity.SyncFailedException"/> class.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="innerException">The exception that is the cause of the current exception, or a null reference (Nothing in Visual Basic) if no inner exception is specified.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.Connectivity.SynchronizedCache`1">
+            <summary>
+            Contains methods for getting and updating(if needed) cached items in thread-safe manner. 
+            </summary>
+            <typeparam name="T">The type of cached items</typeparam>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SynchronizedCache`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Connectivity.SynchronizedCache`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SynchronizedCache`1.#ctor(Telerik.Microsoft.Practices.EnterpriseLibrary.Caching.ICacheManager)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Connectivity.SynchronizedCache`1"/> class.
+            </summary>
+            <param name="cacheManager">The <see cref="T:Telerik.Microsoft.Practices.EnterpriseLibrary.Caching.ICacheManager"/> implementation that will be used to cache the data.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SynchronizedCache`1.GetAndUpdateItem(System.String,System.Func{`0})">
+            <summary>
+            Gets a cached item and updates the cached item if needed.
+            </summary>
+            <param name="key">The key of the item to be retrieved.</param>
+            <param name="func">The task to invoke in order to retrieve the item to be cached.</param>
+            <returns>The cached item of type {T}</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SynchronizedCache`1.Get(System.String)">
+            <summary>
+            Gets the cached item for the specified key.
+            </summary>
+            <param name="key">The key of the item to be retrieved.</param>
+            <returns>The cached instance for the specified key</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SynchronizedCache`1.Finalize">
+            <summary>
+            Finalizes an instance of the <see cref="T:Telerik.Sitefinity.Connectivity.SynchronizedCache`1"/> class.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Connectivity.SyncLogManager">
+            <summary>
+            Contains logic that is used to keep log for the synchronization.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SyncLogManager.GetManager">
+            <summary>
+            Gets an instance of the SyncLogManager.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SyncLogManager.GetListSyncStatus(System.String)">
+            <summary>
+            Determines whether the list have been successfully synced or failed to be synced.
+            </summary>
+            <param name="siteName">Name of the site.</param>
+            <param name="listName">Name of the list.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SyncLogManager.GetLogs(Telerik.OpenAccess.DataSource.SyncDB.SyncDBManager,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Gets logs information for a given site.
+            </summary>
+            <param name="siteName">Name of the site.</param>
+            <param name="manager">Sync db manager</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SyncLogManager.GetListLogs(Telerik.OpenAccess.DataSource.SyncDB.SyncDBManager,System.String,System.Boolean)">
+            <summary>
+            Gets logs information for a specific site's list.
+            </summary>
+            <param name="manager">The manager.</param>
+            <param name="siteName">Name of the site.</param>
+            <param name="listName">Name of the list.</param>
+            <param name="getCustomActionOnly">if set to <c>true</c> [get custom action only].</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SyncLogManager.CheckDestinationImportStatus(Telerik.OpenAccess.DataSource.SyncDB.SynchronizationListSummary)">
+            <summary>
+            Checks if partially succeeded sync process.
+            </summary>
+            <param name="listSummary">The list summary.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SyncLogManager.LogListSummaryError(System.String,System.String)">
+            <summary>
+            Logs the list summary error.
+            </summary>
+            <param name="configId">The configuration id.</param>
+            <param name="errorMessage">The error message.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SyncLogManager.TryGetLastImportSummary(Telerik.OpenAccess.DataSource.SyncDB.SyncDBManager,System.String,Telerik.OpenAccess.DataSource.SyncDB.SynchronizationImportSummary@)">
+            <summary>
+            If the list has ever been synced, returns the last import summary.
+            </summary>
+            <param name="manager">The manager.</param>
+            <param name="listMappingId">The list mapping id.</param>
+            <param name="summary">The summary.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Connectivity.ConnectorsHelper">
+            <summary>
+            A helper class which contains common methods required by the connectors.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.ConnectorsHelper.GetSitefinityConnection">
+            <summary>
+            Gets the sitefinity connection.
+            </summary>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException">Sitefinity connection string not found at data configuration!</exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.ConnectorsHelper.CreateConnectivityGroupPage(Telerik.Sitefinity.Abstractions.SiteInitializer)">
+            <summary>
+            Creates the connectivity group page.
+            </summary>
+            <param name="initializer">The initializer.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.ConnectorsHelper.GetValueAs``1(System.Object,``0)">
+            <summary>
+            Converts a data type to another data type
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="value">The value.</param>
+            <param name="defaultValue">The default value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.ConnectorsHelper.UpdateConnectivityGroupPage(Telerik.Sitefinity.Abstractions.SiteInitializer)">
+            <summary>
+            Updates the connectivity group page.
+            </summary>
+            <param name="initializer">The initializer.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.ConnectorsHelper.GetBaseName(System.String,System.String,System.String)">
+            <summary>
+            Gets the name of the base description.
+            </summary>
+            <param name="prefix">The prefix.</param>
+            <param name="mappingKey">The mapping key.</param>
+            <param name="configurationName">Name of the configuration.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.ConnectorsHelper.ToBaseName(System.String)">
+            <summary>
+            Converts the name to a base name compatible string.
+            </summary>
+            <param name="name">The name.</param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:Telerik.Sitefinity.Connectivity.Resources.ConnectivityResources" -->
+        <member name="M:Telerik.Sitefinity.Connectivity.Resources.ConnectivityResources.#ctor">
+            <summary>
+            Initializes new instance of <see cref="T:Telerik.Sitefinity.Connectivity.Resources.ConnectivityResources"/> class with the default <see cref="T:Telerik.Sitefinity.Localization.Data.ResourceDataProvider"/>.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Resources.ConnectivityResources.#ctor(Telerik.Sitefinity.Localization.Data.ResourceDataProvider)">
+            <summary>
+            Initializes new instance of <see cref="T:Telerik.Sitefinity.Connectivity.Resources.ConnectivityResources"/> class with the provided <see cref="T:Telerik.Sitefinity.Localization.Data.ResourceDataProvider"/>.
+            </summary>
+            <param name="dataProvider"><see cref="T:Telerik.Sitefinity.Localization.Data.ResourceDataProvider"/></param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Resources.ConnectivityResources.ConnectivityResourcesTitle">
+            <summary>
+            The title of the class.
+            </summary>
+            <value>ConnectivityResources labels</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Resources.ConnectivityResources.ConnectivityResourcesTitlePlural">
+            <summary>
+            The plural title of this class.
+            </summary>
+            <value>ConnectivityResources labels</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Resources.ConnectivityResources.ConnectivityResourcesDescription">
+            <summary>
+            Contains shared localizable resources for all connectors.
+            </summary>
+            <value>Contains shared localizable resources for all connectors.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Resources.ConnectivityResources.LogicalOperatorPropNameCaption">
+            <summary>
+            Phrase: Logical operator
+            </summary>
+            <value>Logical operator</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Resources.ConnectivityResources.LogicalOperatorPropNameDescription">
+            <summary>
+            Phrase: Determines the logical operator that will be applied for  all logical groups and filter conditions. Allowed values: 'AND', 'OR' 
+            </summary>
+            <value>Determines the logical operator that will be applied for all logical groups and filter conditions. Allowed values: 'AND', 'OR' </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Resources.ConnectivityResources.LogicalGroupsPropNameCaption">
+            <summary>
+            Phrase: Logical groups
+            </summary>
+            <value>Logical groups</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Resources.ConnectivityResources.LogicalGroupsPropNameDescription">
+            <summary>
+            Phrase: Container for other logical groups
+            </summary>
+            <value>Container for other logical groups</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Resources.ConnectivityResources.FilterConditionsPropNameCaption">
+            <summary>
+            Phrase: Filter conditions
+            </summary>
+            <value>Filter conditions</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Resources.ConnectivityResources.FilterConditionsPropNameDescription">
+            <summary>
+            Phrase: Container for fields with desired values that build the actual filter
+            </summary>
+            <value>Container for fields with desired values that build the actual filter</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Resources.ConnectivityResources.ComparisonOperatorPropNameCaption">
+            <summary>
+            Phrase: Comparison operator
+            </summary>
+            <value>Comparison operator</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Resources.ConnectivityResources.ComparisonOperatorPropNameDescription">
+            <summary>
+            Phrase: Operator for comparing a field with its value.
+            </summary>
+            <value>Operator for comparing a field with its value.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Resources.ConnectivityResources.FieldNamePropNameCaption">
+            <summary>
+            Phrase: Field name
+            </summary>
+            <value>Field name</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Resources.ConnectivityResources.FieldNamePropNameDescription">
+            <summary>
+            Phrase: A field that the filter will be based upon
+            </summary>
+            <value>A field that the filter will be based upon</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Resources.ConnectivityResources.FieldValuePropNameCaption">
+            <summary>
+            Phrase: Field value
+            </summary>
+            <value>Field value</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Resources.ConnectivityResources.FieldValuePropNameDescription">
+            <summary>
+            Phrase: A value that will be used to filter items
+            </summary>
+            <value>A value that will be used to filter items</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Resources.ConnectivityResources.FieldDefaultValuePropNameDescription">
+            <summary>
+            Phrase: A value that will be set to the filter property of a new synchronized item so it will match the filter for later synchronizations
+            </summary>
+            <value>A value that will be set to the filter property of a new synchronized item so it will match the filter for later synchronizations</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Resources.ConnectivityResources.FieldTypeFullNamePropNameCaption">
+            <summary>
+            Phrase: Field type full name
+            </summary>
+            <value>Field type full name</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Resources.ConnectivityResources.FieldTypeFullNamePropNameDescription">
+            <summary>
+            Phrase: The full name of the field's type
+            </summary>
+            <value>The full name of the field's type</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Resources.ConnectivityResources.FieldDefaultValuePropNameCaption">
+            <summary>
+            Phrase: Default filter field value
+            </summary>
+            <value>Default filter field value</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Resources.ConnectivityResources.TriggerListSyncCompletionEventPropNameTitle">
+            <summary>
+            Phrase: Trigger an event when list synchronization is completed.
+            </summary>
+            <value>Skip draft items</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Resources.ConnectivityResources.TriggerListSyncCompletionEventPropNameCaption">
+            <summary>
+            Phrase: Trigger an event when list synchronization is completed.
+            </summary>
+            <value>Skip draft items</value>
+        </member>
+        <member name="T:Telerik.Sitefinity.Connectivity.Scheduling.SyncSettings">
+            <summary>
+            Base class containing the configuration for the sync scheduling.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Scheduling.SyncSettings.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Connectivity.Scheduling.SyncSettings" /> class.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Scheduling.SyncSettings.ConfigurationId">
+            <summary>
+            Gets or sets the site.
+            </summary>
+            <value>
+            The site.
+            </value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Scheduling.SyncSettings.Parse(System.String)">
+            <summary>
+            Parses the specified data.
+            </summary>
+            <param name="data">The data.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Scheduling.SyncSettings.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents this instance.
+            </summary>
+            <returns>A <see cref="T:System.String"/> that represents this instance.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Scheduling.SyncSettings.AreSettingsValid">
+            <summary>
+            Determines whether the settings are valid.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Scheduling.SyncSettings.GetRetryInterval">
+            <summary>
+            Gets or sets the retry interval in seconds.
+            </summary>
+            <value>The retry interval.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Scheduling.SyncSettings.GetSchedule">
+            <summary>
+            Gets or sets the schedule.
+            </summary>
+            <value>
+            The schedule.
+            </value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Scheduling.SyncSettings.GetSynchronizationStatus">
+            <summary>
+            Gets or sets the synchronization status.
+            </summary>
+            <value>The synchronization status.</value>
+        </member>
+        <member name="T:Telerik.Sitefinity.Connectivity.Scheduling.SyncStatus">
+            <summary>
+            Contains different statuses of the sync scheduling infrastructure.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskBase">
+            <summary>
+            Custom scheduled task for the Sitefinity connectors.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskBase.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskBase" /> class.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskBase.TaskName">
+            <summary>
+            Identifier used for Task Factory
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskBase.Settings">
+            <summary>
+            Gets or sets the settings.
+            </summary>
+            <value>The settings.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskBase.GetCustomData">
+            <summary>
+            Gets any custom data that the task needs persisted. The data should be serialized as a string.
+            The <seealso cref="M:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskBase.SetCustomData(System.String)" />should have implementation for desterilized the data
+            </summary>
+            <returns>string serialized custom task data</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskBase.SetCustomData(System.String)">
+            <summary>
+            Sets the custom data. This is used when reviving a task from a persistent storage to desterilize any custom stored data
+            </summary>
+            <param name="customData"></param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskBase.CanReschedule">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskBase.ExecuteTask">
+            <summary>
+            Override in the inherited class to specify the execute action.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskBase.ShouldExecute">
+            <summary>
+            Determines whether this SyncTask is in a valid state to execute.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskBase.BeginExecute">
+            <summary>
+            A method that is called before the execution of the task starts.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskBase.Execute">
+            <summary>
+            Executes the task.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskBase.EndExecute(System.Exception)">
+            <summary>
+            A method that is called after the execution of the task ends.
+            </summary>
+            <param name="ex">The exception. Null if the task is successful.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskLogger">
+            <summary>
+            Sync task logger
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskLogger.Write(System.Object)">
+            <summary>
+            Writes a log entry.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskLogger.WriteFormat(System.String,System.Object[])">
+            <summary>
+            Writes a log entry with the specified string format.
+            </summary>
+            <param name="format">The format.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskManager">
+            <summary>
+            A helper class for initializing an instance of the SyncTaskManager.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskManager.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskManager" /> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskManager.GetManager(System.Type)">
+            <summary>
+            Gets an instance of the sync task manager.
+            </summary>
+            <typeparam name="T">The type of the sync task.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskManager.GetManager``1">
+            <summary>
+            Gets an instance of the sync task manager manager.
+            </summary>
+            <typeparam name="T">The type of the sync task.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskManager.GetAll">
+            <summary>
+            Gets all the synchronization tasks.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskManager.GetRunning">
+            <summary>
+            Gets the running synchronization tasks.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskManager.IsRunning">
+            <summary>
+            Determines whether this there is a running sync task.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskManager.GetProgress">
+            <summary>
+            Gets the progress of the currently running task.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskManager.GetImmediate">
+            <summary>
+            Gets the immediate sync task.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskManager.GetScheduled">
+            <summary>
+            Gets the scheduled sync task.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskManager.ValidateScheduleChange">
+            <summary>
+            Validates the schedule change.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskManager.FixFailedRunningTask">
+            <summary>
+            Fixes the failed running task.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskManager.ResumeStopped">
+            <summary>
+            Resumes the stopped sync tasks.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskManager.StopStarted">
+            <summary>
+            Stops the started sync task.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskManager.DeleteAllTasks(Telerik.Sitefinity.Connectivity.Scheduling.SyncSettings)">
+            <summary>
+            Deletes all sync tasks.
+            </summary>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskManager.DeleteImmediate(Telerik.Sitefinity.Connectivity.Scheduling.SyncSettings)">
+            <summary>
+            Deletes the immediate sync tasks.
+            </summary>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskManager.DeleteScheduled(Telerik.Sitefinity.Connectivity.Scheduling.SyncSettings)">
+            <summary>
+            Deletes the scheduled sync task.
+            </summary>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskManager.RunImmediately(Telerik.Sitefinity.Connectivity.Scheduling.SyncSettings)">
+            <summary>
+            Runs the sync task immediately.
+            </summary>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskManager.ScheduleRetry(Telerik.Sitefinity.Connectivity.Scheduling.SyncSettings)">
+            <summary>
+            Schedules the retry.
+            </summary>
+            <param name="settings">The settings.</param>
+            <param name="retryIntervalInSeconds">The retry interval in seconds.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskManager.ScheduleRun(Telerik.Sitefinity.Connectivity.Scheduling.SyncSettings)">
+            <summary>
+            Schedules a sync task with the specified settings.
+            </summary>
+            <param name="settings">The settings.</param>
+            <exception cref="T:System.InvalidOperationException">No future occurrences calculated. Probably scheduled for time in the past.</exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskManager.ScheduleRun(System.String,Telerik.Sitefinity.Connectivity.Scheduling.SyncSettings)">
+            <summary>
+            Schedules a sync task with the specified settings.
+            </summary>
+            <param name="scheduleSpec">The schedule spec.</param>
+            <param name="settings">The settings.</param>
+            <exception cref="T:System.InvalidOperationException">No future occurrences calculated. Probably scheduled for time in the past.</exception>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskManager.ScheduleRun(System.DateTime,Telerik.Sitefinity.Connectivity.Scheduling.SyncSettings)">
+            <summary>
+            Schedules a sync task with the specified settings.
+            </summary>
+            <param name="execTime">The exec time.</param>
+            <param name="settings">The settings.</param>
+            <exception cref="T:System.InvalidOperationException">No future occurrences calculated. Probably scheduled for time in the past.</exception>
+        </member>
+        <member name="T:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskManager`1">
+            <summary>
+            A manager for managing the synchronization tasks.
+            </summary>
+            <typeparam name="T">The type of the sync task.</typeparam>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskManager`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskManager" /> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskManager`1.GetManager">
+            <summary>
+            Gets an instance of the sync task manager manager.
+            </summary>
+            <typeparam name="T">The type of the sync task.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskManager`1.RunImmediately(Telerik.Sitefinity.Connectivity.Scheduling.SyncSettings)">
+            <summary>
+            Runs the sync task immediately.
+            </summary>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskManager`1.ScheduleRetry(Telerik.Sitefinity.Connectivity.Scheduling.SyncSettings)">
+            <summary>
+            Schedules the retry.
+            </summary>
+            <param name="settings">The settings.</param>
+            <param name="retryIntervalInSeconds">The retry interval in seconds.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskManager`1.ScheduleRun(Telerik.Sitefinity.Connectivity.Scheduling.SyncSettings)">
+            <summary>
+            Schedules a sync task with the specified settings.
+            </summary>
+            <param name="settings">The settings.</param>
+            <exception cref="T:System.InvalidOperationException">No future occurrences calculated. Probably scheduled for time in the past.</exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskManager`1.ScheduleRun(System.String,Telerik.Sitefinity.Connectivity.Scheduling.SyncSettings)">
+            <summary>
+            Schedules a sync task with the specified settings.
+            </summary>
+            <param name="scheduleSpec">The schedule spec.</param>
+            <param name="settings">The settings.</param>
+            <exception cref="T:System.InvalidOperationException">No future occurrences calculated. Probably scheduled for time in the past.</exception>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.Scheduling.SyncTaskManager`1.ScheduleRun(System.DateTime,Telerik.Sitefinity.Connectivity.Scheduling.SyncSettings)">
+            <summary>
+            Schedules a sync task with the specified settings.
+            </summary>
+            <param name="execTime">The exec time.</param>
+            <param name="settings">The settings.</param>
+            <exception cref="T:System.InvalidOperationException">No future occurrences calculated. Probably scheduled for time in the past.</exception>
+        </member>
+        <member name="T:Telerik.Sitefinity.Connectivity.SyncLifecycleManager">
+            <summary>
+            Represents a class that contains some base functionality related to the Sitefinity lifecycle and the sync process.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SyncLifecycleManager.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Connectivity.SyncLifecycleManager" /> class.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.SyncLifecycleManager.ProviderName">
+            <summary>
+            Gets or sets the name of the provider.
+            </summary>
+            <value>
+            The name of the provider.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.SyncLifecycleManager.TransactionName">
+            <summary>
+            Gets the name of the transaction.
+            </summary>
+            <value>
+            The name of the transaction.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.SyncLifecycleManager.TypeName">
+            <summary>
+            Gets or sets the name of the type.
+            </summary>
+            <value>
+            The name of the type.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.SyncLifecycleManager.SitefinityDataTypeName">
+            <summary>
+            Gets or sets the name of the Sitefinity data type.
+            </summary>
+            <value>The name of the Sitefinity data type.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.SyncLifecycleManager.DisplayTypeName">
+            <summary>
+            Gets or sets the display name of the type.
+            </summary>
+            <value>
+            The display name of the type.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.SyncLifecycleManager.Description">
+            <summary>
+            The abstract metadata of the list that is going to be processed.
+            </summary>
+            <value>The description.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SyncLifecycleManager.GetManager">
+            <summary>
+            Gets the Sitefinity manager used in the sync.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SyncLifecycleManager.GetItems">
+            <summary>
+            Gets the items from Sitefinity.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SyncLifecycleManager.GetItems(System.Collections.Generic.IEnumerable{System.Guid})">
+            <summary>
+            Gets the items by Id-s.
+            </summary>
+            <param name="ids">The ids.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SyncLifecycleManager.GetItem(System.Guid)">
+            <summary>
+            Gets an item.
+            </summary>
+            <param name="id">The identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SyncLifecycleManager.CreateItem(System.Guid)">
+            <summary>
+            Creates an item.
+            </summary>
+            <param name="id">The identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SyncLifecycleManager.GetItemForUpdate(Telerik.Sitefinity.Connectivity.SitefinitySyncItem)">
+            <summary>
+            Gets the item for update.
+            </summary>
+            <param name="syncItem">The synchronization item.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SyncLifecycleManager.GetItemsForSynchronization(System.Int32,System.String,System.Int32)">
+            <summary>
+            Gets the items for synchronization.
+            </summary>
+            <param name="pageSize">Size of the page.</param>
+            <param name="fieldName">Name of the field.</param>
+            <param name="pageNumber">The page number.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SyncLifecycleManager.GetSyncItems(System.Collections.Generic.IEnumerable{System.Guid})">
+            <summary>
+            Gets the synchronization items by list of Id-s.
+            </summary>
+            <param name="ids">The ids.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SyncLifecycleManager.GetSyncItem(System.Guid)">
+            <summary>
+            Gets the synchronization item by master Id.
+            </summary>
+            <param name="masterId">The master identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SyncLifecycleManager.CreateNew(System.Guid)">
+            <summary>
+            Creates new Item. If there is an item in the Recycle Bin with the same Id, it will be restored.
+            </summary>
+            <param name="id">The identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SyncLifecycleManager.Delete(Telerik.Sitefinity.Connectivity.SitefinitySyncItem)">
+            <summary>
+            Deletes the specified synchronization item.
+            </summary>
+            <param name="syncItem">The synchronization item.</param>
+            <exception cref="T:Telerik.Sitefinity.Connectivity.SyncFailedException"></exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SyncLifecycleManager.SaveAsDraft(Telerik.Sitefinity.Connectivity.SitefinitySyncItem)">
+            <summary>
+            Saves as draft.
+            </summary>
+            <param name="syncItem">The synchronization item.</param>
+            <exception cref="T:Telerik.Sitefinity.Connectivity.SyncFailedException"></exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SyncLifecycleManager.Publish(Telerik.Sitefinity.Connectivity.SitefinitySyncItem)">
+            <summary>
+            Publishes the specified synchronization item.
+            </summary>
+            <param name="syncItem">The synchronization item.</param>
+            <exception cref="T:Telerik.Sitefinity.Connectivity.SyncFailedException"></exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SyncLifecycleManager.Update(Telerik.Sitefinity.Connectivity.SitefinitySyncItem)">
+            <summary>
+            Updates the specified synchronization item.
+            </summary>
+            <param name="syncItem">The synchronization item.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SyncLifecycleManager.ToSyncItem(Telerik.Sitefinity.Model.IDataItem)">
+            <summary>
+            Converts a Sitefinity to a synchronization item.
+            </summary>
+            <param name="item">The item.</param>
+            <returns>A sync item wrapper.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SyncLifecycleManager.UploadStream(System.String,System.IO.Stream,Telerik.Sitefinity.Connectivity.SitefinitySyncItem,System.String)">
+            <summary>
+            Uploads the stream to the destination field.
+            </summary>
+            <param name="title">The title.</param>
+            <param name="stream">The stream.</param>
+            <param name="syncItem">The synchronization item.</param>
+            <param name="destinationFieldName">Name of the destination field.</param>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SyncLifecycleManager.DownloadStream(System.Object)">
+            <summary>
+            Downloads a stream from the item.
+            </summary>
+            <param name="item">The item.</param>
+            <returns>A Stream object that points to the item.</returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SyncLifecycleManager.Clear">
+            <summary>
+            Clears this instance of the manager.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SyncLifecycleManager.Flush">
+            <summary>
+            Flushes the transition used my this manager.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SyncLifecycleManager.RollBack">
+            <summary>
+            Rolls back the transaction used by this manager.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SyncLifecycleManager.Commit">
+            <summary>
+            Commits the transaction used by this manager.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Connectivity.SyncAction">
+            <summary>
+            Specifies the possible synchronization operations.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Connectivity.SyncAction.Insert">
+            <summary>
+            The sync item is inserted.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Connectivity.SyncAction.Update">
+            <summary>
+            The sync item is updated.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Connectivity.SyncAction.Delete">
+            <summary>
+            The sync item is deleted.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Connectivity.SyncLifecycleStatus">
+            <summary>
+            Represents the lifecycle status of a sync item.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Connectivity.SitefinitySyncContext">
+            <summary>
+            Contains collection of objects that need to be synchronized.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SitefinitySyncContext.#ctor">
+            <summary>
+            Prevents a default instance of the <see cref="T:Telerik.Sitefinity.Connectivity.SitefinitySyncContext"/> class from being created.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SitefinitySyncContext.#ctor(Telerik.Sitefinity.Connectivity.SyncLifecycleManager)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Connectivity.SitefinitySyncContext"/> class.
+            </summary>
+            <param name="syncLifecycleManager">The synchronization lifecycle manager.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SitefinitySyncContext.InitializeSyncLifecycleManager(Telerik.Sitefinity.Connectivity.SyncLifecycleManager)">
+            <summary>
+            Initializes the synchronization lifecycle manager.
+            </summary>
+            <param name="syncLifecycleManager">The synchronization lifecycle manager.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.SitefinitySyncContext.HasChanges">
+            <summary>
+            Gets a value indicating whether this context has changes.
+            </summary>
+            <value>
+              <c>true</c> if the context has changed; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.SitefinitySyncContext.ItemsToInsert">
+            <summary>
+            Gets the items to insert.
+            </summary>
+            <value>
+            The items to insert.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.SitefinitySyncContext.ItemsToUpdate">
+            <summary>
+            Gets the items to update.
+            </summary>
+            <value>
+            The items to update.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.SitefinitySyncContext.ItemsToDelete">
+            <summary>
+            Gets the items to delete.
+            </summary>
+            <value>
+            The items to delete.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.SitefinitySyncContext.ItemsToPublish">
+            <summary>
+            Gets the items to publish.
+            </summary>
+            <value>
+            The items to publish.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.SitefinitySyncContext.SyncLifecycleManager">
+            <summary>
+            Gets the sync lifecycle manager that is used for all the lifecycle operations during the sync process.
+            </summary>
+            <value>
+            The synchronization lifecycle manager.
+            </value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SitefinitySyncContext.TriggerSyncOperations">
+            <summary>
+            Triggers the synchronization operations (delete, insert, update).
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SitefinitySyncContext.InsertNewItems">
+            <summary>
+            Inserts the new items that are currently in the ItemsToInsert collection.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SitefinitySyncContext.DeleteItems">
+            <summary>
+            Deletes the items that correctly in the ItemsToDelete collection.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SitefinitySyncContext.UpdateItems">
+            <summary>
+            Updates the items that are currently in the ItemsToUpdate collection.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SitefinitySyncContext.PublishItems">
+            <summary>
+            Publishes all the items that are currently in the ItemsToPublish collection.
+            </summary>
+            <exception cref="T:System.NotSupportedException"></exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SitefinitySyncContext.AddSyncItems(System.Collections.Generic.IEnumerable{Telerik.Sitefinity.Connectivity.SitefinitySyncItem},Telerik.Sitefinity.Connectivity.SyncAction)">
+            <summary>
+            Adds the synchronization items to the respective insert, update or delete sets.
+            </summary>
+            <param name="syncItems">The synchronization items.</param>
+            <param name="action">The action.</param>
+            <exception cref="T:System.ArgumentNullException">data</exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SitefinitySyncContext.Clear">
+            <summary>
+            Clears all the resources held by the context.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SitefinitySyncContext.GetSyncItems(System.Int32,System.String,System.Int32)">
+            <summary>
+            Gets items to sync.
+            </summary>
+            <param name="pageSize">Size of the page.</param>
+            <param name="fieldName">Name of the field.</param>
+            <param name="pageNumber">The page number.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SitefinitySyncContext.GetSyncItems(System.Collections.Generic.IEnumerable{System.Guid})">
+            <summary>
+            Gets the sync items by Id-s.
+            </summary>
+            <param name="ids">The ids.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SitefinitySyncContext.GetSyncItem(System.Guid)">
+            <summary>
+            Gets the synchronization item by Sitefinity master Id.
+            </summary>
+            <param name="masterId">The master identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SitefinitySyncContext.CreateNew(System.Guid)">
+            <summary>
+            Creates the new Item.
+            </summary>
+            <param name="id">The identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SitefinitySyncContext.GetItemForUpdate(Telerik.Sitefinity.Connectivity.SitefinitySyncItem)">
+            <summary>
+            Gets the update item.
+            </summary>
+            <param name="syncItem">The synchronization item.</param>
+            <returns>
+            The temp state of the item.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SitefinitySyncContext.UploadStream(System.String,System.IO.Stream,Telerik.Sitefinity.Connectivity.SitefinitySyncItem,System.String)">
+            <summary>
+            Uploads a stream to the destination field.
+            </summary>
+            <param name="title">The title.</param>
+            <param name="stream">The data.</param>
+            <param name="syncItem">The sync item.</param>
+            <param name="destinationFieldName">Name of the destination field.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SitefinitySyncContext.DownloadStream(System.Object)">
+            <summary>
+            Downloads a stream from the item.
+            </summary>
+            <param name="item">The item that contains a Stream reference.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SitefinitySyncContext.Commit">
+            <summary>
+            Commits all the changes in that context.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SitefinitySyncContext.Flush">
+            <summary>
+            Flushes all the changes in that context.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SitefinitySyncContext.RollBack">
+            <summary>
+            Rolls back all the changes made by this context.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Connectivity.SyncMappingsExtensions">
+            <summary>
+            Sync mapping extensions
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SyncMappingsExtensions.GetBySource(System.Collections.Generic.IEnumerable{Telerik.OpenAccess.DataAdapter.Metadata.FieldMapping},System.String)">
+            <summary>
+            Gets the FieldMapping by source name.
+            </summary>
+            <param name="mappings">The field mappings.</param>
+            <param name="sourceName">Name of the source.</param>
+            <returns>The found field mapping or NULL</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.SyncMappingsExtensions.GetByDestination(System.Collections.Generic.IEnumerable{Telerik.OpenAccess.DataAdapter.Metadata.FieldMapping},System.String)">
+            <summary>
+            Gets the FieldMapping by destination.
+            </summary>
+            <param name="mappings">The mappings.</param>
+            <param name="destinationName">Name of the destination.</param>
+            <returns>The found field mapping or NULL</returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Connectivity.SitefinitySyncItem">
+            <summary>
+            A wrapper class of the object that will be synchronized.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.SitefinitySyncItem.Key">
+            <summary>
+            Gets or sets the key used for the comparison.
+            </summary>
+            <value>The key.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.SitefinitySyncItem.LastModified">
+            <summary>
+            Gets or sets the last modified date.
+            </summary>
+            <value>The last modified date.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.SitefinitySyncItem.LifecycleStatus">
+            <summary>
+            Gets or sets the sync lifecycle status.
+            </summary>
+            <value>The sync lifecycle status.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.SitefinitySyncItem.VersionComment">
+            <summary>
+            Gets or sets the version comment for the Sitefinity item.
+            </summary>
+            <value>the version comment for the Sitefinity item.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.SitefinitySyncItem.Item">
+            <summary>
+            Gets or sets the object used for detection if compared items from source and destination need to be synchronized.
+            </summary>
+            <value>
+            The Sitefinity item.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Connectivity.SitefinitySyncItem.TempItem">
+            <summary>
+            Gets or sets the object for update if items need to be synced.
+            </summary>
+            <value>
+            The temp state of the Item.
+            </value>
+            <see cref="!:https://www.progress.com/documentation/sitefinity-cms/for-developers-content-lifecycle"/>
+        </member>
+        <member name="T:Telerik.Sitefinity.Connectivity.TypeExtensions">
+            <summary>
+            Type extensions related to the Sitefinity connectors.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Connectivity.TypeExtensions.GetAssemblyQualifiedName(System.Type)">
+            <summary>
+            Gets the name of the assembly qualified name without the assembly version.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>The assembly qualified name without the assembly version.</returns>
+        </member>
+    </members>
+</doc>

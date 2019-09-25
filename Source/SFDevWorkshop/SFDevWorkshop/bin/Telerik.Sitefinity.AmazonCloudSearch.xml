@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Telerik.Sitefinity.AmazonCloudSearch</name>
+    </assembly>
+    <members>
+        <member name="M:Telerik.Sitefinity.AmazonCloudSearch.AmazonDoc.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.AmazonCloudSearch.AmazonDoc"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.AmazonCloudSearch.AmazonDoc.#ctor(Telerik.Sitefinity.Services.Search.Data.IDocument)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.AmazonCloudSearch.AmazonDoc"/> class.
+            </summary>
+            <param name="doc">Document that contains the fields.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.AmazonCloudSearch.AmazonDoc.Id">
+            <summary>
+            Gets or sets a value indicating the identity field.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.AmazonCloudSearch.AmazonResources">
+            <summary>
+            Represents string resources for UI labels.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.AmazonCloudSearch.AmazonResources.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.AmazonCloudSearch.AmazonResources"/> class with the default <see cref="T:Telerik.Sitefinity.Localization.Data.ResourceDataProvider"/>.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.AmazonCloudSearch.AmazonResources.#ctor(Telerik.Sitefinity.Localization.Data.ResourceDataProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.AmazonCloudSearch.AmazonResources"/> class with the provided <see cref="T:Telerik.Sitefinity.Localization.Data.ResourceDataProvider"/>.
+            </summary>
+            <param name="dataProvider"><see cref="T:Telerik.Sitefinity.Localization.Data.ResourceDataProvider"/></param>
+        </member>
+        <member name="P:Telerik.Sitefinity.AmazonCloudSearch.AmazonResources.AmazonResourcesTitle">
+            <summary>
+            Amazon cloud search
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.AmazonCloudSearch.AmazonResources.AmazonResourcesDescription">
+            <summary>
+            Contains localizable resources for Amazon cloud search.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.AmazonCloudSearch.AmazonResources.AmazonSearchServiceTitle">
+            <summary>
+            phrase: Amazon Search
+            </summary>
+            <value>Amazon Search</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.AmazonCloudSearch.AmazonResultSet.#ctor(Amazon.CloudSearchDomain.Model.SearchResponse,System.Collections.Generic.List{System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.AmazonCloudSearch.AmazonResultSet" /> class.
+            </summary>
+            <param name="result">The result that holds the data.</param>
+            <param name="suggestions">The suggestions.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.AmazonCloudSearch.AmazonResultSet.HitCount">
+            <summary>
+            Gets a value indicating how many results were found.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Telerik.Sitefinity.AmazonCloudSearch.AmazonResultSet.GetEnumerator" -->
+        <member name="M:Telerik.Sitefinity.AmazonCloudSearch.AmazonCloudSearchInstaller.PreApplicationStart">
+            <summary>
+            Called before the application start.
+            </summary>
+        </member>
+    </members>
+</doc>

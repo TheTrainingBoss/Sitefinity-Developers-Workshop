@@ -1,0 +1,1536 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Telerik.Sitefinity.RecurrentRules</name>
+    </assembly>
+    <members>
+        <member name="T:Telerik.Sitefinity.RecurrentRules.RecurrenceData">
+            <summary>
+            Represents data about recurrent event.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecurrentRules.RecurrenceData.EndRecurrenceType">
+            <summary>
+            Gets or sets the type of end occurrence.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecurrentRules.EndRecurrenceType">
+            <summary>
+            Represents the type of event end occurrence.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.RecurrentRules.EndRecurrenceType.Never">
+            <summary>
+            Never type.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.RecurrentRules.EndRecurrenceType.On">
+            <summary>
+            On type.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.RecurrentRules.EndRecurrenceType.After">
+            <summary>
+            After type.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecurrentRules.DailyRecurrenceRule">
+            <summary>Occurrences of this rule repeat on a daily basis.</summary>
+            <example>
+            	<code lang="CS">
+            using System;
+            using Telerik.Sitefinity.RecurrentRules;
+             
+            namespace RecurrenceExamples
+            {
+                class DailyRecurrenceRuleExample1
+                {
+                    static void Main()
+                    {
+                        // Creates a sample appointment that starts at 6/1/2007 3:30 PM (local time) and lasts half an hour.
+                        Appointment recurringAppointment = new Appointment("1", Convert.ToDateTime("6/1/2007 3:30 PM"),
+                            Convert.ToDateTime("6/1/2007 4:00 PM"), "Sample appointment");
+             
+                        // Creates a recurrence range, that specifies a limit of 10 occurrences for the appointment.
+                        RecurrenceRange range = new RecurrenceRange();
+                        range.Start = recurringAppointment.Start;
+                        range.EventDuration = recurringAppointment.End - recurringAppointment.Start;
+                        range.MaxOccurrences = 10;
+             
+                        // Creates a recurrence rule to repeat the appointment every two days.
+                        DailyRecurrenceRule rrule = new DailyRecurrenceRule(2, range);
+             
+                        Console.WriteLine("Appointment occurrs at the following times: ");
+                        int ix = 0;
+                        foreach (DateTime occurrence in rrule.Occurrences)
+                        {
+                            ix = ix + 1;
+                            Console.WriteLine("{0,2}: {1} ({2})", ix, occurrence.ToLocalTime(), occurrence.DayOfWeek);
+                        }
+                    }
+                }
+            }
+             
+            /*
+            This example produces the following results:
+             
+            Appointment occurrs at the following times:
+             1: 6/1/2007 3:30:00 PM (Friday)
+             2: 6/3/2007 3:30:00 PM (Sunday)
+             3: 6/5/2007 3:30:00 PM (Tuesday)
+             4: 6/7/2007 3:30:00 PM (Thursday)
+             5: 6/9/2007 3:30:00 PM (Saturday)
+             6: 6/11/2007 3:30:00 PM (Monday)
+             7: 6/13/2007 3:30:00 PM (Wednesday)
+             8: 6/15/2007 3:30:00 PM (Friday)
+             9: 6/17/2007 3:30:00 PM (Sunday)
+            10: 6/19/2007 3:30:00 PM (Tuesday)
+            */
+                </code>
+            </example>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecurrentRules.DailyRecurrenceRule.#ctor(System.DateTime,System.TimeSpan,System.DateTime,System.Int32,System.Int32,System.String)">
+            <example>
+            	<code lang="CS">
+            using System;
+            using Telerik.Sitefinity.RecurrentRules;
+             
+            namespace RecurrenceExamples
+            {
+                class DailyRecurrenceRuleExample1
+                {
+                    static void Main()
+                    {
+                        // Creates a sample appointment that starts at 6/1/2007 3:30 PM (local time) and lasts half an hour.
+                        Appointment recurringAppointment = new Appointment("1", Convert.ToDateTime("6/1/2007 3:30 PM"),
+                            Convert.ToDateTime("6/1/2007 4:00 PM"), "Sample appointment");
+             
+                        // Creates a recurrence range, that specifies a limit of 10 occurrences for the appointment.
+                        RecurrenceRange range = new RecurrenceRange();
+                        range.Start = recurringAppointment.Start;
+                        range.EventDuration = recurringAppointment.End - recurringAppointment.Start;
+                        range.MaxOccurrences = 10;
+             
+                        // Creates a recurrence rule to repeat the appointment every two days.
+                        DailyRecurrenceRule rrule = new DailyRecurrenceRule(2, range);
+             
+                        Console.WriteLine("Appointment occurrs at the following times: ");
+                        int ix = 0;
+                        foreach (DateTime occurrence in rrule.Occurrences)
+                        {
+                            ix = ix + 1;
+                            Console.WriteLine("{0,2}: {1} ({2})", ix, occurrence.ToLocalTime(), occurrence.DayOfWeek);
+                        }
+                    }
+                }
+            }
+             
+            /*
+            This example produces the following results:
+             
+            Appointment occurrs at the following times:
+             1: 6/1/2007 3:30:00 PM (Friday)
+             2: 6/3/2007 3:30:00 PM (Sunday)
+             3: 6/5/2007 3:30:00 PM (Tuesday)
+             4: 6/7/2007 3:30:00 PM (Thursday)
+             5: 6/9/2007 3:30:00 PM (Saturday)
+             6: 6/11/2007 3:30:00 PM (Monday)
+             7: 6/13/2007 3:30:00 PM (Wednesday)
+             8: 6/15/2007 3:30:00 PM (Friday)
+             9: 6/17/2007 3:30:00 PM (Sunday)
+            10: 6/19/2007 3:30:00 PM (Tuesday)
+            */
+                </code>
+            </example>
+            <summary>
+                Initializes a new instance of <see cref="T:Telerik.Sitefinity.RecurrentRules.DailyRecurrenceRule"/> with the
+                specified interval (in days) and <see cref="!:RecurrenceRange"/>.
+            </summary>
+            <param name="interval">The number of days between the occurrences.</param>
+            <param name="range">
+            	The <see cref="!:RecurrenceRange"/> instance that specifies the range of this
+                recurrence rule.
+            </param>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecurrentRules.DailyRecurrenceRule.#ctor(System.DateTime,System.TimeSpan,System.DateTime,System.Int32,Telerik.Sitefinity.RecurrentRules.RecurrenceDay,System.String)">
+            <example>
+            	<code lang="CS">
+            using System;
+            using Telerik.Sitefinity.RecurrentRules;
+             
+            namespace RecurrenceExamples
+            {
+                class DailyRecurrenceRuleExample2
+                {
+                    static void Main()
+                    {
+                        // Creates a sample appointment that starts at 6/1/2007 3:30 PM (local time) and lasts half an hour.
+                        Appointment recurringAppointment = new Appointment("1", Convert.ToDateTime("6/1/2007 3:30 PM"),
+                            Convert.ToDateTime("6/1/2007 4:00 PM"), "Sample appointment");
+             
+                        // Creates a recurrence range, that specifies a limit of 10 occurrences for the appointment.
+                        RecurrenceRange range = new RecurrenceRange();
+                        range.Start = recurringAppointment.Start;
+                        range.EventDuration = recurringAppointment.End - recurringAppointment.Start;
+                        range.MaxOccurrences = 10;
+             
+                        // Creates a recurrence rule to repeat the appointment every week day.
+                        DailyRecurrenceRule rrule = new DailyRecurrenceRule(RecurrenceDay.WeekDays, range);
+             
+                        Console.WriteLine("Appointment occurrs at the following times: ");
+                        int ix = 0;
+                        foreach (DateTime occurrence in rrule.Occurrences)
+                        {
+                            ix = ix + 1;
+                            Console.WriteLine("{0,2}: {1} ({2})", ix, occurrence.ToLocalTime(), occurrence.DayOfWeek);
+                        }
+                    }
+                }
+            }
+             
+            /*
+            This example produces the following results:
+             
+            Appointment occurrs at the following times:
+             1: 6/1/2007 3:30:00 PM (Friday)
+             2: 6/4/2007 3:30:00 PM (Monday)
+             3: 6/5/2007 3:30:00 PM (Tuesday)
+             4: 6/6/2007 3:30:00 PM (Wednesday)
+             5: 6/7/2007 3:30:00 PM (Thursday)
+             6: 6/8/2007 3:30:00 PM (Friday)
+             7: 6/11/2007 3:30:00 PM (Monday)
+             8: 6/12/2007 3:30:00 PM (Tuesday)
+             9: 6/13/2007 3:30:00 PM (Wednesday)
+            10: 6/14/2007 3:30:00 PM (Thursday)
+            */
+                </code>
+            </example>
+            <summary>
+                Initializes a new instance of <see cref="T:Telerik.Sitefinity.RecurrentRules.DailyRecurrenceRule"/> with the
+                specified days of week bit mask and <see cref="!:RecurrenceRange"/>.
+            </summary>
+            <param name="daysOfWeekMask">A bit mask that specifies the week days on which the event recurs.</param>
+            <param name="range">
+            	The <see cref="!:RecurrenceRange"/> instance that specifies the range of this
+                recurrence rule.
+            </param>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecurrentRules.DateHelper">
+            <summary>
+            Provides a helper methods for perfomring different kind of operations over the DateTime objects
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecurrentRules.ITimeZoneModel">
+            <summary>
+            This interface defines the ITimeZoneModel.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecurrentRules.HourlyRecurrenceRule">
+            <summary>Occurrences of this rule repeat every given number of hours.</summary>
+            <example>
+            	<code lang="CS">
+            using System;
+            using Telerik.Sitefinity.RecurrentRules;
+             
+            namespace RecurrenceExamples
+            {
+                class HourlyRecurrenceRuleExample
+                {
+                    static void Main()
+                    {
+                        // Creates a sample appointment that starts at 6/1/2007 3:30 PM (local time) and lasts half an hour.
+                        Appointment recurringAppointment = new Appointment("1", Convert.ToDateTime("6/1/2007 3:30 PM"),
+                            Convert.ToDateTime("6/1/2007 4:00 PM"), "Sample appointment");
+             
+                        // Creates a recurrence range, that specifies a limit of 10 occurrences for the appointment.
+                        RecurrenceRange range = new RecurrenceRange();
+                        range.Start = recurringAppointment.Start;
+                        range.EventDuration = recurringAppointment.End - recurringAppointment.Start;
+                        range.MaxOccurrences = 10;
+             
+                        // Creates a recurrence rule to repeat the appointment every 2 hours.
+                        HourlyRecurrenceRule rrule = new HourlyRecurrenceRule(2, range);
+             
+                        Console.WriteLine("Appointment occurrs at the following times: ");
+                        int ix = 0;
+                        foreach (DateTime occurrence in rrule.Occurrences)
+                        {
+                            ix = ix + 1;
+                            Console.WriteLine("{0,2}: {1}", ix, occurrence.ToLocalTime());
+                        }
+                    }
+                }
+            }
+             
+            /*
+            This example produces the following results:
+             
+            Appointment occurrs at the following times:
+             1: 6/1/2007 3:30:00 PM
+             2: 6/1/2007 5:30:00 PM
+             3: 6/1/2007 7:30:00 PM
+             4: 6/1/2007 9:30:00 PM
+             5: 6/1/2007 11:30:00 PM
+             6: 6/2/2007 1:30:00 AM
+             7: 6/2/2007 3:30:00 AM
+             8: 6/2/2007 5:30:00 AM
+             9: 6/2/2007 7:30:00 AM
+            10: 6/2/2007 9:30:00 AM
+            */
+                </code>
+            </example>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecurrentRules.HourlyRecurrenceRule.#ctor(System.DateTime,System.TimeSpan,System.DateTime,System.Int32,System.Int32)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Telerik.Sitefinity.RecurrentRules.HourlyRecurrenceRule"/> class
+                with the specified interval (in hours) and <see cref="!:RecurrenceRange"/>.
+            </summary>
+            <param name="interval">The number of hours between the occurrences.</param>
+            <param name="range">
+            	The <see cref="!:RecurrenceRange"/> instance that specifies the range of this
+                recurrence rule.
+            </param>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecurrentRules.ICalRecurrenceSerializer">
+            <summary>
+            Provides methods for serializing a recurrence descriptor object <see cref="T:Telerik.Sitefinity.RecurrentRules.IRecurrenceDescriptor"/> in iCal format
+            and respectively for deserializing an recurrence expression in iCal format into a recurrence descriptor object.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecurrentRules.ICalRecurrenceSerializer.Deserialize(System.String)">
+            <summary>
+            Deserialize a recurrence expression into a recurrence descriptor object.
+            </summary>
+            <param name="recurrenceExpression">The recurrence expression.</param>
+            <returns><see cref="T:Telerik.Sitefinity.RecurrentRules.IRecurrenceDescriptor"/> object.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecurrentRules.ICalRecurrenceSerializer.Serialize(Telerik.Sitefinity.RecurrentRules.IRecurrenceDescriptor)">
+            <summary>
+            Serialize a recurrence descriptor object into a recurrence expression.
+            </summary>
+            <param name="recurrenceDescriptor">The recurrence descriptor object.</param>
+            <returns>Serialized recurrence descriptor.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecurrentRules.ICalRecurrenceSerializer.CreateRecurrenceRule(Telerik.Sitefinity.RecurrentRules.RecurrenceInfo)">
+            <summary>
+            Creates a recurrence rule with the specified pattern and range.
+            </summary>
+            <param name="pattern">The recurrence pattern.</param>
+            <param name="range">The recurrence range.</param>
+            <returns>The constructed recurrence rule.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecurrentRules.ICalRecurrenceSerializer.TryParse(System.String,Telerik.Sitefinity.RecurrentRules.IRecurrenceDescriptor@)">
+            <summary>Creates a recurrence rule instance from it's string representation.</summary>
+            <example>
+            	<code lang="CS">
+            using System;
+            using Telerik.Sitefinity.RecurrentRules;
+             
+            namespace RecurrenceExamples
+            {
+                class ParsingExample
+                {
+                    static void Main()
+                    {
+                        // Creates a sample appointment that starts at 6/1/2007 3:30 PM (local time) and lasts half an hour.
+                        Appointment recurringAppointment = new Appointment("1", Convert.ToDateTime("6/1/2007 3:30 PM"),
+                            Convert.ToDateTime("6/1/2007 4:00 PM"), "Sample appointment");
+             
+                        // Creates a recurrence range, that specifies a limit of 10 occurrences for the appointment.
+                        RecurrenceRange range = new RecurrenceRange();
+                        range.Start = recurringAppointment.Start;
+                        range.EventDuration = recurringAppointment.End - recurringAppointment.Start;
+                        range.MaxOccurrences = 10;
+             
+                        // Creates a recurrence rule to repeat the appointment every 2 hours.
+                        HourlyRecurrenceRule rrule = new HourlyRecurrenceRule(2, range);
+             
+                        // Prints the string representation of the recurrence rule:
+                        string rruleAsString = rrule.ToString();
+                        Console.WriteLine("Recurrence rule:\n\n{0}\n", rruleAsString);
+             
+                        // The string representation can be stored in a database, etc.
+                        // ...
+             
+                        // Then it can be reconstructed using TryParse method:
+                        RecurrenceRule parsedRule;
+                        RecurrenceRule.TryParse(rruleAsString, out parsedRule);
+                        Console.WriteLine("After parsing (should be the same):\n\n{0}", parsedRule);
+                    }
+                }
+            }
+             
+            /*
+            This example produces the following results:
+             
+            Recurrence rule:
+             
+            DTSTART:20070601T123000Z
+            DTEND:20070601T130000Z
+            RRULE:FREQ=HOURLY;COUNT=10;INTERVAL=2;
+             
+             
+            After parsing (should be the same):
+             
+            DTSTART:20070601T123000Z
+            DTEND:20070601T130000Z
+            RRULE:FREQ=HOURLY;COUNT=10;INTERVAL=2;
+            */
+                </code>
+            </example>
+            <returns>True if <em>input</em> was converted successfully, false otherwise.</returns>
+            <param name="input">The string representation to parse.</param>
+            <param name="rrule">
+            When this method returns, contains the recurrence rule instance, if the
+            conversion succeeded, or null if the conversion failed. The conversion fails if the
+            <em>value</em> parameter is a null reference (<strong>Nothing</strong> in Visual Basic)
+            or represents invalid recurrence rule.
+            </param>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecurrentRules.ICalRecurrenceSerializer.TryParse(System.String)">
+            <summary>
+            Creates a recurrence rule instance from it's string representation.
+            </summary>
+            <param name="input">The string to parse.</param>
+            <returns>RecurrenceRule if the parsing succeeded or null (<strong>Nothing</strong> in Visual Basic) if the parsing failed.</returns>
+            <remarks>
+            See the <see cref="!:TryParse(string, out RecurrenceRule)">TryParse</see> overload for more information and examples.
+            </remarks>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecurrentRules.IRecurrenceDescriptor">
+            <summary>
+            Provides the required information for describing a recurrence rule 
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecurrentRules.IRecurrenceDescriptor.StartDate">
+            <summary>Gets the start of the recurring event.</summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecurrentRules.IRecurrenceDescriptor.TimeZoneId">
+            <summary>
+            Gets the TimeZone id of the recurring event.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecurrentRules.IRecurrenceDescriptor.RecursUntil">
+            <summary>
+            Gets the end date for the recurring event. Defaults to no end date
+            (DateTime.MaxValue).
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecurrentRules.IRecurrenceDescriptor.Duration">
+            <summary>Gets the duration of the recurring event.</summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecurrentRules.IRecurrenceDescriptor.MaxOccurrences">
+            <summary>
+            Gets the limit for the number of occurrences. Defaults to no limit
+            (Int32.MaxInt).
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecurrentRules.IRecurrenceDescriptor.Interval">
+            <summary>Gets the interval of recurrence.</summary>
+            <value>
+            	<para>
+                    A positive integer representing how often the recurrence rule repeats,
+                    expressed in <see cref="T:Telerik.Sitefinity.RecurrentRules.RecurrenceFrequency"/> units.
+                </para>
+            </value>
+            <remarks>The default value is 1.</remarks>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecurrentRules.IRecurrenceDescriptor.Frequency">
+            <value>
+            	<para>
+                    A <see cref="T:Telerik.Sitefinity.RecurrentRules.RecurrenceFrequency"/> enumerated constant that indicates the
+                    frequency of recurrence.
+                </para>
+            </value>
+            <summary>Gets the frequency of recurrence.</summary>
+            <remarks>The default value is <see cref="F:Telerik.Sitefinity.RecurrentRules.RecurrenceFrequency.None"/>.</remarks>
+            <seealso cref="T:Telerik.Sitefinity.RecurrentRules.RecurrenceFrequency">RecurrenceFrequency Enumeration</seealso>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecurrentRules.IRecurrenceDescriptor.Occurrences">
+            <remarks>Occurrence times are in UTC.</remarks>
+            <summary>Gets the evaluated occurrence times of this recurrence rule.</summary>
+            <value>The evaluated occurrence times of this recurrence rule.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecurrentRules.IRecurrenceDescriptor.Exceptions">
+            <summary>Gets a collection of the exception dates associated with this recurrence rule.</summary>
+            <value>A collection of the exception dates associated with this recurrence rule.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecurrentRules.IRecurrenceDescriptor.DaysOfWeek">
+            <summary>
+            Gets the bit mask that specifies the week days on which the event
+            recurs.
+            </summary>
+            <seealso cref="T:Telerik.Sitefinity.RecurrentRules.RecurrenceDay">RecurrenceDay Enumeration</seealso>
+            <remarks>
+                For additional information on how to create masks see the
+                <see cref="T:Telerik.Sitefinity.RecurrentRules.RecurrenceDay"/> documentation.
+            </remarks>
+            <value>A bit mask that specifies the week days on which the event recurs.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecurrentRules.IRecurrenceDescriptor.FirstDayOfWeek">
+            <summary>Gets the day on which the week starts.</summary>
+            <value>
+                This property is only meaningful when <see cref="T:Telerik.Sitefinity.RecurrentRules.RecurrenceFrequency"/> is set
+                to <see cref="F:Telerik.Sitefinity.RecurrentRules.RecurrenceFrequency.Weekly"/> and <see cref="P:Telerik.Sitefinity.RecurrentRules.IRecurrenceDescriptor.Interval"/> is greater than 1.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecurrentRules.IRecurrenceDescriptor.DayOrdinal">
+            <remarks>
+            	<para>
+                    This property is meaningful only when <see cref="T:Telerik.Sitefinity.RecurrentRules.RecurrenceFrequency"/> is
+                    set to <see cref="F:Telerik.Sitefinity.RecurrentRules.RecurrenceFrequency.Monthly"/> or
+                    <see cref="F:Telerik.Sitefinity.RecurrentRules.RecurrenceFrequency.Yearly"/> and <see cref="P:Telerik.Sitefinity.RecurrentRules.IRecurrenceDescriptor.DayOfMonth"/>
+                    is not set.
+                </para>
+            	<para>In such scenario it selects the n-th occurrence within the set of events
+                specified by the rule. Valid values are from -31 to +31, 0 is ignored.</para>
+            	<para>For example with RecurrenceFrequency set to Monthly and DaysOfWeekMask set to
+                Monday DayOfMonth is interpreted in the following way:</para>
+            	<list type="bullet">
+            		<item>
+            			<ul class="noindent">
+            				<li>1: Selects the first monday of the month.</li>
+            				<li>3: Selects the third monday of the month.</li>
+            				<li>-1: Selects the last monday of the month.</li>
+            			</ul>
+            		</item>
+            	</list>
+            </remarks>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecurrentRules.IRecurrenceDescriptor.DayOfMonth">
+            <summary>Gets the day month on which the event recurs.</summary>
+            <value>The day month on which the event recurs.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecurrentRules.IRecurrenceDescriptor.Month">
+            <summary>Gets the month on which the event recurs.</summary>
+            <value>
+                This property is only meaningful when <see cref="T:Telerik.Sitefinity.RecurrentRules.RecurrenceFrequency"/> is set
+                to <see cref="F:Telerik.Sitefinity.RecurrentRules.RecurrenceFrequency.Yearly"/>.
+            </value>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecurrentRules.IRecurrenceSerializer">
+            <summary>
+            Provides methods for serializing a recurrence descriptor object <see cref="T:Telerik.Sitefinity.RecurrentRules.IRecurrenceDescriptor"/> in certain format
+            and respectively for deserializing an recurrence expression in certain format into a recurrence descriptor object.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecurrentRules.IRecurrenceSerializer.Serialize(Telerik.Sitefinity.RecurrentRules.IRecurrenceDescriptor)">
+            <summary>
+            Serialize a recurrence descriptor object into a recurrence expression.
+            </summary>
+            <param name="recurrenceDescriptor">The recurrence descriptor object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecurrentRules.IRecurrenceSerializer.Deserialize(System.String)">
+            <summary>
+            Deserialize a recurrence expression into a recurrence descriptor object.
+            </summary>
+            <param name="recurrenceExpression">The recurrence expression.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecurrentRules.MonthlyRecurrenceRule">
+            <summary>
+            Occurrences of this rule repeat on a monthly basis.
+            </summary>
+            <example>
+            	<code lang="CS">
+            using System;
+            using Telerik.Sitefinity.RecurrentRules;
+             
+            namespace RecurrenceExamples
+            {
+                class MonthlyRecurrenceRuleExample1
+                {
+                    static void Main()
+                    {
+                        // Creates a sample appointment that starts at 6/1/2007 3:30 PM (local time) and lasts half an hour.
+                        Appointment recurringAppointment = new Appointment("1", Convert.ToDateTime("6/1/2007 3:30 PM"),
+                            Convert.ToDateTime("6/1/2007 4:00 PM"), "Sample appointment");
+             
+                        // Creates a recurrence range, that specifies a limit of 10 occurrences for the appointment.
+                        RecurrenceRange range = new RecurrenceRange();
+                        range.Start = recurringAppointment.Start;
+                        range.EventDuration = recurringAppointment.End - recurringAppointment.Start;
+                        range.MaxOccurrences = 5;
+             
+                        // Creates a recurrence rule to repeat the appointment on the 5th day of every month.
+                        MonthlyRecurrenceRule rrule = new MonthlyRecurrenceRule(5, 1, range);
+             
+                        Console.WriteLine("Appointment occurrs at the following times: ");
+                        int ix = 0;
+                        foreach (DateTime occurrence in rrule.Occurrences)
+                        {
+                            ix = ix + 1;
+                            Console.WriteLine("{0,2}: {1}", ix, occurrence.ToLocalTime());
+                        }
+                    }
+                }
+            }
+             
+            /*
+            This example produces the following results:
+             
+            Appointment occurrs at the following times:
+             1: 6/5/2007 3:30:00 PM
+             2: 7/5/2007 3:30:00 PM
+             3: 8/5/2007 3:30:00 PM
+             4: 9/5/2007 3:30:00 PM
+             5: 10/5/2007 3:30:00 PM
+            */
+                </code>
+            </example>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecurrentRules.MonthlyRecurrenceRule.#ctor(System.DateTime,System.TimeSpan,System.DateTime,System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.RecurrentRules.MonthlyRecurrenceRule"/> class.
+            </summary>
+            <example>
+            	<code lang="CS">
+            using System;
+            using Telerik.Sitefinity.RecurrentRules;
+             
+            namespace RecurrenceExamples
+            {
+                class MonthlyRecurrenceRuleExample1
+                {
+                    static void Main()
+                    {
+                        // Creates a sample appointment that starts at 6/1/2007 3:30 PM (local time) and lasts half an hour.
+                        Appointment recurringAppointment = new Appointment("1", Convert.ToDateTime("6/1/2007 3:30 PM"),
+                            Convert.ToDateTime("6/1/2007 4:00 PM"), "Sample appointment");
+             
+                        // Creates a recurrence range, that specifies a limit of 10 occurrences for the appointment.
+                        RecurrenceRange range = new RecurrenceRange();
+                        range.Start = recurringAppointment.Start;
+                        range.EventDuration = recurringAppointment.End - recurringAppointment.Start;
+                        range.MaxOccurrences = 5;
+             
+                        // Creates a recurrence rule to repeat the appointment on the 5th day of every month.
+                        MonthlyRecurrenceRule rrule = new MonthlyRecurrenceRule(5, 1, range);
+             
+                        Console.WriteLine("Appointment occurrs at the following times: ");
+                        int ix = 0;
+                        foreach (DateTime occurrence in rrule.Occurrences)
+                        {
+                            ix = ix + 1;
+                            Console.WriteLine("{0,2}: {1}", ix, occurrence.ToLocalTime());
+                        }
+                    }
+                }
+            }
+             
+            /*
+            This example produces the following results:
+             
+            Appointment occurrs at the following times:
+             1: 6/5/2007 3:30:00 PM
+             2: 7/5/2007 3:30:00 PM
+             3: 8/5/2007 3:30:00 PM
+             4: 9/5/2007 3:30:00 PM
+             5: 10/5/2007 3:30:00 PM
+            */
+                </code>
+            </example>
+            <param name="dayOfMonth">The day of month on which the event recurs.</param>
+            <param name="interval">The interval (in months) between the occurrences.</param>
+            <param name="range">The <see cref="!:RecurrenceRange"/> instance that specifies the range of this rule.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecurrentRules.MonthlyRecurrenceRule.#ctor(System.DateTime,System.TimeSpan,System.DateTime,System.Int32,System.Int32,Telerik.Sitefinity.RecurrentRules.RecurrenceDay,System.Int32,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.RecurrentRules.MonthlyRecurrenceRule"/> class.
+            </summary>
+            <example>
+            	<code lang="CS">
+            using System;
+            using Telerik.Sitefinity.RecurrentRules;
+             
+            namespace RecurrenceExamples
+            {
+                class MonthlyRecurrenceRuleExample2
+                {
+                    static void Main()
+                    {
+                        // Creates a sample appointment that starts at 6/1/2007 3:30 PM (local time) and lasts half an hour.
+                        Appointment recurringAppointment = new Appointment("1", Convert.ToDateTime("6/1/2007 3:30 PM"),
+                            Convert.ToDateTime("6/1/2007 4:00 PM"), "Sample appointment");
+             
+                        // Creates a recurrence range, that specifies a limit of 10 occurrences for the appointment.
+                        RecurrenceRange range = new RecurrenceRange();
+                        range.Start = recurringAppointment.Start;
+                        range.EventDuration = recurringAppointment.End - recurringAppointment.Start;
+                        range.MaxOccurrences = 5;
+             
+                        // Creates a recurrence rule to repeat the appointment on the last monday of every two months.
+                        MonthlyRecurrenceRule rrule = new MonthlyRecurrenceRule(-1, RecurrenceDay.Monday, 2, range);
+             
+                        Console.WriteLine("Appointment occurrs at the following times: ");
+                        int ix = 0;
+                        foreach (DateTime occurrence in rrule.Occurrences)
+                        {
+                            ix = ix + 1;
+                            Console.WriteLine("{0,2}: {1}", ix, occurrence.ToLocalTime());
+                        }
+                    }
+                }
+            }
+             
+            /*
+            This example produces the following results:
+             
+            Appointment occurrs at the following times:
+             1: 6/25/2007 3:30:00 PM
+             2: 8/27/2007 3:30:00 PM
+             3: 10/29/2007 2:30:00 PM
+             4: 12/31/2007 2:30:00 PM
+             5: 2/25/2008 2:30:00 PM
+            */
+                </code>
+            </example>
+            <param name="dayOrdinal">The day ordinal modifier. See <see cref="!:RecurrencePattern.DayOrdinal"/> for additional information.</param>
+            <param name="daysOfWeek">A bit mask that specifies the week days on which the event recurs.</param>
+            <param name="interval">The interval (in months) between the occurrences.</param>
+            <param name="range">The <see cref="!:RecurrenceRange"/> instance that specifies the range of this rule.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecurrentRules.RecurrenceDay">
+            <summary>
+            	<para>Specifies the days of the week. Members might be combined using bitwise
+                operations to specify multiple days.</para>
+            </summary>
+            <remarks>
+                The constants in the <see cref="T:Telerik.Sitefinity.RecurrentRules.RecurrenceDay"/> enumeration might be combined
+                with bitwise operations to represent any combination of days. It is designed to be
+                used in conjunction with the <see cref="!:RecurrencePattern"/> class to filter
+                the days of the week for which the recurrence pattern applies.
+            </remarks>
+            <example>
+            	<para>Consider the following example that demonstrates the basic usage pattern of
+                RecurrenceDay. The most common operators used for manipulating bit fields
+                are:</para>
+            	<list type="bullet">
+            		<item>Bitwise OR: Turns a flag on.</item>
+            		<item>Bitwise XOR: Toggles a flag.</item>
+            		<item>Bitwise AND: Checks if a flag is turned on.</item>
+            		<item>Bitwise NOT: Turns a flag off.</item>
+            	</list>
+            	<code lang="CS">
+            using System;
+            using Telerik.Sitefinity.RecurrentRules;
+             
+            namespace RecurrenceExamples
+            {
+                class RecurrenceDayExample
+                {
+                    static void Main()
+                    {
+                        // Selects Friday, Saturday and Sunday.
+                        RecurrenceDay dayMask = RecurrenceDay.Friday | RecurrenceDay.WeekendDays;
+                        PrintSelectedDays(dayMask);
+             
+                        // Selects all days, except Thursday.
+                        dayMask = RecurrenceDay.EveryDay ^ RecurrenceDay.Thursday;
+                        PrintSelectedDays(dayMask);
+                    }
+             
+                    static void PrintSelectedDays(RecurrenceDay dayMask)
+                    {
+                        Console.WriteLine("Value: {0,3} - {1}", (int) dayMask, dayMask);
+                    }
+                }
+            }
+             
+            /*
+            This example produces the following results:
+             
+            Value: 112 - Friday, WeekendDays
+            Value: 119 - Monday, Tuesday, Wednesday, Friday, WeekendDays
+            */
+                </code>
+            </example>
+        </member>
+        <member name="F:Telerik.Sitefinity.RecurrentRules.RecurrenceDay.None">
+            <summary>Indicates no selected day.</summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.RecurrentRules.RecurrenceDay.Sunday">
+            <summary>Indicates Monday.</summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.RecurrentRules.RecurrenceDay.Monday">
+            <summary>Indicates Tuesday.</summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.RecurrentRules.RecurrenceDay.Tuesday">
+            <summary>Indicates Wednesday.</summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.RecurrentRules.RecurrenceDay.Wednesday">
+            <summary>Indicates Thursday.</summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.RecurrentRules.RecurrenceDay.Thursday">
+            <summary>Indicates Friday.</summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.RecurrentRules.RecurrenceDay.Friday">
+            <summary>Indicates Saturday.</summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.RecurrentRules.RecurrenceDay.Saturday">
+            <summary>Indicates Sunday.</summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.RecurrentRules.RecurrenceDay.EveryDay">
+            <summary><para>Indicates the range from Sunday to Saturday inclusive.</para></summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.RecurrentRules.RecurrenceDay.WeekDays">
+            <summary>Indicates the range from Monday to Friday inclusive.</summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.RecurrentRules.RecurrenceDay.WeekendDays">
+            <summary>Indicates the range from Saturday to Sunday inclusive.</summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecurrentRules.RecurrenceFrequency">
+            <summary>Specifies the frequency of a recurrence.</summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.RecurrentRules.RecurrenceFrequency.None">
+            <summary>Indicates no recurrence.</summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.RecurrentRules.RecurrenceFrequency.Hourly">
+            <summary>Indicates hourly recurrence.</summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.RecurrentRules.RecurrenceFrequency.Daily">
+            <summary>Indicates daily recurrence.</summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.RecurrentRules.RecurrenceFrequency.Weekly">
+            <summary>Indicates weekly recurrence.</summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.RecurrentRules.RecurrenceFrequency.Monthly">
+            <summary>Indicates monthly recurrence.</summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.RecurrentRules.RecurrenceFrequency.Yearly">
+            <summary>Indicates yearly recurrence.</summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecurrentRules.RecurrenceInfo">
+            <summary>
+            This class is used as a DTO which is strictly related to the description of a recurrence rule
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecurrentRules.RecurrenceInfo.StartDate">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.RecurrentRules.RecurrenceInfo.TimeZoneId">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.RecurrentRules.RecurrenceInfo.RecursUntil">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.RecurrentRules.RecurrenceInfo.Duration">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.RecurrentRules.RecurrenceInfo.MaxOccurrences">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.RecurrentRules.RecurrenceInfo.Interval">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.RecurrentRules.RecurrenceInfo.Frequency">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.RecurrentRules.RecurrenceInfo.Occurrences">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.RecurrentRules.RecurrenceInfo.Telerik#Sitefinity#RecurrentRules#IRecurrenceDescriptor#Exceptions">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.RecurrentRules.RecurrenceInfo.DaysOfWeek">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.RecurrentRules.RecurrenceInfo.FirstDayOfWeek">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.RecurrentRules.RecurrenceInfo.DayOrdinal">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.RecurrentRules.RecurrenceInfo.DayOfMonth">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.RecurrentRules.RecurrenceInfo.Month">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.RecurrentRules.RecurrenceMonth">
+            <summary>Specifies the months in which given event recurs.</summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.RecurrentRules.RecurrenceMonth.None">
+            <summary>Indicates no monthly recurrence.</summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.RecurrentRules.RecurrenceMonth.January">
+            <summary>Indicates that the event recurs in January.</summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.RecurrentRules.RecurrenceMonth.February">
+            <summary>Indicates that the event recurs in February.</summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.RecurrentRules.RecurrenceMonth.March">
+            <summary>Indicates that the event recurs in March.</summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.RecurrentRules.RecurrenceMonth.April">
+            <summary>Indicates that the event recurs in April.</summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.RecurrentRules.RecurrenceMonth.May">
+            <summary>Indicates that the event recurs in May.</summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.RecurrentRules.RecurrenceMonth.June">
+            <summary>Indicates that the event recurs in June.</summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.RecurrentRules.RecurrenceMonth.July">
+            <summary>Indicates that the event recurs in July.</summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.RecurrentRules.RecurrenceMonth.August">
+            <summary>Indicates that the event recurs in August.</summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.RecurrentRules.RecurrenceMonth.September">
+            <summary>Indicates that the event recurs in September.</summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.RecurrentRules.RecurrenceMonth.October">
+            <summary>Indicates that the event recurs in October.</summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.RecurrentRules.RecurrenceMonth.November">
+            <summary>Indicates that the event recurs in November.</summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.RecurrentRules.RecurrenceMonth.December">
+            <summary>Indicates that the event recurs in December.</summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecurrentRules.RecurrenceRule">
+            <summary>Provides the <strong>abstract</strong> base class for recurrence rules.</summary>
+            <seealso cref="T:Telerik.Sitefinity.RecurrentRules.HourlyRecurrenceRule">HourlyRecurrenceRule Class</seealso>
+            <seealso cref="T:Telerik.Sitefinity.RecurrentRules.DailyRecurrenceRule">DailyRecurrenceRule Class</seealso>
+            <seealso cref="T:Telerik.Sitefinity.RecurrentRules.WeeklyRecurrenceRule">WeeklyRecurrenceRule Class</seealso>
+            <seealso cref="T:Telerik.Sitefinity.RecurrentRules.MonthlyRecurrenceRule">MonthlyRecurrenceRule Class</seealso>
+            <seealso cref="T:Telerik.Sitefinity.RecurrentRules.YearlyRecurrenceRule">YearlyRecurrenceRule Class</seealso>
+            <remarks>
+            	<strong>Notes to implementers:</strong> This base class is provided to make it
+            easier for implementers to create a recurrence rule. Implementers are encouraged to
+            extend this base class instead of creating their own.
+            </remarks>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecurrentRules.RecurrenceRule.MaxCandidates">
+            <summary>
+            Gets or sets the maximum candidates limit.
+            </summary>
+            <remarks>
+            This limit is used to prevent lockups when evaluating infinite rules without using SetEffectiveRange.
+            The default value should not be changed under normal conditions.
+            </remarks>
+            <value>The maximum candidates limit.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecurrentRules.RecurrenceRule.GetHashCode">
+            <summary>Overriden. Returns the hash code for this instance.</summary>
+            <returns>The hash code for this instance.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecurrentRules.RecurrenceRule.Equals(System.Object)">
+            <summary>
+            Overloaded. Overridden. Returns a value indicating whether this instance is equal
+            to a specified object.
+            </summary>
+            <returns>
+            	<strong>true</strong> if <i>value</i> is an instance of
+                <see cref="T:Telerik.Sitefinity.RecurrentRules.RecurrenceRule"/> and equals the value of this instance;
+                otherwise, <b>false</b>.
+            </returns>
+            <param name="obj">An object to compare with this instance.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecurrentRules.RecurrenceRule.Equals(Telerik.Sitefinity.RecurrentRules.RecurrenceRule)">
+            <summary>
+                Overloaded. Overridden. Returns a value indicating whether this instance is equal
+                to a specified <see cref="T:Telerik.Sitefinity.RecurrentRules.RecurrenceRule"/> object.
+            </summary>
+            <returns>
+            	<strong>true</strong> if <i>value</i> equals the value of this instance;
+            otherwise, <b>false</b>.
+            </returns>
+            <param name="other">An <see cref="T:Telerik.Sitefinity.RecurrentRules.RecurrenceRule"/> object to compare with this instance.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecurrentRules.RecurrenceRule.op_Equality(Telerik.Sitefinity.RecurrentRules.RecurrenceRule,Telerik.Sitefinity.RecurrentRules.RecurrenceRule)">
+            <summary>
+                Determines whether two specified <see cref="T:Telerik.Sitefinity.RecurrentRules.RecurrenceRule"/> objects have the
+                same value.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecurrentRules.RecurrenceRule.op_Inequality(Telerik.Sitefinity.RecurrentRules.RecurrenceRule,Telerik.Sitefinity.RecurrentRules.RecurrenceRule)">
+            <summary>
+                Determines whether two specified <see cref="T:Telerik.Sitefinity.RecurrentRules.RecurrenceRule"/> objects have
+                different values.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecurrentRules.RecurrenceRule.SetEffectiveRange(System.DateTime,System.DateTime)">
+            <summary>Specifies the effective range for evaluating occurrences.</summary>
+            <exception cref="T:System.ArgumentException" caption="">End date is before Start date.</exception>
+            <remarks>
+                The range is inclusive. To clear the effective range call
+                <see cref="M:Telerik.Sitefinity.RecurrentRules.RecurrenceRule.ClearEffectiveRange"/>.
+            </remarks>
+            <example>
+            	<code lang="CS">
+            using System;
+            using Telerik.Sitefinity.RecurrentRules;
+             
+            namespace RecurrenceExamples
+            {
+                class EffectiveRangeExample
+                {
+                    static void Main()
+                    {
+                        // Creates a sample appointment that starts at 6/1/2007 3:30 PM (local time) and lasts half an hour.
+                        Appointment recurringAppointment = new Appointment("1", Convert.ToDateTime("6/1/2007 3:30 PM"),
+                            Convert.ToDateTime("6/1/2007 4:00 PM"), "Sample appointment");
+             
+                        // Creates a recurrence range, that specifies a limit of 10 occurrences for the appointment.
+                        RecurrenceRange range = new RecurrenceRange();
+                        range.Start = recurringAppointment.Start;
+                        range.EventDuration = recurringAppointment.End - recurringAppointment.Start;
+                        range.MaxOccurrences = 10;
+             
+                        // Creates a recurrence rule to repeat the appointment every 2 hours.
+                        HourlyRecurrenceRule rrule = new HourlyRecurrenceRule(2, range);
+             
+                        // Limits the effective range.
+                        rrule.SetEffectiveRange(Convert.ToDateTime("6/1/2007 5:00 PM"), Convert.ToDateTime("6/1/2007 8:00 PM"));
+             
+                        Console.WriteLine("Appointment occurrs at the following times: ");
+                        int ix = 0;
+                        foreach (DateTime occurrence in rrule.Occurrences)
+                        {
+                            ix = ix + 1;
+                            Console.WriteLine("{0,2}: {1}", ix, occurrence.ToLocalTime());
+                        }
+                    }
+                }
+            }
+             
+            /*
+            This example produces the following results:
+             
+            Appointment occurrs at the following times:
+             1: 6/1/2007 5:30:00 PM
+             2: 6/1/2007 7:30:00 PM
+            */
+                </code>
+            </example>
+            <seealso cref="M:Telerik.Sitefinity.RecurrentRules.RecurrenceRule.ClearEffectiveRange">ClearEffectiveRange Method</seealso>
+            <param name="start">The starting date of the effective range.</param>
+            <param name="end">The ending date of the effective range.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecurrentRules.RecurrenceRule.ClearEffectiveRange">
+            <summary>Clears the effective range set by calling <see cref="M:Telerik.Sitefinity.RecurrentRules.RecurrenceRule.SetEffectiveRange(System.DateTime,System.DateTime)"/>.</summary>
+            <remarks>If no effective range was set, calling this method has no effect.</remarks>
+            <seealso cref="M:Telerik.Sitefinity.RecurrentRules.RecurrenceRule.SetEffectiveRange(System.DateTime,System.DateTime)">SetEffectiveRange Method</seealso>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecurrentRules.RecurrenceRuleBuilder">
+            <summary>
+            Provides methods for interacting with recurrence rules
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecurrentRules.RecurrenceRuleBuilder.GetRecurrenceExpression(Telerik.Sitefinity.RecurrentRules.IRecurrenceDescriptor)">
+            <summary>
+            Returns a recurrence expression in certain format (iCal by default) calculated basing on the passed <see cref="T:Telerik.Sitefinity.RecurrentRules.IRecurrenceDescriptor"/> object
+            </summary>
+            <param name="descriptor">The recurrence descriptor object</param>
+            <returns>A recurrence expression in certain format (iCal by default)</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecurrentRules.RecurrenceRuleBuilder.TryParseRecurrenceExpression(System.String,Telerik.Sitefinity.RecurrentRules.IRecurrenceDescriptor@)">
+            <summary>
+            Tries to parse a recurrence expression in certain format (iCal by default) to a <see cref="T:Telerik.Sitefinity.RecurrentRules.IRecurrenceDescriptor"/> object
+            </summary>
+            <param name="recurrenceExpression">A recurrence expression in certain format (iCal by default)</param>
+            <param name="descriptor">A <see cref="T:Telerik.Sitefinity.RecurrentRules.IRecurrenceDescriptor"/> object</param>
+            <returns>True in case the expression is parsed successfully, otherwise false</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecurrentRules.RecurrenceRuleBuilder.CreateHourlyRecurrenceExpression(System.DateTime,System.TimeSpan,System.DateTime,System.Int32,System.Int32)">
+            <summary>
+            Creates hourly recurrence rule expression in certaing format (iCal by default)
+            </summary>
+            <param name="start">The start date of the recurrence period</param>
+            <param name="duration">The duration of the recurrence period</param>
+            <param name="recursUntil">The end date of the recurrence period (in case that the maxOccurrences limit is not reached)</param>
+            <param name="maxOccurrences">The limit for the number of occurrences</param>
+            <param name="interval">the interval of recurrence.
+                <para> A positive integer representing how often the recurrence rule repeats,
+                    expressed in <see cref="T:Telerik.Sitefinity.RecurrentRules.RecurrenceFrequency"/> units.
+                </para>
+            </param>
+            <returns>Hourly recurrence rule expression in certaing format (iCal by default)</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecurrentRules.RecurrenceRuleBuilder.CreateDailyRecurrenceExpression(System.DateTime,System.TimeSpan,System.DateTime,System.Int32,System.Int32,System.String)">
+            <summary>
+            Creates daily recurrence rule expression in certaing format (iCal by default)
+            </summary>
+            <param name="start">The start date of the recurrence period</param>
+            <param name="duration">The duration of the recurrence period</param>
+            <param name="recursUntil">The end date of the recurrence period (in case that the maxOccurrences limit is not reached)</param>
+            <param name="maxOccurrences">The limit for the number of occurrences</param>
+            <param name="interval">the interval of recurrence.
+                <para> A positive integer representing how often the recurrence rule repeats,
+                    expressed in <see cref="T:Telerik.Sitefinity.RecurrentRules.RecurrenceFrequency"/> units.
+                </para>
+            </param>
+            <returns>Daily recurrence rule expression in certaing format (iCal by default)</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecurrentRules.RecurrenceRuleBuilder.CreateDailyRecurrenceExpression(System.DateTime,System.TimeSpan,System.DateTime,System.Int32,Telerik.Sitefinity.RecurrentRules.RecurrenceDay,System.String)">
+            <summary>
+            Creates daily recurrence rule expression in certaing format (iCal by default)
+            </summary>
+            <param name="start">The start date of the recurrence period</param>
+            <param name="duration">The duration of the recurrence period</param>
+            <param name="recursUntil">The end date of the recurrence period (in case that the maxOccurrences limit is not reached)</param>
+            <param name="maxOccurrences">The limit for the number of occurrences</param>
+            <param name="daysOfWeek">The bit mask that specifies the week days on which the event recurs</param>
+            <returns>Daily recurrence rule expression in certaing format (iCal by default)</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecurrentRules.RecurrenceRuleBuilder.CreateWeeklyRecurrenceExpression(System.DateTime,System.TimeSpan,System.DateTime,System.Int32,System.Int32,Telerik.Sitefinity.RecurrentRules.RecurrenceDay,System.String)">
+            <summary>
+            Creates weekly recurrence rule expression in certaing format (iCal by default)
+            </summary>
+            <param name="start">The start date of the recurrence period</param>
+            <param name="duration">The duration of the recurrence period</param>
+            <param name="recursUntil">The end date of the recurrence period (in case that the maxOccurrences limit is not reached)</param>
+            <param name="maxOccurrences">The limit for the number of occurrences</param>
+            <param name="interval">the interval of recurrence.
+                <para> A positive integer representing how often the recurrence rule repeats,
+                    expressed in <see cref="T:Telerik.Sitefinity.RecurrentRules.RecurrenceFrequency"/> units.
+                </para>
+            </param>
+            <param name="daysOfWeek">The bit mask that specifies the week days on which the event recurs</param>
+            <returns>Weekly recurrence rule expression in certaing format (iCal by default)</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecurrentRules.RecurrenceRuleBuilder.CreateWeeklyRecurrenceExpression(System.DateTime,System.TimeSpan,System.DateTime,System.Int32,System.Int32,Telerik.Sitefinity.RecurrentRules.RecurrenceDay,System.DayOfWeek,System.String)">
+            <summary>
+            Creates weekly recurrence rule expression in certaing format (iCal by default)
+            </summary>
+            <param name="start">The start date of the recurrence period</param>
+            <param name="duration">The duration of the recurrence period</param>
+            <param name="recursUntil">The end date of the recurrence period (in case that the maxOccurrences limit is not reached)</param>
+            <param name="maxOccurrences">The limit for the number of occurrences</param>
+            <param name="interval">the interval of recurrence.
+                <para> A positive integer representing how often the recurrence rule repeats,
+                    expressed in <see cref="T:Telerik.Sitefinity.RecurrentRules.RecurrenceFrequency"/> units.
+                </para>
+            </param>
+            <param name="daysOfWeek">The bit mask that specifies the week days on which the event recurs</param>
+            <param name="firstDayOfWeek">The day on which the week starts</param>
+            <returns>Weekly recurrence rule expression in certaing format (iCal by default)</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecurrentRules.RecurrenceRuleBuilder.CreateMonthlyRecurrenceExpression(System.DateTime,System.TimeSpan,System.DateTime,System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            Creates monthy recurrence rule expression in certaing format (iCal by default)
+            </summary>
+            <param name="start">The start date of the recurrence period</param>
+            <param name="duration">The duration of the recurrence period</param>
+            <param name="recursUntil">The end date of the recurrence period (in case that the maxOccurrences limit is not reached)</param>
+            <param name="maxOccurrences">The limit for the number of occurrences</param>
+            <param name="dayOfMonth">The day month on which the event recurs.</param>
+            <param name="interval">the interval of recurrence.
+                <para> A positive integer representing how often the recurrence rule repeats,
+                    expressed in <see cref="T:Telerik.Sitefinity.RecurrentRules.RecurrenceFrequency"/> units.
+                </para>
+            </param>
+            <returns>Monthy recurrence rule expression in certaing format (iCal by default)</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecurrentRules.RecurrenceRuleBuilder.CreateMonthlyRecurrenceExpression(System.DateTime,System.TimeSpan,System.DateTime,System.Int32,System.Int32,Telerik.Sitefinity.RecurrentRules.RecurrenceDay,System.Int32,System.String)">
+            <summary>
+            Creates monthy recurrence rule expression in certaing format (iCal by default)
+            </summary>
+            <param name="start">The start date of the recurrence period</param>
+            <param name="duration">The duration of the recurrence period</param>
+            <param name="recursUntil">The end date of the recurrence period (in case that the maxOccurrences limit is not reached)</param>
+            <param name="maxOccurrences">The limit for the number of occurrences</param>
+            <param name="dayOrdinal">The n-th occurrence within the set of events specified by the rule. Valid values are from -31 to +31, 0 is ignored.</param>
+            <param name="daysOfWeek">The bit mask that specifies the week days on which the event</param>
+            <param name="interval">the interval of recurrence.
+                <para> A positive integer representing how often the recurrence rule repeats,
+                    expressed in <see cref="T:Telerik.Sitefinity.RecurrentRules.RecurrenceFrequency"/> units.
+                </para>
+            </param>
+            <returns>Monthy recurrence rule expression in certaing format (iCal by default)</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecurrentRules.RecurrenceRuleBuilder.CreateYearlyRecurrenceExpression(System.DateTime,System.TimeSpan,System.DateTime,System.Int32,Telerik.Sitefinity.RecurrentRules.RecurrenceMonth,System.Int32,System.String)">
+            <summary>
+            Creates yearly recurrence rule expression in certaing format (iCal by default)
+            </summary>
+            <param name="start">The start date of the recurrence period</param>
+            <param name="duration">The duration of the recurrence period</param>
+            <param name="recursUntil">The end date of the recurrence period (in case that the maxOccurrences limit is not reached)</param>
+            <param name="maxOccurrences">The limit for the number of occurrences</param>
+            <param name="month">The month on which the event recurs</param>
+            <param name="dayOfMonth">The day month on which the event recurs.</param>
+            <returns>Yearly recurrence rule expression in certaing format (iCal by default)</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecurrentRules.RecurrenceRuleBuilder.CreateYearlyRecurrenceExpression(System.DateTime,System.TimeSpan,System.DateTime,System.Int32,System.Int32,Telerik.Sitefinity.RecurrentRules.RecurrenceMonth,Telerik.Sitefinity.RecurrentRules.RecurrenceDay,System.String)">
+            <summary>
+            Creates yearly recurrence rule expression in certaing format (iCal by default)
+            </summary>
+            <param name="start">The start date of the recurrence period</param>
+            <param name="duration">The duration of the recurrence period</param>
+            <param name="recursUntil">The end date of the recurrence period (in case that the maxOccurrences limit is not reached)</param>
+            <param name="maxOccurrences">The limit for the number of occurrences</param>
+            <param name="dayOrdinal">The n-th occurrence within the set of events specified by the rule.</param>
+            <param name="month">The month on which the event recurs</param>
+            <param name="daysOfWeek">The bit mask that specifies the week days on which the event recurs</param>
+            <returns>Yearly recurrence rule expression in certaing format (iCal by default)</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecurrentRules.SharePointRecurrenceSerializer.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.RecurrentRules.SharePointRecurrenceSerializer" /> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecurrentRules.SharePointRecurrenceSerializer.#ctor(System.DateTime,System.TimeSpan,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.RecurrentRules.SharePointRecurrenceSerializer" /> class.
+            The start date and duration are required when deserializing a SharePoint recurrence expression.
+            </summary>
+            <param name="startDate">The start date.</param>
+            <param name="duration">The duration.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecurrentRules.SharePointRecurrenceSerializer.StartDate">
+            <summary>
+            Gets or sets the start date of the recurrence.
+            </summary>
+            <value>The start date.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecurrentRules.SharePointRecurrenceSerializer.Duration">
+            <summary>
+            Gets or sets the duration of the recurrence.
+            </summary>
+            <value>The duration.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecurrentRules.SharePointRecurrenceSerializer.TimeZoneId">
+            <summary>
+            Gets or sets the time zone id.
+            </summary>
+            <value>The time zone id.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecurrentRules.SharePointRecurrenceSerializer.TrySerialize(Telerik.Sitefinity.RecurrentRules.IRecurrenceDescriptor)">
+            <summary>
+            Tries the serialize the descriptor. Returns null if unsuccessful.
+            </summary>
+            <param name="descriptor">The descriptor.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecurrentRules.SharePointRecurrenceSerializer.TrySerialize(Telerik.Sitefinity.RecurrentRules.IRecurrenceDescriptor,System.String@)">
+            <summary>
+            Tries the serialize the descriptor.
+            </summary>
+            <param name="descriptor">The descriptor.</param>
+            <param name="recurrence">The recurrence.</param>
+            <returns>True if successful</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecurrentRules.SharePointRecurrenceSerializer.SerializeDescriptor(Telerik.Sitefinity.RecurrentRules.IRecurrenceDescriptor)">
+            <summary>
+            Serializes the descriptor.
+            </summary>
+            <param name="descriptor">The descriptor.</param>
+            <returns>The SharePoint RecurrenceData</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecurrentRules.SharePointRecurrenceSerializer.GetFrequency(Telerik.Sitefinity.RecurrentRules.IRecurrenceDescriptor)">
+            <summary>
+            Gets the frequency.
+            </summary>
+            <param name="descriptor">The descriptor.</param>
+            <returns>The frequency element of the event.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecurrentRules.SharePointRecurrenceSerializer.TryParse(System.String,System.DateTime,System.TimeSpan,System.String)">
+            <summary>
+            Creates a recurrence rule instance from it's string representation.
+            </summary>
+            <param name="input">The string to parse.</param>
+            <param name="start">The start date.</param>
+            <param name="duration">The event duration.</param>
+            <param name="timeZoneId">The time zone id.</param>
+            <remarks>
+            See the <see cref="!:TryParse(string, out RecurrenceRule)">TryParse</see> overload for more information and examples.
+            </remarks>
+            <returns>
+            RecurrenceRule if the parsing succeeded or null (<strong>Nothing</strong> in Visual Basic) if the parsing failed.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecurrentRules.SharePointRecurrenceSerializer.TryParse(System.String,System.DateTime,System.TimeSpan,System.String,Telerik.Sitefinity.RecurrentRules.IRecurrenceDescriptor@)">
+            <summary>
+            Creates a recurrence rule instance from it's string representation.
+            </summary>
+            <param name="input">The input string.</param>
+            <param name="start">The start date.</param>
+            <param name="duration">The event duration.</param>
+            <param name="timeZoneId">The time zone id.</param>
+            <param name="rrule">The recurrence rule.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecurrentRules.SharePointRecurrenceSerializer.ParseRecurrence(System.String,System.DateTime,System.TimeSpan,System.String)">
+            <summary>
+            Turns RecurrenceData field XML into iCalendar recurrence string.
+            </summary>
+            <param name="recurrence">The recurrence.</param>
+            <param name="start">The start date.</param>
+            <param name="duration">The event duration.</param>
+            <param name="timeZoneId">The time zone id.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecurrentRules.SharePointRecurrenceSerializer.GetRecurrenceDays(System.String,System.Int32@,System.Int32@,Telerik.Sitefinity.RecurrentRules.RecurrenceDay@)">
+            <summary>
+            Gets the recurrence days.
+            </summary>
+            <param name="options">The options.</param>
+            <param name="dayOrdinal">The day ordinal.</param>
+            <param name="dayOfMonth">The day of month.</param>
+            <param name="recDays">The rec days.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecurrentRules.SharePointRecurrenceSerializer.GetWeekdayOfMonthValue(System.String)">
+            <summary>
+            Turns RecurrenceData options into value for which day of the month (-1, 1, 2, 3, 4)
+            </summary>
+            <param name="options">The options.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecurrentRules.SharePointRecurrenceSerializer.GetRecurrenceDaysDictionary">
+            <summary>
+            Gets the recurrence days dictionary.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecurrentRules.SharePointRecurrenceSerializer.GetDayOfWeekDictionary">
+            <summary>
+            Gets the day of week dictionary.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecurrentRules.WeeklyRecurrenceRule">
+            <summary>Occurrences of this rule repeat on a weekly basis.</summary>
+            <example>
+            	<code lang="CS">
+            using System;
+            using Telerik.Sitefinity.RecurrentRules;
+             
+            namespace RecurrenceExamples
+            {
+                class WeeklyRecurrenceRuleExample
+                {
+                    static void Main()
+                    {
+                        // Creates a sample appointment that starts at 6/1/2007 3:30 PM (local time) and lasts half an hour.
+                        Appointment recurringAppointment = new Appointment("1", Convert.ToDateTime("6/1/2007 3:30 PM"),
+                            Convert.ToDateTime("6/1/2007 4:00 PM"), "Sample appointment");
+             
+                        // Creates a recurrence range, that specifies a limit of 10 occurrences for the appointment.
+                        RecurrenceRange range = new RecurrenceRange();
+                        range.Start = recurringAppointment.Start;
+                        range.EventDuration = recurringAppointment.End - recurringAppointment.Start;
+                        range.MaxOccurrences = 10;
+             
+                        // Creates a recurrence rule to repeat the appointment every two weeks on Mondays and Tuesdays.
+                        RecurrenceDay mask = RecurrenceDay.Monday | RecurrenceDay.Tuesday;
+                        WeeklyRecurrenceRule rrule = new WeeklyRecurrenceRule(2, mask, range);
+             
+                        Console.WriteLine("Appointment occurrs at the following times: ");
+                        int ix = 0;
+                        foreach (DateTime occurrence in rrule.Occurrences)
+                        {
+                            ix = ix + 1;
+                            Console.WriteLine("{0,2}: {1} ({2})", ix, occurrence.ToLocalTime(), occurrence.DayOfWeek);
+                        }
+                    }
+                }
+            }
+             
+            /*
+            This example produces the following results:
+             
+            Appointment occurrs at the following times:
+             1: 6/4/2007 3:30:00 PM (Monday)
+             2: 6/5/2007 3:30:00 PM (Tuesday)
+             3: 6/18/2007 3:30:00 PM (Monday)
+             4: 6/19/2007 3:30:00 PM (Tuesday)
+             5: 7/2/2007 3:30:00 PM (Monday)
+             6: 7/3/2007 3:30:00 PM (Tuesday)
+             7: 7/16/2007 3:30:00 PM (Monday)
+             8: 7/17/2007 3:30:00 PM (Tuesday)
+             9: 7/30/2007 3:30:00 PM (Monday)
+            10: 7/31/2007 3:30:00 PM (Tuesday)
+            */
+                </code>
+            </example>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecurrentRules.WeeklyRecurrenceRule.#ctor(System.DateTime,System.TimeSpan,System.DateTime,System.Int32,System.Int32,Telerik.Sitefinity.RecurrentRules.RecurrenceDay,System.String)">
+            <summary>
+                Initializes a new instance of <see cref="T:Telerik.Sitefinity.RecurrentRules.WeeklyRecurrenceRule"/> with the
+                specified interval, days of week bit mask and <see cref="!:RecurrenceRange"/>.
+            </summary>
+            <param name="interval">The number of weeks between the occurrences.</param>
+            <param name="daysOfWeekMask">A bit mask that specifies the week days on which the event recurs.</param>
+            <param name="range">
+            	The <see cref="!:RecurrenceRange"/> instance that specifies the range of this rule.
+            </param>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecurrentRules.WeeklyRecurrenceRule.#ctor(System.DateTime,System.TimeSpan,System.DateTime,System.Int32,System.Int32,Telerik.Sitefinity.RecurrentRules.RecurrenceDay,System.DayOfWeek,System.String)">
+            <summary>
+                Initializes a new instance of <see cref="T:Telerik.Sitefinity.RecurrentRules.WeeklyRecurrenceRule"/> with the
+                specified interval, days of week bit mask and <see cref="!:RecurrenceRange"/>.
+            </summary>
+            <param name="interval">The number of weeks between the occurrences.</param>
+            <param name="daysOfWeekMask">A bit mask that specifies the week days on which the event recurs.</param>
+            <param name="range">
+            	The <see cref="!:RecurrenceRange"/> instance that specifies the range of this rule.
+            </param>
+            <param name="firstDayOfWeek">
+            	The first day of week to use for calculations.
+            </param>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecurrentRules.YearlyRecurrenceRule">
+            <summary>
+            Occurrences of this rule repeat on a yearly basis.
+            </summary>
+            <example>
+            	<code lang="CS">
+            using System;
+            using Telerik.Sitefinity.RecurrentRules;
+             
+            namespace RecurrenceExamples
+            {
+                class YearlyRecurrenceRuleExample1
+                {
+                    static void Main()
+                    {
+                        // Creates a sample appointment that starts at 4/1/2007 10:00 AM (local time) and lasts half an hour.
+                        Appointment recurringAppointment = new Appointment("1", Convert.ToDateTime("4/1/2007 10:00 AM"),
+                            Convert.ToDateTime("4/1/2007 10:30 AM"), "Sample appointment");
+             
+                        // Creates a recurrence range, that specifies a limit of 10 occurrences for the appointment.
+                        RecurrenceRange range = new RecurrenceRange();
+                        range.Start = recurringAppointment.Start;
+                        range.EventDuration = recurringAppointment.End - recurringAppointment.Start;
+                        range.MaxOccurrences = 5;
+             
+                        // Creates a recurrence rule to repeat the appointment on the 1th of April each year.
+                        YearlyRecurrenceRule rrule = new YearlyRecurrenceRule(RecurrenceMonth.April, 1, range);
+             
+                        Console.WriteLine("Appointment occurrs at the following times: ");
+                        int ix = 0;
+                        foreach (DateTime occurrence in rrule.Occurrences)
+                        {
+                            ix = ix + 1;
+                            Console.WriteLine("{0,2}: {1}", ix, occurrence.ToLocalTime());
+                        }
+                    }
+                }
+            }
+             
+            /*
+            This example produces the following results:
+             
+            Appointment occurrs at the following times:
+             1: 4/1/2007 10:00:00 AM
+             2: 4/1/2008 10:00:00 AM
+             3: 4/1/2009 10:00:00 AM
+             4: 4/1/2010 10:00:00 AM
+             5: 4/1/2011 10:00:00 AM
+            */
+                </code>
+            </example>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecurrentRules.YearlyRecurrenceRule.#ctor(System.DateTime,System.TimeSpan,System.DateTime,System.Int32,Telerik.Sitefinity.RecurrentRules.RecurrenceMonth,System.Int32,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.RecurrentRules.YearlyRecurrenceRule"/> class.
+            </summary>
+            <example>
+            	<code lang="CS">
+            using System;
+            using Telerik.Sitefinity.RecurrentRules;
+             
+            namespace RecurrenceExamples
+            {
+                class YearlyRecurrenceRuleExample1
+                {
+                    static void Main()
+                    {
+                        // Creates a sample appointment that starts at 4/1/2007 10:00 AM (local time) and lasts half an hour.
+                        Appointment recurringAppointment = new Appointment("1", Convert.ToDateTime("4/1/2007 10:00 AM"),
+                            Convert.ToDateTime("4/1/2007 10:30 AM"), "Sample appointment");
+             
+                        // Creates a recurrence range, that specifies a limit of 10 occurrences for the appointment.
+                        RecurrenceRange range = new RecurrenceRange();
+                        range.Start = recurringAppointment.Start;
+                        range.EventDuration = recurringAppointment.End - recurringAppointment.Start;
+                        range.MaxOccurrences = 5;
+             
+                        // Creates a recurrence rule to repeat the appointment on the 1th of April each year.
+                        YearlyRecurrenceRule rrule = new YearlyRecurrenceRule(RecurrenceMonth.April, 1, range);
+             
+                        Console.WriteLine("Appointment occurrs at the following times: ");
+                        int ix = 0;
+                        foreach (DateTime occurrence in rrule.Occurrences)
+                        {
+                            ix = ix + 1;
+                            Console.WriteLine("{0,2}: {1}", ix, occurrence.ToLocalTime());
+                        }
+                    }
+                }
+            }
+             
+            /*
+            This example produces the following results:
+             
+            Appointment occurrs at the following times:
+             1: 4/1/2007 10:00:00 AM
+             2: 4/1/2008 10:00:00 AM
+             3: 4/1/2009 10:00:00 AM
+             4: 4/1/2010 10:00:00 AM
+             5: 4/1/2011 10:00:00 AM
+            */
+                </code>
+            </example>
+            <param name="month">The month in which the event recurs.</param>
+            <param name="dayOfMonth">The day of month on which the event recurs.</param>
+            <param name="range">The <see cref="!:RecurrenceRange"/> instance that specifies the range of this rule.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecurrentRules.YearlyRecurrenceRule.#ctor(System.DateTime,System.TimeSpan,System.DateTime,System.Int32,System.Int32,Telerik.Sitefinity.RecurrentRules.RecurrenceMonth,Telerik.Sitefinity.RecurrentRules.RecurrenceDay,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.RecurrentRules.YearlyRecurrenceRule"/> class.
+            </summary>
+            <example>
+            	<code lang="CS">
+            using System;
+            using Telerik.Sitefinity.RecurrentRules;
+             
+            namespace RecurrenceExamples
+            {
+                class YearlyRecurrenceRuleExample2
+                {
+                    static void Main()
+                    {
+                        // Creates a sample appointment that starts at 4/1/2007 10:00 AM (local time) and lasts half an hour.
+                        Appointment recurringAppointment = new Appointment("1", Convert.ToDateTime("4/1/2007 10:00 AM"),
+                            Convert.ToDateTime("4/1/2007 10:30 AM"), "Sample appointment");
+             
+                        // Creates a recurrence range, that specifies a limit of 10 occurrences for the appointment.
+                        RecurrenceRange range = new RecurrenceRange();
+                        range.Start = recurringAppointment.Start;
+                        range.EventDuration = recurringAppointment.End - recurringAppointment.Start;
+                        range.MaxOccurrences = 5;
+             
+                        // Creates a recurrence rule to repeat the appointment on the second monday of April each year.
+                        YearlyRecurrenceRule rrule = new YearlyRecurrenceRule(2, RecurrenceMonth.April, RecurrenceDay.Monday, range);
+             
+                        Console.WriteLine("Appointment occurrs at the following times: ");
+                        int ix = 0;
+                        foreach (DateTime occurrence in rrule.Occurrences)
+                        {
+                            ix = ix + 1;
+                            Console.WriteLine("{0,2}: {1}", ix, occurrence.ToLocalTime());
+                        }
+                    }
+                }
+            }
+             
+            /*
+            This example produces the following results:
+             
+            Appointment occurrs at the following times:
+             1: 4/9/2007 10:00:00 AM
+             2: 4/14/2008 10:00:00 AM
+             3: 4/13/2009 10:00:00 AM
+             4: 4/12/2010 10:00:00 AM
+             5: 4/11/2011 10:00:00 AM
+            */
+                </code>
+            </example>
+            <param name="dayOrdinal">The day ordinal modifier. See <see cref="!:RecurrencePattern.DayOrdinal"/> for additional information.</param>
+            <param name="month">The month in which the event recurs.</param>
+            <param name="daysOfWeek">A bit mask that specifies the week days on which the event recurs.</param>
+            <param name="range">The <see cref="!:RecurrenceRange"/> instance that specifies the range of this rule.</param>
+        </member>
+    </members>
+</doc>

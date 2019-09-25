@@ -1,0 +1,40 @@
+{
+	"items": [
+		{ "include": "web.config", "type": "Content", "transform": "InsertIfMissing" },	
+		
+		{ "include": "System.IO", "type": "Reference", "transform": "Replace" },		
+		{ "include": "System.Runtime", "type": "Reference", "transform": "Replace" },		
+		{ "include": "System.Threading", "type": "Reference", "transform": "InsertIfMissing" },
+		{ "include": "System.Threading.Tasks", "type": "Reference", "transform": "Replace" },
+		{ "include": "Microsoft.Threading.Tasks", "type": "Reference", "transform": "Remove" },
+		{ "include": "Microsoft.Threading.Tasks.Extensions", "type": "Reference", "transform": "Remove" },
+		{ "include": "Microsoft.Threading.Tasks.Extensions.Desktop", "type": "Reference", "transform": "Remove" },
+		{ "include": "Telerik.Sitefinity.UI.MVC", "type": "Reference", "transform": "Remove" },
+		
+		{ "include": "Telerik.Sitefinity.DAM", "type": "Reference", "transform": "Remove" },
+		{ "include": "Telerik.Sitefinity.MobileAppBuilder", "type": "Reference", "transform": "Remove" },
+		{ "include": "Telerik.Sitefinity.EverliveConnector", "type": "Reference", "transform": "Remove" },
+		{ "include": "Telerik.Everlive.Client", "type": "Reference", "transform": "Remove" },
+		{ "include": "Telerik.Everlive.Sdk", "type": "Reference", "transform": "Remove" },
+		{ "include": "wlwmanifest.xml", "type": "Content", "transform": "Remove" },
+		
+		{ "include": "Telerik.Tfis.Client", "type": "Reference", "transform": "Remove" },
+		
+		{ "include": "Telerik.Windows.RadUploadHandler", "type": "Reference", "transform": "Remove" },
+		{ "include": "Silverlight.js", "type": "Content", "transform": "Remove" },
+		
+		{ "include": "Telerik.Sitefinity.DropboxLibraries", "type": "Reference", "transform": "Remove" },
+		{ "include": "Telerik.Sitefinity.Thunder.Contracts", "type": "Reference", "transform": "Remove" },
+		{ "include": "Telerik.Sitefinity.Thunder.Module", "type": "Reference", "transform": "Remove" },
+		{ "include": "Telerik.Sitefinity.Thunder.Zip", "type": "Reference", "transform": "Remove" },
+		{ "include": "Telerik.Sitefinity.Thunder.CodeSync", "type": "Reference", "transform": "Remove" },
+		{ "include": "Sitefinity\\Public\\Services\\Thunder\\ThunderService.svc", "type": "Content", "transform": "Remove" },
+		{ "include": "Sitefinity\\Services\\Thunder\\ThunderService.svc", "type": "Content", "transform": "Remove" },
+	  
+		{ "include": "RedDog.Search", "type": "Reference", "transform": "Remove" },
+		{ "include": "Telerik.Sitefinity.Frontend.SocialShare", "type": "Reference", "transform": "Remove" }
+  ],
+	"imports": [
+		{ "project": "Tools\\Microsoft.Bcl.Build.targets", "transform": "Remove"}
+	]	
+}

@@ -1,0 +1,1880 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Telerik.Sitefinity.Dashboard</name>
+    </assembly>
+    <members>
+        <member name="T:Telerik.Sitefinity.Dashboard.DashboardConfig">
+            <summary>
+            The configuration for Dashboard module
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardConfig.ContentViewControls">
+            <summary>
+            Gets a collection of data Content View Controls.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardConfig.SystemStatus">
+            <summary>
+            Gets the system status settings
+            </summary>
+            <value>The settings</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardConfig.UsedWorkflowStatuses">
+            <summary>
+            The workflow statuses used in the system
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardConfig.DashboardWidgetsRefreshInterval">
+            <summary>
+            The default refresh time for dashboard widgets (in minutes)
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardConfig.DashboardStorageExpirationTime">
+            <summary>
+            The expiration time for dashboard log entries (in days)
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardConfig.DashboardStorageMaxSize">
+            <summary>
+            The max size for dashboard storage (in items)
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardConfig.NumberNewItemsThatInvokeCleanup">
+            <summary>
+            The number of new items that invoke cleanup
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.DashboardConfig.OnPropertiesInitialized">
+            <summary>
+            Called when the corresponding XML element is read and properties loaded.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Dashboard.StatusCheckConfigElement">
+            <summary>
+            Base settings for the system status
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.StatusCheckConfigElement.#ctor(Telerik.Sitefinity.Configuration.ConfigElement)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Dashboard.StatusCheckConfigElement"/> class.
+            </summary>
+            <param name="parent">The parent element.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.StatusCheckConfigElement.Enabled">
+            <summary>
+            Gets or sets a value indicating whether the status check functionality is enabled
+            </summary>
+            <value>A value indicating whether the status check functionality is enabled</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.StatusCheckConfigElement.CacheUpdateInterval">
+            <summary>
+            Gets or sets the status cache update interval in minutes
+            </summary>
+            <value>The status cache update interval in minutes</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.StatusCheckConfigElement.SubscribedEmails">
+            <summary>
+            Gets or sets the subscribed emails
+            </summary>
+            <value>The subscribed emails</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.StatusCheckConfigElement.Validate">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.Dashboard.DashboardModule">
+            <summary>
+            Dashboard module - maintains the dashboard 
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardModule.Managers">
+            <summary>
+            Gets the CLR types of all data managers provided by this module.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.DashboardModule.GetModuleConfig">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardModule.ManagersInitializationMode">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.DashboardModule.Install(Telerik.Sitefinity.Abstractions.SiteInitializer)">
+            <summary>
+            Installs the module with specified initializer.
+            </summary>
+            <param name="initializer">The initializer.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.DashboardModule.Load">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.DashboardModule.Unload">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.DashboardModule.Initialize(Telerik.Sitefinity.Services.ModuleSettings)">
+            <summary>
+            Initializes the module with specified settings.
+            </summary>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardModule.LandingPageId">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.DashboardModule.GetVirtualPaths">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.DashboardModule.InstallConfiguration(Telerik.Sitefinity.Abstractions.SiteInitializer)">
+            <summary>
+            Installs module's toolbox configuration.
+            </summary>
+            <param name="initializer">The initializer.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.DashboardModule.Bootstrapper_Initialized(System.Object,Telerik.Sitefinity.Data.ExecutedEventArgs)">
+            <summary>
+            Handles the subscribe mechanism for Dashboard module when the Bootstrapper is initialized
+            </summary>
+            <param name="sender">The sender</param>
+            <param name="e">The event arguments</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.DashboardModule.GetActionMessageTemplates">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.DashboardModule.Upgrade(Telerik.Sitefinity.Abstractions.SiteInitializer,System.Version)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.DashboardModule.Subscribe">
+            <summary>
+            Subscribes the Dashboard module, so it can process all supported events
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.DashboardModule.DataEventHandler(Telerik.Sitefinity.Data.Events.IDataEvent)">
+            <summary>
+            The handler for all supported events
+            </summary>
+            <param name="dataEvent">The event to be handled</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.DashboardModule.LogDataEvent(Telerik.Sitefinity.Data.Events.IDataEvent)">
+            <summary>
+            Logs an event. If the event item is supported, the item will be accessible by the dashboard widgets
+            </summary>
+            <param name="dataEvent">The event to be logged</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.DashboardModule.IsPermissionChangeOnly(Telerik.Sitefinity.Data.Events.IDataEvent)">
+            <summary>
+            Determines whether data event is for the permissions change only (the item is not modified at all).
+            </summary>
+            <param name="dataEvent">The data event.</param>
+            <returns>True if the only changes are for the permissions of the item.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.DashboardModule.CleanupLogEntries(System.Boolean,System.Linq.IQueryable{Telerik.Sitefinity.Dashboard.Model.DashboardLogEntry},Telerik.Sitefinity.Dashboard.Data.DashboardManager)">
+            <summary>
+            Remove old entries if necessary
+            </summary>
+            <param name="isNewEntryAdded">Indicates if new entry is added</param>
+            <param name="allDashboardLogEntries">The query for all log entries</param>
+            <param name="manager">The dashboard manager</param>
+        </member>
+        <member name="F:Telerik.Sitefinity.Dashboard.DashboardModule.PageGroupId">
+            <summary>
+            Page group node for the dashboard module
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Dashboard.DashboardModule.HomePageId">
+            <summary>
+            ID of the landing page for the dashboard module
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Dashboard.DashboardModule.ModuleName">
+            <summary>
+            Name of the dashboard module.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Dashboard.DashboardModule.ModuleId">
+            <summary>
+            Id of the module. Used for licensing.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Dashboard.DashboardModule.DashboardPageNodeId">
+            <summary>
+            The id of the custom dashboard page
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Dashboard.DashboardModule.DashboardPageName">
+            <summary>
+            The name of the custom dashboard page
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Dashboard.DashboardModule.WebServiceUrl">
+            <summary>
+            Relative URL of the DashboardService web service
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Dashboard.DashboardModule.DashboardVirtualPath">
+            <summary>
+            The virtual path for DashboardModule
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.DashboardResources.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Dashboard.DashboardResources"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.DashboardResources.#ctor(Telerik.Sitefinity.Localization.Data.ResourceDataProvider)">
+            <summary>
+            Initializes new instance of <see cref="T:Telerik.Sitefinity.Dashboard.DashboardResources"/> class with the provided <see cref="T:Telerik.Sitefinity.Localization.Data.ResourceDataProvider"/>.
+            </summary>
+            <param name="dataProvider"><see cref="T:Telerik.Sitefinity.Localization.Data.ResourceDataProvider"/></param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.DashboardResourcesTitle">
+            <summary>
+            Dashboard module labels
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.DashboardResourcesDescription">
+            <summary>
+            Contains localizable resources for help information such as UI elements descriptions, usage explanations, FAQ and etc.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.DecWidgetTitle">
+            <summary>
+            Phrase: "Progress Sitefinity Digital Experience Cloud"
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.DecWidgetHeader">
+            <summary>
+            Phrase: "Progress Sitefinity Digital Experience Cloud"
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.DecWidgetDescription">
+            <summary>
+            The description of the Progress Sitefinity Digital Experience Cloud dashboard widget
+            </summary>
+            <value>A welcome widget displaying the status of Progress Sitefinity Digital Experience Cloud, containing introductory information and links to useful resources.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.NotInstalledDecWidgetDescription">
+            <summary>
+            Phrase: "Progress Sitefinity Digital Experience Cloud is a Big Data Analytics solution to analyze and optimize customer experiences across channels."
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.InstalledDecWidgetDescription">
+            <summary>
+            Phrase: "Progress Sitefinity  Digital Experience Cloud is a Big Data Analytics solution to analyze and optimize customer experiences across channels."
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.EntitledToDecWidgetDescription">
+            <summary>
+            Phrase: "Progress Sitefinity Digital Experience Cloud is a Big Data Analytics solution to analyze and optimize customer experiences across channels."
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.DECWidgetContactLabel">
+            <summary>
+            Phrase: "Contact"
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.DECWidgetToActivateDecLabel">
+            <summary>
+            Phrase: "to activate your access to "
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.DecWidgetBtnInsightsLabel">
+            <summary>
+            Phrase: "See Insights"
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.DecWidgetBtnLearnMoreLabel">
+            <summary>
+            Phrase: "Learn more"
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.ExternalLinkDigitalExperienceCloud">
+            <summary>
+            Gets External Link: Digital experience cloud
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.NewThemeLinkLabel">
+            <summary>
+            Phrase: "How to switch to the new theme"
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.ExternalLinkSitefinityLightTheme">
+            <summary>
+            Gets External Link: Sitefinity light backend theme
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.NewThemeWidgetTitle">
+            <summary>
+            Phrase: "Announcement - new theme"
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.NewThemeWidgetHeader">
+            <summary>
+            Phrase: "Announcement - new theme"
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.NewThemeWidgetDescription">
+            <summary>
+            The description of the New Theme Announcement dashboard widget
+            </summary>
+            <value>A welcome widget displaying the status of New Theme Announcement, containing introductory information and links to useful resources.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.NewContentEditingWidgetTitle">
+            <summary>
+            Phrase: "New page management in Sitefinity"
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.NewContentEditingWidgetDescription">
+            <summary>
+            The description of the New Content Editing Announcement dashboard widget
+            </summary>
+            <value>A welcome NewPageEditingWidgetDescription displaying the status of New Page Editing Announcement, containing introductory information and links to useful resources.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.NewContentEditingLinkLabel">
+            <summary>
+            Phrase: "More about pages management"
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.ExternalLinkSitefinityNewContentEditing">
+            <summary>
+            Gets External Link: Sitefinity new content editing
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.DashboardTitle">
+            <summary>
+            phrase: Title for the Dashboard module page.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.DashboardViewTitle">
+            <summary>
+            The title of the Dashboard View control in pages toolbox.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.DashboardViewDescription">
+            <summary>
+            The description of the Dashboard View control in pages toolbox.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.DashboardViewPropertyEditorTitle">
+            <summary>
+            word: Dashboard
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.EditDashboardSettings">
+            <summary>
+            Phrase: Edit Dashboard settings
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.WhichContentItemsToDisplay">
+            <summary>
+            Phrase: Which content items to display
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.ContentTypes">
+            <summary>
+            Phrase: Content types
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.AllContentTypes">
+            <summary>
+            Phrase: All content types
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.NotSelectedContentTypes">
+            <summary>
+            Phrase: No content types are selected
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.SelectContentType">
+            <summary>
+            Phrase: Select a content type
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.OnlySelectedTypes">
+            <summary>
+            Phrase: Selected content types only
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.ModifiedBy">
+            <summary>
+            Phrase: Modified by
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.ModifiedByMe">
+            <summary>
+            Phrase: Me (logged user)
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.ModifiedByEveryone">
+            <summary>
+            Phrase: All users
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.Statuses">
+            <summary>
+            word: Statuses
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.AllStatuses">
+            <summary>
+            Phrase: All statuses
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.StatusesNotSelected">
+            <summary>
+            Phrase: No statuses are selected
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.SelectStatus">
+            <summary>
+            Phrase: Select a status
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.DesignerWidgetSettingsTitle">
+            <summary>
+            word: Title
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.DesignerWidgetSettingsPagination">
+            <summary>
+            word: Pagination
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.DesignerWidgetSettingsItemsPerPage">
+            <summary>
+            phrase: items per page
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.DesignerWidgetSettingsFilter">
+            <summary>
+            phrase: Display filter by
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.DesignerWidgetSettingsFilterNone">
+            <summary>
+            phrase: - Don't display filter -
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.DesignerWidgetSettingsFilterStatus">
+            <summary>
+            phrase: Status (Draft, Scheduled, etc.)
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.DesignerWidgetSettingsFilterUser">
+            <summary>
+            phrase: User (All, My items)
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.DesignerWidgetMyRecentItems">
+            <summary>
+            phrase: My recent items
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.SettingsDesignerToolTipTitle">
+            <summary>
+            phrase: Why filter is not displayed sometimes?
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.SettingsDesignerToolTip">
+            <summary>
+            phrase: Filter by Status is not displayed if items from only one status are selected to be displayed here or if all items have the same status. Filter by User is not displayed if only items modified by Me are selected to be displayed here
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.DashboardConfigCaption">
+            <summary>
+            Dashboard settings.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.DashboardConfigDescription">
+            <summary>
+            Resource strings for Dashboard settings.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.UsedWorkflowStatusesTitle">
+            <summary>
+            The title of UsedWorkflowStatuses.
+            </summary>
+            <value>Used workflow statuses</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.UsedWorkflowStatusesDescription">
+            <summary>
+            The description of UsedWorkflowStatuses.
+            </summary>
+            <value>The workflow statuses used in the system</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.DashboardWidgetsRefreshIntervalTitle">
+            <summary>
+            The title of this property.
+            </summary>
+            <value>Dashboard widgets refresh interval</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.DashboardWidgetsRefreshIntervalDescription">
+            <summary>
+            The description for DashboardWidgetsRefreshInterval
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.DashboardStorageExpirationTimeTitle">
+            <summary>
+            The title for DashboardStorageExpirationTime
+            </summary>
+            <value>Dashboard log entries expiration time</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.DashboardStorageExpirationTimeDescription">
+            <summary>
+            The description for DashboardStorageExpirationTimeDescription
+            </summary>
+            <value>Dashboard entries older than this value (in days) will be removed</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.DashboardStorageMaxSizeTitle">
+            <summary>
+            The title for DashboardStorageMaxSize
+            </summary>
+            <value>Dashboard storage capacity</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.DashboardStorageMaxSizeDescription">
+            <summary>
+            The description for DashboardStorageMaxSize
+            </summary>
+            <value>If there are more entries than this value, the oldest ones will be removed</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.NumberNewItemsThatInvokeCleanupTitle">
+            <summary>
+            The title for NumberNewItemsThatInvokeCleanup
+            </summary>
+            <value>Number of new items that invoke cleanup</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.NumberNewItemsThatInvokeCleanupDescription">
+            <summary>
+            The description for NumberNewItemsThatInvokeCleanup
+            </summary>
+            <value>Indicates how often the cleanup should be performed. 1 means every time an item is added.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.LastModified">
+            <summary>
+            phrase: Last modified
+            </summary>
+            <value>Last Modified</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.NoData">
+            <summary>
+            phrase: Nothing interesting in the last 365 days
+            </summary>
+            <value>Nothing interesting in the last 365 days</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.DashboardPageTitle">
+            <summary>
+            The title of the dashboard page
+            </summary>
+            <value>Dashboard</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.DashboardPageUrlname">
+            <summary>
+            The url name of the dashboard page
+            </summary>
+            <value>dashboard</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.DashboardPageDescription">
+            <summary>
+            A description of the dashboard page
+            </summary>
+            <value>This is the default Sitefinity dashboard page</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.DashboardPageHtmlTitle">
+            <summary>
+            The html title of the dashboard page
+            </summary>
+            <value>Dashboard</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.MyContentWidgetTitle">
+            <summary>
+            The title of the my content widget.
+            </summary>
+            <value>My content</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.EveryoneContentWidgetTitle">
+            <summary>
+            The title of the everyone's content widget.
+            </summary>
+            <value>Everyone's content</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.RecentBlogPostsWidget">
+            <summary>
+            The title of the recent blog posts widget
+            </summary>
+            <value>Recent blog posts</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.HideThisFromMyItems">
+            <summary>
+            phrase: Hide this from my items
+            </summary>
+            <value>Hide this from my items</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.MyItems">
+            <summary>
+            phrase: My items
+            </summary>
+            <value>My items</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.Older">
+            <summary>
+            word: Older
+            </summary>
+            <value>Older</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.Newer">
+            <summary>
+            word: Newer
+            </summary>
+            <value>Newer</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.OnlySelectedStatuses">
+            <summary>
+            Phrase: Selected statuses only
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.DashboardContentPropertyEditorTitle">
+            <summary>
+            Phrase: Recent items
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.SelectStatuses">
+            <summary>
+            phrase: Select statuses
+            </summary>
+            <value>Select statuses</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.RejectedForPublishing">
+            <summary>
+            phrase: Rejected for publishing
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.DashboardWelcomeWidgetTitle">
+            <summary>
+            The title of the Welcome dashboard widget
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.DashboardWelcomeWidgetDescription">
+            <summary>
+            The description of the Welcome dashboard widget
+            </summary>
+            <value>A default welcome widget for the Sitefinity dashboard</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.DashboardWelcomeGettingStartedText">
+            <summary>
+            The text in the 'Getting started' area of the Welcome  dashboard widget
+            </summary>
+            <value>The new release delivers a next generation web content management system that empowers you to create compelling websites. <p>For general presentation of Sitefinity and content authoring, click on the video to the left.</p></value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.DashboardConfigureWidgetTitle">
+            <summary>
+            The title of the <see cref="!:DashboardConfigureWidget"/>.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.DashboardConfigureWidgetDescription">
+            <summary>
+            The description of the <see cref="!:DashboardConfigureWidget"/>.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.DahsboardTryToCaption">
+            <summary>
+            Phrase: 'First, try to...' in the Welcome dashboard widget
+            </summary>
+            <value>First, try to...</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.DashboardUploadPhotosCaption">
+            <summary>
+            The 'Upload photos' caption in the Welcome dashboard widget
+            </summary>
+            <value>Upload photos</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.ExternalLinkUploadPhotos">
+            <summary>
+            Gets External Link: Upload photos
+            </summary>
+            <value>https://www.progress.com/documentation/sitefinity-cms/upload-images?ref=sf-dashboard</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.DashboardConsiderToCaption">
+            <summary>
+            Phrase: 'Then, consider to...' in the Welcome dashboard widget
+            </summary>
+            <value>Then, consider to...</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.DashboardRegisterAUserCaption">
+            <summary>
+            Phrase: Manage users
+            </summary>
+            <value>Manage users</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.ExternalLinkManageUsers">
+            <summary>
+            Gets External Link: Manage users
+            </summary>
+            <value>https://www.progress.com/documentation/sitefinity-cms/overview-users?ref=sf-dashboard</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.DashboardManageTemplatesCaption">
+            <summary>
+            Phrase: Manage page templates
+            </summary>
+            <value>Manage page templates</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.ExternalLinkManagePageTemplates">
+            <summary>
+            Gets External Link: Manage page templates
+            </summary>
+            <value>https://www.progress.com/documentation/sitefinity-cms/overview-page-templates?ref=sf-dashboard</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.RecentItemsInDesignMode">
+            <summary>
+            Phrase: Not visible in design mode.
+            </summary>
+            <value>The content of this widget is not visible in design mode.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.NoDataDay">
+            <summary>
+            phrase: Nothing interesting in the last 1 day
+            </summary>
+            <value>Nothing interesting in the last 1 day</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.NoDataMonths">
+            <summary>
+            phrase: Nothing interesting in the last 12 months
+            </summary>
+            <value>Nothing interesting in the last 12 months</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.EmptyTitle">
+            <summary>
+            word: empty
+            </summary>
+            <value>Empty {0}</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.NoRecentData">
+            <summary>
+            phrase: No recent updates
+            </summary>
+            <value>No recent updates</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.ConfigureDashboardLinkText">
+            <summary>
+            Text: Configure Dashboard widgets
+            </summary>
+            <value>Configure Dashboard widgets</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.CreateBlog">
+            <summary>
+            Messsage: Create a blog
+            </summary>
+            <value>Label for the documentation link on the dashboard</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.ExternalLinkCreateBlog">
+            <summary>
+            Gets External Link: Create a blog
+            </summary>
+            <value>Label for the documentation link on the dashboard</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.DashboardNotificationsWidgetTitle">
+            <summary>
+            Dashboard Notifications
+            </summary>
+            <value>Dashboard Notifications</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.LearnHowTo">
+            <summary>
+            Learn how to:
+            </summary>
+            <value>Learn how to:</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.ExternalLinkDigitalAssetmanagement">
+            <summary>
+            Gets External Link: Digital asset management
+            </summary>
+            <value>https://www.progress.com/sitefinity-cms/content-management</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.SystemErrors">
+            <summary>
+            System errors
+            </summary>
+            <value>System errors</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.NextCheckInMin">
+            <summary>
+            Next check in {0} min
+            </summary>
+            <value>Next check in {0} min</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.DetectedOn">
+            <summary>
+            Detected on {0}
+            </summary>
+            <value>Detected on {0}</value>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:Telerik.Sitefinity.Dashboard.DashboardResources.GoToModulesServices" -->
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.ModuleFailedToInitialize">
+            <summary>
+            Module {0} failed to initialize
+            </summary>
+            <value>Module {0} failed to initialize</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.FindSolution">
+            <summary>
+            Find a solution
+            </summary>
+            <value>Find a solution</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.CurrentlyChecking">
+            <summary>
+            Currently checking
+            </summary>
+            <value>Currently checking</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.SystemStatusWidgetTitle">
+            <summary>
+            System status widget title
+            </summary>
+            <value>System status widget</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.SystemStatusWidgetDescription">
+            <summary>
+            System status widget description
+            </summary>
+            <value>This widget displays the system status</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.SystemStatusConfigTitle">
+            <summary>
+            System status
+            </summary>
+            <value>System status</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.SystemStatusConfigDescription">
+            <summary>
+            System status configuration
+            </summary>
+            <value>System status configuration</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.SystemStatusSubscribedEmailsCaption">
+            <summary>
+            Subscribed emails
+            </summary>
+            <value>Subscribed emails</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.SystemStatusSubscribedEmailsDescription">
+            <summary>
+            The emails that will receive notifications when system errors are detected or resolved
+            </summary>
+            <value>The emails that will receive notifications when system errors are detected or resolved</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.CacheUpdateIntervalCaption">
+            <summary>
+            Cache refresh interval
+            </summary>
+            <value>Cache refresh interval</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.CacheUpdateIntervalDescription">
+            <summary>
+            Status cache refresh interval in minutes
+            </summary>
+            <value>Status cache refresh interval in minutes</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.StatusCheckEnabledCaption">
+            <summary>
+            Enabled
+            </summary>
+            <value>Enabled</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardResources.StatusCheckEnabledDescription">
+            <summary>
+            Defines if the status check is enabled
+            </summary>
+            <value>Defines if the status check is enabled</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Mail.SystemStatusMessageTemplate.GetPlaceholderFields">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.Dashboard.DashboardSystemStatusCacheModel">
+            <summary>
+            Cache model class for the system status
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.DashboardSystemStatusCacheModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Dashboard.DashboardSystemStatusCacheModel"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.DashboardSystemStatusCacheModel.#ctor(Telerik.Sitefinity.Dashboard.DashboardSystemStatus)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Dashboard.DashboardSystemStatusCacheModel"/> class.
+            </summary>
+            <param name="status">The status object</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardSystemStatusCacheModel.Title">
+            <summary>
+            Gets or sets the title of the status
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardSystemStatusCacheModel.Description">
+            <summary>
+            Gets or sets the description of the status
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardSystemStatusCacheModel.Links">
+            <summary>
+            Gets or sets the links of the status
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardSystemStatusCacheModel.DetectedOn">
+            <summary>
+            Gets or sets the date when the status was detected
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardSystemStatusCacheModel.NextCheckOn">
+            <summary>
+            Gets or sets the date when the status will be checked
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.DashboardSystemStatusCacheModel.ErrorKey">
+            <summary>
+            Gets or sets the key that identifies the current error
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.DashboardSystemStatusCacheModel.Clone">
+            <summary>
+            Clones the current object
+            </summary>
+            <returns>The clone</returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Dashboard.Data.DashboardDataProvider">
+            <summary>
+            Defines the basic functionality that should be implemented by Dashboard data providers
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Data.DashboardDataProvider.CreateDashboardLogEntry">
+            <summary>
+            Creates new instance of <see cref="T:Telerik.Sitefinity.Dashboard.Model.DashboardLogEntry"/>
+            </summary>
+            <returns>New instance of <see cref="T:Telerik.Sitefinity.Dashboard.Model.DashboardLogEntry"/></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Data.DashboardDataProvider.GetDashboardLogEntries">
+            <summary>
+            Get a query for all DashboardLogEntry items
+            </summary>
+            <returns>Queryable object for all DashboardLogEntry items</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Data.DashboardDataProvider.GetDashboardLogEntry(System.Guid)">
+            <summary>
+            Search for a DashboardLogEntry by its identity
+            </summary>
+            <param name="id">The id of the item</param>
+            <returns>Found DashboardLogEntry item</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Data.DashboardDataProvider.DeleteDashboardLogEntry(Telerik.Sitefinity.Dashboard.Model.DashboardLogEntry)">
+            <summary>
+            Deletes DashboardLogEntry
+            </summary>
+            <param name="dashboardLogEntry">The DashboardLogEntry to delete</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Data.DashboardDataProvider.CreateWatchListEntry">
+            <summary>
+            Creates new instance of <see cref="T:Telerik.Sitefinity.Dashboard.Model.WatchListEntry"/>
+            </summary>
+            <returns>New instance of <see cref="T:Telerik.Sitefinity.Dashboard.Model.WatchListEntry"/></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Data.DashboardDataProvider.GetWatchListEntries">
+            <summary>
+            Get a query for all WatchListEntry items
+            </summary>
+            <returns>Queryable object for all WatchListEntry items</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Data.DashboardDataProvider.GetWatchListEntry(System.Guid)">
+            <summary>
+            Search for a WatchListEntry by its identity
+            </summary>
+            <param name="id">The id of the item</param>
+            <returns>Found WatchListEntry item</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Data.DashboardDataProvider.DeleteWatchListEntry(Telerik.Sitefinity.Dashboard.Model.WatchListEntry)">
+            <summary>
+            Deletes WatchListEntry
+            </summary>
+            <param name="watchListEntry">The WatchListEntry to delete</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Data.DashboardDataProvider.GetKnownTypes">
+            <summary>
+            Get a list of types served by this provider
+            </summary>
+            <returns>The known types</returns>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Data.DashboardDataProvider.RootKey">
+            <summary>
+            Gets a unique key for this provider.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Dashboard.Data.DashboardManager">
+            <summary>
+            Manages the data layer for the Dashboard
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Data.DashboardManager.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Dashboard.Data.DashboardManager"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Data.DashboardManager.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Dashboard.Data.DashboardManager"/> class.
+            </summary>
+            <param name="providerName">Name of the provider.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Data.DashboardManager.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Dashboard.Data.DashboardManager"/> class.
+            </summary>
+            <param name="providerName">Name of the provider.</param>
+            <param name="transactionName">The name of a distributed transaction. If empty string or null this manager will use separate transaction.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Data.DashboardManager.DefaultProviderDelegate">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Data.DashboardManager.ModuleName">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Data.DashboardManager.ProvidersSettings">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Data.DashboardManager.GetManager">
+            <summary>
+            Get an instance of the DashboardManager using the default provider
+            </summary>
+            <returns>Instance of DashboardManager</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Data.DashboardManager.GetManager(System.String)">
+            <summary>
+            Get an instance of the DashboardManager by explicitly specifying the provider name to be used.
+            </summary>
+            <param name="providerName">Name of the provider to use, or null/empty string to use the default provider.</param>
+            <returns>Instance of the DashboardManager</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Data.DashboardManager.GetManager(System.String,System.String)">
+            <summary>
+            Get an instance of the DashboardManager by explicitly specifying the provider and transaction name to be used.
+            </summary>
+            <param name="providerName">Name of the provider to use, or null/empty string to use the default provider.</param>
+            <param name="transactionName">The name of a named transaction to be used.</param>
+            <returns>Instance of the DashboardManager</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Data.DashboardManager.CreateDashboardLogEntry">
+            <summary>
+            Creates new instance of <see cref="T:Telerik.Sitefinity.Dashboard.Model.DashboardLogEntry"/>
+            </summary>
+            <returns>New instance of <see cref="T:Telerik.Sitefinity.Dashboard.Model.DashboardLogEntry"/></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Data.DashboardManager.GetDashboardLogEntries">
+            <summary>
+            Get a query for all DashboardLogEntry items
+            </summary>
+            <returns>Queryable object for all DashboardLogEntry items</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Data.DashboardManager.GetDashboardLogEntry(System.Guid)">
+            <summary>
+            Search for a DashboardLogEntry by its identity
+            </summary>
+            <param name="id">The id of the item</param>
+            <returns>Found DashboardLogEntry item</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Data.DashboardManager.DeleteDashboardLogEntry(Telerik.Sitefinity.Dashboard.Model.DashboardLogEntry)">
+            <summary>
+            Deletes DashboardLogEntry
+            </summary>
+            <param name="dashboardLogEntry">The DashboardLogEntry to delete</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Data.DashboardManager.CreateWatchListEntry">
+            <summary>
+            Creates new instance of <see cref="T:Telerik.Sitefinity.Dashboard.Model.WatchListEntry"/>
+            </summary>
+            <returns>New instance of <see cref="T:Telerik.Sitefinity.Dashboard.Model.WatchListEntry"/></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Data.DashboardManager.GetWatchListEntries">
+            <summary>
+            Get a query for all WatchListEntry items
+            </summary>
+            <returns>Queryable object for all WatchListEntry items</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Data.DashboardManager.GetWatchListEntry(System.Guid)">
+            <summary>
+            Search for a WatchListEntry by its identity
+            </summary>
+            <param name="id">The id of the item</param>
+            <returns>Found WatchListEntry item</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Data.DashboardManager.DeleteWatchListEntry(Telerik.Sitefinity.Dashboard.Model.WatchListEntry)">
+            <summary>
+            Deletes WatchListEntry
+            </summary>
+            <param name="watchListEntry">The WatchListEntry to delete</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Data.DashboardManager.GetLoggedWorkflowStatuses">
+            <summary>
+            Get a query for all workflow statuses used by the Dashboard
+            </summary>
+            <returns>Queryable object for all workflow statuses used by the Dashboard</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Data.DashboardManager.GetRegisteredTypes">
+            <summary>
+            Gets a collection with all types supported by the Dashboard
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Data.DashboardManager.RegisterDashboardType(System.String)">
+            <summary>
+            Registers a type that will be included in Dashboard monitoring
+            </summary>
+            <param name="type">The type to be registered</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Data.DashboardManager.UnregisterDashboardType(System.Type)">
+            <summary>
+            Unregisters a type that will no longer be included in Dashboard monitoring
+            </summary>
+            <param name="type">The type to be unregistered</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.Dashboard.Data.OpenAccessDashboardProvider">
+            <summary>
+            An implementation of the DashboardDataProvider based on OpenAccess ORM persistence framework
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Data.OpenAccessDashboardProvider.CreateDashboardLogEntry">
+            <summary>
+            Creates new instance of <see cref="T:Telerik.Sitefinity.Dashboard.Model.DashboardLogEntry"/>
+            </summary>
+            <returns>New instance of <see cref="T:Telerik.Sitefinity.Dashboard.Model.DashboardLogEntry"/></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Data.OpenAccessDashboardProvider.GetDashboardLogEntries">
+            <summary>
+            Get a query for all DashboardLogEntry items
+            </summary>
+            <returns>Queryable object for all DashboardLogEntry items</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Data.OpenAccessDashboardProvider.GetDashboardLogEntry(System.Guid)">
+            <summary>
+            Search for a DashboardLogEntry by its identity
+            </summary>
+            <param name="id">The id of the item</param>
+            <returns>Found DashboardLogEntry item</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Data.OpenAccessDashboardProvider.DeleteDashboardLogEntry(Telerik.Sitefinity.Dashboard.Model.DashboardLogEntry)">
+            <summary>
+            Deletes DashboardLogEntry
+            </summary>
+            <param name="dashboardLogEntry">The DashboardLogEntry to delete</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Data.OpenAccessDashboardProvider.CreateWatchListEntry">
+            <summary>
+            Creates new instance of <see cref="T:Telerik.Sitefinity.Dashboard.Model.WatchListEntry"/>
+            </summary>
+            <returns>New instance of <see cref="T:Telerik.Sitefinity.Dashboard.Model.WatchListEntry"/></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Data.OpenAccessDashboardProvider.GetWatchListEntries">
+            <summary>
+            Get a query for all WatchListEntry items
+            </summary>
+            <returns>Queryable object for all WatchListEntry items</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Data.OpenAccessDashboardProvider.GetWatchListEntry(System.Guid)">
+            <summary>
+            Search for a WatchListEntry by its identity
+            </summary>
+            <param name="id">The id of the item</param>
+            <returns>Found WatchListEntry item</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Data.OpenAccessDashboardProvider.DeleteWatchListEntry(Telerik.Sitefinity.Dashboard.Model.WatchListEntry)">
+            <summary>
+            Deletes WatchListEntry
+            </summary>
+            <param name="watchListEntry">The WatchListEntry to delete</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Data.OpenAccessDashboardProvider.Context">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Data.OpenAccessDashboardProvider.GetMetaDataSource(Telerik.Sitefinity.Model.IDatabaseMappingContext)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Model.DashboardLogEntry.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Dashboard.Model.DashboardLogEntry"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Model.DashboardLogEntry.#ctor(System.Guid)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Dashboard.Model.DashboardLogEntry"/> class.
+            </summary>
+            <param name="id">The id.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Model.DashboardLogEntry.Id">
+            <summary>
+            Gets the unique identity of the item.
+            </summary>
+            <value>The id.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Model.DashboardLogEntry.ItemType">
+            <summary>
+            Gets the type of the item.
+            </summary>
+            <value>The type.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Model.WatchListEntry.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Dashboard.Model.WatchListEntry"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Model.WatchListEntry.#ctor(System.Guid)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Dashboard.Model.WatchListEntry"/> class.
+            </summary>
+            <param name="id">The id.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Model.WatchListEntry.Id">
+            <summary>
+            Gets the unique identity of the item.
+            </summary>
+            <value>The id.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.IDashboardLogEntry.ItemType">
+            <summary>
+            Gets or sets the item type
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.IDashboardLogEntry.ItemId">
+            <summary>
+             Gets or sets the item id
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.IDashboardLogEntry.ItemProvider">
+            <summary>
+             Gets or sets the item provider
+            </summary>
+        </member>
+        <member name="E:Telerik.Sitefinity.Dashboard.SystemStatusCache.ErrorDetected">
+            <summary>
+            Raised when new error is detected.
+            </summary>
+        </member>
+        <member name="E:Telerik.Sitefinity.Dashboard.SystemStatusCache.ErrorResolved">
+            <summary>
+            Raised when error is resolved.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Dashboard.SystemStatusEventArgs">
+            <summary>
+            The event args when system status is detected or resolved
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.SystemStatusEventArgs.StatusModel">
+            <summary>
+            Gets the model
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Dashboard.Web.DashboardService">
+            <summary>
+            This web service is used to work with Dashboard objects.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Web.DashboardService.GetRecentItems(Telerik.Sitefinity.Dashboard.Web.DashboardRecentItemsViewModel)">
+            <summary>
+            Finds all DashboardLogEntry items for the current user
+            </summary>
+            <param name="model">The recent items view model holding all item data</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Web.DashboardService.RemoveItemFromWatchList(System.Guid)">
+            <summary>
+            Removes an item from the current user watch list
+            </summary>
+            <param name="id">The id for the item to be removed</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Web.DashboardService.GetSystemStatus(System.Int32,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.Dashboard.Web.Services.DTO.DashboardSystemStatusResponse">
+            <summary>
+            System status response
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Web.Services.DTO.DashboardSystemStatusResponse.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Dashboard.Web.Services.DTO.DashboardSystemStatusResponse"/> class.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.Services.DTO.DashboardSystemStatusResponse.Items">
+            <summary>
+            Gets or sets the system statuses collection
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.Services.DTO.DashboardSystemStatusResponse.HasMoreItems">
+            <summary>
+            Gets or sets a value indicating whether there are more items
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Dashboard.Web.Services.DTO.DashboardSystemStatusViewModel">
+            <summary>
+            View model class for the system status endpoint
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Web.Services.DTO.DashboardSystemStatusViewModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Dashboard.Web.Services.DTO.DashboardSystemStatusViewModel"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Web.Services.DTO.DashboardSystemStatusViewModel.#ctor(Telerik.Sitefinity.Dashboard.DashboardSystemStatusCacheModel)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Dashboard.Web.Services.DTO.DashboardSystemStatusViewModel"/> class.
+            </summary>
+            <param name="cacheModel">The cache model</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.Services.DTO.DashboardSystemStatusViewModel.DetectedOnString">
+            <summary>
+            Gets or sets the date when the status was detected, presented as string
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.Services.DTO.DashboardSystemStatusViewModel.NextCheckInterval">
+            <summary>
+            Gets or sets the next check interval
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Dashboard.Web.IDashboardService">
+            <summary>
+            Base contract for working with Dashboard objects.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Web.IDashboardService.GetRecentItems(Telerik.Sitefinity.Dashboard.Web.DashboardRecentItemsViewModel)">
+            <summary>
+            Finds all DashboardLogEntry items for the current user
+            </summary>
+            <param name="model">The recent items view model holding all item data</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Web.IDashboardService.RemoveItemFromWatchList(System.Guid)">
+            <summary>
+            Removes an item from the current user watch list
+            </summary>
+            <param name="id">The id for the item to be removed</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Web.IDashboardService.GetSystemStatus(System.Int32,System.Int32)">
+            <summary>
+            Gets the system status
+            </summary>
+            <param name="skip">The number of items to skip</param>
+            <param name="take">The number of items to take</param>
+            <returns>The system status response</returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Dashboard.Web.UI.DashboardNewThemeWidget">
+            <summary>
+            A welcome widget displaying the status of Sitefinity DEC,
+            containing introductory information and links to useful resources.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Web.UI.DashboardNewThemeWidget.InitializeControls(Telerik.Sitefinity.Web.UI.GenericContainer)">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.DashboardNewThemeWidget.LayoutTemplatePath">
+            <summary>
+            Gets the layout template's relative or virtual path.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Web.UI.DashboardNewThemeWidget.OnPreRender(System.EventArgs)">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.DashboardNewThemeWidget.TagKey">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.Dashboard.Web.UI.DashboardDecWidget">
+            <summary>
+            A welcome widget displaying the status of Sitefinity DEC,
+            containing introductory information and links to useful resources.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.DashboardDecWidget.CurrentViewMode">
+            <summary>
+            Gets or sets the current view mode of the DEC module for loading the conditional template
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.DashboardDecWidget.LayoutTemplatePath">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.DashboardDecWidget.SeeInsightsLink">
+            <summary>
+            Gets the control that links to learn more about DEC section when in 'Activated' view mode
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Web.UI.DashboardDecWidget.CreateContainer(System.Web.UI.ITemplate)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Web.UI.DashboardDecWidget.InitializeControls(Telerik.Sitefinity.Web.UI.GenericContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Web.UI.DashboardDecWidget.OnPreRender(System.EventArgs)">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.DashboardDecWidget.TagKey">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.Dashboard.Web.UI.DashboardNotificationsWidget">
+            <summary>
+            A default welcome widget for the Sitefinity dashboard,
+            containing introductory information and links to useful resources.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.DashboardNotificationsWidget.LayoutTemplatePath">
+            <summary>
+            Gets the layout template's relative or virtual path.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Web.UI.DashboardNotificationsWidget.InitializeControls(Telerik.Sitefinity.Web.UI.GenericContainer)">
+            <summary>
+            Initializes the controls.
+            </summary>
+            <param name="container"></param>
+            <remarks>
+            Initialize your controls in this method. Do not override CreateChildControls method.
+            </remarks>
+        </member>
+        <member name="T:Telerik.Sitefinity.Dashboard.Web.UI.DashboardConfigureWidget">
+            <summary>
+            A link to the dashboard backend page edit screen (visible only to administrators).
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.DashboardConfigureWidget.LayoutTemplatePath">
+            <summary>
+            Gets the layout template's relative or virtual path.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Web.UI.DashboardConfigureWidget.InitializeControls(Telerik.Sitefinity.Web.UI.GenericContainer)">
+            <summary>
+            Initializes the controls.
+            </summary>
+            <param name="container"></param>
+            <remarks>
+            Initialize your controls in this method. Do not override CreateChildControls method.
+            </remarks>
+        </member>
+        <member name="T:Telerik.Sitefinity.Dashboard.Web.UI.DashboardSystemStatusView">
+            <summary>
+            A widget that displays all items supported by the Dashboard module.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.DashboardSystemStatusView.LayoutTemplatePath">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.DashboardSystemStatusView.SystemStatusServiceUrl">
+            <summary>
+            Gets the hidden field control representing the system status service url
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.DashboardSystemStatusView.NextCheckInMinResource">
+            <summary>
+            Gets the hidden field control representing the next check in resource
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.DashboardSystemStatusView.DetectedOnResource">
+            <summary>
+            Gets the hidden field control representing the detected on resource
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.DashboardSystemStatusView.CurrentlyCheckingResource">
+            <summary>
+            Gets the hidden field control representing the currently checking resource
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.DashboardSystemStatusView.MoreResource">
+            <summary>
+            Gets the hidden field control representing the more resource
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.DashboardSystemStatusView.LessResource">
+            <summary>
+            Gets the hidden field control representing the less resource
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.DashboardSystemStatusView.LayoutTemplateName">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Web.UI.DashboardSystemStatusView.OnPreRender(System.EventArgs)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Web.UI.DashboardSystemStatusView.InitializeControls(Telerik.Sitefinity.Web.UI.GenericContainer)">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.DashboardSystemStatusView.TagKey">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.Dashboard.Web.UI.DashboardRecentItemsView">
+            <summary>
+            A widget that displays all items supported by the Dashboard module.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.DashboardRecentItemsView.Modified">
+            <summary>
+            Gets or sets the modified status
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.DashboardRecentItemsView.Providers">
+            <summary>
+            Gets or sets the a comma separated list of selected providers if this property is empty, it shows info from all providers.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.DashboardRecentItemsView.ShowItemsForAllSites">
+            <summary>
+            Shows the items for all sites
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.DashboardRecentItemsView.PageSize">
+            <summary>
+            Gets or sets the pagination counter
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.DashboardRecentItemsView.RefreshInterval">
+            <summary>
+            Gets or sets the widget refresh interval. This value overrides the dashboard default refresh interval.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.DashboardRecentItemsView.DisplayItemsPerCurrentUser">
+            <summary>
+            Gets or sets the DisplayItemsPerCurrentUser status
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.DashboardRecentItemsView.DefaultTitle">
+            <summary>
+            Gets or sets the DefaultTitle status
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.DashboardRecentItemsView.LayoutTemplatePath">
+            <summary>
+            Gets the layout template path
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.DashboardRecentItemsView.LayoutTemplateName">
+            <summary>
+            Gets the layout template name
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.DashboardRecentItemsView.WidgetTitleLabelControl">
+            <summary>
+            Gets the Textbox control representing the title of the selected control template
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.DashboardRecentItemsView.RecentItemsService">
+            <summary>
+            Gets the hidden field control representing the Recent Items web service
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.DashboardRecentItemsView.RemoveItemFromWatchListServiceUrl">
+            <summary>
+            Gets the hidden field control representing the RemoveItemFromWatchListServiceUrl constant
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.DashboardRecentItemsView.ShowItemsPerCurrentUserHidden">
+            <summary>
+            A hidden field for preserving the user who created the content items
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.DashboardRecentItemsView.ContentTypeFilterHidden">
+            <summary>
+            A hidden field for the content types filter values
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.DashboardRecentItemsView.StatusLibraryHidden">
+            <summary>
+            A hidden field for the status friendly titles
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.DashboardRecentItemsView.StatusFilterHidden">
+            <summary>
+            A hidden field for the status items that are filtered
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.DashboardRecentItemsView.NoContentCounterHidden">
+            <summary>
+            A hidden field for the counter of the days for which no content is created / modified
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.DashboardRecentItemsView.PagingSizeHidden">
+            <summary>
+            A hidden field for the PageSize value
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Web.UI.DashboardRecentItemsView.InitializeControls(Telerik.Sitefinity.Web.UI.GenericContainer)">
+            <summary>
+            Initializes the controls.
+            </summary>
+            <param name="container"></param>
+            <remarks>
+            Initialize your controls in this method. Do not override CreateChildControls method.
+            </remarks>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Web.UI.DashboardRecentItemsView.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Writes the <see cref="T:System.Web.UI.WebControls.CompositeControl"/> content to the specified <see cref="T:System.Web.UI.HtmlTextWriter"/> object, for display on the client.
+            </summary>
+            <param name="writer">An <see cref="T:System.Web.UI.HtmlTextWriter"/> that represents the output stream to render HTML content on the client.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.Dashboard.Web.UI.DashboardStatusSelector">
+            <summary>
+            A default status selector - used to show all available item statuses for the Dashboard module.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.DashboardStatusSelector.LayoutTemplatePath">
+            <summary>
+            Gets the layout template path
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Web.UI.DashboardStatusSelector.InitializeControls(Telerik.Sitefinity.Web.UI.GenericContainer)">
+            <summary>
+            Initializes the controls.
+            </summary>
+            <param name="container"></param>
+            <remarks>
+            Initialize your controls in this method. Do not override CreateChildControls method.
+            </remarks>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Web.UI.DashboardStatusSelector.GetScriptDescriptors">
+            <summary>
+            Gets a collection of script descriptors that represent ECMAScript (JavaScript) client components.
+            </summary>
+            <returns>
+            An <see cref="T:System.Collections.IEnumerable"/> collection of <see cref="T:System.Web.UI.ScriptDescriptor"/> objects.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Web.UI.DashboardStatusSelector.GetScriptReferences">
+            <summary>
+            Gets a collection of <see cref="T:System.Web.UI.ScriptReference"/> objects that define script resources that the control requires.
+            </summary>
+            <returns>
+            An <see cref="T:System.Collections.IEnumerable"/> collection of <see cref="T:System.Web.UI.ScriptReference"/> objects.
+            </returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Dashboard.Web.UI.DashboardWelcomeWidget">
+            <summary>
+            A default welcome widget for the Sitefinity dashboard,
+            containing introductory information and links to useful resources.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.DashboardWelcomeWidget.LayoutTemplatePath">
+            <summary>
+            Gets the layout template's relative or virtual path.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.DashboardWelcomeWidget.LinkToMigration">
+            <summary>
+            Gets the control that links to the migration module
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Web.UI.DashboardWelcomeWidget.InitializeControls(Telerik.Sitefinity.Web.UI.GenericContainer)">
+            <summary>
+            Initializes the controls.
+            </summary>
+            <param name="container"></param>
+            <remarks>
+            Initialize your controls in this method. Do not override CreateChildControls method.
+            </remarks>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.Designers.DashboardContentDesignerView.LayoutTemplatePath">
+            <summary>
+            Gets the layout template path
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.Designers.DashboardContentDesignerView.ChoicesTitleHeading">
+            <summary>
+            Gets the radio choices title literal parent.
+            </summary>
+            <value>The choices title heading.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.Designers.DashboardContentDesignerView.SelectContentButtonWrapper">
+            <summary>
+            Gets a reference to btnSelectSingleItemWrapper control.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.Designers.DashboardContentDesignerView.SelectStatusButtonWrapper">
+            <summary>
+            Gets a reference to btnSelectSingleStatusWrapper control.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.Designers.DashboardContentDesignerView.ModifiedByMe">
+            <summary>
+            Gets a reference to RadioButton control.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.Designers.DashboardContentDesignerView.ContentAllParents">
+            <summary>
+            Gets a reference to RadioButton control.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.Designers.DashboardContentDesignerView.AllStatusesSelected">
+            <summary>
+            Gets a reference to RadioButton control.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.Designers.DashboardContentDesignerView.SpecificStatusesSelected">
+            <summary>
+            Gets a reference to RadioButton control.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.Designers.DashboardContentDesignerView.ContentSpecificParents">
+            <summary>
+            Gets a reference to RadioButton control.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.Designers.DashboardContentDesignerView.ContentTypeFilter">
+            <summary>
+            Gets a reference to RadioButton control.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.Designers.DashboardContentDesignerView.WorkflowStatusFilter">
+            <summary>
+            Gets a reference to RadioButton control.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.Designers.DashboardContentDesignerView.ModifiedByEveryone">
+            <summary>
+            Gets a reference to RadioButton control.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.Designers.DashboardContentDesignerView.SelectParentButton">
+            <summary>
+            Gets the button for selecting specific content types.
+            </summary>
+            <value>The button for selecting specific content types.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.Designers.DashboardContentDesignerView.SelectStatusButton">
+            <summary>
+            Gets the button for selecting specific statuses
+            </summary>
+            <value>The button for selecting specific content types.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.Designers.DashboardContentDesignerView.AllowMultipleSelection">
+             <summary>
+             Gets or sets a value indicating whether content types can be selected. By default <c>true</c>.
+             </summary>
+             <value>
+            <c>true</c> if multiple content types can be selected; otherwise, <c>false</c>.
+             </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.Designers.DashboardContentDesignerView.SelectedParentLabel">
+            <summary>
+            Gets or sets the selected content type title.
+            </summary>
+            <value>The selected content type title.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.Designers.DashboardContentDesignerView.SelectedStatusLabel">
+            <summary>
+            Gets or sets the selected status title.
+            </summary>
+            <value>The selected content type title.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.Designers.DashboardContentDesignerView.SelectedParentLabelText">
+            <summary>
+            Gets or sets the selected parent content title text.
+            </summary>
+            <value>The selected parent content title text.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.Designers.DashboardContentDesignerView.ParentSelectorTag">
+            <summary>
+            Gets the jquery UI dialog which shows "Choose content type" dialog
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.Designers.DashboardContentDesignerView.StatusSelectorTag">
+            <summary>
+            Gets the jquery UI dialog which shows "Choose status" dialog
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.Designers.DashboardContentDesignerView.LayoutTemplateName">
+            <summary>
+            Gets the layout template name
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.Designers.DashboardContentDesignerView.ViewName">
+            <summary>
+            Gets the name of the view.
+            </summary>
+            <value>The name of the view.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.Designers.DashboardContentDesignerView.ViewTitle">
+            <summary>
+            Gets the view title.
+            </summary>
+            <value>The view title.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Web.UI.Designers.DashboardContentDesignerView.CheckForEmptyContent">
+            <summary>
+            Checks if there is no content types to select.
+            </summary>
+            <returns>true if there is not content types to select</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Web.UI.Designers.DashboardContentDesignerView.HideSelectContentButtonWrapper">
+            <summary>
+            Hides the select content button wrapper.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Web.UI.Designers.DashboardContentDesignerView.GetScriptDescriptors">
+            <summary>
+            Gets a collection of script descriptors that represent ECMAScript (JavaScript) client components.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Web.UI.Designers.DashboardContentDesignerView.GetScriptReferences">
+            <summary>
+            Gets a collection of ScriptReference objects that define script resources that the control requires.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.Designers.DashboardDesigner.ScriptDescriptorTypeName">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Web.UI.Designers.DashboardDesigner.AddViews(System.Collections.Generic.Dictionary{System.String,Telerik.Sitefinity.Web.UI.ControlDesign.ControlDesignerView})">
+            <summary>
+            Adds the designer views.
+            </summary>
+            <param name="views">The views.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.Designers.DashboardSettingsDesignerView.LayoutTemplatePath">
+            <summary>
+            Gets the layout template path
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.Designers.DashboardSettingsDesignerView.LayoutTemplateName">
+            <summary>
+            Gets the layout template name
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.Designers.DashboardSettingsDesignerView.ViewName">
+            <summary>
+            Gets the name of the view.
+            </summary>
+            <value>The name of the view.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.Designers.DashboardSettingsDesignerView.ViewTitle">
+            <summary>
+            Gets the view title.
+            </summary>
+            <value>The view title.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.Designers.DashboardSettingsDesignerView.DisplayFiltersControl">
+            <summary>
+            Gets the choice field listing all filters
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.Designers.DashboardSettingsDesignerView.WidgetTitle">
+            <summary>
+            Gets the Textbox control representing the title of the widget
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.Designers.DashboardSettingsDesignerView.FilterHint">
+            <summary>
+            Gets the Label control representing the tip
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Dashboard.Web.UI.Designers.DashboardSettingsDesignerView.PageSize">
+            <summary>
+            Gets the textbox control representing the page size 
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Web.UI.Designers.DashboardSettingsDesignerView.GetScriptDescriptors">
+            <summary>
+            Gets a collection of script descriptors that represent ECMAScript (JavaScript) client components.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Dashboard.Web.UI.Designers.DashboardSettingsDesignerView.GetScriptReferences">
+            <summary>
+            Gets a collection of ScriptReference objects that define script resources that the control requires.
+            </summary>
+        </member>
+    </members>
+</doc>

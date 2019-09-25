@@ -1,0 +1,866 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Telerik.Sitefinity.Services.Statistics.Impl</name>
+    </assembly>
+    <members>
+        <member name="T:Telerik.Sitefinity.Services.Statistics.Configuration.StatisticsConfig">
+            <summary>
+            The configuration class for the statistics service.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Configuration.StatisticsConfig.DefaultProvider">
+            <summary>
+            Gets or sets the name of the default data provider. 
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Configuration.StatisticsConfig.Providers">
+            <summary>
+            Gets a collection of data provider settings.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Configuration.StatisticsConfig.PageLogMode">
+            <summary>
+            Determines the mode in which the page visits will be logged with the
+            statistics system.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.Configuration.StatisticsConfig.OnPropertiesInitialized">
+            <summary>
+            Called after the properties of this instance have been initialized.
+            Load default values here.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Statistics.Data.OpenAccessStatisticsProvider">
+            <summary>
+            OpenAccess implementation of the <see cref="T:Telerik.Sitefinity.Services.Statistics.StatisticsDataProvider"/>.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.Data.OpenAccessStatisticsProvider.CreateSentence">
+            <summary>
+            Creates a new instance of sentence.
+            </summary>
+            <returns>
+            An instance of <see cref="T:Telerik.Sitefinity.Services.Statistics.Model.Sentence" /> type.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.Data.OpenAccessStatisticsProvider.GetSentences">
+            <summary>
+            Gets a query of sentences.
+            </summary>
+            <returns>
+            A query of all sentences.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.Data.OpenAccessStatisticsProvider.CreateContentRelation">
+            <summary>
+            Creates a new instance of content relation.
+            </summary>
+            <returns>
+            An instance of <see cref="T:Telerik.Sitefinity.Services.Statistics.Model.ContentRelation"/> type.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.Data.OpenAccessStatisticsProvider.GetContentRelations">
+            <summary>
+            Gets a query of content relations.
+            </summary>
+            <returns>
+            A query of all content relations.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.Data.OpenAccessStatisticsProvider.DeleteContentRelation(Telerik.Sitefinity.Services.Statistics.Model.ContentRelation)">
+            <summary>
+            Deletes the content relation.
+            </summary>
+            <param name="contentRelation">The content relation.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Data.OpenAccessStatisticsProvider.Context">
+            <summary>
+            Gets or sets the OpenAccess context. Alternative to Database.
+            </summary>
+            <value>The context.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.Data.OpenAccessStatisticsProvider.GetMetaDataSource(Telerik.Sitefinity.Model.IDatabaseMappingContext)">
+            <summary>
+            Gets the meta data source.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Data.OpenAccessStatisticsProvider.CurrentSchemaVersionNumber">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.Data.OpenAccessStatisticsProvider.OnUpgrading(Telerik.Sitefinity.Data.OA.UpgradingContext,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.Data.OpenAccessStatisticsProvider.OnUpgraded(Telerik.Sitefinity.Data.OA.UpgradingContext,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Statistics.Data.StatisticsFluentMapping">
+            <summary>
+            Fluent mapping for the statistics persistent classes
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Statistics.Data.StatisticsFluentMetadataSource">
+            <summary>
+            Collection of ORM mappings needed for open access statistics provider
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.Events.OnReconcileExecutedEvent.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Statistics.Events.OnReconcileExecutedEvent" /> class.
+            </summary>
+            <param name="userId">The user id.</param>
+            <param name="trackingId">The tracking id.</param>
+            <param name="origin">The origin.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Events.OnReconcileExecutedEvent.UserId">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Events.OnReconcileExecutedEvent.TrackingId">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Events.OnReconcileExecutedEvent.Origin">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Statistics.ILogService">
+            <summary>
+            Web service which provides logging capatabilities for the statistics service.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.ILogService.LogVisit(System.String,System.String,System.String,System.String)">
+            <summary>
+            Logs a visit to the current page by the current user.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.ILogService.LogVisitInXml(System.String,System.String,System.String,System.String)">
+            <summary>
+            Logs a visit to the current page by the current user.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.IStatisticsManager.CreateSentence">
+            <summary>
+            Creates a new instance of sentence.
+            </summary>
+            <returns>
+            An instance of <see cref="T:Telerik.Sitefinity.Services.Statistics.Model.Sentence"/> type.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.IStatisticsManager.GetSentences">
+            <summary>
+            Gets a query of sentences.
+            </summary>
+            <returns>
+            A query of all sentences.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.IStatisticsManager.CreateContentRelation">
+            <summary>
+            Creates a new instance of content relation.
+            </summary>
+            <returns>
+            An instance of <see cref="T:Telerik.Sitefinity.Services.Statistics.Model.ContentRelation"/> type.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.IStatisticsManager.GetContentRelations">
+            <summary>
+            Gets a query of content relations.
+            </summary>
+            <returns>
+            A query of all content relations.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.IStatisticsManager.DeleteContentRelation(Telerik.Sitefinity.Services.Statistics.Model.ContentRelation)">
+            <summary>
+            Deletes the specified content relation.
+            </summary>
+            <param name="contentRelation">The content relation.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.IStatisticsManager.SaveChanges">
+            <summary>
+            Saves any changes made to objects retrieved with this manager.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.IStatisticsManager.CancelChanges">
+            <summary>
+            Cancels any changes made to objects retrieved with this manager.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Logger.IsAuthenticated">
+            <summary>
+            Gets the value indicating if current user is authenticated.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Logger.UserId">
+            <summary>
+            Gets the id of the currently logged in user.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Logger.MembershipProvider">
+            <summary>
+            Gets the name of the membership provider through which the current 
+            user is logged in.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Logger.CurrentTime">
+            <summary>
+            Gets the current time.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Statistics.LogService">
+            <summary>
+            Web service which provides logging capatabilities for the statistics service.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.LogService.LogVisit(System.String,System.String,System.String,System.String)">
+            <summary>
+            Logs a visit to the current page by the current user.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.LogService.LogVisitInXml(System.String,System.String,System.String,System.String)">
+            <summary>
+            Logs a visit to the current page by the current user.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Statistics.Model.ContentRelation">
+            <summary>
+            A record representing relation between content items.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Model.ContentRelation.Key">
+            <summary>
+            Gets or sets the key that identifies the relation.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Model.ContentRelation.ObjectId">
+            <summary>
+            Gets or sets the id of the first item.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Model.ContentRelation.ObjectType">
+            <summary>
+            Gets or sets the fully qualified type name of the first item.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Model.ContentRelation.ObjectProvider">
+            <summary>
+            Gets or sets the provider name of the first item.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Model.ContentRelation.RelationType">
+            <summary>
+            Gets or sets the type of the relation.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Model.ContentRelation.SubjectId">
+            <summary>
+            Gets or sets the id of the second item.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Model.ContentRelation.SubjectType">
+            <summary>
+            Gets or sets the fully qualified type name of the second item.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Model.ContentRelation.SubjectProvider">
+            <summary>
+            Gets or sets the provider name of the second item.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Statistics.Model.SentenceObject">
+            <summary>
+            In memory representation of the sentence object.
+            </summary>
+            <remarks>
+            This class is not persisted.
+            </remarks>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.Model.SentenceObject.#ctor(System.String)">
+            <summary>
+            Creates a new instance of the <see cref="T:Telerik.Sitefinity.Services.Statistics.Model.SentenceObject"/> type.
+            </summary>
+            <param name="key">
+            Object key.
+            </param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.Model.SentenceObject.#ctor(System.Guid,System.String,System.String)">
+            <summary>
+            Creates a new instance of the <see cref="T:Telerik.Sitefinity.Services.Statistics.Model.SentenceObject"/> type.
+            </summary>
+            <param name="id">
+            Id of the object.
+            </param>
+            <param name="provider">
+            Provider name of the object.
+            </param>
+            <param name="type">
+            Type of the object.
+            </param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Model.SentenceObject.Key">
+            <summary>
+            Gets or sets an arbitrary key that may be used to identify the object.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Model.SentenceObject.Id">
+            <summary>
+            Gets or sets the id that is used to identify object when
+            object is a Sitefinity <see cref="!:IDataItem" /> instance.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Model.SentenceObject.Provider">
+            <summary>
+            Gets or sets the name of the provider used to identify
+            object when object is a Sitefinity
+            <see cref="!:IDataItem" /> instance.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Model.SentenceObject.Type">
+            <summary>
+            Gets or sets the type of the object used to identify object
+            when object is a Sitefinity <see cref="!:IDataItem" /> instance.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Statistics.Model.Sentence">
+            <summary>
+            Represents a single sentence that has been logged with the statistics service.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Model.Sentence.SubjectKey">
+            <summary>
+            Gets or sets an arbitrary key that may be used to identify the subject.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Model.Sentence.SubjectId">
+            <summary>
+            Gets or sets the id that is used to identify subject when 
+            subject is a Sitefinity <see cref="!:IDataItem"/> instance.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Model.Sentence.SubjectProvider">
+            <summary>
+            Gets or sets the name of the provider used to identify 
+            subject when subject is a Sitefinity 
+            <see cref="!:IDataItem"/> instance.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Model.Sentence.SubjectType">
+            <summary>
+            Gets or sets the type of the object used to identify subject
+            when subject is a Sitefinity <see cref="!:IDataItem"/> instance.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Model.Sentence.SubjectStringMetaField1">
+            <summary>
+            Gets or sets arbitrary string data about subject.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Model.Sentence.SubjectStringMetaField2">
+            <summary>
+            Gets or sets arbitrary string data about subject.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Model.Sentence.SubjectStringMetaField3">
+            <summary>
+            Gets or sets arbitrary string data about subject.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Model.Sentence.SubjectStringMetaField4">
+            <summary>
+            Gets or sets arbitrary string data about subject.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Model.Sentence.SubjectStringMetaField5">
+            <summary>
+            Gets or sets arbitrary string data about subject.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Model.Sentence.SubjectIntMetaField">
+            <summary>
+            Gets or sets arbitrary integer data about subject.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Model.Sentence.SubjectDoubleMetaField">
+            <summary>
+            Gets or sets arbitrary double data about subject.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Model.Sentence.SubjectDecimalMetaField">
+            <summary>
+            Gets or sets arbitrary decimal data about subject.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Model.Sentence.SubjectBoolMetaField">
+            <summary>
+            Gets or sets arbitrary boolean data about subject.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Model.Sentence.SubjectDateTimeMetaField">
+            <summary>
+            Gets or sets arbitrary date time data about subject.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Model.Sentence.Verb">
+            <summary>
+            Gets or sets the verb of the sentence.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Model.Sentence.ObjectKey">
+            <summary>
+            Gets or sets an arbitrary key that may be used to identify the object.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Model.Sentence.ObjectId">
+            <summary>
+            Gets or sets the id that is used to identify object when 
+            object is a Sitefinity <see cref="!:IDataItem"/> instance.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Model.Sentence.ObjectProvider">
+            <summary>
+            Gets or sets the name of the provider used to identify 
+            object when object is a Sitefinity 
+            <see cref="!:IDataItem"/> instance.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Model.Sentence.ObjectType">
+            <summary>
+            Gets or sets the type of the object used to identify object
+            when object is a Sitefinity <see cref="!:IDataItem"/> instance.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Model.Sentence.ObjectStringMetaField1">
+            <summary>
+            Gets or sets arbitrary string data about object.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Model.Sentence.ObjectStringMetaField2">
+            <summary>
+            Gets or sets arbitrary string data about object.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Model.Sentence.ObjectStringMetaField3">
+            <summary>
+            Gets or sets arbitrary string data about object.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Model.Sentence.ObjectStringMetaField4">
+            <summary>
+            Gets or sets arbitrary string data about object.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Model.Sentence.ObjectStringMetaField5">
+            <summary>
+            Gets or sets arbitrary string data about object.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Model.Sentence.ObjectIntMetaField">
+            <summary>
+            Gets or sets arbitrary integer data about object.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Model.Sentence.ObjectDoubleMetaField">
+            <summary>
+            Gets or sets arbitrary double data about object.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Model.Sentence.ObjectDecimalMetaField">
+            <summary>
+            Gets or sets arbitrary decimal data about object.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Model.Sentence.ObjectBoolMetaField">
+            <summary>
+            Gets or sets arbitrary boolean data about object.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Model.Sentence.ObjectDateTimeMetaField">
+            <summary>
+            Gets or sets arbitrary date time data about object.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Model.Sentence.TimeStamp">
+            <summary>
+            Gets or sets the date and time when sentence was written.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Statistics.Model.SentenceSubject">
+            <summary>
+            In memory representation of the sentence subject.
+            </summary>
+            <remarks>
+            This class is not persisted.
+            </remarks>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.Model.SentenceSubject.#ctor(System.String)">
+            <summary>
+            Creates a new instance of the <see cref="T:Telerik.Sitefinity.Services.Statistics.Model.SentenceSubject"/> type.
+            </summary>
+            <param name="key">
+            Subject key.
+            </param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.Model.SentenceSubject.#ctor(System.Guid,System.String,System.String)">
+            <summary>
+            Creates a new instance of the <see cref="T:Telerik.Sitefinity.Services.Statistics.Model.SentenceSubject"/> type.
+            </summary>
+            <param name="id">
+            Id of the subject.
+            </param>
+            <param name="provider">
+            Provider name of the subject.
+            </param>
+            <param name="type">
+            Type of the subject.
+            </param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Model.SentenceSubject.Key">
+            <summary>
+            Gets or sets an arbitrary key that may be used to identify the subject.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Model.SentenceSubject.Id">
+            <summary>
+            Gets or sets the id that is used to identify subject when 
+            subject is a Sitefinity <see cref="!:IDataItem"/> instance.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Model.SentenceSubject.Provider">
+            <summary>
+            Gets or sets the name of the provider used to identify 
+            subject when subject is a Sitefinity 
+            <see cref="!:IDataItem"/> instance.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.Model.SentenceSubject.Type">
+            <summary>
+            Gets or sets the type of the object used to identify subject
+            when subject is a Sitefinity <see cref="!:IDataItem"/> instance.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Statistics.Reconciler">
+            <summary>
+            This class provides functionality for reconciling information between anonymous and authenticated
+            users. Statistics service needs to be able to recognize the tracks left by the anonymous user
+            at the point that user authenticates itself.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Statistics.ReconcilerTask">
+            <summary>
+            Background task which reconciles anonymous user data with user when user authenticates.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.ReconcilerTask.Run(Telerik.Sitefinity.BackgroundTasks.IBackgroundTaskContext)">
+            <summary>
+            Contains the work that will be executed in a separate thread.
+            </summary>
+            <param name="context">Contains information for the calling context.
+            This parameter could be used to receive information from the calling host.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Statistics.StatisticsDataProvider">
+            <summary>
+            Represents the data provider of the statistics service.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.StatisticsDataProvider.CreateSentence">
+            <summary>
+            Creates a new instance of sentence.
+            </summary>
+            <returns>
+            An instance of <see cref="T:Telerik.Sitefinity.Services.Statistics.Model.Sentence"/> type.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.StatisticsDataProvider.GetSentences">
+            <summary>
+            Gets a query of sentences.
+            </summary>
+            <returns>
+            A query of all sentences.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.StatisticsDataProvider.CreateContentRelation">
+            <summary>
+            Creates a new instance of content relation.
+            </summary>
+            <returns>
+            An instance of <see cref="T:Telerik.Sitefinity.Services.Statistics.Model.ContentRelation"/> type.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.StatisticsDataProvider.GetContentRelations">
+            <summary>
+            Gets a query of content relations.
+            </summary>
+            <returns>
+            A query of all content relations.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.StatisticsDataProvider.DeleteContentRelation(Telerik.Sitefinity.Services.Statistics.Model.ContentRelation)">
+            <summary>
+            Deletes the content relation.
+            </summary>
+            <param name="contentRelation">The content relation.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Statistics.StatisticsManager">
+            <summary>
+            Manager class for the statistics service.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.StatisticsManager.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Statistics.StatisticsManager"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.StatisticsManager.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Statistics.StatisticsManager"/> class.
+            </summary>
+            <param name="providerName">Name of the provider.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.StatisticsManager.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Services.Statistics.StatisticsManager"/> class.
+            </summary>
+            <param name="providerName">
+            The name of the provider. If empty string or null the default provider is set
+            </param>
+            <param name="transactionName">
+            The name of a distributed transaction. If empty string or null this manager will use separate transaction.
+            </param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.StatisticsManager.GetManager">
+            <summary>
+            Get an instance of the Statistics manager using the default provider
+            </summary>
+            <returns>
+            Instance of Statistics manager
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.StatisticsManager.GetManager(System.String)">
+            <summary>
+            Get an instance of the Statistics manager by explicitly specifying the required provider to use.
+            </summary>
+            <param name="providerName">Name of the provider to use, or null/empty string to use the default provider.</param>
+            <returns>Instance of the Statistics manager.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.StatisticsManager.GetManager(System.String,System.String)">
+            <summary>
+            Get an instance of the Forums manager by explicitly specifying the required provider to use
+            </summary>
+            <param name="providerName">Name of the provider to use, or null/empty string to use the default provider.</param>
+            <param name="transactionName">Name of the transaction.</param>
+            <returns>Instance of the Forums manager</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.StatisticsManager.CreateSentence">
+            <summary>
+            Creates a new instance of sentence.
+            </summary>
+            <returns>
+            An instance of <see cref="T:Telerik.Sitefinity.Services.Statistics.Model.Sentence"/> type.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.StatisticsManager.GetSentences">
+            <summary>
+            Gets a query of sentences.
+            </summary>
+            <returns>
+            A query of all sentences.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.StatisticsManager.CreateContentRelation">
+            <summary>
+            Creates a new instance of content relation.
+            </summary>
+            <returns>
+            An instance of <see cref="T:Telerik.Sitefinity.Services.Statistics.Model.ContentRelation"/> type.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.StatisticsManager.GetContentRelations">
+            <summary>
+            Gets a query of content relations.
+            </summary>
+            <returns>
+            A query of all content relations.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.StatisticsManager.DeleteContentRelation(Telerik.Sitefinity.Services.Statistics.Model.ContentRelation)">
+            <summary>
+            Deletes the specified content relation.
+            </summary>
+            <param name="contentRelation">The content relation.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.StatisticsManager.DefaultProviderDelegate">
+            <summary>
+            Gets the default provider for this manager.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.StatisticsManager.ModuleName">
+            <summary>
+            The name of the module that this manager belongs to.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.StatisticsManager.ProvidersSettings">
+            <summary>
+            Collection of data provider settings.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Statistics.StatisticsService">
+            <summary>
+            Local implementation of the statistics service.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.StatisticsService.Manager">
+            <summary>
+            Gets an instance of the <see cref="T:Telerik.Sitefinity.Services.Statistics.StatisticsManager"/>.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.StatisticsService.Initialize(Telerik.Sitefinity.Services.ModuleSettings)">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Statistics.StatisticsService.Interfaces">
+            <summary>
+            Gets the types of the service used to register and resolve the service from the Service Bus.
+            </summary>
+            <value>
+            The type of the service.
+            </value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.StatisticsService.WriteSentence(Telerik.Sitefinity.Services.Statistics.ISentence)">
+            <summary>
+            Writes a new sentence with the statistics service.
+            </summary>
+            <param name="sentence">
+            An instance of the <see cref="T:Telerik.Sitefinity.Services.Statistics.ISentence" /> type to be written.
+            </param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.StatisticsService.CreateSentence">
+            <summary>
+            Creates an empty sentence object.
+            </summary>
+            <returns>An instance of the <see cref="T:Telerik.Sitefinity.Services.Statistics.ISentence" /> type.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.StatisticsService.WasSentenceWritten(Telerik.Sitefinity.Services.Statistics.ISentenceSubject,System.String,Telerik.Sitefinity.Services.Statistics.ISentenceObject)">
+            <summary>
+            Determines was a sentence with a given subject, verb and object ever written.
+            </summary>
+            <param name="sentenceSubject">
+            Defines the subject of the sentence.
+            </param>
+            <param name="sentenceVerb">
+            Defines the verb of the sentence.
+            </param>
+            <param name="sentenceObject">
+            Defines the object of the sentence.
+            </param>
+            <returns>
+            True if specified sentence was written at least once; otherwise false.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.StatisticsService.GetSentences(Telerik.Sitefinity.Services.Statistics.ISentenceSubject,System.String,Telerik.Sitefinity.Services.Statistics.ISentenceObject)">
+            <summary>
+            Gets all the sentences for the specified subject, verb and object.
+            </summary>
+            <param name="sentenceSubject">
+            Defines the subject of the sentence.
+            </param>
+            <param name="sentenceVerb">
+            Defines the verb of the sentence. 
+            </param>
+            <param name="sentenceObject">
+            Defines the object of the sentence.
+            </param>
+            <returns>
+            An enumerable of written sentences.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.StatisticsService.GetLastSentenceForSubject(Telerik.Sitefinity.Services.Statistics.ISentenceSubject,System.String,System.String)">
+            <summary>
+            Gets the latest written sentence for the specified subject, verb and object filter.
+            </summary>
+            <param name="sentenceSubject">Instance of the <see cref="T:Telerik.Sitefinity.Services.Statistics.ISentenceSubject" /> for which the sentence ought to be retrieved.</param>
+            <param name="sentenceVerb">Sentence verb for which the latest sentence ought to be retrieved.</param>
+            <param name="filter">Filter to be applied on the sentences.</param>
+            <returns>An instance of the <see cref="T:Telerik.Sitefinity.Services.Statistics.ISentence" /> type.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.StatisticsService.CreateSentenceSubject(System.String)">
+            <summary>
+            Creates a new instance of the <see cref="T:Telerik.Sitefinity.Services.Statistics.ISentenceSubject" />.
+            </summary>
+            <param name="key">The key which is used to identify subject.</param>
+            <remarks>
+            This is not a persistent type.
+            </remarks>
+            <returns>An instance of the <see cref="T:Telerik.Sitefinity.Services.Statistics.ISentenceSubject" />.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.StatisticsService.CreateSentenceSubject(System.Guid,System.String,System.String)">
+            <summary>
+            Creates a new instance of the <see cref="T:Telerik.Sitefinity.Services.Statistics.ISentenceSubject" />.
+            </summary>
+            <param name="id">Id of the sentence subject.</param>
+            <param name="provider">Name of the sentence subject provider.</param>
+            <param name="type">Type of the sentence subject.</param>
+            <remarks>
+            This is not a persistent type.
+            </remarks>
+            <returns>An instance of the <see cref="T:Telerik.Sitefinity.Services.Statistics.ISentenceSubject" />.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.StatisticsService.CreateSentenceObject(System.Guid,System.String,System.String)">
+            <summary>
+            Creates a new instance of the <see cref="T:Telerik.Sitefinity.Services.Statistics.ISentenceObject" />.
+            </summary>
+            <param name="id">Id of the sentence object.</param>
+            <param name="provider">Name of the sentence object provider.</param>
+            <param name="type">Type of the sentence object.</param>
+            <remarks>
+            This is not a persistent type.
+            </remarks>
+            <returns>An instance of the <see cref="T:Telerik.Sitefinity.Services.Statistics.ISentenceObject" />.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.StatisticsService.GetPageLogMode">
+            <summary>
+            Gets the page log mode configuration.
+            </summary>
+            <returns>One of the <see cref="T:Telerik.Sitefinity.Services.Statistics.PageVisitLogMode" /> values.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.StatisticsService.UpdateContentRelation(Telerik.Sitefinity.Services.Statistics.IContentRelation)">
+            <summary>
+            Updates the content relation.
+            </summary>
+            <param name="contentRelation">The content relation.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.StatisticsService.RemoveAffectedContentRelations(System.Guid)">
+            <summary>
+            Removes content relations that are affected by an item that is deleted.
+            </summary>
+            <param name="deletedItemId">The deleted item id.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.StatisticsService.GetContentRelationsCount(System.String,System.String)">
+            <summary>
+            Gets the content relations count.
+            </summary>
+            <param name="filter">The filter.</param>
+            <param name="groupBy">The group by.</param>
+            <returns>The count of the content relations.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.StatisticsService.GetContentRelationObjectIds(System.String)">
+            <summary>
+            Gets the object ids of the relations.
+            </summary>
+            <param name="filter">The filter.</param>
+            <returns>The object ids of the relations as enumerable of Guid.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.StatisticsService.GetContentRelationSubjectIds(System.String)">
+            <summary>
+            Gets the subject ids of the relations.
+            </summary>
+            <param name="filter">The filter.</param>
+            <returns>The subject ids of the relations as enumerable of Guid.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Statistics.StatisticsService.GetContentRelationKeys(System.String)">
+            <summary>
+            Gets the content relation keys.
+            </summary>
+            <param name="filter">The filter.</param>
+            <returns>The keys of the relations as enumerable of Guid.</returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,533 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Telerik.Sitefinity.Frontend.ContentBlock</name>
+    </assembly>
+    <members>
+        <member name="T:Telerik.Sitefinity.Frontend.ContentBlock.InterfaceMappings">
+            <summary>
+            This class is used to describe the bindings which will be used by the Ninject container when resolving classes
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.ContentBlock.InterfaceMappings.Load">
+            <summary>
+            Loads the module into the kernel.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Controllers.ContentBlockController">
+            <summary>
+                The content block controller
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Controllers.ContentBlockController.Telerik#Sitefinity#Web#UI#IZoneEditorReloader#Key">
+            <summary>
+                Gets unique reload data (i.e. all controls with the same key will get reloaded)
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Controllers.ContentBlockController.EmptyLinkText">
+            <summary>
+                Gets the empty link text.
+            </summary>
+            <value>The empty link text.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Controllers.ContentBlockController.IsEmpty">
+            <summary>
+                Gets or sets a value indicating whether this instance is empty.
+            </summary>
+            <value><c>true</c> if this instance is empty; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Controllers.ContentBlockController.WidgetCssClass">
+            <summary>
+            Gets the widget CSS class that will be used in the page toolbox.
+            </summary>
+            <value>
+            The widget CSS class that will be used in the page toolbox.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Controllers.ContentBlockController.CustomMessages">
+            <summary>
+                Gets a list with custom messages which will be applied to dock title bar.
+            </summary>
+            <value>The custom messages.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Controllers.ContentBlockController.Commands">
+            <summary>
+                Gets or sets the widget commands.
+            </summary>
+            <value>
+                The commands.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Controllers.ContentBlockController.ProviderName">
+            <summary>
+                Gets or sets the name of the provider.
+            </summary>
+            <value>The name of the provider.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Controllers.ContentBlockController.SharedContentID">
+            <summary>
+                Gets or sets the ID of the ContentBlockItem if the Content is shared across multiple controls
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Controllers.ContentBlockController.Telerik#Sitefinity#Web#UI#IHasContainerType#ContainerType">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Controllers.ContentBlockController.ExcludeFromSearchIndex">
+            <summary>
+            Gets or sets a value indicating whether to exclude the content from search index.
+            </summary>
+            <value>
+            <c>true</c> if should exclude content from search index; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Controllers.ContentBlockController.Content">
+            <summary>
+                Gets or sets the HTML content to be displayed by the ContentBlock control.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Controllers.ContentBlockController.ContentVersion">
+            <summary>
+                Gets or sets the current content version.
+            </summary>
+            <value>The version.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Controllers.ContentBlockController.WrapperCssClass">
+            <summary>
+            Gets or sets the CSS class that will be applied on the wrapper tag of the widget view.
+            </summary>
+            <value>
+            The CSS class.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Controllers.ContentBlockController.Model">
+            <summary>
+            Gets the model.
+            </summary>
+            <value>
+            The model.
+            </value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Controllers.ContentBlockController.Index">
+            <summary>
+            This is the default Action.
+            </summary>
+            <returns>
+            The <see cref="T:System.Web.Mvc.ActionResult"/>.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Controllers.ContentBlockController.ShouldReloadControlsWithSameKey">
+            <summary>
+                Defines whether controls of same key will be
+                reloaded when this control is updated in the ZoneEditor
+            </summary>
+            <returns>True if a reload is required</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Controllers.ContentBlockController.Telerik#Sitefinity#Web#UI#IZoneEditorReloader#ShouldReloadControlsWithSameKey">
+            <summary>
+                Defines whether controls of same key will be
+                reloaded when this control is updated in the ZoneEditor
+            </summary>
+            <returns>True if a reload is required</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Controllers.ContentBlockController.HandleUnknownAction(System.String)">
+            <summary>
+            Called when a request matches this controller, but no method with the specified action name is found in the controller.
+            </summary>
+            <param name="actionName">The name of the attempted action.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Controllers.ContentBlockController.InitializeCommands">
+            <summary>
+            Initializes the widget commands.
+            </summary>
+            <returns>
+            The <see cref="!:IList"/>.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Controllers.ContentBlockController.ResolveCurrentSitemapNode">
+            <summary>
+            Resolves the current sitemap node.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Controllers.ContentBlockController.InitializeModel">
+            <summary>
+            Initializes the content block model.
+            </summary>
+            <returns>
+            The <see cref="T:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Models.IContentBlockModel"/>.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Controllers.ContentBlockController.IsWidgetShareable">
+            <summary>
+            Check if Generic Content provider is disabled. When the provider is disabled the content block widget can't be shareable.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Helpers.ContentBlockHelpers">
+            <summary>
+            This class contains helper methods for use in the views of the ContentBlock widget and its designer.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Helpers.ContentBlockHelpers.GetBlankContentItem(System.Web.Mvc.HtmlHelper)">
+            <summary>
+            Gets a blank content item.
+            </summary>
+            <param name="html">The HTML helper.</param>
+            <returns>Json representation of a blank content item.</returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Models.ContentBlockModel">
+            <summary>
+                This class is used as a model for the content block controller.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Models.ContentBlockModel.#ctor(System.String,System.String,System.Guid)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Models.ContentBlockModel"/> class.
+            </summary>
+            <param name="providerName">
+            Name of the provider.
+            </param>
+            <param name="content">
+            The content.
+            </param>
+            <param name="sharedContentId">
+            The shared content identifier.
+            </param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Models.ContentBlockModel.#ctor(System.String,System.String,System.Guid,System.Type)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Models.ContentBlockModel"/> class.
+            </summary>
+            <param name="providerName">Name of the provider.</param>
+            <param name="content">The content.</param>
+            <param name="sharedContentId">The shared content identifier.</param>
+            <param name="containerType">Type of the container.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Models.ContentBlockModel.#ctor(System.String,System.String,System.Guid,System.Type,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Models.ContentBlockModel"/> class.
+            </summary>
+            <param name="providerName">Name of the provider.</param>
+            <param name="content">The content.</param>
+            <param name="sharedContentId">The shared content identifier.</param>
+            <param name="containerType">Type of the container.</param>
+            <param name="wrapperCssClass">The CSS class that will be applied on the wrapper tag of the widget view.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Models.ContentBlockModel.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Models.ContentBlockModel" /> class.
+                This parameterless constructor is used for testing purposes.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Models.ContentBlockModel.Content">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Models.ContentBlockModel.ContentManager">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Models.ContentBlockModel.ContentType">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Models.ContentBlockModel.ContainerType">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Models.ContentBlockModel.EnableSocialSharing">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Models.ContentBlockModel.ProviderName">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Models.ContentBlockModel.SharedContentID">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Models.ContentBlockModel.WrapperCssClass">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Models.ContentBlockModel.CreateBlankDataItem">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Models.ContentBlockModel.GetKeysOfDependentObjects">
+            <summary>
+            Gets a collection of <see cref="!:CacheDependencyNotifiedObject"/>.
+                The <see cref="!:CacheDependencyNotifiedObject"/> represents a key for which cached items could be subscribed for
+                notification.
+                When notified, all cached objects with dependency on the provided keys will expire.
+            </summary>
+            <returns>
+            The <see cref="!:IList"/>.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Models.ContentBlockModel.GetContentHtmlValue(System.String)">
+            <summary>
+            Gets the content HTML value from a shared content item if such is available.
+            </summary>
+            <param name="content">
+            The content.
+            </param>
+            <returns>
+            The <see cref="T:System.String"/>.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Models.ContentBlockModel.IsShared">
+            <summary>
+            Determines whether this content block is shared.
+            </summary>
+            <returns>
+            The <see cref="T:System.Boolean"/>.
+            </returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Models.IContentBlockModel">
+            <summary>
+            This interface is used as a model for the ContentBlockController.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Models.IContentBlockModel.Content">
+            <summary>
+            Gets or sets the HTML.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Models.IContentBlockModel.EnableSocialSharing">
+            <summary>
+            Gets or sets a value indicating whether to enable social sharing.
+            </summary>
+            <value>
+              <c>true</c> if should enable social sharing; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Models.IContentBlockModel.SharedContentID">
+            <summary>
+            Gets or sets the ID of the ContentBlockItem if the HTML is shared across multiple controls
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Models.IContentBlockModel.ProviderName">
+            <summary>
+            Gets or sets the name of the provider.
+            </summary>
+            <value>The name of the provider.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Models.IContentBlockModel.ContentManager">
+            <summary>
+            Gets the content manager.
+            </summary>
+            <value>
+            The content manager.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Models.IContentBlockModel.ContentType">
+            <summary>
+            Gets or sets the type of the content. If shared it should be ContentItem otherwise PageDraftControl
+            </summary>
+            <value>
+            The type of the content.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Models.IContentBlockModel.ContainerType">
+            <summary>
+            Gets or sets the type of the container.
+            </summary>
+            <value>
+            The type of the container.
+            </value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Models.IContentBlockModel.CreateBlankDataItem">
+            <summary>
+            Creates the blank data item.
+            </summary>
+            <returns>
+            The <see cref="T:System.Object"/>.
+            </returns>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.Models.IContentBlockModel.WrapperCssClass">
+            <summary>
+            Gets or sets the CSS class that will be applied on the wrapper tag of the widget view.
+            </summary>
+            <value>
+            The CSS class.
+            </value>
+        </member>
+        <member name="T:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.StringResources.ContentBlockResources">
+            <summary>
+            Localizable strings for the Content block widget
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.StringResources.ContentBlockResources.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.StringResources.ContentBlockResources"/> class. 
+            Initializes new instance of <see cref="T:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.StringResources.ContentBlockResources"/> class with the default <see cref="T:Telerik.Sitefinity.Localization.Data.ResourceDataProvider"/>.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.StringResources.ContentBlockResources.#ctor(Telerik.Sitefinity.Localization.Data.ResourceDataProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.StringResources.ContentBlockResources"/> class.
+            </summary>
+            <param name="dataProvider">The data provider.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.StringResources.ContentBlockResources.CreateContent">
+            <summary>
+            Gets Resources for Comments
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.StringResources.ContentBlockResources.NoViewPermissionsMessage">
+            <summary>
+            Gets phrase: You are not allowed to see this content. Contact administrator for more information
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.StringResources.ContentBlockResources.Shared">
+            <summary>
+            Gets word: Shared
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.StringResources.ContentBlockResources.Cancel">
+            <summary>
+            Gets the cancel.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.StringResources.ContentBlockResources.Title">
+            <summary>
+            Gets the title.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.StringResources.ContentBlockResources.ShareContent">
+            <summary>
+            Gets the share content.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.StringResources.ContentBlockResources.AreYouSureYouWantToUnshareThisContent">
+            <summary>
+            Gets phrase: This content will not be shared anymore. The changes you make will not affect other pages. Are you sure you want to Unshare this content?
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.StringResources.ContentBlockResources.UnshareThisContent">
+            <summary>
+            Gets phrase: Yes, Unshare this content
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.StringResources.ContentBlockResources.Share">
+            <summary>
+            Gets Share
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.StringResources.ContentBlockResources.UseShared">
+            <summary>
+            Gets use shared
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.StringResources.ContentBlockResources.Unshare">
+            <summary>
+            Gets Unshare
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.StringResources.ContentBlockResources.SharedContentEditWarning">
+            <summary>
+            Gets This content is shared. Any changes will be reflected everywhere it is shared.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.StringResources.ContentBlockResources.ContentBlockResourcesTitle">
+            <summary>
+            Gets Content block widget resources
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.StringResources.ContentBlockResources.ContentBlockResourcesDescription">
+            <summary>
+            Gets Localizable strings for the Content block widget.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.StringResources.ContentBlockResources.Error">
+            <summary>
+            Gets Error!
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.StringResources.ContentBlockResources.ShareContentBlock">
+            <summary>
+            Gets Share content block
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.StringResources.ContentBlockResources.TitleRequired">
+            <summary>
+            Gets Title is required!
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.StringResources.ContentBlockResources.Simple">
+            <summary>
+            Gets Simple
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.StringResources.ContentBlockResources.SelectSharedContent">
+            <summary>
+            Gets Select shared content
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.StringResources.ContentBlockResources.NoItemsFound">
+            <summary>
+            Gets No items found
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.StringResources.ContentBlockResources.NoItemsHaveBeenCreatedYet">
+            <summary>
+            Gets No items have been created yet
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.StringResources.ContentBlockResources.NarrowByTyping">
+            <summary>
+            Gets Narrow by typing...
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.StringResources.ContentBlockResources.DoneSelecting">
+            <summary>
+            Gets Done selecting
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.StringResources.ContentBlockResources.ThisContentIsShared">
+            <summary>
+            Gets This content is shared.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.StringResources.ContentBlockResources.SharedContentWarning">
+            <summary>
+            Gets Any changes will be reflected everywhere it is shared.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.StringResources.ContentBlockResources.UnshareContentBlock">
+            <summary>
+            Gets Unshared content block
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.StringResources.ContentBlockResources.Provider">
+            <summary>
+            Gets the Provider
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.StringResources.ContentBlockResources.Add">
+            <summary>
+            word: Add
+            </summary>
+            <value>Add</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.StringResources.ContentBlockResources.ContentBlockTitle">
+            <summary>
+            Control name: Content Block
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.StringResources.ContentBlockResources.ContentBlockDescription">
+            <summary>
+            Control description: Control description:Control for inserting arbitrary content on the page
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.StringResources.ContentBlockResources.Close">
+            <summary>
+            Gets the close.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.StringResources.ContentBlockResources.SharingIsDisabled">
+            <summary>
+            Gets phrase: Sharing is disabled.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.ContentBlock.Mvc.StringResources.ContentBlockResources.SharingIsDisabledWarning">
+            <summary>
+            Gets phrase: To share content blocks or use already shared ones you must enable Generic Content for this site. Go to Manage sites > Configure modules (for the current site) or contact your administrator.
+            </summary>
+        </member>
+    </members>
+</doc>

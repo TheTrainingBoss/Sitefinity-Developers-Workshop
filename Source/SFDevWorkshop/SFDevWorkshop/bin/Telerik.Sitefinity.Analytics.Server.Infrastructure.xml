@@ -1,0 +1,493 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Telerik.Sitefinity.Analytics.Server.Infrastructure</name>
+    </assembly>
+    <members>
+        <member name="T:Telerik.Sitefinity.Analytics.Server.Infrastructure.AnalyticsModule">
+            <summary>
+            A module for managing events
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Analytics.Server.Infrastructure.AnalyticsModule.Managers">
+            <summary>
+            Gets the CLR types of all data managers provided by this module.
+            </summary>
+            <value>An array of <see cref="T:System.Type"/> objects.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Analytics.Server.Infrastructure.AnalyticsModule.LandingPageId">
+            <summary>
+            Gets the landing page id for the module.
+            </summary>
+            <value>The landing page id.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Analytics.Server.Infrastructure.AnalyticsModule.Initialize(Telerik.Sitefinity.Services.ModuleSettings)">
+            <summary>
+            Initializes the service with specified settings.
+            </summary>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Analytics.Server.Infrastructure.AnalyticsModule.Install(Telerik.Sitefinity.Abstractions.SiteInitializer)">
+            <summary>
+            Installs this module in Sitefinity system for the first time.
+            </summary>
+            <param name="initializer">The Site Initializer. A helper class for installing Sitefinity modules.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Analytics.Server.Infrastructure.AnalyticsModule.GetModuleConfig">
+            <summary>
+            Gets the module config.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Analytics.Server.Infrastructure.AnalyticsModule.Upgrade(Telerik.Sitefinity.Abstractions.SiteInitializer,System.Version)">
+            <summary>
+            Upgrades this module from the specified version.
+            </summary>
+            <param name="initializer">The Site Initializer. A helper class for installing Sitefinity modules.</param>
+            <param name="upgradeFrom">The version this module us upgrading from.</param>
+        </member>
+        <member name="F:Telerik.Sitefinity.Analytics.Server.Infrastructure.AnalyticsModule.AnalyticsModuleId">
+            <summary>
+            Module Id
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Analytics.Server.Infrastructure.AnalyticsModule.ModuleName">
+            <summary>
+            Name of the Analytics module.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Analytics.Server.Infrastructure.AnalyticsModule.ResourceClassId">
+            <summary>
+            Localization resources' class Id for analytics
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Analytics.Server.Infrastructure.AnalyticsModule.AnalyticsPageGroupId">
+            <summary>
+            Page group taxon for the analytics module
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Analytics.Server.Infrastructure.AnalyticsModule.HomePageId">
+            <summary>
+            Id of the home (landing) page for the analytics module
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Analytics.Server.Infrastructure.AnalyticsModule.PermissionsPageId">
+            <summary>
+            Identity of the permissions page for the analytics module
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Analytics.Server.Infrastructure.AnalyticsResources">
+            <summary>
+            Represents the string resources for files 
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Analytics.Server.Infrastructure.AnalyticsResources.#ctor">
+            <summary>
+            Initializes new instance of <see cref="T:Telerik.Sitefinity.Analytics.Server.Infrastructure.AnalyticsResources"/> class with the default <see cref="T:Telerik.Sitefinity.Localization.Data.ResourceDataProvider"/>.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Analytics.Server.Infrastructure.AnalyticsResources.#ctor(Telerik.Sitefinity.Localization.Data.ResourceDataProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Analytics.Server.Infrastructure.AnalyticsResources"/> class.
+            </summary>
+            <param name="dataProvider">The data provider.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Analytics.Server.Infrastructure.AnalyticsResources.AnalyticsResourcesTitle">
+            <summary>
+            Analytics
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Analytics.Server.Infrastructure.AnalyticsResources.AnalyticsResourcesDescription">
+            <summary>
+            Contains localizable resources for Files user interface.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Analytics.Server.Infrastructure.AnalyticsResources.ModuleTitle">
+            <summary>
+            Analytics
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Analytics.Server.Infrastructure.AnalyticsResources.AccessAnalytics">
+            <summary>
+            Phrase: Analytics module
+            </summary>
+            <value>Analytics module</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Analytics.Server.Infrastructure.AnalyticsResources.AnalyticsWidgetTitle">
+            <summary>
+            The title of the Dashboard View control in pages toolbox.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Analytics.Server.Infrastructure.AnalyticsResources.PageGroupNodeTitle">
+            <summary>
+            Analytics
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Analytics.Server.Infrastructure.AnalyticsResources.PageGroupNodeUrlName">
+            <summary>
+            Analytics
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Analytics.Server.Infrastructure.AnalyticsResources.AnalyticsTimelineWidgetToolboxTitle">
+            <summary>
+            Analytics
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Analytics.Server.Infrastructure.AnalyticsResources.PageGroupNodeDescription">
+            <summary>
+            Represents a group of pages that provide site usage analyses.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Analytics.Server.Infrastructure.AnalyticsResources.AnalyticsTitle">
+            <summary>
+            Analytics
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Analytics.Server.Infrastructure.AnalyticsResources.AnalyticsUrlName">
+            <summary>
+            Analytics
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Analytics.Server.Infrastructure.AnalyticsResources.AnalyticsDescription">
+            <summary>
+            Represents a landing page in the backend for Analytics module.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Analytics.Server.Infrastructure.AnalyticsApiAccessManager">
+            <summary>
+             Provides access for other modules to the Analytics API.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Analytics.Server.Infrastructure.AnalyticsApiAccessManager.AnalyticsModuleId">
+            <summary>
+            Returns the ModuleId of the Analytics module.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Analytics.Server.Infrastructure.AnalyticsApiAccessManager.GetTopContentReportPath(System.String,System.Guid)">
+            <summary>
+            Returns the path to the report for a given Sitefinity page.
+            </summary>
+            <param name="pageUrl">The url of the page.</param>
+            <param name="pageNodeId">Page Node Id of the page. Used to get all links the page has.</param>
+            <returns></returns>
+        </member>
+        <member name="P:Telerik.Sitefinity.Analytics.Server.Infrastructure.AnalyticsApiAccessManager.IsConfigured">
+            <summary>
+            Returns if the Analytics application is configured and installed as a module in Sitefinity.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Analytics.Server.Infrastructure.AnalyticsApiAccessManager.GetLinkForItem(System.String,System.String,System.Type,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Analytics.Server.Infrastructure.AnalyticsApiAccessManager.DoesItemSupportAnalytics(System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Analytics.Server.Infrastructure.Factories.FilterOptionFactory.CreateFilter(Telerik.Sitefinity.Analytics.Server.Core.Domain.Reports.AnalyticsRequest,Telerik.Sitefinity.Analytics.Server.Core.Domain.Model.FilterOption,System.String)">
+            <summary>
+            Creates filter for the analytics data. This method also dispatches Sitefinity specific filters like: sf:allpages and sf:allcontentpages.
+            </summary>
+            <param name="analyticsRequest">Request for which a filter should be built</param>
+            <param name="dataReportFilter">The filter to start from (if we append to existing filter)</param>
+            <param name="trackedDomain">Domain for which the filter will be used.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Analytics.Server.Infrastructure.Factories.FilterOptionFactory.ProcessSitefinityContentFilter(System.String,Telerik.Sitefinity.Analytics.Server.Core.Domain.Model.FilterOption,Telerik.Sitefinity.Analytics.Server.Core.Domain.Model.Dimension,System.String)">
+            <summary>
+            Creates a filter by taking all the content page links to a given content item.
+            </summary>
+            <param name="trackedDomain">Domain for which the filter will be used</param>
+            <param name="filterOption">Filter option to append to.</param>
+            <param name="dimension">Dimension on which to filter</param>
+            <param name="parameter">The url parameter that contains the filter string (it must contain Content Type and Content Id)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Analytics.Server.Infrastructure.Factories.FilterOptionFactory.ProcessSitefinityPageFilter(System.String,Telerik.Sitefinity.Analytics.Server.Core.Domain.Model.FilterOption,System.Collections.Generic.KeyValuePair{System.String,System.String},Telerik.Sitefinity.Analytics.Server.Core.Domain.Model.Dimension,System.String)">
+            <summary>
+            Creates a filter by including all the page urls for a given page.
+            </summary>
+            <param name="trackedDomain">Domain for which the filter will be used</param>
+            <param name="filterOption">Filter option to append to.</param>
+            <param name="stringParameter">The parameters used for the filter.</param>
+            <param name="dimension">Dimension to filter on</param>
+            <param name="parameter">The query string that came from analytics.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Analytics.Server.Infrastructure.Factories.FilterOptionFactory.ApplySubFilters(Telerik.Sitefinity.Analytics.Server.Core.Domain.Model.FilterOption,System.Collections.Generic.IEnumerable{Telerik.Sitefinity.Analytics.Server.Core.Domain.Model.FilterOption})">
+            <summary>
+            Adds a subfilter to an existing filter. Deep clone.
+            </summary>
+            <param name="filterOption">The filter to append subfilters to.</param>
+            <param name="subFilters">Subfilters to append</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Analytics.Server.Infrastructure.Factories.FilterOptionFactory.CreateSubFilters(Telerik.Sitefinity.Analytics.Server.Core.Domain.Model.FilterOption,System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{Telerik.Sitefinity.Analytics.Server.Core.Domain.DTO.DimensionItem}})">
+            <summary>
+            
+            </summary>
+            <param name="baseFilter"></param>
+            <param name="topPerformers"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Analytics.Server.Infrastructure.Factories.FilterOptionFactory.FindTail(Telerik.Sitefinity.Analytics.Server.Core.Domain.Model.FilterOption)">
+            <summary>
+            
+            </summary>
+            <param name="filterOption"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Analytics.Server.Infrastructure.Services.ServiceStackServices.Model.ClientCredential">
+            <summary>
+            Client credentials
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Analytics.Server.Infrastructure.Services.ServiceStackServices.Model.ClientCredential.ClientId">
+            <summary>
+            Gets or sets client id
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Analytics.Server.Infrastructure.Services.ServiceStackServices.Model.ClientCredential.ClientSecret">
+            <summary>
+            Gets or sets client Secret
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Analytics.Server.Infrastructure.Services.ServiceStackServices.Model.GetAllClientCredentialsData">
+            <summary>
+            Registered clients credentials
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Analytics.Server.Infrastructure.Services.ServiceStackServices.Model.GetAllClientCredentialsData.ClientCredentials">
+            <summary>
+            Gets or sets clients
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Analytics.Server.Infrastructure.Services.ServiceStackServices.Model.GetAllClientCredentialsMessage">
+            <summary>
+            Client credentials message
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Analytics.Server.Infrastructure.Services.ServiceStackServices.Model.GetAllClientCredentialsMessage.SiteId">
+            <summary>
+            Gets or sets site id
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Analytics.Server.Infrastructure.Services.MapDataService">
+            <summary>
+            Provides methods for retrieving map view data which corresponds to given analytical metrics.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Analytics.Server.Infrastructure.Services.MapDataService.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Analytics.Server.Infrastructure.Services.MapDataService"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Analytics.Server.Infrastructure.Services.MapDataService.GetTopCities(System.DateTime,System.DateTime,System.Guid,System.Collections.Generic.IEnumerable{Telerik.Sitefinity.Analytics.Server.Core.Domain.Model.Metric},System.String)">
+            <summary>
+            Gets the corresponding top cities data for the provided metrics.
+            </summary>
+            <param name="startDate">The start date.</param>
+            <param name="endDate">The end date.</param>
+            <param name="dashboardId">The dashboard identifier.</param>
+            <param name="metrics">The metrics.</param>
+            <param name="filter">The filter.</param>
+            <returns>
+            The top cities data.
+            </returns>
+            <exception cref="T:Telerik.Sitefinity.Analytics.Server.Core.Exceptions.DashboardPermissionsException"></exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.Analytics.Server.Infrastructure.Services.MapDataService.GetTopCountries(System.DateTime,System.DateTime,System.Guid,System.Collections.Generic.IEnumerable{Telerik.Sitefinity.Analytics.Server.Core.Domain.Model.Metric},System.String)">
+            <summary>
+            Gets the corresponding top countries data for the provided metrics.
+            </summary>
+            <param name="startDate">The start date.</param>
+            <param name="endDate">The end date.</param>
+            <param name="dashboardId">The dashboard identifier.</param>
+            <param name="metrics">The metrics.</param>
+            <param name="filter">The filter.</param>
+            <returns>
+            The top countries data.
+            </returns>
+            <exception cref="T:Telerik.Sitefinity.Analytics.Server.Core.Exceptions.DashboardPermissionsException"></exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.Analytics.Server.Infrastructure.ValueResolvers.GoogleAnalyticsResolver.ResolveMedium(Telerik.Sitefinity.Analytics.Server.Core.Domain.Model.GoogleAnalyticsEntry)">
+            <summary>
+            Returns the medium as enum.
+            </summary>
+            <param name="source">The entry who'se medium should be resolved.</param>
+            <returns>The analytics medium or null if there is no such medium in the enum.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Analytics.Server.Infrastructure.ValueResolvers.GoogleAnalyticsResolver.ResolveKeywords(Telerik.Sitefinity.Analytics.Server.Core.Domain.Model.GoogleAnalyticsEntry)">
+            <summary>
+            Resolves the Google keywords.
+            </summary>
+            <param name="source">The entry whose keywords should be resolved</param>
+            <returns>Null if the keywords is (not set) and the keywords otherwise.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Analytics.Server.Infrastructure.ValueResolvers.GoogleAnalyticsResolver.ResolveDataContext(Telerik.Sitefinity.Analytics.Server.Core.Domain.Model.GoogleAnalyticsEntry)">
+            <summary>
+            Returns some of the 
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Telerik.Sitefinity.Analytics.Server.Infrastructure.Web.UI.AnalyticsControl.ResourcesAssemblyInfo">
+            <summary>
+            Gets a type from the resource assembly.
+            Resource assembly is an assembly that contains embedded resources such as templates, images, CSS files and etc.
+            By default this is Telerik.Sitefinity.Resources.dll.
+            </summary>
+            <value>The resources assembly info.</value>
+        </member>
+        <member name="F:Telerik.Sitefinity.Analytics.Server.Infrastructure.Web.UI.AnalyticsControl.ViewPath">
+            <summary>
+            Gets the name of resource file representing the Web Analytics View.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:Telerik.Sitefinity.Analytics.Server.Infrastructure.Web.UI.AnalyticsTimeline.AnalyticsTimelineDashboard" -->
+        <member name="P:Telerik.Sitefinity.Analytics.Server.Infrastructure.Web.UI.AnalyticsTimeline.AnalyticsTimelineDashboard.PrimaryMetricName">
+            <summary>
+            The name of the primary metric to show.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Analytics.Server.Infrastructure.Web.UI.AnalyticsTimeline.AnalyticsTimelineDashboard.SecondaryMetricName">
+            <summary>
+            The name of the secondary metric to show.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Analytics.Server.Infrastructure.Web.UI.AnalyticsTimeline.AnalyticsTimelineDashboard.Title">
+            <summary>
+            The title of the widget.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Analytics.Server.Infrastructure.Web.UI.AnalyticsTimeline.AnalyticsTimelineDashboard.MoreReportsUrl">
+            <summary>
+            Link to more reports. Used for the "More stats" link in the widget.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Analytics.Server.Infrastructure.Web.UI.AnalyticsTimeline.AnalyticsTimelineDashboard.ShowReportForTheLastNDays">
+            <summary>
+            The number of days the widget will show data for. Default is 30.
+            </summary>
+            
+        </member>
+        <member name="P:Telerik.Sitefinity.Analytics.Server.Infrastructure.Web.UI.AnalyticsTimeline.AnalyticsTimelineDashboard.LayoutTemplateName">
+            <summary>
+            Obsolete. Use LayoutTemplatePath instead.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Analytics.Server.Infrastructure.Web.UI.AnalyticsTimeline.AnalyticsTimelineDashboard.LayoutTemplatePath">
+            <summary>
+            Gets the layout template's relative or virtual path.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Analytics.Server.Infrastructure.Web.UI.AnalyticsTimeline.AnalyticsTimelineDashboard.InitializeControls(Telerik.Sitefinity.Web.UI.GenericContainer)">
+            <summary>
+            Initializes the controls.
+            </summary>
+            <param name="container"></param>
+            <remarks>
+            Initialize your controls in this method. Do not override CreateChildControls method.
+            </remarks>
+        </member>
+        <member name="T:Telerik.Sitefinity.Analytics.Server.Infrastructure.Web.UI.AnalyticsTimeline.Designer.AnalyticsTimelineDashboardDesigner">
+            <summary>
+            Represents a designer for the <typeparamref name="Telerik.Sitefinity.Analytics.Server.Infrastructure.Web.UI.AnalyticsTimeline.AnalyticsTimelineDashboard.Sitefinity.Analytics.Server.Infrastructure.Web.UI.AnalyticsTimeline.AnalyticsTimelineDashboard"/> widget
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Analytics.Server.Infrastructure.Web.UI.AnalyticsTimeline.Designer.AnalyticsTimelineDashboardDesigner.LayoutTemplateName">
+            <summary>
+            Obsolete. Use LayoutTemplatePath instead.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Analytics.Server.Infrastructure.Web.UI.AnalyticsTimeline.Designer.AnalyticsTimelineDashboardDesigner.LayoutTemplatePath">
+            <summary>
+            Gets the layout template's relative or virtual path.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Analytics.Server.Infrastructure.Web.UI.AnalyticsTimeline.Designer.AnalyticsTimelineDashboardDesigner.PrimaryMetricDropdown">
+            <summary>
+            Gets the control that is bound to the Message property
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Analytics.Server.Infrastructure.Web.UI.AnalyticsTimeline.Designer.AnalyticsTimelineDashboardDesigner.GetScriptDescriptors">
+            <summary>
+            Gets a collection of script descriptors that represent ECMAScript (JavaScript) client components.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Analytics.Server.Infrastructure.Web.UI.AnalyticsTimeline.Designer.AnalyticsTimelineDashboardDesigner.GetScriptReferences">
+            <summary>
+            Gets a collection of ScriptReference objects that define script resources that the control requires.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Analytics.Server.GoogleAnalyticsPlugin.Config.AnalyticsClientCredentialsSettingConfigElement">
+            <summary>
+            Analytics config element for client credentials
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Analytics.Server.GoogleAnalyticsPlugin.Config.AnalyticsClientCredentialsSettingConfigElement.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Analytics.Server.GoogleAnalyticsPlugin.Config.AnalyticsClientCredentialsSettingConfigElement" /> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Analytics.Server.GoogleAnalyticsPlugin.Config.AnalyticsClientCredentialsSettingConfigElement.#ctor(Telerik.Sitefinity.Configuration.ConfigElement)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Analytics.Server.GoogleAnalyticsPlugin.Config.AnalyticsClientCredentialsSettingConfigElement" /> class.
+            </summary>
+            <param name="parent">Parent config element</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Analytics.Server.GoogleAnalyticsPlugin.Config.AnalyticsClientCredentialsSettingConfigElement.AccessToken">
+            <summary>
+            Gets or sets Access Token
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Analytics.Server.GoogleAnalyticsPlugin.Config.AnalyticsClientCredentialsSettingConfigElement.TokenType">
+            <summary>
+            Gets or sets Token Type
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Analytics.Server.GoogleAnalyticsPlugin.Config.AnalyticsClientCredentialsSettingConfigElement.ClientId">
+            <summary>
+            Gets or sets Client Id
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Analytics.Server.GoogleAnalyticsPlugin.Config.AnalyticsClientCredentialsSettingConfigElement.ClientSecret">
+            <summary>
+            Gets or sets Client Secret
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Analytics.Server.GoogleAnalyticsPlugin.Config.AnalyticsClientCredentialsSettingConfigElement.ExpiresInSeconds">
+            <summary>
+            Gets or sets Expires In Seconds
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Analytics.Server.GoogleAnalyticsPlugin.Config.AnalyticsClientCredentialsSettingConfigElement.ExpiresOn">
+            <summary>
+            Gets or sets Expires On
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Analytics.Server.GoogleAnalyticsPlugin.Config.AnalyticsClientCredentialsSettingConfigElement.RefreshToken">
+            <summary>
+            Gets or sets Refresh Token
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Analytics.Server.GoogleAnalyticsPlugin.Config.AnalyticsClientCredentialsSettingConfigElement.RetrievedOn">
+            <summary>
+            Gets or sets Retrieved On
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Analytics.Server.GoogleAnalyticsPlugin.Config.AnalyticsConfig.Sites">
+            <summary>
+            Gets a collection of data provider settings.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Analytics.Server.GoogleAnalyticsPlugin.Config.AnalyticsConfig.ClientCredentials">
+            <summary>
+            Gets a collection of data provider settings.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Analytics.Server.GoogleAnalyticsPlugin.Config.AnalyticsConfig.EnsureAllDashboards">
+            <summary>
+            Add all dashboards to the config if necessary.
+            </summary>
+        </member>
+    </members>
+</doc>

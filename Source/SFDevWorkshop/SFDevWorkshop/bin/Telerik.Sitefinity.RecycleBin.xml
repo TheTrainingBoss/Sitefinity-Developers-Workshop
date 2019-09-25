@@ -1,0 +1,1363 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Telerik.Sitefinity.RecycleBin</name>
+    </assembly>
+    <members>
+        <member name="T:Telerik.Sitefinity.RecycleBin.Configuration.RecycleBinBasicSettingsView">
+            <summary>
+            Represent basic settings for recycle bin
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Configuration.RecycleBinBasicSettingsView.LayoutTemplatePath">
+            <summary>
+            Gets or sets the path to a custom layout template for the control.
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Configuration.RecycleBinBasicSettingsView.InitializeControls(Telerik.Sitefinity.Web.UI.GenericContainer)">
+            <summary>
+            Initializes the controls.
+            </summary>
+            <param name="container">Generic container</param>
+            <remarks>
+            Initialize your controls in this method. Do not override CreateChildControls method.
+            </remarks>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecycleBin.Configuration.RecycleBinConfig">
+            <summary>
+            The configuration section that contains Recycle Bin related settings.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Configuration.RecycleBinConfig.InitializeDefaultProviders(Telerik.Sitefinity.Configuration.ConfigElementDictionary{System.String,Telerik.Sitefinity.Configuration.DataProviderSettings})">
+            <summary>
+            Initializes the default providers for the Recycle Bin module.
+            </summary>
+            <param name="providers">The collection of providers to initialize.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Configuration.RecycleBinConfig.RecycleBinEnabled">
+            <summary>
+            Gets or sets a value indicating whether the Recycle Bin feature is enabled for the modules (data items) that support it.
+            </summary>
+            <remarks>If this setting is enabled all deletions from the UI of the supported data items will move them to the Recycle Bin.</remarks>
+            <value>The recycle bin enabled value.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Configuration.RecycleBinConfig.RetentionPeriod">
+            <summary>
+            Gets or sets a value indicating the maximum period of time that 
+            an item will be kept in the Recycle Bin before being permanently deleted.
+            </summary>
+            <value>The recycle bin enabled value.</value>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecycleBin.Configuration.RecycleBinSettingsContract">
+            <summary>
+            Represents the contract for recycle bin settings.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Configuration.RecycleBinSettingsContract.RecycleBinEnabled">
+            <summary>
+            Gets or sets a value indicating whether recycle bin is enabled.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Configuration.RecycleBinSettingsContract.RetentionPeriod">
+            <summary>
+            Gets or sets the Recycle Bin retention period in days.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Configuration.RecycleBinSettingsContract.GetRetentionPeriodConverter">
+            <summary>
+            Gets the retention period converter to use when mapping the basic setting value
+            to the configuration element value
+            </summary>
+            <returns>The retention period converter</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Configuration.RecycleBinSettingsContract.SetRetentionPeriod(System.TimeSpan)">
+            <summary>
+            Sets the Recycle Bin retention period from a <see cref="T:System.TimeSpan"/>.
+            </summary>
+            <param name="retentionPeriod">The retention period as <see cref="T:System.TimeSpan"/>.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Configuration.RecycleBinSettingsContract.GetRetentionPeriodAsTimeSpan">
+            <summary>
+            Gets the Recycle Bin retention period as <see cref="T:System.TimeSpan"/>.
+            </summary>
+            <returns>The retention period as <see cref="T:System.TimeSpan"/>.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Configuration.RecycleBinSettingsContract.LoadDefaults(System.Boolean)">
+            <summary>
+            Loads recycle bin settings.
+            </summary>
+            <param name="forEdit">if set to <c>true</c> the section is loaded 
+            in the Configurations manager so that it can be modified and saved.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Configuration.RecycleBinSettingsContract.SaveDefaults">
+            <summary>
+            Saves recycle bin settings.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecycleBin.IRecycleBinRelatedDataManager">
+            <summary>
+            Manages deleted state of content links used to relate data.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.IRecycleBinRelatedDataManager.SetContentLinksDeletedState(System.Type,System.String,System.Guid,System.Boolean)">
+            <summary>
+            Sets the deleted state for the item's content links.
+            </summary>
+            <param name="itemType">The type of the item which relations are marked as deleted.</param>
+            <param name="providerName">The item provider name.</param>
+            <param name="itemId">The id of the item which relations are marked as deleted.</param>
+            <param name="markAsDeleted">Indicates whether to mark content links as deleted.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecycleBin.RecycleBinRelatedDataManager">
+            <summary>
+            Manages deleted state of content links used to relate data.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.RecycleBinRelatedDataManager.SetContentLinksDeletedState(System.Type,System.String,System.Guid,System.Boolean)">
+            <summary>
+            Sets the deleted state for the item's content links.
+            </summary>
+            <param name="itemType">The type of the item which relations are marked as deleted.</param>
+            <param name="providerName">The item provider name.</param>
+            <param name="itemId">The id of the item which relations are marked as deleted.</param>
+            <param name="markAsDeleted">Indicates whether to mark content links as deleted.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecycleBin.Services.Dto.Responses.BatchRestoreModalMessageProxy">
+            <summary>
+            Response DTO for Recycle Bin Modal message.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Services.Dto.Responses.BatchRestoreModalMessageProxy.#ctor(Telerik.Sitefinity.RecycleBin.Services.Dto.Responses.ModalMessageProxy)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.RecycleBin.Services.Dto.Responses.BatchRestoreModalMessageProxy" /> class.
+            </summary>
+            <param name="modalMessageProxy">The modal message proxy.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Services.Dto.Responses.BatchRestoreModalMessageProxy.InvalidItems">
+            <summary>
+            Gets or sets the invalid ids of items that cannot be restored for some reason.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecycleBin.Services.Dto.Responses.GetRecycleBinCountProxy">
+            <summary>
+            Response DTO for get Recycle Bin count.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Services.Dto.Responses.GetRecycleBinCountProxy.TotalCount">
+            <summary>
+            Gets or sets the total items count.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecycleBin.Services.Dto.Responses.GetRecyclableTypeProxy">
+            <summary>
+            Response DTO for get Recyclable type.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Services.Dto.Responses.GetRecyclableTypeProxy.Name">
+            <summary>
+            Gets or sets the visible name.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Services.Dto.Responses.GetRecyclableTypeProxy.FullName">
+            <summary>
+            Gets or sets the name of item type.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Services.Dto.Responses.GetRecyclableTypeProxy.Count">
+            <summary>
+            Gets or sets the items count.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecycleBin.Services.Dto.Responses.ModalMessageProxy">
+            <summary>
+            Response DTO for Recycle Bin Modal message.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Services.Dto.Responses.ModalMessageProxy.IsRecoverable">
+            <summary>
+            Gets or sets a value indicating whether this instance is recoverable.
+            </summary>
+            <value>
+            <c>true</c> if this instance is recoverable; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Services.Dto.Responses.ModalMessageProxy.HeaderText">
+            <summary>
+            Gets or sets the header text.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Services.Dto.Responses.ModalMessageProxy.BodyText">
+            <summary>
+            Gets or sets the body text.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Services.Dto.Responses.ModalMessageProxy.ActionButtonText">
+            <summary>
+            Gets or sets the action button text.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Services.Dto.Responses.ModalMessageProxy.HasCancelButton">
+            <summary>
+            Gets or sets a value indicating whether this instance has cancel button.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecycleBin.Services.Dto.Requests.EmptyRecycleBin">
+            <summary>
+            Request DTO for Empty Recycle Bin.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecycleBin.Services.Dto.Requests.GetRecycleBinItemValidation">
+            <summary>
+            Request DTO for validate restore of Recycle Bin item.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecycleBin.Services.Dto.Requests.RestoreDataItem">
+            <summary>
+            Request DTO for restoring data item from Recycle Bin.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Services.Dto.Requests.RestoreDataItem.ItemIdentification">
+            <summary>
+            Gets or sets the item identification object.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecycleBin.Services.Dto.Requests.RestoreDataItems">
+            <summary>
+            Request DTO for restoring data items from Recycle Bin.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Services.Dto.Requests.RestoreDataItems.ItemIdentifications">
+            <summary>
+            Gets or sets the item identification objects.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecycleBin.Services.Dto.Requests.RestoreRecycleBinItems">
+            <summary>
+            Request DTO for restoring items from Recycle Bin.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Services.Dto.Requests.RestoreRecycleBinItems.Ids">
+            <summary>
+            Gets or sets the items IDs for restore.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecycleBin.Services.Dto.Requests.DeleteRecycleBinItems">
+            <summary>
+            Request DTO for deleting items from Recycle Bin.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Services.Dto.Requests.DeleteRecycleBinItems.Ids">
+            <summary>
+            Gets or sets the items IDs for restore.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecycleBin.Services.Dto.Requests.DeleteRecycleBinItem">
+            <summary>
+            Request DTO for deleting item from Recycle Bin.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecycleBin.Services.Dto.Requests.FindRecycleBinItems">
+            <summary>
+            Request DTO for getting list of recycle bin items by filter criteria
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Services.Dto.Requests.FindRecycleBinItems.Skip">
+            <summary>
+            Gets or sets the skip parameter.
+            </summary>
+            <value>The skip.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Services.Dto.Requests.FindRecycleBinItems.Take">
+            <summary>
+            Gets or sets the take parameter.
+            </summary>
+            <value>The take.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Services.Dto.Requests.FindRecycleBinItems.OrderExpression">
+            <summary>
+            Gets or sets the order expression.
+            </summary>
+            <value>
+            The order expression.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Services.Dto.Requests.FindRecycleBinItems.TypeName">
+            <summary>
+            Gets or sets the name of the content type.
+            </summary>
+            <value>The name of the type.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Services.Dto.Requests.FindRecycleBinItems.SearchText">
+            <summary>
+            Gets or sets the search text.
+            </summary>
+            <value>
+            The search text.
+            </value>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecycleBin.Services.Dto.Requests.GetRecyclableType">
+            <summary>
+            Request DTO for getting Recyclable types
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecycleBin.Services.Dto.Requests.GetRecycleBinCount">
+            <summary>
+            Request DTO for getting Recycle Bin count.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Services.Dto.Requests.GetRecycleBinCount.TypeName">
+            <summary>
+            Gets or sets the name of the content type.
+            </summary>
+            <value>The name of the type.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Services.Dto.Requests.GetRecycleBinCount.SearchText">
+            <summary>
+            Gets or sets the search text.
+            </summary>
+            <value>
+            The search text.
+            </value>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecycleBin.Services.Dto.Requests.GetRecycleBinItem">
+            <summary>
+            Request DTO for getting single recycle bin item
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecycleBin.Services.Dto.Requests.RecycelBinItemRequestBase">
+            <summary>
+            Abstract class representing single recycle bin request DTO
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Services.Dto.Requests.RecycelBinItemRequestBase.Id">
+            <summary>
+            Gets or sets the id of the item.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecycleBin.Services.Dto.Requests.RestoreRecycleBinItem">
+            <summary>
+            Request DTO for restoring item from Recycle Bin.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecycleBin.Services.Dto.IRecycleBinItemFilter">
+            <summary>
+            Filter recycle bin items by various criteria.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Services.Dto.IRecycleBinItemFilter.TypeName">
+            <summary>
+            Gets or sets the name of the content type.
+            </summary>
+            <value>The name of the type.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Services.Dto.IRecycleBinItemFilter.SearchText">
+            <summary>
+            Gets or sets the search text.
+            </summary>
+            <value>
+            The search text.
+            </value>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecycleBin.Services.Dto.DataItemIdentification">
+            <summary>
+            Object used for transfer of identification information to uniquely identify database stored item
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Services.Dto.DataItemIdentification.Id">
+            <summary>
+            Gets or sets the item id
+            </summary>
+            <value>
+            The id.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Services.Dto.DataItemIdentification.TypeName">
+            <summary>
+            Gets or sets the name of the item type.
+            </summary>
+            <value>The name of the item type.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Services.Dto.DataItemIdentification.ProviderName">
+            <summary>
+            Gets or sets the provider name that is responsible for the item.
+            </summary>
+            <value>The provider name.</value>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecycleBin.Services.Dto.RecycleBinItemProxy">
+            <summary>
+            A proxy object containing representative information for an recycle bin data item.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Services.Dto.RecycleBinItemProxy.Id">
+            <summary>
+            Gets or sets the id of the <see cref="T:Telerik.Sitefinity.RecycleBin.Services.Dto.RecycleBinItemProxy"/> object.
+            </summary>
+            <value>
+            The id.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Services.Dto.RecycleBinItemProxy.ProviderName">
+            <summary>
+            Gets or sets the name of the provider for the deleted data item.
+            </summary>
+            <value>The name of the provider.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Services.Dto.RecycleBinItemProxy.ItemTypeName">
+            <summary>
+            Gets or sets the name of the item type.
+            </summary>
+            <value>The name of the item type.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Services.Dto.RecycleBinItemProxy.DisplayTypeName">
+            <summary>
+            Gets or sets the display name of the item type.
+            </summary>
+            <value>The display name of the item type.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Services.Dto.RecycleBinItemProxy.DataItemId">
+            <summary>
+            Gets or sets the id of the deleted data item.
+            </summary>
+            <value>Guid with the id of the deleted item.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Services.Dto.RecycleBinItemProxy.ItemTitle">
+            <summary>
+            Gets or sets the title of the item.
+            </summary>
+            <value>Title of the item.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Services.Dto.RecycleBinItemProxy.Status">
+            <summary>
+            Gets or sets the status of the item.
+            </summary>
+            <value>
+            The status of the item.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Services.Dto.RecycleBinItemProxy.StatusText">
+            <summary>
+            Gets or sets the status text of the item.
+            </summary>
+            <value>
+            The status text of the item.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Services.Dto.RecycleBinItemProxy.ItemLanguage">
+            <summary>
+            Gets or sets the language of the item.
+            </summary>
+            <value>Language of the item.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Services.Dto.RecycleBinItemProxy.OwnerName">
+            <summary>
+            Gets or sets the name of the item owner.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Services.Dto.RecycleBinItemProxy.DateCreated">
+            <summary>
+            Gets or sets the item creation date.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Services.Dto.RecycleBinItemProxy.ParentTypeName">
+            <summary>
+            Gets or sets the parent type of the item.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Services.Dto.RecycleBinItemProxy.ParentTitlesPath">
+            <summary>
+            Gets or sets the parent titles path of the item.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecycleBin.Services.RecycleBinServiceStackPlugin">
+            <summary>
+            Represents a ServiceStack plug-in for the Recycle Bin web service.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Services.RecycleBinServiceStackPlugin.Register(ServiceStack.IAppHost)">
+            <summary>
+            Adding the recycle bin service routes
+            </summary>
+            <param name="appHost">The service stack appHost</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecycleBin.Services.RecycleBinWebService">
+            <summary>
+            This class represents the rest service used from the Recycle bin feature in Sitefinity.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Services.RecycleBinWebService.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.RecycleBin.Services.RecycleBinWebService" /> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Services.RecycleBinWebService.#ctor(Telerik.Sitefinity.RecycleBin.Filters.IPagingFilter,Telerik.Sitefinity.RecycleBin.Filters.IRecycleBinGeneralFilter,Telerik.Sitefinity.RecycleBin.Filters.IRecycleBinSiteFilter,Telerik.Sitefinity.RecycleBin.Filters.IRecycleBinPermissionsFilter)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.RecycleBin.Services.RecycleBinWebService" /> class.
+            </summary>
+            <param name="pagingFilter">The filter used to apply paging.</param>
+            <param name="generalFilter">The general filter.</param>
+            <param name="siteFilter">The filter used to get items from current site.</param>
+            <param name="permissionsFilter">The filter used to filter items by current user's permissions.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Services.RecycleBinWebService.Get(Telerik.Sitefinity.RecycleBin.Services.Dto.Requests.FindRecycleBinItems)">
+            <summary>
+            Gets a list of recycle bin items.
+            </summary>
+            <param name="request">Request DTO for finding recycle bin items by specific criteria.</param>
+            <returns>Returns list of RecycleBinItemProxy objects</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Services.RecycleBinWebService.Get(Telerik.Sitefinity.RecycleBin.Services.Dto.Requests.GetRecycleBinItem)">
+            <summary>
+            Gets single recycle bin item.
+            </summary>
+            <param name="request">Request DTO for getting single recycle bin item.</param>
+            <returns>Returns the Recycle bin item data</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Services.RecycleBinWebService.Delete(Telerik.Sitefinity.RecycleBin.Services.Dto.Requests.DeleteRecycleBinItem)">
+            <summary>
+            Deletes item from Recycle Bin.
+            </summary>
+            <param name="request">The request.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Services.RecycleBinWebService.Put(Telerik.Sitefinity.RecycleBin.Services.Dto.Requests.RestoreRecycleBinItem)">
+            <summary>
+            Restores item from Recycle Bin.
+            </summary>
+            <param name="request">The request.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Services.RecycleBinWebService.Get(Telerik.Sitefinity.RecycleBin.Services.Dto.Requests.GetRecycleBinCount)">
+            <summary>
+            Gets the count of items.
+            </summary>
+            <param name="request">Request DTO for getting Recycle Bin counts.</param>
+            <returns>Returns <see cref="T:Telerik.Sitefinity.RecycleBin.Services.Dto.Responses.GetRecycleBinCountProxy"/>.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Services.RecycleBinWebService.Get(Telerik.Sitefinity.RecycleBin.Services.Dto.Requests.EmptyRecycleBin)">
+            <summary>
+            Empty Recycle Bin.
+            </summary>
+            <param name="request">The request.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Services.RecycleBinWebService.Post(Telerik.Sitefinity.RecycleBin.Services.Dto.Requests.RestoreRecycleBinItems)">
+            <summary>
+            Restores items from Recycle Bin.
+            </summary>
+            <param name="request">The request.</param>
+            <returns>Return <see cref="T:Telerik.Sitefinity.RecycleBin.Services.Dto.Responses.BatchRestoreModalMessageProxy"/>.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Services.RecycleBinWebService.Post(Telerik.Sitefinity.RecycleBin.Services.Dto.Requests.DeleteRecycleBinItems)">
+            <summary>
+            Deletes items from Recycle Bin.
+            </summary>
+            <param name="request">The request.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Services.RecycleBinWebService.Get(Telerik.Sitefinity.RecycleBin.Services.Dto.Requests.GetRecycleBinItemValidation)">
+            <summary>
+            Gets the first restore reason giving priority to the non recoverable reasons.
+            </summary>
+            <param name="request">Request DTO to validate Recycle Bin item.</param>
+            <returns>Returns the Recycle Bin modal message.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Services.RecycleBinWebService.Get(Telerik.Sitefinity.RecycleBin.Services.Dto.Requests.GetRecyclableType)">
+            <summary>
+            Gets a list of recycle bin item types <see cref="T:Telerik.Sitefinity.RecycleBin.Services.Dto.Responses.GetRecyclableTypeProxy"/>.
+            </summary>
+            <param name="request">Request DTO <see cref="T:Telerik.Sitefinity.RecycleBin.Services.Dto.Requests.GetRecyclableType"/> for finding recycle bin item types by specific criteria.</param>
+            <returns>Returns list of <see cref="T:Telerik.Sitefinity.RecycleBin.Services.Dto.Responses.GetRecyclableTypeProxy"/>.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Services.RecycleBinWebService.Put(Telerik.Sitefinity.RecycleBin.Services.Dto.Requests.RestoreDataItem)">
+            <summary>
+            Restores item from Recycle Bin.
+            </summary>
+            <param name="request">The request.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Services.RecycleBinWebService.Post(Telerik.Sitefinity.RecycleBin.Services.Dto.Requests.RestoreDataItems)">
+            <summary>
+            Restores items from Recycle Bin.
+            </summary>
+            <param name="request">The request.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Services.RecycleBinWebService.RequestBackendUserAuthentication">
+            <summary>
+            Requests back-end user authentication.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Services.RecycleBinWebService.DisableCache">
+            <summary>
+            Disables the cache.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Services.RecycleBinWebService.GetRecycleBinManager">
+            <summary>
+            Gets the recycle bin manager.
+            </summary>
+            <returns>Instance of <see cref="T:Telerik.Sitefinity.RecycleBin.IRecycleBinManager"/></returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecycleBin.Web.UI.ModalMessages.IRecycleBinModalMessageFactory">
+            <summary>
+            Interface for Recycle Bin modal messages.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Web.UI.ModalMessages.IRecycleBinModalMessageFactory.GetRecycleBinModalMessage(Telerik.Sitefinity.RecycleBin.Conflicts.IRestoreConflict)">
+            <summary>
+            Gets the recycle bin modal message.
+            </summary>
+            <param name="invalidRestoreReason">The invalid restore reason.</param>
+            <returns>Return <see cref="T:Telerik.Sitefinity.RecycleBin.Services.Dto.Responses.ModalMessageProxy"/>.</returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecycleBin.Web.UI.ModalMessages.RecycleBinModalMessageFactory">
+            <summary>
+            Factory for <see cref="T:Telerik.Sitefinity.RecycleBin.Services.Dto.Responses.ModalMessageProxy"/> objects.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Web.UI.ModalMessages.RecycleBinModalMessageFactory.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.RecycleBin.Web.UI.ModalMessages.RecycleBinModalMessageFactory" /> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Web.UI.ModalMessages.RecycleBinModalMessageFactory.GetRecycleBinModalMessage(Telerik.Sitefinity.RecycleBin.Conflicts.IRestoreConflict)">
+            <summary>
+            Gets the recycle bin modal message.
+            </summary>
+            <param name="conflict">The invalid restore reason.</param>
+            <returns>Return <see cref="T:Telerik.Sitefinity.RecycleBin.Services.Dto.Responses.ModalMessageProxy"/>.</returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecycleBin.Web.UI.DashboardWidget.RecyclePanelWidget">
+            <summary>
+            A recycle panel widget for the Sitefinity dashboard,
+            containing link to the recycle bin page.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Web.UI.DashboardWidget.RecyclePanelWidget.LayoutTemplatePath">
+            <summary>
+            Gets the layout template's relative or virtual path.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Web.UI.DashboardWidget.RecyclePanelWidget.HomepageEditHyperlink">
+            <summary>
+            Gets the hyper link used to show Edit content directly browsing the site.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Web.UI.DashboardWidget.RecyclePanelWidget.RecycleBinHomepage">
+            <summary>
+            Gets the hyper link used to show recycle bin page.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Web.UI.DashboardWidget.RecyclePanelWidget.TagKey">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Web.UI.DashboardWidget.RecyclePanelWidget.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.RecycleBin.Web.UI.DashboardWidget.RecyclePanelWidget" /> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Web.UI.DashboardWidget.RecyclePanelWidget.InitializeControls(Telerik.Sitefinity.Web.UI.GenericContainer)">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.RecycleBin.Web.UI.RecycleBinControlMaster.RecycleBinControl">
+            <summary>
+            This control allows the management of the Recycle bin content
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Web.UI.RecycleBinControlMaster.RecycleBinControl.LayoutTemplatePath">
+            <summary>
+            Gets the layout template path
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Web.UI.RecycleBinControlMaster.RecycleBinControl.GetScriptDescriptors">
+            <summary>
+            Gets a collection of script descriptors that represent ECMAScript (JavaScript) client components.
+            </summary>
+            <returns>
+            An <see cref="T:System.Collections.IEnumerable"/> collection of <see cref="T:System.Web.UI.ScriptDescriptor"/> objects.
+            </returns>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Web.UI.RecycleBinControlMaster.RecycleBinControl.TagKey">
+            <summary>
+            Gets the <see cref="T:System.Web.UI.HtmlTextWriterTag" /> value that corresponds to this Web server control. This property is used primarily by control developers.
+            </summary>
+            <returns>One of the <see cref="T:System.Web.UI.HtmlTextWriterTag" /> enumeration values.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Web.UI.RecycleBinControlMaster.RecycleBinControl.GetScriptReferences">
+            <summary>
+            Gets a collection of <see cref="T:System.Web.UI.ScriptReference"/> objects that define script resources that the control requires.
+            </summary>
+            <returns>
+            An <see cref="T:System.Collections.IEnumerable"/> collection of <see cref="T:System.Web.UI.ScriptReference"/> objects.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Web.UI.RecycleBinControlMaster.RecycleBinControl.InitializeControls(Telerik.Sitefinity.Web.UI.GenericContainer)">
+            <summary>
+            Initializes the controls.
+            </summary>
+            <param name="container">The control container</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecycleBin.Filters.IRecycleBinGeneralFilter">
+            <summary>
+            Filter recycle bin items by various criteria.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Filters.IRecycleBinGeneralFilter.FilterQueryBy(System.Linq.IQueryable{Telerik.Sitefinity.RecycleBin.IRecycleBinDataItem},Telerik.Sitefinity.RecycleBin.Services.Dto.IRecycleBinItemFilter)">
+            <summary>
+            Filters the query to show data from current site
+            </summary>
+            <param name="query">The input query to be filtered.</param>
+            <param name="filterRequest">The request item with filter parameters.</param>
+            <returns>IQueryable of <see cref="T:Telerik.Sitefinity.RecycleBin.IRecycleBinDataItem" /></returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecycleBin.Filters.IRecycleBinPermissionsFilter">
+            <summary>
+            Filter recycle bin items by permissions.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Filters.IRecycleBinPermissionsFilter.ApplyPermissionsFilter(System.Linq.IQueryable{Telerik.Sitefinity.RecycleBin.IRecycleBinDataItem})">
+            <summary>
+            Filters the query to show only the data items with granted permissions.
+            </summary>
+            <param name="query">The input query to be filtered.</param>
+            <returns>IQueryable of <see cref="T:Telerik.Sitefinity.RecycleBin.IRecycleBinDataItem" /></returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecycleBin.Filters.IRecycleBinSiteFilter">
+            <summary>
+            Filter recycle bin items by site.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Filters.IRecycleBinSiteFilter.FilterQueryByCurrentSite(System.Linq.IQueryable{Telerik.Sitefinity.RecycleBin.IRecycleBinDataItem})">
+            <summary>
+            Filters the query to show data from current site
+            </summary>
+            <param name="query">The input query to be filtered.</param>
+            <returns>IQueryable of <see cref="T:Telerik.Sitefinity.RecycleBin.IRecycleBinDataItem" /></returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecycleBin.Filters.RecycleBinGeneralFilter">
+            <summary>
+            Filter recycle bin items by <see cref="T:Telerik.Sitefinity.RecycleBin.Services.Dto.IRecycleBinItemFilter"/> criteria.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Filters.RecycleBinGeneralFilter.FilterQueryBy(System.Linq.IQueryable{Telerik.Sitefinity.RecycleBin.IRecycleBinDataItem},Telerik.Sitefinity.RecycleBin.Services.Dto.IRecycleBinItemFilter)">
+            <summary>
+            Filters the query to show data from current site.
+            </summary>
+            <param name="query">The input query to be filtered.</param>
+            <param name="filterRequest">The request item with filter parameters.</param>
+            <returns>IQueryable of <see cref="T:Telerik.Sitefinity.RecycleBin.IRecycleBinDataItem"/>.</returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecycleBin.Filters.RecycleBinPermissionsFilter">
+            <summary>
+            Filter recycle bin items by permissions. If the current user is restricted, items are filtered by owner id.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Filters.RecycleBinPermissionsFilter.ApplyPermissionsFilter(System.Linq.IQueryable{Telerik.Sitefinity.RecycleBin.IRecycleBinDataItem})">
+            <summary>
+            Filters the query to show items filtered by owner id if the current user is restricted. 
+            </summary>
+            <param name="query">The input query to be filtered.</param>
+            <returns>IQueryable of <see cref="T:Telerik.Sitefinity.RecycleBin.IRecycleBinDataItem" /></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Filters.RecycleBinPermissionsFilter.GetCurrentIdentity">
+            <summary>
+            Gets the current user identity.
+            </summary>
+            <returns>The current user identity.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Filters.RecycleBinPermissionsFilter.GetCurrentUserId">
+            <summary>
+            Gets the current user id.
+            </summary>
+            <returns>Id of the currently authenticated user.</returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecycleBin.Filters.RecycleBinSiteFilter">
+            <summary>
+            Filter recycle bin items by site. Page node items are filtered by site id and all other items are filtered by provider name.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Filters.RecycleBinSiteFilter.FilterQueryByCurrentSite(System.Linq.IQueryable{Telerik.Sitefinity.RecycleBin.IRecycleBinDataItem})">
+            <summary>
+            Filters the specified <paramref name="query"/> only leaving data from the current site.
+            </summary>
+            <param name="query">The input query to be filtered.</param>
+            <returns>Returns filtered query of <see cref="T:Telerik.Sitefinity.RecycleBin.IRecycleBinDataItem" /></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Filters.RecycleBinSiteFilter.GetCurrentSiteId">
+            <summary>
+            Gets the current site id.
+            </summary>
+            <value>The current site id.</value>
+            <returns>Site id.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Filters.RecycleBinSiteFilter.GetCurrentSiteProviders">
+            <summary>
+            Gets the current site providers.
+            </summary>
+            <value>The site providers.</value>
+            <returns>List of current providers.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Filters.RecycleBinSiteFilter.GetIsMultisiteMode">
+            <summary>
+            Determine whether the site is in multisite mode.
+            </summary>
+            <returns><c>True</c> if site is in multisite mode, otherwise <c>false</c></returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecycleBin.Data.OpenAccessRecycleBinProvider">
+            <summary>
+            An implementation of the RecycleBinDataProvider based on OpenAccess ORM
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Data.OpenAccessRecycleBinProvider.Context">
+            <summary>
+            Gets or sets the Recycle bin OpenAccess context.
+            </summary>
+            <value>The context</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Data.OpenAccessRecycleBinProvider.GetMetaDataSource(Telerik.Sitefinity.Model.IDatabaseMappingContext)">
+            <summary>
+            Gets the Recycle bin meta data source.
+            </summary>
+            <param name="context">IDatabaseMappingContext context</param>
+            <returns>The Recycle Bin MetadataSource</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Data.OpenAccessRecycleBinProvider.CreateRecycleBinItem">
+            <summary>
+            Creates Recycle bin item.
+            </summary>
+            <returns>New instance of RecycleBinDataItem</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Data.OpenAccessRecycleBinProvider.CreateRecycleBinItem(System.Guid)">
+            <summary>
+            Creates <see cref="T:Telerik.Sitefinity.RecycleBin.Model.RecycleBinDataItem"/>.
+            </summary>
+            <param name="id">The id of the item to create.</param>
+            <returns>New instance of <see cref="T:Telerik.Sitefinity.RecycleBin.Model.RecycleBinDataItem"/></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Data.OpenAccessRecycleBinProvider.GetRecycleBinItems">
+            <summary>
+            Get a query for all <see cref="T:Telerik.Sitefinity.RecycleBin.Model.RecycleBinDataItem" /> objects.
+            </summary>
+            <returns><see cref="T:System.Linq.IQueryable"/> object for all <see cref="T:Telerik.Sitefinity.RecycleBin.Model.RecycleBinDataItem" /> objects.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Data.OpenAccessRecycleBinProvider.GetRecycleBinItem(System.Guid)">
+            <summary>
+            Gets the <see cref="T:Telerik.Sitefinity.RecycleBin.Model.RecycleBinDataItem" /> with the specified <paramref name="id" />.
+            </summary>
+            <param name="id">The id of the requested <see cref="T:Telerik.Sitefinity.RecycleBin.Model.RecycleBinDataItem"/>.</param>
+            <returns>
+            The requested <see cref="T:Telerik.Sitefinity.RecycleBin.Model.RecycleBinDataItem" />
+            </returns>
+            <exception cref="T:Telerik.Sitefinity.SitefinityExceptions.ItemNotFoundException">
+            If the item with the specified <paramref name="id"/> was not found.</exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Data.OpenAccessRecycleBinProvider.Delete(Telerik.Sitefinity.RecycleBin.Model.RecycleBinDataItem)">
+            <summary>
+            Deletes the specified <paramref name="item"/> from the Recycle Bin.
+            </summary>
+            <param name="item">The Recycle Bin item to delete.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecycleBin.Data.RecycleBinFluentMappings">
+            <summary>
+            Database model fluent mappings for the Recycle Bin module.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Data.RecycleBinFluentMappings.#ctor(Telerik.Sitefinity.Model.IDatabaseMappingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.RecycleBin.Data.RecycleBinFluentMappings" /> class.
+            </summary>
+            <param name="context">The database mapping context.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Data.RecycleBinFluentMappings.GetMapping">
+            <summary>
+            Returns the list of OpenAccess mapping configurations required for the Recycle Bin module.
+            </summary>
+            <returns>The list of OpenAccess mapping configurations needed for the Recycle Bin module.</returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecycleBin.Data.RecycleBinMetadataSource">
+            <summary>
+            The metadata source for the Recycle Bin module that contains the collection of
+            database mappings needed for by it.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Data.RecycleBinMetadataSource.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.RecycleBin.Data.RecycleBinMetadataSource" /> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Data.RecycleBinMetadataSource.#ctor(Telerik.Sitefinity.Model.IDatabaseMappingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.RecycleBin.Data.RecycleBinMetadataSource" /> class.
+            </summary>
+            <param name="context">The database mapping context.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Data.RecycleBinMetadataSource.SupportDynamicTypes">
+            <summary>
+            Indicates whether this metadata source can support artificial types defined runtime
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Data.RecycleBinMetadataSource.BuildCustomMappings">
+            <summary>
+            Builds the custom mappings.
+            </summary>
+            <returns>The list of Open Access database model fluent mapping objects.</returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecycleBin.IRecycleBinDataEventInterceptor">
+            <summary>
+            Defines the common interface for components responsible for interpreting 
+            <see cref="T:Telerik.Sitefinity.Data.Events.IDataEvent"/> related to <see cref="N:Telerik.Sitefinity.RecycleBin"/>.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.IRecycleBinDataEventInterceptor.HandleDataEvent(Telerik.Sitefinity.Data.Events.IDataEvent)">
+            <summary>
+            Should be called when a <see cref="T:Telerik.Sitefinity.Data.Events.IDataEvent"/> is triggered.
+            </summary>
+            <param name="dataEvent">The data event to handle.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecycleBin.Model.RecycleBinDataItem">
+            <summary>
+            Persistent object storing the information of an item that was sent to the Recycle Bin.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Model.RecycleBinDataItem.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.RecycleBin.Model.RecycleBinDataItem" /> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Model.RecycleBinDataItem.#ctor(System.Guid)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.RecycleBin.Model.RecycleBinDataItem"/> class.
+            </summary>
+            <param name="id">RecycleBinDataItem id.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.Model.RecycleBinDataItem.#ctor(System.Guid,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.RecycleBin.Model.RecycleBinDataItem"/> class.
+            </summary>
+            <param name="id">The id of the item.</param>
+            <param name="applicationName">Name of the application to which the item belongs.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Model.RecycleBinDataItem.Id">
+            <summary>
+            Gets or sets the unique identity of the item.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Model.RecycleBinDataItem.DeletedItemId">
+            <summary>
+            Gets or sets the deleted item identifier of the data item.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Model.RecycleBinDataItem.Transaction">
+            <summary>
+            Gets or sets the transaction this item belongs to or null.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Model.RecycleBinDataItem.Provider">
+            <summary>
+            Gets or sets the data provider this item was instantiated with.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Model.RecycleBinDataItem.DateCreated">
+            <summary>
+            Gets or sets the item creation date.
+            </summary>
+            <value>The creation time.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Model.RecycleBinDataItem.LastModified">
+            <summary>
+            Gets or sets the time this item was last modified.
+            </summary>
+            <value>The last modified time.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Model.RecycleBinDataItem.Owner">
+            <summary>
+            Gets or sets the owner of the data item.
+            </summary>
+            <value>
+            The Id of the owner.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Model.RecycleBinDataItem.ApplicationName">
+            <summary>
+            Gets or sets the name of the application to which this data item belongs to.
+            </summary>
+            <value>The name of the application.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Model.RecycleBinDataItem.DeletedItemProviderName">
+            <summary>
+            Gets or sets the provider name that is responsible for the deleted item.
+            </summary>
+            <value>The provider name.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Model.RecycleBinDataItem.DeletedItemTypeName">
+            <summary>
+            Gets or sets the full name of the deleted item's type.
+            </summary>
+            <value>The full type name of the deleted item.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Model.RecycleBinDataItem.DeletedItemTitle">
+            <summary>
+            Gets or sets the deleted item title.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Model.RecycleBinDataItem.DeletedItemWorkflowStatus">
+            <summary>
+            Gets or sets the deleted item workflow status.
+            </summary>
+            <value>The last workflow status of the item .</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Model.RecycleBinDataItem.DeletedItemLanguage">
+            <summary>
+            Gets or sets the deleted item language.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Model.RecycleBinDataItem.DeletedItemSiteId">
+            <summary>
+            Gets or sets the site id of the deleted item.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Model.RecycleBinDataItem.DeletedItemParentType">
+            <summary>
+            Gets or sets the type of the deleted item parent.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.Model.RecycleBinDataItem.DeletedItemParentTitlesPath">
+            <summary>
+            Gets or sets the full titles path of the deleted item parent.
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecycleBin.RecycleBinDataEventInterceptor">
+            <summary>
+            Handles <see cref="T:Telerik.Sitefinity.Data.Events.IDataEvent"/>s. Depending on the Recycle Bin operation that was
+            specified in the event the this interceptor will create or delete Recycle Bin Items.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.RecycleBinDataEventInterceptor.#ctor(Telerik.Sitefinity.RecycleBin.IRecycleBinRelatedDataManager)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.RecycleBin.RecycleBinDataEventInterceptor" /> class.
+            </summary>
+            <param name="manager">The Recycle Bin related manager used to mark content links as deleted.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.RecycleBinDataEventInterceptor.HandleDataEvent(Telerik.Sitefinity.Data.Events.IDataEvent)">
+            <summary>
+            Should be called when a <see cref="T:Telerik.Sitefinity.Data.Events.IDataEvent" /> is triggered.
+            </summary>
+            <param name="dataEvent">The data event that occurred.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.RecycleBinDataEventInterceptor.Subscribe">
+            <summary>
+            Subscribes this instance for <see cref="T:Telerik.Sitefinity.Data.Events.IDataEvent" />s.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.RecycleBinDataEventInterceptor.GetRecycleBinService">
+            <summary>
+            Gets the recycle bin service.
+            </summary>
+            <returns>New instance of <see cref="T:Telerik.Sitefinity.Services.RecycleBin.IRecycleBinService"/></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.RecycleBinDataEventInterceptor.EnsureRecycleBinItemExists(Telerik.Sitefinity.Data.Events.IDataEvent)">
+            <summary>
+            Ensures that a Recycle Bin record for the specified data item exists. 
+            This item's identity is specified by the <paramref name="dataEvent"/>.
+            </summary>
+            <param name="dataEvent">The data event.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.RecycleBinDataEventInterceptor.EnsureRecycleBinItemDoesNotExist(Telerik.Sitefinity.Data.Events.IDataEvent)">
+            <summary>
+            Ensures that a recycle bin record is removed.
+            This item's identity is specified by the <paramref name="dataEvent"/>.
+            </summary>
+            <param name="dataEvent">The data event.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.RecycleBinDataEventInterceptor.GetItemType(System.String)">
+            <summary>
+            Gets the type of the item by its type full name.
+            </summary>
+            <param name="itemTypeName">Name of the item type.</param>
+            <returns>The type of the item by its type full name.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.RecycleBinDataEventInterceptor.GetDataItemManager(System.Type,System.String)">
+            <summary>
+            Gets the <see cref="T:Telerik.Sitefinity.RecycleBin.ISupportRecyclingManager" /> manager responsible for the item specified by its <paramref name="itemType" /> and <paramref name="itemProviderName" />.
+            </summary>
+            <param name="itemType">Type of the item which manager will be returned.</param>
+            <param name="itemProviderName">Name of the provider of the item which manager will be returned.</param>
+            <exception cref="T:System.InvalidOperationException">The manager of the specified item does not support recycling (does not implement <see cref="T:Telerik.Sitefinity.RecycleBin.ISupportRecyclingManager" />).</exception>
+            <returns>
+            The <see cref="T:Telerik.Sitefinity.RecycleBin.ISupportRecyclingManager" /> manager responsible for the item specified by its <paramref name="itemType" /> and <paramref name="itemProviderName" />.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.RecycleBinDataEventInterceptor.GetDataItem(System.Type,System.Guid,Telerik.Sitefinity.RecycleBin.ISupportRecyclingManager)">
+            <summary>
+            Gets a <see cref="T:Telerik.Sitefinity.RecycleBin.IRecyclableDataItem"/> from the specified <paramref name="recyclingManager"/>.
+            </summary>
+            <param name="itemType">Type of the item to get.</param>
+            <param name="itemId">The id of the item to get.</param>
+            <param name="recyclingManager">The recycling manager that will be used to fetch the item.</param>
+            <returns>A <see cref="T:Telerik.Sitefinity.RecycleBin.IRecyclableDataItem"/> from the specified <paramref name="recyclingManager"/>.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.RecycleBinDataEventInterceptor.ShouldProcessItem(Telerik.Sitefinity.Data.Events.IDataEvent)">
+            <summary>
+            Determines whether the item from the event should be processed further.
+            </summary>
+            <param name="dataEvent">The data event, holding the data for the item.</param>
+            <returns><c>True</c> if item should be processed further, otherwise f<c>false</c></returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecycleBin.RecycleBinDataProvider">
+            <summary>
+            Defines the basic functionality that should be implemented by Recycle Bin data providers
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.RecycleBinDataProvider.RootKey">
+            <summary>
+            Gets a unique key for each RecycleBin provider.
+            </summary>
+            <value>
+            The root key.
+            </value>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.RecycleBinDataProvider.GetKnownTypes">
+            <summary>
+            Get an array of types served by RecycleBin manager.
+            </summary>
+            <returns>Array of types.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.RecycleBinDataProvider.CreateRecycleBinItem">
+            <summary>
+            Creates Recycle bin item.
+            </summary>
+            <returns>New instance of RecycleBinDataItem</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.RecycleBinDataProvider.CreateRecycleBinItem(System.Guid)">
+            <summary>
+            Creates Recycle bin item.
+            </summary>
+            <param name="id">The id of the item.</param>
+            <returns>New instance of RecycleBinDataItem.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.RecycleBinDataProvider.GetRecycleBinItems">
+            <summary>
+            Get a query of all <see cref="T:Telerik.Sitefinity.RecycleBin.Model.RecycleBinDataItem"/> objects.
+            </summary>
+            <returns><see cref="T:System.Linq.IQueryable"/> object of all <see cref="T:Telerik.Sitefinity.RecycleBin.Model.RecycleBinDataItem"/> items.</returns>        
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.RecycleBinDataProvider.GetRecycleBinItem(System.Guid)">
+            <summary>
+            Gets the <see cref="T:Telerik.Sitefinity.RecycleBin.Model.RecycleBinDataItem"/> with the specified <paramref name="id"/>.
+            </summary>
+            <param name="id">The id of the requested <see cref="T:Telerik.Sitefinity.RecycleBin.Model.RecycleBinDataItem"/>.</param>
+            <returns>
+            The requested <see cref="T:Telerik.Sitefinity.RecycleBin.Model.RecycleBinDataItem" />
+            </returns>
+            <exception cref="T:Telerik.Sitefinity.SitefinityExceptions.ItemNotFoundException">
+            If the item with the specified <paramref name="id"/> was not found.</exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.RecycleBinDataProvider.Delete(Telerik.Sitefinity.RecycleBin.Model.RecycleBinDataItem)">
+            <summary>
+            Deletes the specified <paramref name="item"/> from the Recycle Bin.
+            </summary>
+            <param name="item"><see cref="T:Telerik.Sitefinity.RecycleBin.Model.RecycleBinDataItem"/> to delete.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecycleBin.RecycleBinManager">
+            <summary>
+            Manages the data layer for Recycle Bin
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.RecycleBinManager.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.RecycleBin.RecycleBinManager"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.RecycleBinManager.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.RecycleBin.RecycleBinManager"/> class.
+            </summary>
+            <param name="providerName">Name of the provider.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.RecycleBinManager.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.RecycleBin.RecycleBinManager"/> class.
+            </summary>
+            <param name="providerName">
+            The name of the provider. If empty string or null the default provider is set
+            </param>
+            <param name="transactionName">
+            The name of a distributed transaction. If empty string or null this manager will use separate transaction.
+            </param>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.RecycleBinManager.ModuleName">
+            <summary>
+            Gets the name of the RecycleBin module.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.RecycleBinManager.DefaultProviderDelegate">
+            <summary>
+            Gets the default provider for RecycleBin manager.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.RecycleBinManager.ProvidersSettings">
+            <summary>
+            Collection of data provider settings for RecycleBin manager. 
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.RecycleBinManager.GetManager">
+            <summary>
+            Get an instance of the <see cref="T:Telerik.Sitefinity.RecycleBin.RecycleBinManager"/> using the default provider
+            </summary>
+            <remarks>
+            This constructor is used by the Recycle Bin module installation.
+            </remarks>
+            <returns>Instance of <see cref="T:Telerik.Sitefinity.RecycleBin.RecycleBinManager"/></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.RecycleBinManager.GetManager(System.String)">
+            <summary>
+            Get an instance of the <see cref="T:Telerik.Sitefinity.RecycleBin.RecycleBinManager"/> by explicitly specifying the required provider to use.
+            </summary>
+            <remarks>
+            This constructor is used by the Recycle Bin module installation.
+            </remarks>
+            <param name="providerName">Name of the provider to use, or null/empty string to use the default provider.</param>
+            <returns>Instance of <see cref="T:Telerik.Sitefinity.RecycleBin.RecycleBinManager"/></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.RecycleBinManager.GetManager(System.String,System.String)">
+            <summary>
+            Get an instance of the <see cref="T:Telerik.Sitefinity.RecycleBin.RecycleBinManager"/> by explicitly specifying the required provider to use and the transaction
+            that the provider should use.
+            </summary>
+            <remarks>
+            This constructor is used by the Recycle Bin module installation.
+            </remarks>
+            <param name="providerName">Name of the provider to use, or null/empty string to use the default provider.</param>
+            <param name="transactionName">Name of the transaction the provider will use.</param>
+            <returns>Instance of <see cref="T:Telerik.Sitefinity.RecycleBin.RecycleBinManager"/></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.RecycleBinManager.CreateRecycleBinItem">
+            <summary>
+            Creates a persistent <see cref="T:Telerik.Sitefinity.RecycleBin.IRecycleBinDataItem" />.
+            </summary>
+            <returns>Instance of <see cref="T:Telerik.Sitefinity.RecycleBin.IRecycleBinDataItem" /></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.RecycleBinManager.CreateRecycleBinItem(System.Guid)">
+            <summary>
+            Creates a persistent <see cref="T:Telerik.Sitefinity.RecycleBin.IRecycleBinDataItem" />.
+            </summary>
+            <param name="id">The id of the item to create.</param>
+            <returns>New instance of <see cref="T:Telerik.Sitefinity.RecycleBin.IRecycleBinDataItem"/></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.RecycleBinManager.GetRecycleBinItems">
+            <summary>
+            Get a query for all <see cref="T:Telerik.Sitefinity.RecycleBin.IRecycleBinDataItem"/> objects.
+            </summary>
+            <returns><see cref="T:System.Linq.IQueryable"/> object for all <see cref="T:Telerik.Sitefinity.RecycleBin.IRecycleBinDataItem"/> objects.</returns>        
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.RecycleBinManager.GetRecycleBinItem(System.Guid)">
+            <summary>
+            Gets the <see cref="T:Telerik.Sitefinity.RecycleBin.IRecycleBinDataItem"/> with the specified <paramref name="id"/>.
+            </summary>
+            <param name="id">The id of the requested <see cref="T:Telerik.Sitefinity.RecycleBin.IRecycleBinDataItem"/></param>
+            <returns>
+            The requested <see cref="T:Telerik.Sitefinity.RecycleBin.IRecycleBinDataItem" />
+            </returns>
+            <exception cref="T:Telerik.Sitefinity.SitefinityExceptions.ItemNotFoundException">
+            If the item with the specified <paramref name="id"/> was not found.</exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.RecycleBinManager.GetRecycleBinItemForDataItem(System.Guid)">
+            <summary>
+            Gets the <see cref="T:Telerik.Sitefinity.RecycleBin.IRecycleBinDataItem"/> for a <see cref="T:Telerik.Sitefinity.RecycleBin.IRecyclableDataItem"/> with <paramref name="dataItemId"/>.
+            </summary>
+            <param name="dataItemId">The identifier of the <see cref="T:Telerik.Sitefinity.RecycleBin.IRecyclableDataItem"/> </param>
+            <returns>
+            The requested <see cref="T:Telerik.Sitefinity.RecycleBin.IRecycleBinDataItem" />
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.RecycleBinManager.Delete(Telerik.Sitefinity.RecycleBin.IRecycleBinDataItem)">
+            <summary>
+            Deletes the specified <paramref name="item"/> from the Recycle Bin.
+            </summary>
+            <param name="item">The item to delete.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecycleBin.RecycleBinModule">
+            <summary>
+            The Sitefinity Recycle Bin module.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.RecycleBinModule.LandingPageId">
+            <summary>
+            Gets the landing page id for the recycle bin module.
+            </summary>
+            <value>The landing page id.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.RecycleBin.RecycleBinModule.Managers">
+            <summary>
+            Gets the CLR types of all data managers provided by the Recycle bin module.
+            </summary>
+            <value>An array of <see cref="T:System.Type" /> objects.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.RecycleBinModule.Initialize(Telerik.Sitefinity.Services.ModuleSettings)">
+            <summary>
+            Initializes the service with specified settings.
+            </summary>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.RecycleBinModule.Install(Telerik.Sitefinity.Abstractions.SiteInitializer)">
+            <summary>
+            Installs this module in Sitefinity system for the first time.
+            </summary>
+            <param name="initializer">The Site Initializer. A helper class for installing Sitefinity modules.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.RecycleBinModule.GetVirtualPaths">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.RecycleBinModule.GetModuleConfig">
+            <summary>
+            Gets the module configuration.
+            </summary>
+            <returns>ConfigSection object for the recycle bin</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.RecycleBinModule.RegisterTypes">
+            <summary>
+            Registers types, used by Recycle Bin module.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.RecycleBinModule.InstallVirtualPaths(Telerik.Sitefinity.Abstractions.SiteInitializer)">
+            <summary>
+            Installs module virtual paths.
+            </summary>
+            <param name="initializer">The initializer.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.RecycleBinModule.InstallBackendPages(Telerik.Sitefinity.Abstractions.SiteInitializer)">
+            <summary>
+            Installs the backend pages.
+            </summary>
+            <param name="initializer">The initializer.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.RecycleBinModule.InterceptDataEvents">
+            <summary>
+            Subscribes the currently registered <see cref="T:Telerik.Sitefinity.RecycleBin.IRecycleBinDataEventInterceptor"/>.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.RecycleBin.ScheduledTasks.PermanentDeleteTaskImpl">
+            <summary>
+            Implementation of the object to be used as scheduled task for permanent deletion of data item object 
+            marked as deleted by a given <see cref="T:Telerik.Sitefinity.RecycleBin.IRecycleBinDataItem"/>
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.ScheduledTasks.PermanentDeleteTaskImpl.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.RecycleBin.ScheduledTasks.PermanentDeleteTaskImpl" /> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.ScheduledTasks.PermanentDeleteTaskImpl.#ctor(Telerik.Sitefinity.RecycleBin.IRecycleBinDataItem)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.RecycleBin.ScheduledTasks.PermanentDeleteTaskImpl" /> class.
+            </summary>
+            <param name="recycleBinDataItem">The <see cref="T:Telerik.Sitefinity.RecycleBin.IRecycleBinDataItem"/>.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.RecycleBin.ScheduledTasks.PermanentDeleteTaskImpl.ExecuteTask">
+            <summary>
+            Performs the permanent deletion of the data item object mark as deleted and moved to the Recycle bin.
+            </summary>
+        </member>
+    </members>
+</doc>

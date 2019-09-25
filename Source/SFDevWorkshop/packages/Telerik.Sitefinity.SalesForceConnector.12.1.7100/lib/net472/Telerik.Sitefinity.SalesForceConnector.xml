@@ -1,0 +1,3032 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Telerik.Sitefinity.SalesForceConnector</name>
+    </assembly>
+    <members>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Adapters.SitefinityFormResponsesSyncAdapter.TriggerListSyncCompletionEvent">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Sitefinity.SalesForceConnector.Components.SalesForceFieldUsage">
+            <summary>
+            Defines the functionality where the field is used.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Components.WebExceptionMessageHandler.GetWebExceptionMessage(System.Net.WebException,System.String)">
+            <summary>
+            Gets the web exception message.
+            </summary>
+            <param name="wex">The wex.</param>
+            <param name="domainUrl">The domain URL.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.SalesForceConnector.Components.ConnectionStatus">
+            <summary>
+            Enumeration for connection status
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Configuration.SalesForceAccountConfigElement.SynchronizationStatus">
+            <summary>
+            Gets or sets the Synchronization status for the mapping.
+            </summary>
+            <value>The synchronization status.</value> 
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Configuration.SalesForceAccountConfigElement.ListMappings">
+            <summary>
+            Gets the mappings between the SalesForce contact groups and Sitefinity roles.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.SalesForceConnector.Configuration.SalesForceConnectorConfig">
+            <summary>
+            Sitefinity configuration section.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Configuration.SalesForceConnectorConfig.SalesForceAccounts">
+            <summary>
+            Gets the SalesForce accounts.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Configuration.SalesForceConnectorConfig.MasterAdapter">
+            <summary>
+            Gets or sets which adapter wins in case of conflicts during a two-way sync.
+            </summary>
+            <value>Sync deleted items.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Configuration.SalesForceConnectorConfig.SyncDeletedItems">
+            <summary>
+            Gets or sets whether to synchronize the deleted items.
+            </summary>
+            <value>Sync deleted items.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Configuration.SalesForceConnectorConfig.TaskRetryInterval">
+            <summary>
+            Gets or sets the synchronization task retry interval in seconds.
+            </summary>
+            <value>The task retry interval.</value>
+        </member>
+        <member name="T:Telerik.Sitefinity.SalesForceConnector.Configuration.SalesForceListMappingConfigElement">
+            <summary>
+            Sitefinity configuration section.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Configuration.SalesForceListMappingConfigElement.#ctor(Telerik.Sitefinity.Configuration.ConfigElement)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.SalesForceConnector.Configuration.SalesForceListMappingConfigElement" /> class.
+            </summary>
+            <param name="parent">The parent.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Configuration.SalesForceListMappingConfigElement.SalesForceData">
+            <summary>
+            Gets or sets the SalesForce list used for the mapping.
+            </summary>
+            <value>The SalesForce list name.</value> 
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Configuration.SalesForceListMappingConfigElement.UsesSoureField">
+            <summary>
+            Gets or sets the uses soure field.
+            </summary>
+            <value>The uses soure field.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Configuration.SalesForceListMappingConfigElement.SitefinityData">
+            <summary>
+            Gets or sets the Sitefinity library used for the mapping.
+            </summary>
+            <value>The Sitefinity library name.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Configuration.SalesForceListMappingConfigElement.SitefinityDataProvider">
+            <summary>
+            Gets or sets the Sitefinity provider used for the mapping.
+            </summary>
+            <value>The Sitefinity provider.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Configuration.SalesForceListMappingConfigElement.SynchronizationType">
+            <summary>
+            Gets or sets synchronization type used for the mapping.
+            </summary>
+            <value>The Sitefinity provider.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Configuration.SalesForceListMappingConfigElement.SitefinityContentType">
+            <summary>
+            Gets or sets the type of the sitefinity content.
+            </summary>
+            <value>The type of the sitefinity content.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Configuration.SalesForceListMappingConfigElement.SynchronizationStatus">
+            <summary>
+            Gets or sets the Synchronization status for the mapping.
+            </summary>
+            <value>The synchronization status.</value> 
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Configuration.SalesForceListMappingConfigElement.Schedule">
+            <summary>
+            Gets or sets the schedule time in crontab format.
+            </summary>
+            <value>The schedule.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Configuration.SalesForceListMappingConfigElement.ScheduleSummary">
+            <summary>
+            Gets or sets the localized schedule summary.
+            </summary>
+            <value>The schedule summary.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Configuration.SalesForceListMappingConfigElement.FieldMappings">
+            <summary>
+            Gets the mappings between the SalesForce list fields and Sitefinity library fields.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Configuration.FieldMappingConfigElement.#ctor(Telerik.Sitefinity.Configuration.ConfigElement)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.SalesForceConnector.Configuration.FieldMappingConfigElement" /> class.
+            </summary>
+            <param name="parent">The parent.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Configuration.FieldMappingConfigElement.SalesForceField">
+            <summary>
+            Gets or sets the SalesForce list field used for the mapping.
+            </summary>
+            <value>The Sharepoint list field name.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Configuration.FieldMappingConfigElement.SitefinityField">
+            <summary>
+            Gets or sets the Sitefinity field used for the mapping.
+            </summary>
+            <value>The Sitefinity library field name.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Converters.ListFilterConverter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.SalesForceConnector.Converters.ListFilterConverter" /> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Converters.ListFilterConverter.#ctor(Telerik.OpenAccess.DataAdapter.Converter.ConverterConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.SalesForceConnector.Converters.ListFilterConverter" /> class.
+            </summary>
+            <param name="listFilter">The list filter.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Converters.ListFilterConverter.CanSort">
+            <summary>
+            Gets the can sort.
+            </summary>
+            <value>The can sort.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Converters.ListFilterConverter.CanCompare">
+            <summary>
+            Gets the can compare.
+            </summary>
+            <value>The can compare.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Converters.ListFilterConverter.Compare(Telerik.OpenAccess.DataAdapter.Sync.SyncAdapterBase,Telerik.OpenAccess.DataAdapter.Sync.SyncAdapterBase,System.Object,System.Object,System.String,System.String)">
+            <summary>
+            Compares the specified source adapter.
+            </summary>
+            <param name="sourceAdapter">The source adapter.</param>
+            <param name="destinationAdapter">The destination adapter.</param>
+            <param name="sourceObject">The source object.</param>
+            <param name="destinationObject">The destination object.</param>
+            <param name="sourceFieldName">Name of the source field.</param>
+            <param name="destinationFieldName">Name of the destination field.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Converters.ListFilterConverter.Copy(Telerik.OpenAccess.DataAdapter.Sync.SyncAdapterBase,Telerik.OpenAccess.DataAdapter.Sync.SyncAdapterBase,System.Object,System.Object,System.String,System.String)">
+            <summary>
+            Copies the specified source adapter.
+            </summary>
+            <param name="sourceAdapter">The source adapter.</param>
+            <param name="destinationAdapter">The destination adapter.</param>
+            <param name="sourceObject">The source object.</param>
+            <param name="destinationObject">The destination object.</param>
+            <param name="sourceFieldName">Name of the source field.</param>
+            <param name="destinationFieldName">Name of the destination field.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Converters.SourceFieldConverter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.SalesForceConnector.Converters.SourceFieldConverter" /> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Converters.SourceFieldConverter.#ctor(Telerik.OpenAccess.DataAdapter.Converter.ConverterConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.SalesForceConnector.Converters.SourceFieldConverter" /> class.
+            </summary>
+            <param name="converterConfiguration">The converter configuration.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Converters.SourceFieldConverter.CanSort">
+            <summary>
+            Gets the can sort.
+            </summary>
+            <value>The can sort.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Converters.SourceFieldConverter.CanCompare">
+            <summary>
+            Gets the can compare.
+            </summary>
+            <value>The can compare.</value>
+        </member>
+        <member name="T:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorReport">
+            <summary>
+            Represents the usage tracking report of the SalesForce connector
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorReport.ModuleName">
+            <summary>
+            Gets or sets the module name
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorReport.IsUsed">
+            <summary>
+            Gets or sets a value indicating whether the connector is used
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.SalesForceConnector.Mappers.MapperBase">
+            <summary>
+            Base class for initializing sync configurations between Sitefinity and SalesForce
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Mappers.MapperBase.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.SalesForceConnector.Mappers.MapperBase" /> class.
+            </summary>
+            <param name="accountName">Name of the account.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Mappers.MapperBase.ConfigManager">
+            <summary>
+            Gets or sets the config manager.
+            </summary>
+            <value>The config manager.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Mappers.MapperBase.ConnectorConfig">
+            <summary>
+            Gets or sets the connector config.
+            </summary>
+            <value>The connector config.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Mappers.MapperBase.AccountElement">
+            <summary>
+            Gets or sets the account element.
+            </summary>
+            <value>The account element.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Mappers.MapperBase.CurrentListElement">
+            <summary>
+            Gets or sets the current list element.
+            </summary>
+            <value>The current list element.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Mappers.MapperBase.SitefinityConnectionString">
+            <summary>
+            Gets or sets the sitefinity connection string.
+            </summary>
+            <value>The sitefinity connection string.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Mappers.MapperBase.SalesForceConnectionString">
+            <summary>
+            Gets or sets the sales force connection string.
+            </summary>
+            <value>The sales force connection string.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Mappers.MapperBase.SitefinitySyncAdapter">
+            <summary>
+            Gets or sets the sitefinity sync adapter.
+            </summary>
+            <value>The sitefinity sync adapter.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Mappers.MapperBase.SyncCallback">
+            <summary>
+            Gets or sets the sync callback.
+            </summary>
+            <value>The sync callback.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Mappers.MapperBase.InitializeSyncConfiguration(System.String)">
+            <summary>
+            Initializes the sync configuration.
+            </summary>
+            <param name="listName">Name of the list.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Mappers.MapperBase.InitializeSyncConfigurations">
+            <summary>
+            Initializes multiple sync configurations.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Mappers.MapperBase.ResetConfiguration(System.String)">
+            <summary>
+            Resets the configuration.
+            </summary>
+            <param name="configurationName">Name of the configuration.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Mappers.MapperBase.SetCommonImportConfigurationOptions(Telerik.OpenAccess.Sync.Configuration)">
+            <summary>
+            Configures the import type options like direction of import, how to handle conflicts, if to synchronize deleted items.
+            </summary>
+            <param name="configuration">The configuration.</param>        
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Mappers.MapperBase.InitializeListMapping(Telerik.OpenAccess.Sync.Configuration)">
+            <summary>
+            Initializes the list mapping.
+            </summary>
+            <param name="configuration">The configuration.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Mappers.MapperBase.RetrieveConfiguration">
+            <summary>
+            Retrieves a configuration by given id from the database if exist or creates a new one.
+            </summary>        
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Mappers.MapperBase.RegisterAdapters">
+            <summary>
+            Registers the adapters.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Mappers.MapperBase.RegisterSalesForceAdapters">
+            <summary>
+            Registers the sales force adapters.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Mappers.MapperBase.RegisterOpenAccessAdapters">
+            <summary>
+            Registers the open access adapters.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Mappers.MapperBase.RegisterOpenAccessBaseAdapters">
+            <summary>
+            Registers the open access base adapters.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Mappers.MapperBase.GetAvailableConfigurationNames(System.String,System.String)">
+            <summary>
+            Gets the available configuration names.
+            </summary>
+            <param name="connectionString">The connection string.</param>
+            <param name="sourceTypeName">Name of the source type.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Mappers.MapperBase.TryGetConfigurationFromDatabase(System.String,System.Guid,Telerik.OpenAccess.Sync.Configuration@)">
+            <summary>
+            If exist retrieves the configuration from database.
+            </summary>
+            <param name="connectionString">The connection string.</param>
+            <param name="configId">The config id.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Mappers.MapperBase.CreateMappingConfiguration">
+            <summary>
+            Creates the mapping configuration.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Metadata.SalesForceMetadataAdapter.#ctor(Telerik.OpenAccess.DataAdapter.Sync.AdapterConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.SalesForceConnector.Metadata.SalesForceMetadataAdapter" /> class.
+            </summary>
+            <param name="configuraiton">The configuration.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Metadata.SalesForceMetadataTransform.#ctor(Telerik.OpenAccess.DataAdapter.Sync.AdapterConfiguration,Telerik.OpenAccess.DataAdapter.Metadata.DefaultMapCapabilities)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.SalesForceConnector.Metadata.SalesForceMetadataTransform" /> class.
+            </summary>
+            <param name="configuration">The configuration.</param>
+            <param name="capabilities">The capabilities.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Metadata.SalesForceMetadataTransform.AccountConfig">
+            <summary>
+            Gets the site config.
+            </summary>
+            <value>The site config.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Metadata.SalesForceMetadataTransform.ListMapping">
+            <summary>
+            Gets the list mapping.
+            </summary>
+            <value>The list mapping.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Metadata.SalesForceMetadataTransform.SourceIdField">
+            <summary>
+            Gets the source id field.
+            </summary>
+            <value>The source id field.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Metadata.SalesForceMetadataTransform.MappingFilter">
+            <summary>
+            Gets the mapping filter.
+            </summary>
+            <value>The mapping filter.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Metadata.SalesForceMetadataTransform.FieldsToMap">
+            <summary>
+            Gets the fields to map.
+            </summary>
+            <value>The fields to map.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Metadata.SalesForceMetadataTransform.GetFilterConverterConfiguration(Telerik.OpenAccess.DataAdapter.Metadata.FieldDescription)">
+            <summary>
+            Gets the converter configuration.
+            </summary>
+            <param name="sourceField">The source field.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorHelper.BuildSalesForceConnectionString(Telerik.Sitefinity.SalesForceConnector.Configuration.SalesForceAccountConfigElement)">
+            <summary>
+            Builds the sales force connection string.
+            </summary>
+            <param name="account">The account.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorHelper.BuildSalesForceConnectionString(System.String,System.String,System.String)">
+            <summary>
+            Builds the sales force connection string.
+            </summary>
+            <param name="userName">Name of the user.</param>
+            <param name="password">The decrypted password.</param>
+            <param name="securityToken">The security token.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorHelper.GetProviderTitle(Telerik.Sitefinity.SalesForceConnector.Configuration.SalesForceListMappingConfigElement)">
+            <summary>
+            Gets the provider title.
+            </summary>
+            <param name="element">The element.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorHelper.GetSitefinityDataDisplayName(Telerik.Sitefinity.SalesForceConnector.Configuration.SalesForceListMappingConfigElement)">
+            <summary>
+            Gets the display name of the Sitefinity data.
+            </summary>
+            <param name="element">The element.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorHelper.GetSalesForceDataName(Telerik.Sitefinity.SalesForceConnector.Configuration.SalesForceListMappingConfigElement)">
+            <summary>
+            Gets the name of the sales force data.
+            </summary>
+            <param name="element">The element.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorHelper.GetSalesForceDataName(System.String)">
+            <summary>
+            Gets the name of the SalesForce data.
+            </summary>
+            <param name="salesForceData">The SalesForce data.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorHelper.GetSalesForceDataFilter(Telerik.Sitefinity.SalesForceConnector.Configuration.SalesForceListMappingConfigElement)">
+            <summary>
+            Gets the sales force data filter.
+            </summary>
+            <param name="element">The element.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorHelper.GetSalesForceFormattedIdField(Telerik.Sitefinity.SalesForceConnector.Configuration.SalesForceListMappingConfigElement)">
+            <summary>
+            Gets the SalesForce formatted id field, which must end with "__c"
+            </summary>
+            <param name="element">The element.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorHelper.GetListSyncStatus(Telerik.Sitefinity.Connectivity.SyncLogManager,System.String,System.String)">
+            <summary>
+            Determines whether the list have been successfully synced or failed to be synced.
+            </summary>
+            <param name="accountName">Name of the account.</param>
+            <param name="listName">Name of the list.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorHelper.GetLogs(Telerik.Sitefinity.Connectivity.SyncLogManager,System.String,Telerik.OpenAccess.DataSource.SyncDB.SyncDBManager)">
+            <summary>
+            Gets log information for a given account.
+            </summary>
+            <param name="accountName">Name of the account.</param>
+            <param name="manager">Sync db manager</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorHelper.ResetConfigurations(Telerik.Sitefinity.Abstractions.SiteInitializer)">
+            <summary>
+            Resets the configurations.
+            </summary>
+            <param name="initializer">The initializer.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorManager.GetTaskManager">
+            <summary>
+            Gets the task manager.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorManager.ScheduleImmediateSyncTask(System.String,System.String)">
+            <summary>
+            Schedules the sync task for an immediate run.
+            </summary>
+            <param name="site">The site.</param>
+            <param name="listName">Name of the list.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorManager.ScheduleSyncTask(System.String,System.String)">
+            <summary>
+            Schedules the sync task.
+            </summary>
+            <param name="site">The site.</param>
+            <param name="listName">Name of the list.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorManager.DeleteAccountMappings(System.String)">
+            <summary>
+            Deletes the SalesForce account configuration.
+            </summary>
+            <param name="name">The name of the SalesForce account.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorManager.DeleteListMapping(System.String,System.String)">
+            <summary>
+            Deletes a SalesForce list mapping.
+            </summary>
+            <param name="account">The name of the SalesForce account.</param>
+            <param name="list">The name of the list mapping.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorManager.TriggerSynchronization(System.String,System.String)">
+            <summary>
+            Triggers the list synchronization internal.
+            </summary>
+            <param name="account">The account.</param>
+            <param name="list">The list.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorManager.TriggerSynchronization(System.String,Telerik.Sitefinity.SalesForceConnector.Mappers.MapperBase)">
+            <summary>
+            Triggers the synchronization.
+            </summary>
+            <param name="accountName">Name of the account.</param>
+            <param name="listName">Name of the list.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorManager.TestSalesForceConnection(System.String,System.String@)">
+            <summary>
+            Tests the sales force connection.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorManager.GetListDescription(System.String,System.String)">
+            <summary>
+            Gets the list's metadata description.
+            </summary>
+            <param name="accountName">Name of the account.</param>
+            <param name="listName">Name of the list.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorManager.IsFieldSupported(Telerik.OpenAccess.DataAdapter.Metadata.FieldDescription,Telerik.Sitefinity.SalesForceConnector.Components.SalesForceFieldUsage)">
+            <summary>
+            Determines whether [is field supported] [the specified field].
+            </summary>
+            <param name="field">The field.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorManager.EncryptPassword(System.String)">
+            <summary>
+            Encrypts the password.
+            </summary>
+            <param name="password">The password.</param>
+            <returns>The encrypted password.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorManager.DecryptPassword(System.String)">
+            <summary>
+            Decrypts the password.
+            </summary>
+            <param name="password">The password.</param>
+            <returns>The decrypted password.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorManager.GetSalt">
+            <summary>
+            Gets the salt used for encryption and decryption of passwords.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorManager.TriggerSingleImport(Telerik.OpenAccess.Sync.ImportContext)">
+            <summary>
+            Triggers a single import.
+            </summary>
+            <param name="importContext">The import context.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorModule">
+            <summary>
+            Custom Sitefinity module 
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorModule.LandingPageId">
+            <summary>
+            Gets the landing page id for the module.
+            </summary>
+            <value>The landing page id.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorModule.Managers">
+            <summary>
+            Gets the CLR types of all data managers provided by this module.
+            </summary>
+            <value>An array of <see cref="T:System.Type" /> objects.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorModule.Initialize(Telerik.Sitefinity.Services.ModuleSettings)">
+            <summary>
+            Initializes the service with specified settings.
+            This method is called every time the module is initializing (on application startup by default)
+            </summary>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorModule.Install(Telerik.Sitefinity.Abstractions.SiteInitializer)">
+            <summary>
+            Installs this module in Sitefinity system for the first time.
+            </summary>
+            <param name="initializer">The Site Initializer. A helper class for installing Sitefinity modules.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorModule.GetVirtualPaths">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorModule.Upgrade(Telerik.Sitefinity.Abstractions.SiteInitializer,System.Version)">
+            <summary>
+            Upgrades this module from the specified version.
+            This method is called instead of the Install method when the module is already installed with a previous version.
+            </summary>
+            <param name="initializer">The Site Initializer. A helper class for installing Sitefinity modules.</param>
+            <param name="upgradeFrom">The version this module us upgrading from.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorModule.Uninstall(Telerik.Sitefinity.Abstractions.SiteInitializer)">
+            <summary>
+            Uninstalls the specified initializer.
+            </summary>
+            <param name="initializer">The initializer.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorModule.GetModuleConfig">
+            <summary>
+            Gets the module configuration.
+            </summary>
+            <returns> The module config</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorModule.GetReport">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorModule.InstallBackendPages(Telerik.Sitefinity.Abstractions.SiteInitializer)">
+            <summary>
+            Installs the backend pages.
+            </summary>
+            <param name="initializer">The initializer.</param>
+        </member>
+        <member name="F:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorModule.ModuleName">
+            <summary>
+            The Sales force connector module name
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorModule.SalesForceConnectorWebServiceUrl">
+            <summary>
+            Sales force connector web service url
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorModule.ModuleId">
+            <summary>
+            Id of the module. Used for licensing.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorModule.AccessSalesForceConnectorAppAction">
+            <summary>
+            Access SalesForce Connector AppAction
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources" -->
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.#ctor">
+            <summary>
+            Initializes new instance of <see cref="T:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources"/> class with the default <see cref="T:Telerik.Sitefinity.Localization.Data.ResourceDataProvider"/>.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.#ctor(Telerik.Sitefinity.Localization.Data.ResourceDataProvider)">
+            <summary>
+            Initializes new instance of <see cref="T:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources"/> class with the provided <see cref="T:Telerik.Sitefinity.Localization.Data.ResourceDataProvider"/>.
+            </summary>
+            <param name="dataProvider"><see cref="T:Telerik.Sitefinity.Localization.Data.ResourceDataProvider"/></param>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SalesForceConnectorResourcesTitle">
+            <summary>
+            SalesForceConnector Resources
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SalesForceConnectorResourcesTitlePlural">
+            <summary>
+            SalesForceConnector Resources Title plural
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SalesForceConnectorResourcesDescription">
+            <summary>
+            Contains localizable resources for SalesForceConnector module.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SalesForceConnectorGroupPageTitle">
+            <summary>
+            Phrase: Connector for SalesForce
+            </summary>
+            <value>Connector for SalesForce</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SalesForceConnectorGroupPageUrlName">
+            <summary>
+            Word: SalesForce
+            </summary>
+            <value>SalesForce</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SalesForceConnectorGroupPageDescription">
+            <summary>
+            Phrase: Connector for SalesForce group page
+            </summary>
+            <value>Connector for SalesForce group page</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SalesForceConnectorAccountsPageTitle">
+            <summary>
+            Phrase:Connector for SalesForce
+            </summary>
+            <value>Connector for SalesForce</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SalesForceConnectorAccountsPageUrlName">
+            <summary>
+            Word: Accounts
+            </summary>
+            <value>Accounts</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SalesForceConnectorAccountsPageDescription">
+            <summary>
+            Phrase: Connector for SalesForce accounts page
+            </summary>
+            <value>Connector for SalesForce accounts page</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SalesForceConnectorListsPageTitle">
+            <summary>
+            Word: Synchronizations
+            </summary>
+            <value>Synchronizations</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SalesForceConnectorListsPageUrlName">
+            <summary>
+            Word: Lists
+            </summary>
+            <value>Lists</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SalesForceConnectorListsPageDescription">
+            <summary>
+            Phrase: Connector for SalesForce synchronizations page
+            </summary>
+            <value>Connector for SalesForce synchronizations page</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.AddSalesForceAccountLabel">
+            <summary>
+            Phrase: Add account
+            </summary>
+            <value>Add account</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.NoSalesForceAccountsConnectedLabel">
+            <summary>
+            Phrase: No SalesForce account has been connected for synchronization
+            </summary>
+            <value>No SalesForce account has been connected for synchronization</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.AccountNameLabel">
+            <summary>
+            Word: Name
+            </summary>
+            <value>Name</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SalesForceAccountLabel">
+            <summary>
+            Phrase: SalesForce account
+            </summary>
+            <value>SalesForce account</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.AccountConnectedListsTitle">
+            <summary>
+            Word: Synchronizations
+            </summary>
+            <value>Synchronizations</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.ActionsLabel">
+            <summary>
+            Word: Actions
+            </summary>
+            <value>Actions</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.DeleteAccountConfirmationLabel">
+            <summary>
+            Phrase: Are you sure you want to delete this SalesForce account?
+            </summary>
+            <value>Are you sure you want to delete this SalesForce account?</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.DeleteAccountConfirmationButton">
+            <summary>
+            Phrase: Yes, delete this SalesForce site
+            </summary>
+            <value>Yes, delete this SalesForce site</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.CancelButtonLabel">
+            <summary>
+            Word: Cancel
+            </summary>
+            <value>Cancel</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.BackToSalesForceAccountsLabel">
+            <summary>
+            Phrase: Back to Connector for SalesForce
+            </summary>
+            <value>Back to Connector for SalesForce</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.AccountsFormCreateTitle">
+            <summary>
+            Phrase: Add SalesForce account
+            </summary>
+            <value>Add SalesForce account</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.AccountsFormEditTitle">
+            <summary>
+            Phrase: Edit SalesForce account
+            </summary>
+            <value>Edit SalesForce account</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.AccountsFormAccountNameTitle">
+            <summary>
+            Word: Name
+            </summary>
+            <value>Name</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.AccountsFormAccountNameCannotBeEmpty">
+            <summary>
+            Phrase: Account name cannot be empty
+            </summary>
+            <value>Account name cannot be empty</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.AccountsFormAccountNameRegExError">
+            <summary>
+            Phrase: Account name contains invalid characters
+            </summary>
+            <value>Account name contains invalid characters</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.AccountsFormAccountNameExampleLabel">
+            <summary>
+            Phrase: This name is for your convenience only
+            </summary>
+            <value>This name is for your convenience only</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.AccountsFormAccountUsernameTitle">
+            <summary>
+            Word: Username
+            </summary>
+            <value>Username</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.AccountsFormAccountUsernameCannotBeEmpty">
+            <summary>
+            Phrase: SalesForce username cannot be empty
+            </summary>
+            <value>SalesForce username cannot be empty</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.AccountsFormAccountUsernameExampleLabel">
+            <summary>
+            Phrase: Use your SalesForce developer account
+            </summary>
+            <value>Use your SalesForce developer account</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.AccountsFormAccountPasswordTitle">
+            <summary>
+            Word: Password
+            </summary>
+            <value>Password</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.AccountsFormAccountPasswordCannotBeEmpty">
+            <summary>
+            Phrase: SalesForce account password cannot be empty
+            </summary>
+            <value>SalesForce account password cannot be empty</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.ContinueToSetupSyncLabel">
+            <summary>
+            Phrase: Continue to setup synchronization
+            </summary>
+            <value>Continue to setup synchronization</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SaveAndCloseLabel">
+            <summary>
+            Phrase: Save and Close
+            </summary>
+            <value>Save and Close</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.AccountsFormAccountSecurityTokenTitle">
+            <summary>
+            Phrase Security token
+            </summary>
+            <value>Security token</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.AccountsFormAccountSecurityTokenCannotBeEmpty">
+            <summary>
+            Phrase: SalesForce security token cannot be empty
+            </summary>
+            <value>SalesForce security token cannot be empty</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.OrLabel">
+            <summary>
+            Word: or
+            </summary>
+            <value>or</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SyncDetailsTitle">
+            <summary>
+            Phrase: Synchronization details
+            </summary>
+            <value>Synchronization details</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.NotSyncedlabel">
+            <summary>
+            Phrase: This account has never been synchronized
+            </summary>
+            <value>This account has never been synchronized</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SalesForceListLabel">
+            <summary>
+            Word: SalesForce
+            </summary>
+            <value>SalesForce</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.LogStatusLabel">
+            <summary>
+            Word: Status
+            </summary>
+            <value>Status</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.LogDateLabel">
+            <summary>
+            Phrase: Synced at
+            </summary>
+            <value>Synced at</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.PropertiesLabel">
+            <summary>
+            Word: Properties
+            </summary>
+            <value>Properties</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.RemoveLabel">
+            <summary>
+            Word: Remove
+            </summary>
+            <value>Remove</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.EnableSyncLabel">
+            <summary>
+            Word: Enable
+            </summary>
+            <value>Enable</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.DisableSyncLabel">
+            <summary>
+            Word: Disable
+            </summary>
+            <value>Disable</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SyncLogLabel">
+            <summary>
+            Phrase: Synchronization log
+            </summary>
+            <value>Synchronization log</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.AlreadyMappedLabel">
+            <summary>
+            Phrase: Already connected
+            </summary>
+            <value>Already connected</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.AddSynchronizationLabel">
+            <summary>
+            Phrase: Add synchronization
+            </summary>
+            <value>Add synchronization</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.ListCountLabel">
+            <summary>
+            Word: synchronization
+            </summary>
+            <value>synchronization</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.ListCountPluralLabel">
+            <summary>
+            Word: synchronizations
+            </summary>
+            <value>synchronizations</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.TriggerSyncOnAccountLabel">
+            <summary>
+            Phrase: Synchronize now
+            </summary>
+            <value>Synchronize now</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.EnabledSyncLabel">
+            <summary>
+            Word: Enabled
+            </summary>
+            <value>Enabled</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.DisabledSyncLabel">
+            <summary>
+            Word: Disabled
+            </summary>
+            <value>Disabled</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.DeleteListConfirmationLabel">
+            <summary>
+            Phrase: Are you sure you want to delete this SalesForce synchronization?
+            </summary>
+            <value>Are you sure you want to delete this SalesForce synchronization?</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.DeleteListConfirmationButton">
+            <summary>
+            Phrase: Yes, delete this synchronization
+            </summary>
+            <value>Yes, delete this synchronization</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.ListsSidebarTitleLabel">
+            <summary>
+            Phrase: Manage synchronizations
+            </summary>
+            <value>Manage synchronizations</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.FilterListsLabel">
+            <summary>
+            Phrase: Filter synchronizations
+            </summary>
+            <value>Filter synchronizations</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.AllListsFilterLabel">
+            <summary>
+            Phrase: All synchronizations
+            </summary>
+            <value>All synchronizations</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.ListsByAccountLabel">
+            <summary>
+            Phrase: Lists by SalesForce account
+            </summary>
+            <value>Lists by SalesForce account</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.AddSalesForceListLabel">
+            <summary>
+            Phrase: Add new sync
+            </summary>
+            <value>Add new sync</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.NoSalesForceListsConnectedLabel">
+            <summary>
+            Phrase: No synchronizations have been created yet
+            </summary>
+            <value>No synchronizations have been created yet</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.BackToSalesForceListsLabel">
+            <summary>
+            Phrase: Back to Synchronizations
+            </summary>
+            <value>Back to Synchronizations</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SalesForceListMappingFormTitle">
+            <summary>
+            Phrase: Add synchronization
+            </summary>
+            <value>Add synchronization</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.UsersLabel">
+            <summary>
+            Word: Users
+            </summary>
+            <value>Users</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.DocumentsLabel">
+            <summary>
+            Word: Documents
+            </summary>
+            <value>Documents</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.FormResponsesLabel">
+            <summary>
+            Phrase: Form responses
+            </summary>
+            <value>Form responses</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.WhatDataToSyncLabel">
+            <summary>
+            Phrase: What data do you want to sync?
+            </summary>
+            <value>What data do you want to sync?</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.ContinueLabel">
+            <summary>
+            Word: Continue
+            </summary>
+            <value>Continue</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.ContactsLeadsLabel">
+            <summary>
+            Phrase: (Contacts, Leads, Users)
+            </summary>
+            <value>(Contacts, Leads, Users)</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SaveLabel">
+            <summary>
+            Word: Save
+            </summary>
+            <value>Save</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.ScheduleTypeLabel">
+            <summary>
+            Phrase: Schedule type
+            </summary>
+            <value>Schedule type</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SynchronizationTypeLabel">
+            <summary>
+            Phrase: Synchronization type
+            </summary>
+            <value>Synchronization type</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SyncTypeTwoWayLabel">
+            <summary>
+            Phrase: Two way
+            </summary>
+            <value>Two way</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SyncTypeOneWayToSitefinityLabel">
+            <summary>
+            Phrase: SalesForce to server
+            </summary>
+            <value>SalesForce to server</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SyncTypeOneWayToSalesForceLabel">
+            <summary>
+            Phrase: Server to SalesForce
+            </summary>
+            <value>Server to SalesForce</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SelectLabel">
+            <summary>
+            Word: Select
+            </summary>
+            <value>Select</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SalesForceListNameLabel">
+            <summary>
+            Word: SalesForce
+            </summary>
+            <value>SalesForce</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SitefinityLibraryNameLabel">
+            <summary>
+            Word: Sitefinity
+            </summary>
+            <value>Sitefinity</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.ScheduleNever">
+            <summary>
+            Phrase: Not scheduled
+            </summary>
+            <value>Not scheduled</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.ScheduleFiveMinutes">
+            <summary>
+            Phrase: Every 5 minutes
+            </summary>
+            <value>Every 5 minutes</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.ScheduleHalfHour">
+            <summary>
+            Phrase: Every 30 minutes
+            </summary>
+            <value>Every 30 minutes</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.ScheduleOneHour">
+            <summary>
+            Phrase: Every 1 hour
+            </summary>
+            <value>Every 1 hour</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.ScheduleWeekly">
+            <summary>
+            Phrase: Weekly on
+            </summary>
+            <value>Weekly on</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.ScheduleMonday">
+            <summary>
+            Word: Monday
+            </summary>
+            <value>Monday</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.ScheduleTuesday">
+            <summary>
+            Word: Tuesday
+            </summary>
+            <value>Tuesday</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.ScheduleWednesday">
+            <summary>
+            Word: Wednesday
+            </summary>
+            <value>Wednesday</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.ScheduleThursday">
+            <summary>
+            Word: Thursday
+            </summary>
+            <value>Thursday</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.ScheduleFriday">
+            <summary>
+            Word: Friday
+            </summary>
+            <value>Friday</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.ScheduleSaturday">
+            <summary>
+            Word: Saturday
+            </summary>
+            <value>Saturday</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.ScheduleSunday">
+            <summary>
+            Word: Sunday
+            </summary>
+            <value>Sunday</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SelectSalesForceListLabel">
+            <summary>
+            Phrase: Select a SalesForce list
+            </summary>
+            <value>Select a SalesForce list</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SelectSitefinityRoleLabel">
+            <summary>
+            Phrase: Select a Sitefinity role
+            </summary>
+            <value>Select a Sitefinity role</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.ProviderLabel">
+            <summary>
+            Word: Provider
+            </summary>
+            <value>Provider</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.RolesSelectorHeader">
+            <summary>
+            Phrase: Sitefinity roles
+            </summary>
+            <value>Sitefinity roles</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.ContentTypeDeleted">
+            <summary>
+            Phrase: Deleted content type
+            </summary>
+            <value>Deleted content type</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.TriggerSyncOnListLabel">
+            <summary>
+            Phrase: Synchronize now
+            </summary>
+            <value>Synchronize now</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SyncingDotDotDotLabel">
+            <summary>
+            Phrase: Syncing...
+            </summary>
+            <value>Syncing...</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.FailedToSynchronizeLabel">
+            <summary>
+            Phrase: Failed to be synced
+            </summary>
+            <value>Failed to be synced</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SyncInQueueLabel">
+            <summary>
+            Phrase: Sync pending...
+            </summary>
+            <value>Sync pending...</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.DisabledFromAccountLabel">
+            <summary>
+            Phrase: Disabled from account
+            </summary>
+            <value>Disabled from account</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SitefinityDataLabel">
+            <summary>
+            Word: Sitefinity
+            </summary>
+            <value>Sitefinity</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SyncConditionLabel">
+            <summary>
+            Phrase: When to sync
+            </summary>
+            <value>When to sync</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.ListAccountTitle">
+            <summary>
+            Word: Account
+            </summary>
+            <value>Account</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SitefinityContentTypeLabel">
+            <summary>
+            Word: Type
+            </summary>
+            <value>Type</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SyncedLabel">
+            <summary>
+            Word: Synced
+            </summary>
+            <value>Synced</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.RunningLabel">
+            <summary>
+            Word: Running
+            </summary>
+            <value>Running</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.FailedLabel">
+            <summary>
+            Word: Failed
+            </summary>
+            <value>Failed</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.ListSyncFailMessage">
+            <summary>
+            Phrase: The list failed to be synchronized. See the error details in the Sitefinity log files.
+            </summary>
+            <value>The list failed to be synchronized. See the error details in the Sitefinity log files.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.UnableToConnectToSiteMessage">
+            <summary>
+            Phrase: Unable to connect. Please make sure the SalesForce credentials are correct.
+            </summary>
+            <value>Unable to connect. Please make sure the SalesForce credentials are correct.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.NoConnectionMessage">
+            <summary>
+            Phrase: Site '{0}' cannot be synced because there is no connection with the server.
+            </summary>
+            <value>Site '{0}' cannot be synced because there is no connection with the server.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.InvalidCredentialsMessage">
+            <summary>
+            Phrase: Invalid username, password or security token.
+            </summary>
+            <value>Invalid username, password or security token.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.ButtonSelectLabel">
+            <summary>
+            Phrase: Select...
+            </summary>
+            <value>Select...</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.DeletedUserRoleLabel">
+            <summary>
+            Phrase: Deleted user role
+            </summary>
+            <value>Deleted user role</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.DeletedFormLabel">
+            <summary>
+            Phrase: Deleted form
+            </summary>
+            <value>Deleted form</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.ListsSyncedSingular">
+            <summary>
+            Phrase: list successfully synced
+            </summary>
+            <value>list successfully synced</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.ListsSyncedPlural">
+            <summary>
+            Phrase: lists successfully synced
+            </summary>
+            <value>lists successfully synced</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.ListsFailedSingular">
+            <summary>
+            Phrase: list failed to be synced
+            </summary>
+            <value>list failed to be synced</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.ListsFailedPlural">
+            <summary>
+            Phrase: lists failed to be synced
+            </summary>
+            <value>lists failed to be synced</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SelectSalesForceFieldNameLabel">
+            <summary>
+            Phrase: Select SalesForce field
+            </summary>
+            <value>Select SalesForce field</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SelectSalesForceFieldValueLabel">
+            <summary>
+            Phrase: Enter SalesForce value
+            </summary>
+            <value>Enter SalesForce value</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SalesForceListSelectorHeader">
+            <summary>
+            Phrase: SalesForce contacts
+            </summary>
+            <value>SalesForce contacts</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.WhatToSyncLabel">
+            <summary>
+            Phrase: What to sync...
+            </summary>
+            <value>What to sync...</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.ValueLabel">
+            <summary>
+            Word: Value
+            </summary>
+            <value>Value</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.FieldExampleLabel">
+            <summary>
+            Word: Department
+            </summary>
+            <value>Department</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.ValueExampleLabel">
+            <summary>
+            Word: Marketing
+            </summary>
+            <value>Marketing</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SelectUniqueSalesForceListLabel">
+            <summary>
+            Phrase: List name is already in use.
+            </summary>
+            <value>List name is already in use.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.ContactSourceLabel">
+            <summary>
+            Phrase: Set a field to mark the synced contacts on SalesForce
+            </summary>
+            <value>Set a field to mark the synced contacts on SalesForce</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.FormsSelectorHeader">
+            <summary>
+            Phrase: Sitefinity forms
+            </summary>
+            <value>Sitefinity forms</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.DeletedLibraryLabel">
+            <summary>
+            Phrase: Deleted library
+            </summary>
+            <value>Deleted library</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SalesForceFieldsMappingHeader">
+            <summary>
+            Phrase: SalesForce fields -> Sitefinity fields
+            </summary>
+            <value>SalesForce fields -> Sitefinity fields</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.AdvancedLabel">
+            <summary>
+            Word: Advanced
+            </summary>
+            <value>Advanced</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.MappingSettingsLabel">
+            <summary>
+            Phrase: Mapping settings
+            </summary>
+            <value>Mapping settings</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.FieldMappingsRequired">
+            <summary>
+            Phrase: You should map the fields you want to be synced
+            </summary>
+            <value>You should map the fields you want to be synced</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.MappingsLabel">
+            <summary>
+            Word: Mappings
+            </summary>
+            <value>Mappings</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.LibrariesSelectorHeader">
+            <summary>
+            Phrase: Sitefinity libraries
+            </summary>
+            <value>Sitefinity libraries</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.AddSalesForceAccountMessage">
+            <summary>
+            Phrase: Add SalesForce account
+            </summary>
+            <value>Add SalesForce account</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.MissingFilterFieldMessage">
+            <summary>
+            Phrase: The SalesForce filtering field doesn't exist. Please check if your Contact or Lead fields contains the one provided. You can find them in the setup page of your SalesForce account.
+            </summary>
+            <value>The SalesForce filtering field doesn't exist. Please check if your Contact or Lead fields contains the one provided. You can find them in the setup page of your SalesForce account.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.MissingExternalIdMessage">
+            <summary>
+            Phrase: You don't have SalesForce external id field. Please go to your SalesForce account -> Setup -> Customize -> Contacts/Leads -> Fields and create a new text field with unique values, 36 characters minimal length and set it as external id. Then enter its name in the Sitefinity Advanced settings -> SalesForce connector.
+            </summary>
+            <value>You don't have SalesForce external id field. Please go to your SalesForce account -> Setup -> Customize -> Contacts/Leads -> Fields and create a new text field with unique values, 36 characters minimal length and set it as external id. Then enter its name in the Sitefinity Advanced settings -> SalesForce connector.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SelectSalesForceFilterInvalidCharsLabel">
+            <summary>
+            Phrase: Invalid characters: , = ; :
+            </summary>
+            <value>Invalid characters: , = ; :</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SalesForceMappingSalesForceFieldPropNameCaption">
+            <summary>
+            Phrase: SalesForce field name
+            </summary>
+            <value>SalesForce field name</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SalesForceMappingSalesForceFieldPropNameDescription">
+            <summary>
+            Phrase: SalesForce field which will be mapped
+            </summary>
+            <value>SalesForce field which will be mapped</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SalesForceMappingSitefinityFieldPropNameCaption">
+            <summary>
+            Phrase: Sitefinity field
+            </summary>
+            <value>Sitefinity field</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SalesForceMappingSitefinityFieldPropNameDescription">
+            <summary>
+            Phrase: Sitefinity field which will be mapped
+            </summary>
+            <value>Sitefinity field which will be mapped</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.AccountNamePropNameCaption">
+            <summary>
+            Phrase: Account name
+            </summary>
+            <value>Account name</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.AccountNamePropNameDescription">
+            <summary>
+            Phrase: SalesForce account name
+            </summary>
+            <value>SalesForce account name</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SalesForceUsernamePropNameCaption">
+            <summary>
+            Word: Username
+            </summary>
+            <value>Username</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SalesForceUsernamePropNameDescription">
+            <summary>
+            Phrase: SalesForce username
+            </summary>
+            <value>SalesForce Username</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SalesForcePasswordPropNameCaption">
+            <summary>
+            Word: Password
+            </summary>
+            <value>Password</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SalesForcePasswordPropNameDescription">
+            <summary>
+            Phrase: SalesForce password
+            </summary>
+            <value>SalesForce Password</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SalesForceSecurityTokenPropNameCaption">
+            <summary>
+            Phrase: Security token
+            </summary>
+            <value>Security token</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SalesForceSecurityTokenPropNameDescription">
+            <summary>
+            Phrase: SalesForce security token
+            </summary>
+            <value>SalesForce security token</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SalesForceContactsExternalIdPropNameCaption">
+            <summary>
+            Phrase: Contacts external id
+            </summary>
+            <value>Contacts external id</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SalesForceContactsExternalIdPropNameDescription">
+            <summary>
+            Phrase: The column where the Sitefinity items will be stored in the SalesForce contacts table
+            </summary>
+            <value>The column where the Sitefinity items' ids will be stored in the SalesForce contacts table</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SalesForceLeadsExternalIdPropNameDescription">
+            <summary>
+            Phrase: The column where the Sitefinity items will be stored in the SalesForce leads table
+            </summary>
+            <value>The column where the Sitefinity items' ids will be stored in the SalesForce leads table</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SalesForceLeadsExternalIdPropNameCaption">
+            <summary>
+            Phrase: Leads external id
+            </summary>
+            <value>Leads external id</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SynchronizationStatusPropNameCaption">
+            <summary>
+            Phrase: Synchronization status
+            </summary>
+            <value>Synchronization status</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SynchronizationStatusPropNameDescription">
+            <summary>
+            Phrase: Synchronization status
+            </summary>
+            <value>Synchronization status</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.ListMappingsPropNameCaption">
+            <summary>
+            Phrase: List mappings
+            </summary>
+            <value>List mappings</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.ListMappingsPropNameDescription">
+            <summary>
+            Phrase: List mappings
+            </summary>
+            <value>List mappings</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SalesForceAccountsPropNameCaption">
+            <summary>
+            Phrase: SalesForce accounts
+            </summary>
+            <value>SalesForce account</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SalesForceAccountsPropNameDescription">
+            <summary>
+            Phrase: Accounts which will be synchronized
+            </summary>
+            <value>Accounts which will be synchronized</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.MasterAdapterPropNameCaption">
+            <summary>
+            Phrase: Master adapter
+            </summary>
+            <value>Master adapter</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.MasterAdapterPropNameDescription">
+            <summary>
+            Phrase: Determines which adapter wins in case of conflicts. Possible values: SalesForce, Sitefinity
+            </summary>
+            <value>Determines which adapter wins in case of conflicts. Possible values: SalesForce, Sitefinity</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SyncDeletedItemsPropNameCaption">
+            <summary>
+            Phrase: Synchronize deleted items
+            </summary>
+            <value>Synchronize deleted items</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SyncDeletedItemsPropNameDescription">
+            <summary>
+            Phrase: Determines whether items will be deleted when syncing
+            </summary>
+            <value>Determines whether items will be deleted when syncing</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.TaskRetryIntervalPropNameCaption">
+            <summary>
+            Phrase: Task retry interval
+            </summary>
+            <value>Task retry interval</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.TaskRetryIntervalPropNameDescription">
+            <summary>
+            Phrase: Gets or sets the synchronization task retry interval in seconds
+            </summary>
+            <value>Gets or sets the synchronization task retry interval in seconds</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.ConfigurationIdPropNameCaption">
+            <summary>
+            Phrase: Configuration id
+            </summary>
+            <value>Configuration id</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.ConfigurationIdPropNameDescription">
+            <summary>
+            Phrase: Configuration id
+            </summary>
+            <value>Configuration id</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SalesForceMappingSalesForceDataPropNameCaption">
+            <summary>
+            Phrase: SalesForce list name
+            </summary>
+            <value>SalesForce list name</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SalesForceMappingSalesForceDataPropNameDescription">
+            <summary>
+            Phrase: SalesForce list name with filter in the format Contacts/Leads(FilterField1:FilterValue1; FilterField2:FilterValue2;...)
+            </summary>
+            <value>SalesForce list name with filter in the format Contact/Lead(FilterField1:FilterValue1; FilterField2:FilterValue2;...)</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.UsesSourceFieldPropNameCaption">
+            <summary>
+            Phrase: Uses source field
+            </summary>
+            <value>Uses source field</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.UsesSourceFieldPropNameDescription">
+            <summary>
+            Phrase: Determines whether the filter in the SalesForce list name is used like a filter or source field
+            </summary>
+            <value>Determines whether the filter in the SalesForce list name is used like a filter or source field</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SalesForceMappingSitefinityDataPropNameCaption">
+            <summary>
+            Phrase: Sitefinity content type name
+            </summary>
+            <value>Sitefinity content type name</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SalesForceMappingSitefinityDataPropNameDescription">
+            <summary>
+            Phrase: The name of the synced Sitefinity content
+            </summary>
+            <value>The name of the synced Sitefinity content</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SalesForceMappingSitefinityDataProviderPropNameCaption">
+            <summary>
+            Phrase: Sitefinity data provider name
+            </summary>
+            <value>Sitefinity data provider name</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SalesForceMappingSitefinityDataProviderPropNameDescription">
+            <summary>
+            Phrase: The name of the synced Sitefinity content provider
+            </summary>
+            <value>The name of the synced Sitefinity content provider</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SalesForceMappingSynchronizationTypePropNameCaption">
+            <summary>
+            Phrase: Synchronization type
+            </summary>
+            <value>Synchronization type</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SalesForceMappingSynchronizationTypePropNameDescription">
+            <summary>
+            Phrase: The synchronization direction
+            </summary>
+            <value>The synchronization direction</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SalesForceMappingSitefinityContentTypePropNameCaption">
+            <summary>
+            Phrase: Sitefinity content type
+            </summary>
+            <value>Sitefinity content type</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SalesForceMappingSitefinityContentTypePropNameDescription">
+            <summary>
+            Phrase: The synced Sitefinity content type
+            </summary>
+            <value>The synced Sitefinity content type</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SchedulePropNameCaption">
+            <summary>
+            Word: Schedule
+            </summary>
+            <value>Schedule</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SchedulePropNameDescription">
+            <summary>
+            Phrase: The schedule interval in crontab format
+            </summary>
+            <value>The schedule interval in crontab format</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.ScheduleSummaryPropNameCaption">
+            <summary>
+            Phrase: Schedule summary
+            </summary>
+            <value>Schedule summary</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.ScheduleSummaryPropNameDescription">
+            <summary>
+            Phrase: Schedule interval summary
+            </summary>
+            <value>Schedule interval summary</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SalesForceFieldMappingsPropNameCaption">
+            <summary>
+            Phrase: Field mappings
+            </summary>
+            <value>Field mappings</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.SalesForceFieldMappingsPropNameDescription">
+            <summary>
+            Phrase: The field mappings between the Sitefinity item's properties and the SalesForce item's fields
+            </summary>
+            <value>The field mappings between the Sitefinity item's properties and the SalesForce item's fields</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.FilterContactsLabel">
+            <summary>
+            Phrase: Filter Contacts by field
+            </summary>
+            <value>Filter Contacts by field</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.FieldLabel">
+            <summary>
+            Word: Field
+            </summary>
+            <value>Field</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.AccessSalesForceConnectorTitle">
+            <summary>
+            Phrase: Access Connector for SalesForce module
+            </summary>
+            <value>Access Connector for SalesForce module</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.SalesForceConnectorResources.AccessSalesForceConnectorDescription">
+            <summary>
+            Phrase: Security action that allows access to the backend pages of the Connector for SalesForce module.
+            </summary>
+            <value>Security action that allows access to the backend pages of the Connector for SalesForce module.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Scheduling.SalesForceSyncTask.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.SalesForceConnector.Scheduling.SalesForceSyncTask" /> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Scheduling.SalesForceSyncTask.SetCustomData(System.String)">
+            <summary>
+            Sets the custom data. This is used when reviving a task from a persistent storage to deserialize any custom stored data
+            </summary>
+            <param name="customData"></param>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Scheduling.SalesForceSyncTask.Execute">
+            <summary>
+            Executes the task.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.SalesForceConnector.Scheduling.SalesForceSyncSettings">
+            <summary>
+            Data transfer class for synchronization settings.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Scheduling.SalesForceSyncSettings.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.SalesForceConnector.Scheduling.SalesForceSyncSettings" /> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Scheduling.SalesForceSyncSettings.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.SalesForceConnector.Scheduling.SalesForceSyncSettings" /> class.
+            </summary>
+            <param name="account">The account.</param>
+            <param name="list">The list.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Scheduling.SalesForceSyncSettings.Account">
+            <summary>
+            Gets or sets the site.
+            </summary>
+            <value>
+            The site.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Scheduling.SalesForceSyncSettings.List">
+            <summary>
+            Gets or sets the list.
+            </summary>
+            <value>
+            The list.
+            </value>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Scheduling.SalesForceSyncSettings.Parse(System.String)">
+            <summary>
+            Parses the specified data.
+            </summary>
+            <param name="data">The data.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Scheduling.SalesForceSyncSettings.GetRetryInterval">
+            <summary>
+            Gets or sets the retry interval in seconds.
+            </summary>
+            <value>The retry interval.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Scheduling.SalesForceSyncSettings.GetSchedule">
+            <summary>
+            Gets or sets the schedule.
+            </summary>
+            <value>
+            The schedule.
+            </value>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Scheduling.SalesForceSyncSettings.GetSynchronizationStatus">
+            <summary>
+            Gets or sets the synchronization status.
+            </summary>
+            <value>The synchronization status.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Sync.FormResponsesSyncLifecycleManager.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.SalesForceConnector.Sync.FormResponsesSyncLifecycleManager" /> class.
+            </summary>
+            <param name="configurationId">The configuration id.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Sync.FormResponsesSyncLifecycleManager.FormsManager">
+            <summary>
+            Gets or sets the forms manager.
+            </summary>
+            <value>The forms manager.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Sync.FormResponsesSyncLifecycleManager.GetConfigData(System.String)">
+            <summary>
+            Gets the name of the forms provider, specified in the list mapping.
+            </summary>
+            <param name="configurationId">The mapping configuration id.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.SalesForceConnector.Sync.InsertingInDestinationAction">
+            <summary>
+            Determines whether the newly inserted user in Sitefinity is actually a new user or just added to role
+            </summary> 
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Sync.UserSyncLifecycleManager.ProfilesTransactionName">
+            <summary>
+            Gets or sets the name of the profiles transaction.
+            </summary>
+            <value>The name of the profiles transaction.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Sync.UserSyncLifecycleManager.RolesProvider">
+            <summary>
+            Gets or sets the roles provider.
+            </summary>
+            <value>The roles provider.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Sync.UserSyncLifecycleManager.UsersProvider">
+            <summary>
+            Gets or sets the users provider.
+            </summary>
+            <value>The users provider.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Sync.UserSyncLifecycleManager.UserProfilesProvider">
+            <summary>
+            Gets or sets the user profiles provider.
+            </summary>
+            <value>The user profiles provider.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Sync.UserSyncLifecycleManager.UserManager">
+            <summary>
+            Gets the user manager.
+            </summary>
+            <value>The user manager.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Sync.UserSyncLifecycleManager.UserProfileManager">
+            <summary>
+            Gets the user profile manager.
+            </summary>
+            <value>The user profile manager.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Sync.UserSyncLifecycleManager.RoleManager">
+            <summary>
+            Gets or sets the role manager.
+            </summary>
+            <value>The role manager.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Sync.UserSyncLifecycleManager.GetConfigData(System.String)">
+            <summary>
+            Gets the name of the roles, users and user profiles providers and the content types, specified in the list mapping.
+            </summary>
+            <param name="configurationId">The mapping configuration id.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.SalesForceConnector.Sync.UserSyncItem">
+            <summary>
+            A wrapper class of the user object that will be synchronized 
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Sync.UserSyncItem.CreationAction">
+            <summary>
+            Gets or sets the creation action.
+            </summary>
+            <value>The creation action.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Sync.UserSyncItem.PushFieldValuesInTempCollection">
+            <summary>
+            Determines whether the field values will be pushed in a temp collection
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Sync.UserSyncItem.FieldValues">
+            <summary>
+            Gets or sets the field values.
+            </summary>
+            <value>The field values temp.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.Services.ISalesForceConnectorService.GetAccounts">
+            <summary>
+            Gets a list of the SalesForce accounts.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.Services.ISalesForceConnectorService.GetAccount(System.String)">
+            <summary>
+            Gets the SalesForce account.
+            </summary>
+            <param name="name">The name of the SalesForce account.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.Services.ISalesForceConnectorService.CreateAccount(Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceAccountViewModel)">
+            <summary>
+            Creates a new SalesForce account.
+            </summary>
+            <param name="account">The SalesForce account.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.Services.ISalesForceConnectorService.UpdateAccount(System.String,Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceAccountViewModel)">
+            <summary>
+            Updates the SalesForce account.
+            </summary>
+            <param name="name">The name of the existing account.</param>
+            <param name="account">The updated SalesForce account.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.Services.ISalesForceConnectorService.DeleteAccount(System.String)">
+            <summary>
+            Deletes the SalesForce account.
+            </summary>
+            <param name="name">The name of the SalesForce account.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.Services.ISalesForceConnectorService.GetListMappings(System.String)">
+            <summary>
+            Gets the list mappings for the SalesForce account.
+            </summary>
+            <param name="account">The name of the SalesForce account.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.Services.ISalesForceConnectorService.GetListMappingsStatuses">
+            <summary>
+            Gets the list mappings statuses for the SalesForce account.
+            </summary>
+            <param name="account">The account.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.Services.ISalesForceConnectorService.GetListMapping(System.String,System.String)">
+            <summary>
+            Gets the list mapping for the SalesForce account.
+            </summary>
+            <param name="account">The name of the SalesForce account.</param>
+            <param name="configurationId">The configuration id.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.Services.ISalesForceConnectorService.CreateListMapping(System.String,Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceListMappingViewModel)">
+            <summary>
+            Creates a SalesForce list mapping.
+            </summary>
+            <param name="account">The name of the SalesForce account.</param>
+            <param name="mapping">The mapping.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.Services.ISalesForceConnectorService.UpdateListMapping(System.String,System.String,Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceListMappingViewModel)">
+            <summary>
+            Updates a SalesForce list mapping.
+            </summary>
+            <param name="account">The name of the SalesForce account.</param>
+            <param name="configurationId">The configuration id.</param>
+            <param name="mapping">The mapping.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.Services.ISalesForceConnectorService.DeleteListMapping(System.String,System.String)">
+            <summary>
+            Deletes a SalesForce list mapping.
+            </summary>
+            <param name="account">The name of the SalesForce account.</param>
+            <param name="configurationId">The configuration id.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.Services.ISalesForceConnectorService.TriggerAccountSynchronization(System.String)">
+            <summary>
+            Triggers the account synchronization.
+            </summary>
+            <param name="account">The SalesForce account name.</param>
+            <param name="list">The SalesForce list name.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.Services.ISalesForceConnectorService.TriggerListSynchronization(System.String,System.String)">
+            <summary>
+            Triggers the list synchronization.
+            </summary>
+            <param name="account">The SalesForce account name.</param>
+            <param name="configurationId">The configuration id.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.Services.ISalesForceConnectorService.TestSalesForceConnection(Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceAccountViewModel)">
+            <summary>
+            Tests the connection to a SalesForce account.
+            </summary>
+            <param name="site">The SalesForce account.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.Services.ISalesForceConnectorService.GetSalesForceLists(System.String,System.String)">
+            <summary>
+            Gets all lists from a given account.
+            </summary>
+            <param name="account">The account.</param>
+            <param name="filter">The filter expression to show certain lists.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.Services.ISalesForceConnectorService.GetAccountLog(System.String)">
+            <summary>
+            Gets log information for a account.
+            </summary>
+            <param name="accountName">Name of the account.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.Services.ISalesForceConnectorService.GetListLog(System.String,System.String)">
+            <summary>
+            Gets log information for a list.
+            </summary>
+            <param name="account">The account.</param>
+            <param name="configurationId">The configuration id.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.Services.ISalesForceConnectorService.GetSitefinityContent(System.String,System.String)">
+            <summary>
+            Retrieves Sitefinity content types.
+            </summary>
+            <param name="type">The type (Roles, FormDefinition, DocumentLibrary).</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.Services.ISalesForceConnectorService.GetSaleForceFields(System.String,System.String,System.String)">
+            <summary>
+            Gets the SalesForce fields.
+            </summary>
+            <param name="accountName">Name of the account.</param>
+            <param name="listName">Name of the list.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.Services.ISalesForceConnectorService.GetFieldMappings(Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.FieldMappingsConfigurationQueryViewModel)">
+            <summary>
+            Gets the field mappings.
+            </summary>
+            <param name="configuration">The configuration.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.SalesForceConnector.Web.Services.SalesForceConnectorService">
+            <summary>
+            Sitefinity web service.
+            </summary>
+            <remarks>
+            If this service is a part of a Sitefinity module,
+            you can install it by adding this to the module's Initialize method:
+            <![CDATA[App.WorkWith()
+                .Module(ModuleName)
+                .Initialize()
+                    .WebService<SalesForceConnectorService>(ServiceUrl); // ServiceUrl example: "Sitefinity/Services/ModuleName/SalesForceConnectorService.svc/"]]>
+            </remarks>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.Services.SalesForceConnectorService.GetSitefinityContent(System.String,System.String)">
+            <summary>
+            Retrieves Sitefinity content types, calendars and libraries.
+            </summary>
+            <param name="type">The type (DynamicModule, DocumentLibrary, Calendar). If it is not specified, all types are returned.</param>
+            <param name="filter">The filter</param>
+            <returns>Collection of Sitefinity content</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.Services.SalesForceConnectorService.GetSaleForceFields(System.String,System.String,System.String)">
+            <summary>
+            Gets the SalesForce fields for a list.
+            </summary>
+            <param name="accountName">Name of the account.</param>
+            <param name="listName">Name of the list.</param>
+            <param name="usage">The usage.</param>
+            <returns>SalesForce fields.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.Services.SalesForceConnectorService.GetFieldMappings(Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.FieldMappingsConfigurationQueryViewModel)">
+            <summary>
+            Gets the field mappings.
+            </summary>
+            <param name="configuration">The configuration.</param>
+            <returns>Collection of field mappings</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.Services.SalesForceConnectorService.GetSitefinityFields(System.String,System.String)">
+            <summary>
+            Gets the Sitefinity fields.
+            </summary>
+            <param name="module">The module.</param>
+            <param name="contentType">Type of the content.</param>
+            <returns>Collection of fields.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.Services.SalesForceConnectorService.GetListMappingConfigElement(System.String)">
+            <summary>
+            Gets the list mapping configuration element.
+            </summary>
+            <param name="configurationId">The configuration id.</param>
+            <returns>List mapping configuration element.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.Services.SalesForceConnectorService.GetListMappingConfigElement(System.Guid)">
+            <summary>
+            Gets the list mapping configuration element.
+            </summary>
+            <param name="configurationId">The configuration id.</param>
+            <returns>List mapping configuration element.</returns>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.DataProviderViewModel.ProviderTitle">
+            <summary>
+            Gets or sets the provider title.
+            </summary>
+            <value>The provider title.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.DataProviderViewModel.ProviderName">
+            <summary>
+            Gets or sets the name of the provider.
+            </summary>
+            <value>The name of the provider.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.FieldViewModel.Title">
+            <summary>
+            Gets or sets the title.
+            </summary>
+            <value>The title.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.FieldViewModel.Name">
+            <summary>
+            Gets or sets the name (the value saved in the configuration).
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.FieldViewModel.Type">
+            <summary>
+            Gets or sets the CLR type full name.
+            </summary>
+            <value>The type.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.FieldViewModel.IsRequired">
+            <summary>
+            Gets or sets the is required.
+            </summary>
+            <value>The is required.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.FieldViewModel.IsReadOnly">
+            <summary>
+            Gets or sets whether the field is read only.
+            </summary>
+            <value>The is read only.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceAccountViewModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceAccountViewModel" /> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceAccountViewModel.#ctor(Telerik.Sitefinity.SalesForceConnector.Configuration.SalesForceAccountConfigElement)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceAccountViewModel" /> class.
+            </summary>
+            <param name="element">The configuration element.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceAccountViewModel.AccountName">
+            <summary>
+            Gets or sets the friendly name for the SalesForce account.
+            </summary>
+            <value>The SalesForce account name.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceAccountViewModel.UserName">
+            <summary>
+            Gets or sets the username for the SalesForce account.
+            </summary>
+            <value>The username.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceAccountViewModel.Password">
+            <summary>
+            Gets the mappings between the SalesForce lists and Sitefinity libraries.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceAccountViewModel.SecurityToken">
+            <summary>
+            Gets or sets the security token for the SalesForce account.
+            </summary>
+            <value>The username.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceAccountViewModel.SynchronizationStatus">
+            <summary>
+            Gets or sets the synchronization status.
+            </summary>
+            <value>The synchronization status.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceAccountViewModel.ListsCount">
+            <summary>
+            Gets or sets the lists count.
+            </summary>
+            <value>The lists count.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceAccountViewModel.TriggerSyncOnAccountLabel">
+            <summary>
+            Gets or sets the trigger sync on account label.
+            </summary>
+            <value>The trigger sync on account label.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceAccountViewModel.ListsCountLabel">
+            <summary>
+            Gets or sets the lists count label.
+            </summary>
+            <value>The lists count label.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceAccountViewModel.SynchronizationStatusLabel">
+            <summary>
+            Gets or sets the synchronization status label.
+            </summary>
+            <value>The synchronization status label.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceAccountViewModel.AddSynchronizationLabel">
+            <summary>
+            Gets the localized string "Add synchronization" label.
+            </summary>
+            <value>The already mapped label.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceConnectorViewModelBase.ActionsLabel">
+            <summary>
+            Gets the localized text for "actions" label
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceConnectorViewModelBase.PropertiesLabel">
+            <summary>
+            Gets the localized text for "properties" label
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceConnectorViewModelBase.RemoveLabel">
+            <summary>
+            Gets the localized text for "remove" label
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceConnectorViewModelBase.EnableSyncLabel">
+            <summary>
+            Gets or sets the enable sync label.
+            </summary>
+            <value>The enable sync label.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceConnectorViewModelBase.DisableSyncLabel">
+            <summary>
+            Gets or sets the enable sync label.
+            </summary>
+            <value>The enable sync label.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceConnectorViewModelBase.LogLabel">
+            <summary>
+            Gets or sets the log label.
+            </summary>
+            <value>The log label.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceConnectorViewModelBase.DetailsLabel">
+            <summary>
+            Gets or sets the details label.
+            </summary>
+            <value>The details label.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceConnectorViewModelBase.NewContentTypeInNewModuleLabel">
+            <summary>
+            Gets or sets the new content type in new module label.
+            </summary>
+            <value>The new content type in new module label.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceConnectorViewModelBase.NewContentTypeInExistingModuleLabel">
+            <summary>
+            Gets or sets the new content type in existing module label.
+            </summary>
+            <value>The new content type in existing module label.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceConnectorViewModelBase.AlreadyMappedLabel">
+            <summary>
+            Gets the localized string "Already connected" label.
+            </summary>
+            <value>The already mapped label.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceListLogViewModel.#ctor(Telerik.OpenAccess.DataSource.SyncDB.SynchronizationLog)">
+            <summary>
+            Initializes a new instance of the <see cref="!:SharepointListLogViewModel" /> class.
+            Called when list details are requested
+            </summary>
+            <param name="x">The x.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceListLogViewModel.#ctor(Telerik.OpenAccess.DataSource.SyncDB.SynchronizationListSummary)">
+            <summary>
+            Initializes a new instance of the <see cref="!:SharepointListLogViewModel" /> class.
+            Called when site details are requested
+            </summary>
+            <param name="listSummary">The list summary.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceListLogViewModel.Title">
+            <summary>
+            Gets or sets the name of the list.
+            </summary>
+            <value>The name of the list.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceListLogViewModel.ConfigurationId">
+            <summary>
+            Gets or sets the configuration id.
+            </summary>
+            <value>The configuration id.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceListLogViewModel.Status">
+            <summary>
+            Gets or sets the status.
+            </summary>
+            <value>The status.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceListLogViewModel.LastSync">
+            <summary>
+            Gets or sets the last sync date.
+            </summary>
+            <value>The last sync date.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceListLogViewModel.IsFatalError">
+            <summary>
+            Determines whether the list has failed fatally.
+            </summary>
+            <value>Is fatal error.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceListLogViewModel.FatalErrorMessage">
+            <summary>
+            Gets or sets the fatal error message.
+            </summary>
+            <value>The error message.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceListLogViewModel.DetailsLabel">
+            <summary>
+            Gets or sets the details label.
+            </summary>
+            <value>The details label.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceListMappingViewModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceListMappingViewModel" /> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceListMappingViewModel.#ctor(Telerik.Sitefinity.SalesForceConnector.Configuration.SalesForceListMappingConfigElement,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceListMappingViewModel" /> class.
+            </summary>
+            <param name="element">The configuration element.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceListMappingViewModel.SalesForceAccountName">
+            <summary>
+            Gets or sets the friendly name for the SalesForce account.
+            </summary>
+            <value>The SalesForce account name.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceListMappingViewModel.AccountSyncStatus">
+            <summary>
+            Gets or sets the synchronization status.
+            </summary>
+            <value>The synchronization status.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceListMappingViewModel.SalesForceData">
+            <summary>
+            Gets or sets the salesForce list.
+            </summary>
+            <value>The salesForce list.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceListMappingViewModel.UsesSourceField">
+            <summary>
+            Gets or sets whether source field has been used.
+            </summary>
+            <value>The uses source field.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceListMappingViewModel.SitefinityData">
+            <summary>
+            Gets or sets the sitefinity library.
+            </summary>
+            <value>The sitefinity library.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceListMappingViewModel.SitefinityDataDisplayName">
+            <summary>
+            Gets or sets the display name of the sitefinity data.
+            </summary>
+            <value>The display name of the sitefinity data.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceListMappingViewModel.SitefinityDataProvider">
+            <summary>
+            Gets or sets the sitefinity library provider.
+            </summary>
+            <value>The sitefinity library provider.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceListMappingViewModel.SitefinityDataProviderTitle">
+            <summary>
+            Gets or sets the sitefinity data provider title.
+            </summary>
+            <value>The sitefinity data provider title.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceListMappingViewModel.SynchronizationType">
+            <summary>
+            Gets or sets the type of the synchronization.
+            </summary>
+            <value>The type of the synchronization.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceListMappingViewModel.SitefinityContentType">
+            <summary>
+            Gets or sets the type of the sitefinity content.
+            </summary>
+            <value>The type of the sitefinity content.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceListMappingViewModel.SynchronizationStatus">
+            <summary>
+            Gets or sets the synchronization status.
+            </summary>
+            <value>The synchronization status.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceListMappingViewModel.ConfigurationId">
+            <summary>
+            Gets or sets the configuration id.
+            </summary>
+            <value>The configuration id.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceListMappingViewModel.Schedule">
+            <summary>
+            Gets or sets the schedule time in crontab format.
+            </summary>
+            <value>The schedule.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceListMappingViewModel.ScheduleSummary">
+            <summary>
+            Gets or sets the localized schedule summary.
+            </summary>
+            <value>The schedule summary.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceListMappingViewModel.IsSynchronizing">
+            <summary>
+            Indicates whether the list mapping is being synchronized.
+            </summary>
+            <value>True if synchronization is in progress.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceListMappingViewModel.FieldMappings">
+            <summary>
+            Gets or sets the field mappings.
+            </summary>
+            <value>The field mappings.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceListMappingViewModel.ShouldRetrieveFieldMappings">
+            <summary>
+            Gets or sets whether to retrieve field mappings on list mappings's save.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceListMappingViewModel.CreateNewContentType">
+            <summary>
+            Determines whether a new content type should be created.
+            </summary>
+            <value>The type of the create new content.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceListMappingViewModel.SyncStatus">
+            <summary>
+            Gets or sets the sync status.
+            </summary>
+            <value>The sync status.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceListMappingViewModel.CssStatus">
+            <summary>
+            Gets or sets the CSS status.
+            </summary>
+            <value>The CSS status.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceListMappingViewModel.PreviousSelectedSitefinityData">
+            <summary>
+            Gets or sets the previous selected sitefinity data.
+            </summary>
+            <value>The previous selected sitefinity data.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceListMappingViewModel.PreviousSelectedSalesForceList">
+            <summary>
+            Gets or sets the previous selected SalesForce list (Contacts / Leads).
+            </summary>
+            <value>The previous selected sales force list.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceListMappingViewModel.TriggerSyncOnListLabel">
+            <summary>
+            Gets or sets the trigger sync on list label.
+            </summary>
+            <value>The trigger sync on list label.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceListMappingViewModel.SitefinityContentTypeLabel">
+            <summary>
+            Gets or sets the trigger sync on list label.
+            </summary>
+            <value>The trigger sync on list label.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceListMappingViewModel.SynchronizationStatusLabel">
+            <summary>
+            Gets or sets the synchronization status label.
+            </summary>
+            <value>The synchronization status label.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceAccountLogViewModel.ListsLogs">
+            <summary>
+            Gets or sets the site's lists logs.
+            </summary>
+            <value>The lists logs.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceAccountLogViewModel.LastSynchronization">
+            <summary>
+            Gets or sets the last synchronization date of the site.
+            </summary>
+            <value>The last synchronization.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceAccountLogViewModel.SuccessfullySyncedCount">
+            <summary>
+            Gets or sets the successfully synced items count.
+            </summary>
+            <value>The successfully synced count.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceAccountLogViewModel.FailedToSyncCount">
+            <summary>
+            Gets or sets the failed to sync items count.
+            </summary>
+            <value>The failed to sync count.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SalesForceAccountLogViewModel.HasBeenSynced">
+            <summary>
+            Determines whether the site has ever been synced.
+            </summary>
+            <value>The has been synced.</value>
+        </member>
+        <member name="T:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SitefinityContentViewModel">
+             <summary>
+            Represents Sitefinity content type
+            Content item from a Dynamic module,
+            Calendar from Events,
+            Library from Libraries
+             </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SitefinityContentViewModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SitefinityContentViewModel" /> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SitefinityContentViewModel.#ctor(Telerik.Sitefinity.Security.Model.Role,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SitefinityContentViewModel" /> class.
+            </summary>
+            <param name="role">The user role.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SitefinityContentViewModel.#ctor(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SitefinityContentViewModel" /> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SitefinityContentViewModel.#ctor(Telerik.Sitefinity.Forms.Model.FormDescription,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SitefinityContentViewModel" /> class.
+            </summary>
+            <param name="form">The form.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SitefinityContentViewModel.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SitefinityContentViewModel" /> class.
+            </summary>
+            <param name="displayName">The display name.</param>
+            <param name="name">The name.</param>
+            <param name="moduleType">Type of the module.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SitefinityContentViewModel.DisplayName">
+            <summary>
+            Gets or sets the display name which will be used in the UI.
+            </summary>
+            <value>The display name.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SitefinityContentViewModel.Id">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SitefinityContentViewModel.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SitefinityContentViewModel.ModuleType">
+            <summary>
+            Gets or sets the type of the module which this content type belongs to.
+            </summary>
+            <value>DocumentLibrary, DynamicModule, Calendar</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SitefinityContentViewModel.ModuleName">
+            <summary>
+            Gets or sets the name of the module which this content type belongs to.
+            </summary>
+            <value>The name of the module.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SitefinityContentViewModel.ModuleGuid">
+            <summary>
+            Gets or sets the module GUID. Needed when creating content type in a new module.
+            </summary>
+            <value>The module GUID.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SitefinityContentViewModel.IsAlreadyMapped">
+             <summary>
+            Determines whether the content type is already mapped.
+             </summary>
+             <value>The is already mapped.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.SitefinityContentViewModel.Provider">
+            <summary>
+            Gets or sets the provider.
+            </summary>
+            <value>The provider.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.TestConnectionResponseViewModel.IsSuccessful">
+            <summary>
+            Determines whether the connection test succeeded.
+            </summary>
+            <value>The succeeded.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.Services.ViewModels.TestConnectionResponseViewModel.ErrorMessage">
+            <summary>
+            Gets or sets the error message.
+            </summary>
+            <value>The error message.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.UI.Accounts.SalesForceAccountsPage.LayoutTemplateName">
+            <summary>
+            Obsolete. Use LayoutTemplatePath instead.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.UI.Accounts.SalesForceAccountsPage.LayoutTemplatePath">
+            <summary>
+            Gets the layout template's relative or virtual path.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.UI.Accounts.SalesForceAccountsPage.TagKey">
+            <summary>
+            Gets the <see cref="T:System.Web.UI.HtmlTextWriterTag" /> value that
+            corresponds to this Web server control. This property is used primarily by control
+            developers.
+            </summary>
+            <returns>One of the <see cref="T:System.Web.UI.HtmlTextWriterTag" /> enumeration values.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.UI.Accounts.SalesForceAccountsPage.InitializeControls(Telerik.Sitefinity.Web.UI.GenericContainer)">
+            <summary>
+            Initializes the controls.
+            </summary>
+            <param name="container"></param>
+            <remarks>
+            Initialize your controls in this method. Do not override CreateChildControls method.
+            </remarks>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.UI.Accounts.SalesForceAccountsPage.GetScriptReferences">
+            <summary>
+            Gets a collection of <see cref="T:System.Web.UI.ScriptReference" /> objects
+            that define script resources that the control requires.
+            </summary>
+            <returns>
+            An <see cref="T:System.Collections.IEnumerable" /> collection of <see cref="T:System.Web.UI.ScriptReference" />
+            objects.
+            </returns>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.UI.Accounts.SalesForceAccountsDetail.LayoutTemplateName">
+            <summary>
+            Obsolete. Use LayoutTemplatePath instead.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.UI.Accounts.SalesForceAccountsDetail.LayoutTemplatePath">
+            <summary>
+            Gets the layout template's relative or virtual path.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.UI.Accounts.SalesForceAccountsDetail.TagKey">
+            <summary>
+            Gets the <see cref="T:System.Web.UI.HtmlTextWriterTag" /> value that
+            corresponds to this Web server control. This property is used primarily by control
+            developers.
+            </summary>
+            <returns>One of the <see cref="T:System.Web.UI.HtmlTextWriterTag" /> enumeration values.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.UI.Accounts.SalesForceAccountsDetail.InitializeControls(Telerik.Sitefinity.Web.UI.GenericContainer)">
+            <summary>
+            Initializes the controls.
+            </summary>
+            <param name="container"></param>
+            <remarks>
+            Initialize your controls in this method. Do not override CreateChildControls method.
+            </remarks>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.UI.Accounts.SalesForceAccountsMaster.LayoutTemplateName">
+            <summary>
+            Obsolete. Use LayoutTemplatePath instead.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.UI.Accounts.SalesForceAccountsMaster.LayoutTemplatePath">
+            <summary>
+            Gets the layout template's relative or virtual path.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.UI.Accounts.SalesForceAccountsMaster.TagKey">
+            <summary>
+            Gets the <see cref="T:System.Web.UI.HtmlTextWriterTag" /> value that
+            corresponds to this Web server control. This property is used primarily by control
+            developers.
+            </summary>
+            <returns>One of the <see cref="T:System.Web.UI.HtmlTextWriterTag" /> enumeration values.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.UI.Accounts.SalesForceAccountsMaster.InitializeControls(Telerik.Sitefinity.Web.UI.GenericContainer)">
+            <summary>
+            Initializes the controls.
+            </summary>
+            <param name="container"></param>
+            <remarks>
+            Initialize your controls in this method. Do not override CreateChildControls method.
+            </remarks>
+        </member>
+        <member name="T:Telerik.Sitefinity.SalesForceConnector.Web.UI.Accounts.SalesForceSyncLogView">
+            <summary>
+            This control provides user interface for displaying synchronization log for an account
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.UI.Accounts.SalesForceSyncLogView.LayoutTemplateName">
+            <summary>
+            Gets the name of the embedded layout template.
+            </summary>
+            <remarks>
+            Override this property to change the embedded template to be used with the dialog
+            </remarks>
+            <value></value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.UI.Accounts.SalesForceSyncLogView.LayoutTemplatePath">
+            <summary>
+            Gets or sets the path of the external template to be used by the control.
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.UI.Accounts.SalesForceSyncLogView.InitializeControls(Telerik.Sitefinity.Web.UI.GenericContainer)">
+            <summary>
+            Initializes the controls.
+            </summary>
+            <param name="container"></param>
+            <remarks>
+            Initialize your controls in this method. Do not override CreateChildControls method.
+            </remarks>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.UI.Accounts.SalesForceSyncLogView.TagKey">
+            <summary>
+            Gets the <see cref="T:System.Web.UI.HtmlTextWriterTag" /> value that
+            corresponds to this Web server control. This property is used primarily by control
+            developers.
+            </summary>
+            <returns>One of the <see cref="T:System.Web.UI.HtmlTextWriterTag" /> enumeration
+            values.</returns>
+            <value></value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.UI.Controls.PreciseSchedulerView.LayoutTemplateName">
+            <summary>
+            Obsolete. Use LayoutTemplatePath instead.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.UI.Controls.PreciseSchedulerView.LayoutTemplatePath">
+            <summary>
+            Gets the layout template's relative or virtual path.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.UI.Controls.PreciseSchedulerView.TagKey">
+            <summary>
+            Gets the <see cref="T:System.Web.UI.HtmlTextWriterTag" /> value that
+            corresponds to this Web server control. This property is used primarily by control
+            developers.
+            </summary>
+            <returns>One of the <see cref="T:System.Web.UI.HtmlTextWriterTag" /> enumeration values.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.UI.Controls.PreciseSchedulerView.InitializeControls(Telerik.Sitefinity.Web.UI.GenericContainer)">
+            <summary>
+            Initializes the controls.
+            </summary>
+            <param name="container"></param>
+            <remarks>
+            Initialize your controls in this method. Do not override CreateChildControls method.
+            </remarks>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.UI.Controls.PreciseSchedulerView.GetScriptReferences">
+            <summary>
+            Gets a collection of <see cref="T:System.Web.UI.ScriptReference"/> objects
+            that define script resources that the control requires.
+            </summary>
+            <returns>
+            An <see cref="T:System.Collections.IEnumerable"/> collection of <see cref="T:System.Web.UI.ScriptReference"/>
+            objects.
+            </returns>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.UI.FieldsMappingView.LayoutTemplateName">
+            <summary>
+            Gets the name of the embedded layout template.
+            </summary>
+            <remarks>
+            Override this property to change the embedded template to be used with the dialog
+            </remarks>
+            <value></value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.UI.FieldsMappingView.LayoutTemplatePath">
+            <summary>
+            Gets or sets the path of the external template to be used by the control.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.UI.Lists.SalesForceListsCreate.LayoutTemplateName">
+            <summary>
+            Obsolete. Use LayoutTemplatePath instead.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.UI.Lists.SalesForceListsCreate.LayoutTemplatePath">
+            <summary>
+            Gets the layout template's relative or virtual path.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.UI.Lists.SalesForceListsCreate.TagKey">
+            <summary>
+            Gets the <see cref="T:System.Web.UI.HtmlTextWriterTag" /> value that
+            corresponds to this Web server control. This property is used primarily by control
+            developers.
+            </summary>
+            <returns>One of the <see cref="T:System.Web.UI.HtmlTextWriterTag" /> enumeration values.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.UI.Lists.SalesForceListsCreate.InitializeControls(Telerik.Sitefinity.Web.UI.GenericContainer)">
+            <summary>
+            Initializes the controls.
+            </summary>
+            <param name="container"></param>
+            <remarks>
+            Initialize your controls in this method. Do not override CreateChildControls method.
+            </remarks>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.UI.Lists.SalesForceListsDetail.LayoutTemplateName">
+            <summary>
+            Obsolete. Use LayoutTemplatePath instead.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.UI.Lists.SalesForceListsDetail.LayoutTemplatePath">
+            <summary>
+            Gets the layout template's relative or virtual path.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.UI.Lists.SalesForceListsDetail.TagKey">
+            <summary>
+            Gets the <see cref="T:System.Web.UI.HtmlTextWriterTag" /> value that
+            corresponds to this Web server control. This property is used primarily by control
+            developers.
+            </summary>
+            <returns>One of the <see cref="T:System.Web.UI.HtmlTextWriterTag" /> enumeration values.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.UI.Lists.SalesForceListsDetail.InitializeControls(Telerik.Sitefinity.Web.UI.GenericContainer)">
+            <summary>
+            Initializes the controls.
+            </summary>
+            <param name="container"></param>
+            <remarks>
+            Initialize your controls in this method. Do not override CreateChildControls method.
+            </remarks>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.UI.Lists.SalesForceListsMaster.LayoutTemplateName">
+            <summary>
+            Obsolete. Use LayoutTemplatePath instead.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.UI.Lists.SalesForceListsMaster.LayoutTemplatePath">
+            <summary>
+            Gets the layout template's relative or virtual path.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.UI.Lists.SalesForceListsMaster.TagKey">
+            <summary>
+            Gets the <see cref="T:System.Web.UI.HtmlTextWriterTag" /> value that
+            corresponds to this Web server control. This property is used primarily by control
+            developers.
+            </summary>
+            <returns>One of the <see cref="T:System.Web.UI.HtmlTextWriterTag" /> enumeration values.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.UI.Lists.SalesForceListsMaster.InitializeControls(Telerik.Sitefinity.Web.UI.GenericContainer)">
+            <summary>
+            Initializes the controls.
+            </summary>
+            <param name="container"></param>
+            <remarks>
+            Initialize your controls in this method. Do not override CreateChildControls method.
+            </remarks>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.UI.Lists.SalesForceListsPage.LayoutTemplateName">
+            <summary>
+            Obsolete. Use LayoutTemplatePath instead.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.UI.Lists.SalesForceListsPage.LayoutTemplatePath">
+            <summary>
+            Gets the layout template's relative or virtual path.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.SalesForceConnector.Web.UI.Lists.SalesForceListsPage.TagKey">
+            <summary>
+            Gets the <see cref="T:System.Web.UI.HtmlTextWriterTag" /> value that
+            corresponds to this Web server control. This property is used primarily by control
+            developers.
+            </summary>
+            <returns>One of the <see cref="T:System.Web.UI.HtmlTextWriterTag" /> enumeration values.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.UI.Lists.SalesForceListsPage.InitializeControls(Telerik.Sitefinity.Web.UI.GenericContainer)">
+            <summary>
+            Initializes the controls.
+            </summary>
+            <param name="container"></param>
+            <remarks>
+            Initialize your controls in this method. Do not override CreateChildControls method.
+            </remarks>
+        </member>
+        <member name="M:Telerik.Sitefinity.SalesForceConnector.Web.UI.Lists.SalesForceListsPage.GetScriptReferences">
+            <summary>
+            Gets a collection of <see cref="T:System.Web.UI.ScriptReference" /> objects
+            that define script resources that the control requires.
+            </summary>
+            <returns>
+            An <see cref="T:System.Collections.IEnumerable" /> collection of <see cref="T:System.Web.UI.ScriptReference" />
+            objects.
+            </returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Telerik.Sitefinity.Services.Documents</name>
+    </assembly>
+    <members>
+        <member name="T:Telerik.Sitefinity.Services.Documents.Configuration.ITextExtractorSettings">
+            <summary>
+            Defines the contract for the settings used to construct a text extractor.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Documents.Configuration.ITextExtractorSettings.MimeType">
+            <summary>
+            Gets or sets the MIME type associated with these settings.
+            This property is mandatory.
+            </summary>
+            <value>The MIME type.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Documents.Configuration.ITextExtractorSettings.ExtractorType">
+            <summary>
+            Gets or sets the type of the extractor.
+            This property is mandatory.
+            </summary>
+            <value>The type of the extractor.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Documents.Configuration.ITextExtractorSettings.Parameters">
+            <summary>
+            Gets or sets the parameters used to construct the extractor.
+            </summary>
+            <value>The parameters used to construct the extractor.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Documents.IDocumentService.ExtractText(System.String,System.IO.Stream,System.IO.Stream)">
+            <summary>
+            Extracts text from document.
+            </summary>
+            <param name="mimeType">The MIME type of the document.</param>
+            <param name="doc">The document input stream.</param>
+            <param name="text">The output text stream.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Documents.IDocumentService.GetSupportedExtensions">
+            <summary>
+            Gets all the supported extensions for documents.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Documents.ITextExtractor">
+            <summary>
+            Defines functionality for extracting text content from a raw file.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Documents.ITextExtractor.Initialize(System.String,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Initializes the instance of the text extractor.
+            </summary>
+            <param name="config">The configuration.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Documents.ITextExtractor.MimeType">
+            <summary>
+            Gets the MIME type that this instance supports.
+            </summary>
+            <value>The type of the MIME.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Documents.ITextExtractor.GetText(System.IO.Stream,System.IO.Stream)">
+            <summary>
+            Extracts text content from a raw document.
+            </summary>
+            <param name="mimeType">The mime type of the document.</param>
+            <param name="doc">The document stream.</param>
+            <param name="text">The output text stream.</param>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,11 @@
+{
+	"items" : [
+		{ "id" : "ServiceStack.Signed", "transform" : "Remove" },
+    { "id" : "ServiceStack.Common.Signed", "transform" : "Remove" },
+    { "id" : "ServiceStack.Client.Signed", "transform" : "Remove" },
+    { "id" : "ServiceStack.Text.Signed", "transform" : "Remove" },
+    { "id" : "ServiceStack.Redis.Signed", "transform" : "Remove" },
+    { "id" : "ServiceStack.Redis.Signed", "transform" : "Remove" },
+	  { "id" : "Sitefinity.RedDog.Search", "transform" : "Remove" }
+  ]
+}

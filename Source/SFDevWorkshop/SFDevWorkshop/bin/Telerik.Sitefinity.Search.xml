@@ -1,0 +1,455 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Telerik.Sitefinity.Search</name>
+    </assembly>
+    <members>
+        <member name="T:Telerik.Sitefinity.Services.Search.ISearchIndexCreatedEvent">
+            <summary>
+            Event, raised when search index is created
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Search.ISearchIndexCreatingEvent">
+            <summary>
+            Event, raised when search index is creating
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.ISearchIndexCreatingEvent.Definitions">
+            <summary>
+            Gets or sets the search fields definitions
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Search.ISearchIndexEvent">
+            <summary>
+            Base interface for search index events
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.ISearchIndexEvent.Name">
+            <summary>
+            Gets the name of the index
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Search.ISearchFilterClause">
+            <summary>
+            An interface for search filter clause
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.ISearchFilterClause.Field">
+            <summary>
+            Gets or sets the field name
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.ISearchFilterClause.Value">
+            <summary>
+            Gets or sets the value
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.ISearchFilterClause.FilterOperator">
+            <summary>
+            Gets or sets the operator for the clause
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Search.ISearchFilter">
+            <summary>
+            The interface for search filter
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.ISearchFilter.Clauses">
+            <summary>
+            Gets or sets the clauses in the filter
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.ISearchFilter.Groups">
+            <summary>
+            Gets or sets the groups in the filter
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.ISearchFilter.Operator">
+            <summary>
+            Gets or sets the filter operator
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Search.FilterOperator">
+            <summary>
+            Represents the types of operators used to build a search filter.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Services.Search.FilterOperator.Equals">
+            <summary>
+            The equals operator
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Services.Search.FilterOperator.Contains">
+            <summary>
+            The contains operator
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Services.Search.FilterOperator.Greater">
+            <summary>
+            The greater operator
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Services.Search.FilterOperator.Less">
+            <summary>
+            The less operator
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Search.IFieldDefinition">
+            <summary>
+            Interface for search field definition
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.IFieldDefinition.Name">
+            <summary>
+            Gets or sets the name of the field
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.IFieldDefinition.Type">
+            <summary>
+            Gets or sets the search type of the field
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Search.Data.IDocument">
+            <summary>
+            Represents data used by the search service to store it in a search engine.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Data.IDocument.IdentityField">
+            <summary>
+            Gets the identity field.
+            </summary>
+            <value>The identity field.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Data.IDocument.Fields">
+            <summary>
+            Gets the fields to be stored.
+            </summary>
+            <value>The fields.</value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Data.IDocument.GetValue(System.String)">
+            <summary>
+            Returns the value of the given field.
+            </summary>
+            <param name="filedName">Name of the filed.</param>
+            <returns>The value of the field.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.Data.IDocument.SetValue(System.String,System.String)">
+            <summary>
+            Sets the given value to the specified field.
+            </summary>
+            <param name="filedName">Name of the filed.</param>
+            <param name="fieldValue">The field value.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Search.Data.IField">
+            <summary>
+            Represents atomic data used by the IDocument interface
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Data.IField.Name">
+            <summary>
+            Gets or sets the name of the field.
+            </summary>
+            <value>The name of the field.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Data.IField.Value">
+            <summary>
+            Gets or sets the value of the field.
+            </summary>
+            <value>The value of the field.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Data.IField.Attributes">
+            <summary>
+            Gets the attributes of the field.
+            </summary>
+            <value>The attributes of the field.</value>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Search.Data.IResultSet">
+            <summary>
+            Interface that specifies the result of the search operation.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.Data.IResultSet.HitCount">
+            <summary>
+            Gets a value indicating the number of time the pattern was found.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Search.ISearchGroup">
+            <summary>
+            The interface for search group
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.ISearchGroup.Terms">
+            <summary>
+            Gets or sets the terms in the group
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.ISearchGroup.Groups">
+            <summary>
+            Gets or sets the inner groups
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.ISearchGroup.Operator">
+            <summary>
+            Gets or sets the operator for the group.
+            The operator is placed between all of the terms and groups.
+            </summary>        
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.ISearchGroup.AddTerm(Telerik.Sitefinity.Services.Search.ISearchTerm)">
+            <summary>
+            Adds a new term in the group
+            </summary>
+            <param name="term">The term to add</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.ISearchGroup.AddGroup(Telerik.Sitefinity.Services.Search.ISearchGroup)">
+            <summary>
+            Adds a new inner group
+            </summary>
+            <param name="group">The group to add</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Search.ISearchQuery">
+            <summary>
+            The interface for search query
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.ISearchQuery.IndexName">
+            <summary>
+            Gets or sets the index name
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.ISearchQuery.Text">
+            <summary>
+            Gets or sets the search text
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.ISearchQuery.SearchFields">
+            <summary>
+            Gets or sets the search fields
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.ISearchQuery.HighlightedFields">
+            <summary>
+            Gets or sets the highlighted fields
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.ISearchQuery.OrderBy">
+            <summary>
+            Gets or sets the ordering
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.ISearchQuery.Skip">
+            <summary>
+            Gets or sets the skip count
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.ISearchQuery.Take">
+            <summary>
+            Gets or sets the take count
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.ISearchQuery.SearchGroup">
+            <summary>
+            Gets or sets the query search group
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.ISearchQuery.Filter">
+            <summary>
+            Gets or sets the filter
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.ISearchQuery.EnableExactMatch">
+            <summary>
+            Gets or sets a value indicating whether exact matching of words is enabled. If disabled "StartsWith" search is applied.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Search.IQueryBuilder">
+            <summary>
+            Interface for query builder
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.IQueryBuilder.BuildQuery(System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Builds the query
+            </summary>
+            <param name="text">The text you are searching for</param>
+            <param name="searchFields">The search fields</param>
+            <returns>The search query</returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Search.ISearchResultsBuilder">
+            <summary>
+            Represents an interface for performing searches.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.ISearchResultsBuilder.Search(System.String,System.String,System.String[],System.String[],System.Int32,System.Int32,System.Int32@,System.Boolean)">
+            <summary>
+            Performs a search and returns a collection of documents.
+            </summary>
+            <param name="query">The search query.</param>
+            <param name="catalogue">The search catalogue.</param>
+            <param name="searchFields">The search fields.</param>
+            <param name="highlightedFields">The highlighted fields.</param>
+            <param name="skip">Items to skip.</param>
+            <param name="take">Items to take.</param>
+            <param name="hitCount">Number of result documents.</param>
+            <param name="setLinksOnlyFromCurrentSite">A value indicating whether results only links from current site should be shown.</param>
+            <returns>The search results.</returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Search.QueryOperator">
+            <summary>
+            Represents the types of operators used to build a search query.
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Services.Search.QueryOperator.And">
+            <summary>
+            The logical AND operator
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Services.Search.QueryOperator.Or">
+            <summary>
+            The logical OR operator
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Search.ISearchService">
+            <summary>
+            The contract for search operations that provide the ability to create search catalogues, index and returns the documents matching search query.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.ISearchService.Search(Telerik.Sitefinity.Services.Search.ISearchQuery)">
+            <summary>
+            Searches using given query and returns the documents matching the query.
+            </summary>
+            <param name="query">The search query.</param>
+            <returns>The result set</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.ISearchService.Search(Telerik.Sitefinity.Services.Search.ISearchQuery,Telerik.Sitefinity.Search.SearchOptions)">
+            <summary>
+            Searches using given query and returns the documents matching the query.
+            </summary>
+            <param name="query">The search query.</param>
+            <param name="searchOptions">The search options.</param>
+            <returns>The result set</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.ISearchService.CreateIndex(System.String,System.Collections.Generic.IEnumerable{Telerik.Sitefinity.Services.Search.IFieldDefinition})">
+            <summary>
+            Creates new search index
+            </summary>
+            <param name="name">The name of the index</param>
+            <param name="fieldDefinitions">The definitions for the fields included in the search index</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.ISearchService.UpdateIndex(System.String,System.Collections.Generic.IEnumerable{Telerik.Sitefinity.Services.Search.Data.IDocument})">
+            <summary>
+            Adds or updates the provided documents in the specified index.
+            </summary>
+            <param name="name">Name of the index.</param>
+            <param name="documents">A collection of documents to add or update.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.ISearchService.IndexExists(System.String)">
+            <summary>
+            Return true if the index exists.
+            </summary>
+            <param name="indexName">Name of the index.</param>
+            <returns>A value, indicating if the index exists</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.ISearchService.RemoveDocuments(System.String,System.Collections.Generic.IEnumerable{Telerik.Sitefinity.Services.Search.Data.IDocument})">
+            <summary>
+            Removes the provided documents from the specified catalogue.
+            </summary>
+            <param name="indexName">The name of the index.</param>
+            <param name="documents">The collection of documents to remove.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.ISearchService.RemoveDocument(System.String,Telerik.Sitefinity.Services.Search.Data.IField)">
+            <summary>
+            Removes the document with the specified identity from the specified catalogue.
+            </summary>
+            <param name="indexName">The name of the index.</param>
+            <param name="identityField">The identity field.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Services.Search.ISearchService.DeleteIndex(System.String)">
+            <summary>
+            Deletes the specified index.
+            </summary>
+            <param name="name">The name of the index.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.Services.Search.ISearchTerm">
+            <summary>
+            An interface for search term
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.ISearchTerm.Field">
+            <summary>
+            Gets or sets the field name
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Services.Search.ISearchTerm.Value">
+            <summary>
+            Gets or sets the value
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Search.ISearchServiceConnectivity">
+            <summary>
+            Interface that defines the members to testing search service connectivity
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Search.ISearchServiceConnectivity.TestConnectivity">
+            <summary>
+            Test search service connectivity
+            </summary>
+            <returns>True on success, false on failure</returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Search.ISearchServiceSettings">
+            <summary>
+            Represents the configuration elements associated with a search service.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.ISearchServiceSettings.Name">
+            <summary>
+            Gets or sets a value indicating the name of the search service configured by this class.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.ISearchServiceSettings.Parameters">
+            <summary>
+            Gets or sets a value indicating a collection of user-defined parameters for the search service.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.ISearchServiceSettings.ResourceClassId">
+            <summary>
+            Gets or sets the global resource class ID for retrieving localized strings.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.ISearchServiceSettings.TypeName">
+            <summary>
+            Gets or sets a value indicating the type name.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Search.SearchOptions">
+            <summary>
+            Represents a set of search options
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Search.SearchOptions.#ctor(Telerik.Sitefinity.Search.SearchType)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Search.SearchOptions"/> class
+            </summary>
+            <param name="searchType">The search type</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Search.SearchOptions.SearchType">
+            <summary>
+            Gets or sets the search type
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Search.SearchType">
+            <summary>
+            Search types 
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Search.SearchType.StartsWith">
+            <summary>
+            Search by starts with
+            </summary>
+        </member>
+        <member name="F:Telerik.Sitefinity.Search.SearchType.Contains">
+            <summary>
+            Search by contains
+            </summary>
+        </member>
+    </members>
+</doc>

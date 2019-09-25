@@ -1,0 +1,1284 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Telerik.Sitefinity.Frontend.DynamicContent</name>
+    </assembly>
+    <members>
+        <member name="T:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Helpers.ItemViewModelExtensions">
+            <summary>
+            This class contains extension methods for the <see cref="T:Telerik.Sitefinity.Frontend.Mvc.Models.ItemViewModel"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Helpers.ItemViewModelExtensions.ChildItems(Telerik.Sitefinity.Frontend.Mvc.Models.ItemViewModel,System.String)">
+            <summary>
+            Gets the child items of the given item from the a specified field.
+            </summary>
+            <param name="item">The item.</param>
+            <param name="fieldName">Name of the field.</param>
+            <returns>An enumerable containing the view models of the child items.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Helpers.ItemViewModelExtensions.ParentItem(Telerik.Sitefinity.Frontend.Mvc.Models.ItemViewModel)">
+            <summary>
+            Gets the parent of the specified item.
+            </summary>
+            <param name="item">The item.</param>
+            <returns>View model of the parent item.</returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Controllers.DynamicContentController">
+            <summary>
+            This class represents a controller for Dynamic Content widget.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Controllers.DynamicContentController.ListTemplateName">
+            <summary>
+            Gets or sets the name of the template that will be displayed when widget is in List view.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Controllers.DynamicContentController.DetailTemplateName">
+            <summary>
+            Gets or sets the name of the template that will be displayed when widget is in Detail view.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Controllers.DynamicContentController.DisableCanonicalUrlMetaTag">
+            <summary>
+            Gets or sets a value indicating whether the canonical URL tag should be added to the page when the canonical meta tag should be added to the page.
+            If the value is not set, the settings from SystemConfig -> ContentLocationsSettings -> DisableCanonicalURLs will be used. 
+            </summary>
+            <value>The disable canonical URLs.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Controllers.DynamicContentController.OpenInSamePage">
+            <summary>
+            Gets or sets a value indicating whether detail view for a news item should be opened in the same page.
+            </summary>
+            <value>
+            <c>true</c> if details link should be opened in the same page; otherwise, (if should redirect to custom selected page)<c>false</c>.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Controllers.DynamicContentController.DetailsPageId">
+            <summary>
+            Gets or sets the id of the page where will be displayed details view for selected item.
+            </summary>
+            <value>The details page id.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Controllers.DynamicContentController.Model">
+            <summary>
+            Gets the News widget model.
+            </summary>
+            <value>
+            The model.
+            </value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Controllers.DynamicContentController.Index(System.Nullable{System.Int32})">
+            <summary>
+            Renders appropriate list view depending on the <see cref="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Controllers.DynamicContentController.ListTemplateName" />
+            </summary>
+            <param name="page">The page.</param>
+            <returns>
+            The <see cref="T:System.Web.Mvc.ActionResult" />.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Controllers.DynamicContentController.Successors(Telerik.Sitefinity.DynamicModules.Model.DynamicContent,System.Nullable{System.Int32})">
+            <summary>
+            Displays successors of the specified parent item.
+            </summary>
+            <param name="parentItem">The parent item.</param>
+            <param name="page">The page.</param>
+            <returns>
+            The <see cref="T:System.Web.Mvc.ActionResult" />.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Controllers.DynamicContentController.ListByTaxon(Telerik.Sitefinity.Taxonomies.Model.ITaxon,System.Nullable{System.Int32})">
+            <summary>
+            Renders appropriate list view depending on the <see cref="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Controllers.DynamicContentController.ListTemplateName" />
+            </summary>
+            <param name="taxonFilter">The taxonomy filter.</param>
+            <param name="page">The page.</param>
+            <returns>
+            The <see cref="T:System.Web.Mvc.ActionResult" />.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Controllers.DynamicContentController.ListByDate(System.DateTime,System.DateTime,System.Nullable{System.Int32})">
+            <summary>
+            Renders appropriate list view depending on the <see cref="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Controllers.DynamicContentController.ListTemplateName" />
+            </summary>
+            <param name="from">The start date from the date filter.</param>
+            <param name="to">The end date from the date filter.</param>
+            <param name="page">The page.</param>
+            <returns>
+            The <see cref="T:System.Web.Mvc.ActionResult" />.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Controllers.DynamicContentController.RelatedData(Telerik.Sitefinity.Model.IDataItem,System.Nullable{System.Int32})">
+            <summary>
+            Displays related items of the specified item.
+            </summary>
+            <param name="relatedItem">The related item.</param>
+            <param name="page">The page.</param>
+            <returns>
+            The <see cref="T:System.Web.Mvc.ActionResult" />.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Controllers.DynamicContentController.Details(Telerik.Sitefinity.DynamicModules.Model.DynamicContent)">
+            <summary>
+            Renders appropriate list view depending on the <see cref="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Controllers.DynamicContentController.DetailTemplateName"/>
+            </summary>
+            <param name="item">The item which details will be displayed.</param>
+            <returns>
+            The <see cref="T:System.Web.Mvc.ActionResult"/>.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Controllers.DynamicContentController.GetLocations">
+            <summary>
+            Gets the information for all of the content types that a control is able to show.
+            </summary>
+            <returns>
+            List of location info of the content that this control is able to show.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Controllers.DynamicContentController.TryMapRouteParameters(System.String[],System.Web.Routing.RequestContext)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Controllers.DynamicContentController.GetParentTypes">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Controllers.DynamicContentController.OnActionExecuting(System.Web.Mvc.ActionExecutingContext)">
+            <summary>
+            Called before the action method is invoked.
+            </summary>
+            <param name="filterContext">Information about the current request and action.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Controllers.DynamicContentController.HandleUnknownAction(System.String)">
+            <summary>
+            Called when a request matches this controller, but no method with the specified action name is found in the controller.
+            </summary>
+            <param name="actionName">The name of the attempted action.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Controllers.DynamicContentController.InitializeModel">
+            <summary>
+            Initializes the model.
+            </summary>
+            <returns>
+            The <see cref="T:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.IDynamicContentModel"/>.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Controllers.DynamicContentController.GetDynamicContentTypeDisplayName">
+            <summary>
+            Gets the display name of the <see cref="!:DynamicModuleType"/>
+            </summary>
+            <returns><see cref="!:DynamicModuleType"/>'s display name</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Controllers.DynamicContentController.SetRedirectUrlQueryString(Telerik.Sitefinity.Taxonomies.Model.ITaxon)">
+            <summary>
+            Sets the redirect URL query string.
+            </summary>
+            <param name="taxon">The taxon.</param>
+        </member>
+        <member name="T:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.DynamicContentListViewModel">
+            <summary>
+            View model for the list view of the Dynamic Content widget.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.DynamicContentListViewModel.SelectedItem">
+            <summary>
+            Gets or sets the currently selected item.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.DynamicContentModel">
+            <summary>
+            This class represents model used for DynamicContent widget.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.DynamicContentModel.ListMode">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.DynamicContentModel.ParentFilterMode">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.DynamicContentModel.CurrentlyOpenParentType">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.DynamicContentModel.SerializedSelectedParentsIds">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.DynamicContentModel.ShowListViewOnEmpyParentFilter">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.DynamicContentModel.GetKeysOfDependentObjects(Telerik.Sitefinity.Frontend.Mvc.Models.ContentListViewModel)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.DynamicContentModel.GetKeysOfDependentObjects(Telerik.Sitefinity.Frontend.Mvc.Models.ContentDetailsViewModel)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.DynamicContentModel.CreateListViewModelByParent(Telerik.Sitefinity.DynamicModules.Model.DynamicContent,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.DynamicContentModel.CreateDetailsViewModel(Telerik.Sitefinity.Model.IDataItem)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.DynamicContentModel.GetItemsQuery">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.DynamicContentModel.CompileFilterExpression">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.DynamicContentModel.CreateListViewModelInstance">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.DynamicContentModel.GetManager">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.DynamicContentModel.GetManagerInstance">
+            <summary>
+            Gets the manager instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.IDynamicContentModel">
+            <summary>
+            Classes that implement this interface provide business logic for getting DynamicContent.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.IDynamicContentModel.ListMode">
+            <summary>
+            Gets or sets whether the dynamic content widget is always in list mode.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.IDynamicContentModel.ContentType">
+            <summary>
+            Gets or sets the type of content that is loaded.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.IDynamicContentModel.ListCssClass">
+            <summary>
+            Gets or sets the CSS class that will be applied on the wrapping element of the widget when it is in List view.
+            </summary>
+            <value>
+            The CSS class.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.IDynamicContentModel.DetailCssClass">
+            <summary>
+            Gets or sets the CSS class that will be applied on the wrapper div of the widget when it is in Details view.
+            </summary>
+            <value>
+            The CSS class.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.IDynamicContentModel.SerializedSelectedItemsIds">
+            <summary>
+            Gets the list of items to be displayed inside the widget when option "Selected items" is enabled.
+            </summary>
+            <value>
+            The selected item ids.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.IDynamicContentModel.ProviderName">
+            <summary>
+            Gets or sets the name of the provider.
+            </summary>
+            <value>The name of the provider.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.IDynamicContentModel.SelectionMode">
+            <summary>
+            Gets or sets which items to be displayed in the list view.
+            </summary>
+            <value>The page display mode.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.IDynamicContentModel.DisplayMode">
+            <summary>
+            Gets or sets a value indicating whether to divide items in the list.
+            </summary>
+            <value>
+            The display mode.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.IDynamicContentModel.ItemsPerPage">
+            <summary>
+            Gets or sets the items count per page.
+            </summary>
+            <value>
+            The items per page.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.IDynamicContentModel.LimitCount">
+            <summary>
+            Gets or sets the items limit count.
+            </summary>
+            <value>
+            The items limit.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.IDynamicContentModel.SortExpression">
+            <summary>
+            Gets or sets the sort expression.
+            </summary>
+            <value>
+            The sort expression.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.IDynamicContentModel.FilterExpression">
+            <summary>
+            Gets or sets the additional filter expression.
+            </summary>
+            <value>
+            The filter expression.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.IDynamicContentModel.SerializedAdditionalFilters">
+            <summary>
+            Gets or sets the serialized additional filters.
+            </summary>
+            <value>
+            The serialized additional filters.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.IDynamicContentModel.SerializedDateFilters">
+            <summary>
+            Gets or sets the serialized date filters.
+            </summary>
+            <value>
+            The serialized date filters.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.IDynamicContentModel.SelectionGroupLogicalOperator">
+            <summary>
+            Gets or sets the group logical operator used for filtering.
+            </summary>
+            <value>
+            The group logical operator used for filtering.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.IDynamicContentModel.DisableCanonicalUrlMetaTag">
+            <summary>
+            Gets or sets a value indicating whether the canonical URL tag should be added to the page when the canonical meta tag should be added to the page.
+            If the value is not set, the settings from SystemConfig -> ContentLocationsSettings -> DisableCanonicalURLs will be used. 
+            </summary>
+            <value>The disable canonical URLs.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.IDynamicContentModel.ParentFilterMode">
+            <summary>
+            Gets or sets the parent filtering mode.
+            </summary>
+            <value>
+            The parent filtering mode.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.IDynamicContentModel.CurrentlyOpenParentType">
+            <summary>
+            Gets or sets the type of the currently open parent.
+            </summary>
+            <value>
+            The type of the currently open parent.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.IDynamicContentModel.SerializedSelectedParentsIds">
+            <summary>
+            Gets or sets the serialized selected parent ids.
+            </summary>
+            <value>
+            The serialized selected parents ids.
+            </value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.IDynamicContentModel.CreateListViewModelByDate(System.DateTime,System.DateTime,System.Int32)">
+            <summary>
+            Creates the ListView model by date filter.
+            </summary>
+            <param name="from">The start date from the date filter.</param>
+            <param name="to">The end date from the date filter.</param>
+            <param name="page">The page.</param>
+            <returns>A list view model containing all descendant items from the given parent.</returns>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.IDynamicContentModel.RelatedItemType">
+            <summary>
+            Gets or sets the type of the parent item.
+            </summary>
+            <value>
+            The type of the parent item.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.IDynamicContentModel.RelatedItemProviderName">
+            <summary>
+            Gets or sets the name of the parent item provider.
+            </summary>
+            <value>
+            The name of the parent item provider.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.IDynamicContentModel.RelatedFieldName">
+            <summary>
+            Gets or sets the name of the field.
+            </summary>
+            <value>
+            The name of the field.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.IDynamicContentModel.RelationTypeToDisplay">
+            <summary>
+            Gets or sets the relation type of the items that will be display - children or parent.
+            </summary>
+            <value>
+            The relation type of the items that will be display - children or parent.
+            </value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.IDynamicContentModel.ShowListViewOnEmpyParentFilter">
+            <summary>
+            Checks if list view should be displayed if ParentFilterMode is CurrentlyOpen, but parent cannot be resolved from the URL.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.IDynamicContentModel.UrlKeyPrefix">
+            <summary>
+            Gets or sets the URL key prefix.
+            </summary>
+            <value>The URL key prefix.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.IDynamicContentModel.ContentViewDisplayMode">
+            <summary>
+            Gets or sets the display mode of the content view.
+            </summary>
+            <remarks>
+            Note that this enumeration differs from the FieldDisplayMode.
+            </remarks>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.IDynamicContentModel.GetLocations">
+            <summary>
+            Gets the information for all of the content types that a control is able to show.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.IDynamicContentModel.CreateListViewModel(Telerik.Sitefinity.Taxonomies.Model.ITaxon,System.Int32)">
+            <summary>
+            Creates a view model for use in list views.
+            </summary>
+            <param name="taxonFilter">The taxon filter.</param>
+            <param name="page">The page.</param>
+            <returns>A view model for use in list views.</returns>
+            <exception cref="T:System.ArgumentException">'page' argument has to be at least 1.;page</exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.IDynamicContentModel.CreateListViewModelByParent(Telerik.Sitefinity.DynamicModules.Model.DynamicContent,System.Int32)">
+            <summary>
+            Creates a view model for use in list views filtered by parent.
+            </summary>
+            <param name="parentItem">Parent item filter.</param>
+            <param name="page">The page.</param>
+            <returns>A view model for use in list views.</returns>
+            <exception cref="T:System.ArgumentException">'page' argument has to be at least 1.;page</exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.IDynamicContentModel.CreateListViewModelByRelatedItem(Telerik.Sitefinity.Model.IDataItem,System.Int32)">
+            <summary>
+            Creates a view model for use in list views filtered by related item.
+            </summary>
+            <param name="relatedItem">Item that is related to the resulting items</param>
+            <param name="page">The page.</param>
+            <returns>A view model for use in list views.</returns>
+            <exception cref="T:System.ArgumentException">'page' argument has to be at least 1.;page</exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.IDynamicContentModel.CreateDetailsViewModel(Telerik.Sitefinity.Model.IDataItem)">
+            <summary>
+            Creates the details view model.
+            </summary>
+            <param name="item">The item.</param>
+            <returns>A view model for use in detail views.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.IDynamicContentModel.GetKeysOfDependentObjects(Telerik.Sitefinity.Frontend.Mvc.Models.ContentListViewModel)">
+            <summary>
+            Gets a collection of <see cref="!:CacheDependencyNotifiedObject"/>.
+                The <see cref="!:CacheDependencyNotifiedObject"/> represents a key for which cached items could be subscribed for
+                notification.
+                When notified, all cached objects with dependency on the provided keys will expire.
+            </summary>
+            <param name="viewModel">View model that will be used for displaying the data.</param>
+            <returns>
+            The <see cref="!:IList"/>.
+            </returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.IDynamicContentModel.GetKeysOfDependentObjects(Telerik.Sitefinity.Frontend.Mvc.Models.ContentDetailsViewModel)">
+            <summary>
+            Gets a collection of <see cref="!:CacheDependencyNotifiedObject"/>.
+                The <see cref="!:CacheDependencyNotifiedObject"/> represents a key for which cached items could be subscribed for
+                notification.
+                When notified, all cached objects with dependency on the provided keys will expire.
+            </summary>
+            <param name="viewModel">View model that will be used for displaying the data.</param>
+            <returns>
+            The <see cref="!:IList"/>.
+            </returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.DesignerModelHelper">
+            <summary>
+            Helper class for views of the designer.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.DesignerModelHelper.DynamicContentType(System.Web.UI.Control)">
+            <summary>
+            Resolves the dynamic content type of the control.
+            </summary>
+            <param name="control">The control.</param>
+            <returns>The content type of the control.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.DesignerModelHelper.DynamicModuleName(System.Web.UI.Control)">
+            <summary>
+            Resolves the module name of the dynamic content type that of the control.
+            </summary>
+            <param name="control">The control.</param>
+            <returns>Module name of the dynamic content type.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.DesignerModelHelper.ContentTypeDisplayNamePlural(System.Web.UI.Control)">
+            <summary>
+            Resolves the plural form of the control's content type display name.
+            </summary>
+            <param name="control">The control.</param>
+            <returns>Plural display name of the control's content type.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.DesignerModelHelper.ParentModuleTypes(System.Web.UI.Control)">
+            <summary>
+            Resolves all parent types of the type that is associated with the control.
+            </summary>
+            <param name="control">The control.</param>
+            <returns>Parent module types.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.DesignerModelHelper.SerializedParentTypes(System.Web.UI.Control)">
+            <summary>
+            Returns a string of serialized parent types of the type that is associated with the control.
+            </summary>
+            <param name="control">The control.</param>
+            <returns>The serialized parent types.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.DesignerModelHelper.ExpandNarrowSelection(System.Web.UI.Control)">
+            <summary>
+            Checks whether 'Narrow selection' section should be expanded.
+            </summary>
+            <param name="control">The control.</param>
+            <returns>Whether 'Narrow selection' section should be expanded.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.DesignerModelHelper.ToPlural(System.String)">
+            <summary>
+            Converts a word from a string to its plural form.
+            </summary>
+            <param name="word">The word.</param>
+            <returns>Plural form of the word.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.DesignerModelHelper.GetIdenfierField(System.Web.UI.Control)">
+            <summary>
+            Gets the identifier field of the dynamic module type.
+            </summary>
+            <param name="control">The control.</param>
+            <returns>Returns the identifier field.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.DesignerModelHelper.GetParentIdenfierField(System.Web.UI.Control)">
+            <summary>
+            Gets the identifier field of the parent dynamic module type.
+            </summary>
+            <param name="control">The control.</param>
+            <returns>Returns the parent identifier field.</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.DesignerModelHelper.ResolveDynamicModuleType(System.Web.UI.Control)">
+            <summary>
+            Resolves the type of the dynamic module.
+            </summary>
+            <param name="control">The control.</param>
+            <returns>The dynamic module type.</returns>
+            <exception cref="T:System.ArgumentException">
+            This method should be used for control designers of Dynamic content MVC widgets.
+            or
+            This method should be used for DynamicContentController's designer only.
+            </exception>
+        </member>
+        <member name="T:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.ParentFilterMode">
+            <summary>
+            Mode for filtering dynamic content items by parent.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.StringResources.DynamicContentResources">
+            <summary>
+            Localizable strings for the News widget
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.StringResources.DynamicContentResources.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.StringResources.DynamicContentResources"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.StringResources.DynamicContentResources.#ctor(Telerik.Sitefinity.Localization.Data.ResourceDataProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.StringResources.DynamicContentResources"/> class.
+            </summary>
+            <param name="dataProvider">The data provider.</param>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.StringResources.DynamicContentResources.DeletedModuleWarning">
+            <summary>
+            phrase: This widget is no longer available since the module providing its content is deleted  or deactivated.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.StringResources.DynamicContentResources.DynamicContentResourcesTitle">
+            <summary>
+            Gets Title for the Dynamic content widget resources class.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.StringResources.DynamicContentResources.DynamicContentResourcesDescription">
+            <summary>
+            Gets Description for the Dynamic content widget resources class.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.StringResources.DynamicContentResources.Display">
+            <summary>
+            Gets the display.
+            </summary>
+            <value>The display.</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.StringResources.DynamicContentResources.MoreOptions">
+            <summary>
+            Gets phrase : More options
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.StringResources.DynamicContentResources.CssClasses">
+            <summary>
+            Gets phrase : CSS classes
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.StringResources.DynamicContentResources.Content">
+            <summary>
+            Gets word : Content
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.StringResources.DynamicContentResources.ListSettings">
+            <summary>
+            Gets phrase : List settings
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.StringResources.DynamicContentResources.SingleItemSettings">
+            <summary>
+            Gets phrase : Single item settings
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.StringResources.DynamicContentResources.ListTemplate">
+            <summary>
+            Gets phrase : List template
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.StringResources.DynamicContentResources.DetailTemplate">
+            <summary>
+            Gets phrase : Detail template
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.StringResources.DynamicContentResources.ItemsToDisplay">
+            <summary>
+            Gets phrase : Which {ModuleName} to display?
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.StringResources.DynamicContentResources.AllPublishedItems">
+            <summary>
+            Gets phrase : All published {ModuleName}
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.StringResources.DynamicContentResources.SelectedItems">
+            <summary>
+            Gets phrase : Selected {ModuleName}
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.StringResources.DynamicContentResources.NarrowSelection">
+            <summary>
+            Gets phrase : Narrow selection by...
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.StringResources.DynamicContentResources.Tags">
+            <summary>
+            Gets word : Tags...
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.StringResources.DynamicContentResources.UsePaging">
+            <summary>
+            Gets phrase : Use paging
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.StringResources.DynamicContentResources.UseLimit">
+            <summary>
+            Gets phrase : Use limit
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.StringResources.DynamicContentResources.NoLimitPaging">
+            <summary>
+            Gets phrase : No limit and paging
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.StringResources.DynamicContentResources.DivideToItemPerPage">
+            <summary>
+            Gets phrase : Divide the list on pages up to {0} items per page
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.StringResources.DynamicContentResources.ShowLimitedItems">
+            <summary>
+            Gets phrase : Show only limited number of items {0} items in total
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.StringResources.DynamicContentResources.ShowAllItems">
+            <summary>
+            Gets phrase : Show all published items at once
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.StringResources.DynamicContentResources.SortItems">
+            <summary>
+            Gets phrase : Sort {ModuleName}
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.StringResources.DynamicContentResources.LastPublished">
+            <summary>
+            Gets phrase : Last published
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.StringResources.DynamicContentResources.LastModified">
+            <summary>
+            Gets phrase : Last modified
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.StringResources.DynamicContentResources.ByTitleAZ">
+            <summary>
+            Gets phrase : By Title (A-Z)
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.StringResources.DynamicContentResources.ByTitleZA">
+            <summary>
+            Gets phrase : By Title (Z-A)
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.StringResources.DynamicContentResources.OpenSingleItem">
+            <summary>
+            Gets phrase : Open single item in...
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.StringResources.DynamicContentResources.ShowInSamePage">
+            <summary>
+            Gets phrase : Auto-generated page
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.StringResources.DynamicContentResources.ShowInSamePageNote">
+            <summary>
+            Gets phrase : (with the same layout as the list page)
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.StringResources.DynamicContentResources.ShowInExistingPage">
+            <summary>
+            Gets phrase : Selected existing page...
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.StringResources.DynamicContentResources.Provider">
+            <summary>
+            Gets the Provider
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.StringResources.DynamicContentResources.By">
+            <summary>
+            Gets word : by
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.StringResources.DynamicContentResources.SelectionOfItems">
+            <summary>
+            Selection of {ModuleName}...
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.StringResources.DynamicContentResources.FromCurrentlyOpen">
+            <summary>
+            From currently open
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.StringResources.DynamicContentResources.FromAll">
+            <summary>
+            From all {ModuleName}
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.StringResources.DynamicContentResources.FromSelected">
+            <summary>
+            From selected {ModuleName} only...
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.StringResources.DynamicContentResources.DisplaysFromCurrentlyOpen">
+            <summary>
+            Displays {ContentTypePlural} from the currently open {ParentTypeSingular}
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.StringResources.DynamicContentResources.AnyParentContentType">
+            <summary>
+            Any parent content type
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.StringResources.DynamicContentResources.AsSetManually">
+            <summary>
+            phrase: As set manually
+            </summary>
+            <value>As set manually</value>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.StringResources.DynamicContentResources.AsSetInAdvancedMode">
+            <summary>
+            phrase: As set in Advanced mode
+            </summary>
+            <value>As set in Advanced mode</value>
+        </member>
+        <member name="T:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Helpers.ContentLinkExtensions">
+            <summary>
+            This class contains extension methods for working with <see cref="T:Telerik.Sitefinity.Model.ContentLinks.ContentLink"/>.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Helpers.ContentLinkExtensions.GetImage(Telerik.Sitefinity.Model.ContentLinks.ContentLink)">
+            <summary>
+            Gets the image.
+            </summary>
+            <param name="contentLink">The content link.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Helpers.ContentLinkExtensions.GetVideo(Telerik.Sitefinity.Model.ContentLinks.ContentLink)">
+            <summary>
+            Gets the video.
+            </summary>
+            <param name="contentLink">The content link.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Helpers.ContentLinkExtensions.GetDocument(Telerik.Sitefinity.Model.ContentLinks.ContentLink)">
+            <summary>
+            Gets the document.
+            </summary>
+            <param name="contentLink">The content link.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Helpers.FieldExtensions">
+            <summary>
+            This class contains helper methods for working with front-end fields.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Helpers.FieldExtensions.GetApiKey">
+            <summary>
+            Gets the API key.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Helpers.FieldExtensions.IsApiKeyValid">
+            <summary>
+            Determines whether the API key valid.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Helpers.FieldExtensions.GetChoiceLabel(Telerik.Sitefinity.Frontend.Mvc.Models.ItemViewModel,System.String,System.Type)">
+            <summary>
+            Gets the label.
+            </summary>
+            <param name="fieldName">Name of the field.</param>
+            <param name="parentTypeId">The parent type identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Helpers.FieldExtensions.GetTaxonomyType(System.Guid)">
+            <summary>
+            Gets the type of the taxonomy.
+            </summary>
+            <param name="classificationId">The classification identifier.</param>
+            <returns></returns>
+            <value>
+            The type of the taxonomy.
+              </value>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Helpers.FieldExtensions.LinkTargetAttribute(Telerik.Sitefinity.Frontend.Mvc.Models.ItemViewModel)">
+            <summary>
+            HTML 'target' attribute for the item link.
+            </summary>
+            <param name="item">The item view model.</param>
+            <returns>HTML 'target' attribute for the item link.</returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.AddressField">
+            <summary>
+            This class represents field generation strategy for address dynamic fields.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.AddressField.GetCondition(Telerik.Sitefinity.DynamicModules.Builder.Model.DynamicModuleField)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.AddressField.GetTemplatePath(Telerik.Sitefinity.DynamicModules.Builder.Model.DynamicModuleField)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.ClassificationField">
+            <summary>
+            This class represents field generation strategy for classification dynamic fields.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.ClassificationField.GetCondition(Telerik.Sitefinity.DynamicModules.Builder.Model.DynamicModuleField)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.ClassificationField.GetTemplatePath(Telerik.Sitefinity.DynamicModules.Builder.Model.DynamicModuleField)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.MainImagesField">
+            <summary>
+            This class generates template markup for main image field.
+            </summary>
+            <remarks>
+            Used for backward compatibility.
+            </remarks>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.MainImagesField.GetTemplatePath(Telerik.Sitefinity.DynamicModules.Builder.Model.DynamicModuleField)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.DocumentsField">
+            <summary>
+            This class represents field generation strategy for document dynamic fields.
+            </summary>
+            <remarks>
+            Used for backward compatibility.
+            </remarks>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.DocumentsField.GetCondition(Telerik.Sitefinity.DynamicModules.Builder.Model.DynamicModuleField)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.DocumentsField.GetTemplatePath(Telerik.Sitefinity.DynamicModules.Builder.Model.DynamicModuleField)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.VideosField">
+            <summary>
+            This class represents field generation strategy for video dynamic fields.
+            </summary>
+            <remarks>
+            Used for backward compatibility.
+            </remarks>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.VideosField.GetCondition(Telerik.Sitefinity.DynamicModules.Builder.Model.DynamicModuleField)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.VideosField.GetTemplatePath(Telerik.Sitefinity.DynamicModules.Builder.Model.DynamicModuleField)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.ImagesField">
+            <summary>
+            This class represents field generation strategy for image dynamic fields.
+            </summary>
+            <remarks>
+            Used for backward compatibility.
+            </remarks>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.ImagesField.GetCondition(Telerik.Sitefinity.DynamicModules.Builder.Model.DynamicModuleField)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.ImagesField.GetTemplatePath(Telerik.Sitefinity.DynamicModules.Builder.Model.DynamicModuleField)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.MultipleChoiceField">
+            <summary>
+            This class represents field generation strategy for multiple choice dynamic fields.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.MultipleChoiceField.GetCondition(Telerik.Sitefinity.DynamicModules.Builder.Model.DynamicModuleField)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.MultipleChoiceField.GetTemplatePath(Telerik.Sitefinity.DynamicModules.Builder.Model.DynamicModuleField)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.YesNoField">
+            <summary>
+            This class represents field generation strategy for yes/no dynamic fields.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.YesNoField.GetCondition(Telerik.Sitefinity.DynamicModules.Builder.Model.DynamicModuleField)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.YesNoField.GetTemplatePath(Telerik.Sitefinity.DynamicModules.Builder.Model.DynamicModuleField)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.LongRichTextField">
+            <summary>
+            This class represents field generation strategy for long rich text dynamic fields.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.LongRichTextField.GetCondition(Telerik.Sitefinity.DynamicModules.Builder.Model.DynamicModuleField)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.LongRichTextField.GetTemplatePath(Telerik.Sitefinity.DynamicModules.Builder.Model.DynamicModuleField)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.RelatedMediaField">
+            <summary>
+            This class represents field generation strategy for related media dynamic fields.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.RelatedMediaField.GetCondition(Telerik.Sitefinity.DynamicModules.Builder.Model.DynamicModuleField)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.RelatedMediaField.GetTemplatePath(Telerik.Sitefinity.DynamicModules.Builder.Model.DynamicModuleField)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.RelatedDataField">
+            <summary>
+            This class represents field generation strategy for related data dynamic fields.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.RelatedDataField.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.RelatedDataField"/> class.
+            </summary>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.RelatedDataField.RelatedDataHelperMapper">
+            <summary>
+            Gets or sets the related data helper mapper.
+            </summary>
+            <remarks>
+            Item1 is the type of the related item; Item2 is the List template for it; Item3 represents the single template.
+            </remarks>
+            <value>
+            The related data helper mapper.
+            </value>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.RelatedDataField.GetCondition(Telerik.Sitefinity.DynamicModules.Builder.Model.DynamicModuleField)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.RelatedDataField.GetTemplatePath(Telerik.Sitefinity.DynamicModules.Builder.Model.DynamicModuleField)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.RelatedDataField.FindRelatedDataFieldTemplatePath(System.String,System.Boolean)">
+            <summary>
+            Builds the related data field template.
+            </summary>
+            <param name="childTypeName">Name of the child type.</param>
+            <param name="isMasterView">if set to <c>true</c> is master view.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.DateField">
+            <summary>
+            This class represents field generation strategy for date time dynamic fields.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.DateField.GetCondition(Telerik.Sitefinity.DynamicModules.Builder.Model.DynamicModuleField)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.DateField.GetTemplatePath(Telerik.Sitefinity.DynamicModules.Builder.Model.DynamicModuleField)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.LongTextAreaField">
+            <summary>
+            This class represents field generation strategy for long text area dynamic fields.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.LongTextAreaField.GetCondition(Telerik.Sitefinity.DynamicModules.Builder.Model.DynamicModuleField)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.LongTextAreaField.GetTemplatePath(Telerik.Sitefinity.DynamicModules.Builder.Model.DynamicModuleField)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.NumberField">
+            <summary>
+            This class represents field generation strategy for number dynamic fields.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.NumberField.GetCondition(Telerik.Sitefinity.DynamicModules.Builder.Model.DynamicModuleField)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.NumberField.GetTemplatePath(Telerik.Sitefinity.DynamicModules.Builder.Model.DynamicModuleField)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.PriceField">
+            <summary>
+            This class represents field generation strategy for price dynamic fields.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.PriceField.GetCondition(Telerik.Sitefinity.DynamicModules.Builder.Model.DynamicModuleField)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.PriceField.GetTemplatePath(Telerik.Sitefinity.DynamicModules.Builder.Model.DynamicModuleField)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.ShortTextField">
+            <summary>
+            This class represents field generation strategy for short text dynamic fields.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.ShortTextField.#ctor(Telerik.Sitefinity.DynamicModules.Builder.Model.DynamicModuleType)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.ShortTextField"/> class.
+            </summary>
+            <param name="moduleType">Type of the module.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.ShortTextField.GetCondition(Telerik.Sitefinity.DynamicModules.Builder.Model.DynamicModuleField)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Impl.ShortTextField.GetTemplatePath(Telerik.Sitefinity.DynamicModules.Builder.Model.DynamicModuleField)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Field">
+            <summary>
+            This class represents strategy for determining the markup needed depending on different <see cref="T:Telerik.Sitefinity.DynamicModules.Builder.Model.DynamicModuleField"/>.
+            </summary>
+            <remarks>
+            This markup will be added to the automatically generated templates for dynamic widget.
+            </remarks>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Field.GetCondition(Telerik.Sitefinity.DynamicModules.Builder.Model.DynamicModuleField)">
+            <summary>
+            Gets value determining whether current strategy should handle the markup for the specified field.
+            </summary>
+            <param name="field">The field.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Field.GetMarkup(Telerik.Sitefinity.DynamicModules.Builder.Model.DynamicModuleField)">
+            <summary>
+            Gets the field markup.
+            </summary>
+            <param name="field">The field.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Field.GetTemplatePath(Telerik.Sitefinity.DynamicModules.Builder.Model.DynamicModuleField)">
+            <summary>
+            Gets the template path.
+            </summary>
+            <param name="field">The field.</param>
+            <returns></returns>
+        </member>
+        <member name="P:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Field.ExcludedFieldNames">
+            <summary>
+            The excluded field names
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.TemplateGenerator">
+            <summary>
+            This class generates and registers templates for <see cref="T:Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Controllers.DynamicContentController"/> widget.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.TemplateGenerator.#ctor(Telerik.Sitefinity.Modules.Pages.PageManager,Telerik.Sitefinity.Versioning.VersionManager)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.TemplateGenerator"/> class.
+            </summary>
+            <param name="pageManager">The page manager.</param>
+            <param name="versionManager">The version manager.</param>
+            <exception cref="T:System.ArgumentNullException">
+            pageManager
+            </exception>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.TemplateGenerator.InstallMasterTemplate(Telerik.Sitefinity.DynamicModules.Builder.Model.DynamicModule,Telerik.Sitefinity.DynamicModules.Builder.Model.DynamicModuleType)">
+            <summary>
+            Installs the default master template.
+            </summary>
+            <param name="dynamicModule">The dynamic module.</param>
+            <param name="moduleType">Type of the module.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.TemplateGenerator.InstallDetailTemplate(Telerik.Sitefinity.DynamicModules.Builder.Model.DynamicModule,Telerik.Sitefinity.DynamicModules.Builder.Model.DynamicModuleType)">
+            <summary>
+            Installs the default detail template.
+            </summary>
+            <param name="dynamicModule">The dynamic module.</param>
+            <param name="moduleType">Type of the module.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.TemplateGenerator.UnregisterTemplates(System.String)">
+            <summary>
+            Removes widget templates.
+            </summary>
+            <param name="contentTypeName">Name of the content type.</param>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.TemplateGenerator.GenerateDynamicFieldSection(Telerik.Sitefinity.DynamicModules.Builder.Model.DynamicModuleType)">
+            <summary>
+            Generates the dynamic field section markup.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.TemplateGenerator.GenerateMasterTemplate(Telerik.Sitefinity.DynamicModules.Builder.Model.DynamicModuleType)">
+            <summary>
+            Generates the content of master template.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.TemplateGenerator.GenerateDetailTemplate(Telerik.Sitefinity.DynamicModules.Builder.Model.DynamicModuleType)">
+            <summary>
+            Generates the content of detail template with all dynamic fields needed.
+            </summary>
+            <param name="moduleType">Type of the module.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.TemplateGenerator.GetDefaultTemplate(System.String)">
+            <summary>
+            Gets the default template.
+            </summary>
+            <param name="path">The path.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.TemplateGenerator.RegisteredTemplate(System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Get Registered Template
+            </summary>
+            <param name="area">the area name</param>
+            <param name="name">name for the widget</param>
+            <param name="nameForDevelopers">name for developers</param>
+            <param name="friendlyControlName">friendly control name</param>
+            <param name="content">content</param>
+            <param name="condition">condition</param>
+            <param name="controlType">controlType</param>
+            <returns>ControlPresentation</returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.TemplateGenerator.GetMainPictureSection(Telerik.Sitefinity.DynamicModules.Builder.Model.DynamicModuleType)">
+            <summary>
+            Gets the main picture section markup.
+            </summary>
+            <param name="moduleType">Type of the module.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Telerik.Sitefinity.Frontend.DynamicContent.DynamicWidgetInitializer">
+            <summary>
+            This class is responsible for initialization of the dynamic widget.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.DynamicWidgetInitializer.Initialize">
+            <summary>
+            Initializes this instance.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.DynamicWidgetInitializer.Deactivate">
+            <summary>
+            Deactivates this instance.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.DynamicWidgetInitializer.RegisterDynamicTemplatableControl">
+            <summary>
+            Register MVC widgets used for dynamic content types as templatable controls
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Frontend.DynamicContent.InterfaceMappings">
+            <summary>
+            This class is used to describe the bindings which will be used by the Ninject container when resolving classes
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.InterfaceMappings.Load">
+            <summary>
+            Loads the module into the kernel.
+            </summary>
+        </member>
+        <member name="T:Telerik.Sitefinity.Frontend.DynamicContent.MvcWidgetInstaller">
+            <summary>
+            This class handles the behavior of the dynamic content widget when working with dynamic modules.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.MvcWidgetInstaller.Initialize">
+            <summary>
+            Initializes the widget installation logic.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.MvcWidgetInstaller.Deactivate">
+            <summary>
+            Deactivates this instance.
+            </summary>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.MvcWidgetInstaller.GetModuleToolboxSection(Telerik.Sitefinity.DynamicModules.Builder.Model.DynamicModule,Telerik.Sitefinity.Modules.Pages.Configuration.ToolboxesConfig)">
+            <summary>
+            Gets the toolbox section where the dynamic widget will be placed.
+            </summary>
+            <param name="dynamicModule">The dynamic module.</param>
+            <param name="toolboxesConfig">The toolboxes configuration.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.MvcWidgetInstaller.GetToolboxItemName(System.String)">
+            <summary>
+            Gets the name of the toolbox item.
+            </summary>
+            <param name="contentTypeName">Name of the content type.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Sitefinity.Frontend.DynamicContent.MvcWidgetInstaller.UnregisterToolboxItem(System.String)">
+            <summary>
+            Removes the toolbox item.
+            </summary>
+            <param name="contentTypeName">Name of the content type.</param>
+        </member>
+    </members>
+</doc>

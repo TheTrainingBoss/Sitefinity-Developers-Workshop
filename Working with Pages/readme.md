@@ -78,11 +78,11 @@ the API we\'re working with, such as *BlogsManager*, *EventsManager*,
 *ContentManager* and so on. The manager object *GetManager()* method
 returns a single manager instance that you can use to get, create and
 delete the content type you're working with. In this example, the
-PageManager *GetPageNodes()* method returns a list of PageNode objects
+PageManager *GetPageDataList()* method returns a list of PageNode objects
 and binds the data to the list box.
 
-Next, login to the Sitefinity backend, then navigate to
-MyPageList.aspx.\
+Next, login to the Sitefinity backend, then navigate to this new page.
+
 The list box displays all page titles from the site, including front and
 backend pages, unpublished pages and deleted pages that are in the
 recycle bin.
@@ -92,7 +92,7 @@ recycle bin.
 **Note**: Be sure to login to the Sitefinity back end before running the
 example. The logged in user must have sufficient permissions to perform
 the Sitefinity API operation. The screenshot shows a Sitefinity security
-exception during the call to GetPageNodes() when the logged in user did
+exception during the call to GetPageDataList() when the logged in user did
 not have permission to view pages.
 
 ![](../media/image6.png)
@@ -106,13 +106,15 @@ PageNode, use the PageData NavigationNode property to get there. The
 LINQ methods in this example transform the list of PageData and create a
 list of PageNode instead.
 
+```
 // get the list of frontend pages on your site
 
 var pages = manager.GetPageDataList()
 
-.Select(pd =\> pd.NavigationNode)
+    .Select(pd => pd.NavigationNode)
 
-.Where(pageNode =\> pageNode.IsBackend == false);
+    .Where(pageNode => pageNode.IsBackend == false);
+```
 
 Much better. Only frontend pages show in the list, but we still have
 pages in draft status and deleted pages in the recycle bin.
@@ -126,19 +128,16 @@ property. While you're at it, you can verify that only Standard pages
 are shown (not Group, External, etc.) by looking at the *NodeType*
 property.
 
+```
 // get the list of standard, frontend, undeleted pages on your site
 
 var pages = manager.GetPageDataList()
 
-.Select(pd =\> pd.NavigationNode)
+    .Select(pd => pd.NavigationNode)
 
-.Where(p =\>
+    .Where(p => p.NodeType == NodeType.Standard && p.IsBackend == false && p.IsDeleted == false);
 
-p.NodeType == NodeType.Standard &&
-
-p.IsBackend == false &&
-
-p.IsDeleted == false);
+```
 
 The list includes the two published front-end pages, but stills shows a
 draft page.
@@ -153,27 +152,17 @@ but will not return published pages that have a newer draft version. To
 deal with that issue, check that the Status is either Live *OR*, that
 Status is *Master* *AND* *Visible* is true.
 
+```
 // get the list of published, standard, frontend, undeleted pages
 
 var pages = manager.GetPageDataList()
 
-.Where(pd =\>
+    .Where(pd => pd.Status == ContentLifecycleStatus.Live || pd.Status == ContentLifecycleStatus.Master && pd.Visible == true)
 
-pd.Status == ContentLifecycleStatus.Live \|\|
+    .Select(pd => pd.NavigationNode)
 
-pd.Status == ContentLifecycleStatus.Master &&
-
-pd.Visible == true)
-
-.Select(pd =\> pd.NavigationNode)
-
-.Where(p =\>
-
-p.NodeType == NodeType.Standard &&
-
-p.IsBackend == false &&
-
-p.IsDeleted == false);
+    .Where(p => p.NodeType == NodeType.Standard && p.IsBackend == false && p.IsDeleted == false);
+```
 
 This version has only the published, standard, frontend pages that
 haven't been deleted. This example may be overkill for your purpose, but
@@ -182,7 +171,8 @@ whatever you need.
 
 ![](../media/image9.png)
 
-### Create Pages Programmatically
+Create Pages Programmatically
+-----------------------------
 
 Creating standard Sitefinity pages involves the following steps:
 
@@ -214,23 +204,24 @@ Creating standard Sitefinity pages involves the following steps:
 
 Before coding the page creation logic, first add the following references:
 
+```
 using System.Linq; // slice-and-dice collections
 
 using Telerik.Sitefinity.Abstractions; // supports SiteInitializer
 
 using Telerik.Sitefinity.Modules.Pages; // supports PageManager
 
-using Telerik.Sitefinity.Pages.Model; // supports PageNode, PageData,
-NodeType
+using Telerik.Sitefinity.Pages.Model; // supports PageNode, PageData, NodeType
 
 using Telerik.Sitefinity.Security; // Sitefinity authentication
-
+```
 The properties assigned in the example below are about the fewest you
 can get away with. This is a starting point so you can experiment with
 to understand how the properties here relate to the Title and Properties
 settings of the page.
 
-var name = \"MyPage\";
+```
+var name = "MyPage";
 
 var id = Guid.NewGuid();
 
@@ -248,15 +239,15 @@ PageNode pageNode = manager.CreatePage(parent, id, NodeType.Standard);
 
 pageNode.Name = name.ToLower();
 
-// displayed in the \"Name\" for the page
+// displayed in the "Name" for the page
 
 pageNode.Title = name;
 
-pageNode.UrlName = \"url-\" + name.ToLower();
+pageNode.UrlName = "url-" + name.ToLower();
 
 // publish the page when changes are saved
 
-pageNode.ApprovalWorkflowState = \"Published\";
+pageNode.ApprovalWorkflowState = "Published";
 
 // get the PageData object related to the PageNode
 
@@ -264,13 +255,14 @@ PageData pageData = pageNode.GetPageData();
 
 // populate minimal properties
 
-pageData.HtmlTitle = name + \" Title for search engines\";
+pageData.HtmlTitle = name + " Title for search engines";
 
 pageData.Visible = true;
 
 // make it happen!
 
 manager.SaveChanges();
+```
 
 After creating the page, look at the Title and Properties dialog. It
 displays the *PageNode.Title* under the Name section. Also notice that
@@ -310,21 +302,19 @@ To get the same effect in your own code, use the *Regex* object from the
 *System.Text.RegularExpressions* namespace to replace invalid characters
 with a dash.
 
-pageNode.UrlName = Regex.Replace(name.ToLower(),
-
-@\"\[\^\\w\\-\\!\\\$\\\'\\(\\)\\=\\@\\d\_\]+\", \"-\");
+```
+pageNode.UrlName = Regex.Replace(name.ToLower(), @\"\[\^\\w\\-\\!\\\$\\\'\\(\\)\\=\\@\\d\_\]+\", \"-\");
+```
 
 ### Add Description and Keywords to a Page
 
 The page *Description* and *Keywords* fields are populated by assigning
-PageData properties. The assignments in the code example below
-correspond to the screenshot.
+PageData properties. Even though the Keywords TextBox is no longer shown in teh **Title & Properties**, you can still access the Keywords property in code as it is important for SEO
 
 pageData.Description = \"Goes to the Description area of the page\";
 
 pageData.Keywords = \"Lino,Telerik,Sitefinity,API\";
 
-![](../media/image13.png)
 
 ### Add Advanced Options to a Page
 
@@ -337,11 +327,13 @@ box, the *IncludeScriptManager* property controls the *Include
 RadScriptManager* checkbox and the *HeadTagContent* is added under the
 *HTML included in the \<head\> tag* label.
 
+```
 pageData.EnableViewState = true;
 
 pageData.IncludeScriptManager = true;
 
 pageData.HeadTagContent = \"http-equiv=\'refresh\' content=\'30\'\";
+```
 
 ### Add a Template to a Page
 
@@ -349,11 +341,13 @@ To select a page template, you can use the PageManager *GetTemplates()*
 method to get all templates, and then filter with LINQ methods to get a
 template you'd like to use.
 
+```
 pageData.Template = manager.GetTemplates()
 
-.Where(t =\> t.Title.Equals(\"Left Sidebar, Content\"))
+    .Where(t =\> t.Title.Equals(\"Left Sidebar, Content\"))
 
-.FirstOrDefault();
+    .FirstOrDefault();
+```
 
 ### Create a Group Page
 
@@ -366,11 +360,12 @@ The code example below calls the *CreatePage()* method passing a
 relates to content workflow, so you don't need to set it for group
 pages.
 
+```
 // create a group page at the root of the site
 
 var id = Guid.NewGuid();
 
-var name = \"Partners\";
+var name = "Partners";
 
 PageManager manager = PageManager.GetManager();
 
@@ -383,32 +378,34 @@ pageNode.Name = name;
 pageNode.Title = name;
 
 pageNode.UrlName = name;
+```
 
 Use the PageNode returned by CreatePage() as the parent of child pages.
 The code below creates a new standard page under the group page.
 
+```
 // create a child page under the group page
 
 var childId = Guid.NewGuid();
 
-name = \"Child\";
+name = "Child";
 
-PageNode childNode = manager.CreatePage(pageNode, childId,
-NodeType.Standard);
+PageNode childNode = manager.CreatePage(pageNode, childId, NodeType.Standard);
 
 childNode.Name = name;
 
 childNode.Title = name;
 
-childNode.ApprovalWorkflowState = \"Published\";
+childNode.ApprovalWorkflowState = "Published";
 
 PageData childData = childNode.GetPageData();
 
-childData.HtmlTitle = name + \" Title for search engines\";
+childData.HtmlTitle = name + " Title for search engines";
 
 childData.Visible = true;
 
 manager.SaveChanges();
+```
 
 A simplified look at the group page Title and Properties dialog shows
 the key change. The *Use this page only to group other pages* checkbox
@@ -428,21 +425,14 @@ Clicking on the group page navigates to content for the child page.
 ![](../media/image17.png)
 
 To list group pages, filter a list of PageNode where the NodeType is
-Group. See the next section [Filtering on Transient
-Properties](#filtering-on-transient-properties) for information on
+Group. See the next section Filtering on Transient Properties for information on
 optimizing this query.
 
+```
 var pages = manager.GetPageNodes().ToList()
 
-.Where(p =\>
-
-p.NodeType == NodeType.Group &&
-
-p.IsBackend == false &&
-
-p.IsDeleted == false
-
-);
+    .Where(p => p.NodeType == NodeType.Group && p.IsBackend == false && p.IsDeleted == false);
+```
 
 ### Filtering on Transient Properties
 
@@ -469,19 +459,17 @@ involving transient properties. The example below first returns an
 converts the query to a *List\<PageNode\>* where IsBackend can be
 filtered.
 
+```
 var pages = manager.GetPageNodes()
 
-.Where(p =\>
+    .Where(p =\> p.NodeType == NodeType.Standard && p.IsDeleted == false)
 
-p.NodeType == NodeType.Standard &&
+    .Select(p =\> p)
 
-p.IsDeleted == false)
+    .ToList()
 
-.Select(p =\> p)
-
-.ToList()
-
-.Where(p =\> p.IsBackend == false);
+    .Where(p =\> p.IsBackend == false);
+```
 
 Redirecting to Other Pages
 --------------------------
@@ -502,55 +490,49 @@ the page exists, then create a new PageNode with the *NodeType* property
 of *InnerRedirect*. Finally, assign the target page's id to the
 *LinkedNodeId* property.
 
+```
 // get the page we want to link to
 
 PageNode targetPageNode = manager.GetPageNodes()
 
-.Where(p =\>
+    .Where(p => p.Title == "Company" && p.NodeType == NodeType.Standard && p.IsDeleted == false)
 
-p.Title == \"Company\" &&
+    .Select(p => p)
 
-p.NodeType == NodeType.Standard &&
+    .ToList()
 
-p.IsDeleted == false)
+    .Where(p => p.IsBackend == false)
 
-.Select(p =\> p)
-
-.ToList()
-
-.Where(p =\> p.IsBackend == false)
-
-.SingleOrDefault();
+    .SingleOrDefault();
 
 if (targetPageNode != null)
 
 {
 
-// create the redirect page
+    // create the redirect page
 
-var id = Guid.NewGuid();
+    var id = Guid.NewGuid();
 
-PageNode parent =
+    PageNode parent = manager.GetPageNode(SiteInitializer.CurrentFrontendRootNodeId);
 
-manager.GetPageNode(SiteInitializer.CurrentFrontendRootNodeId);
+    PageNode pageNode = manager.CreatePage(parent, id,
 
-PageNode pageNode = manager.CreatePage(parent, id,
+    NodeType.InnerRedirect);
 
-NodeType.InnerRedirect);
+    pageNode.Name = "aboutUs";
 
-pageNode.Name = \"aboutUs\";
+    pageNode.Title = "About Us";
 
-pageNode.Title = \"About Us\";
+    pageNode.UrlName = "about-us";
 
-pageNode.UrlName = \"about-us\";
+    pageNode.LinkedNodeId = targetPageNode.Id;
 
-pageNode.LinkedNodeId = targetPageNode.Id;
+    pageNode.ApprovalWorkflowState = "Published";
 
-pageNode.ApprovalWorkflowState = \"Published\";
-
-manager.SaveChanges();
+    manager.SaveChanges();
 
 }
+```
 
 The screenshot below shows a simplified view of the Title and Properties
 for the resulting page. The URL is "about-us", and that the page
@@ -562,26 +544,27 @@ Redirecting to an external page is relatively simple in comparison. You
 only have to set the NodeType parameter of CreatePage() to
 *OuterRedirect* and then assign the node's *RedirectUrl* property.
 
+```
 var id = Guid.NewGuid();
 
 PageManager manager = PageManager.GetManager();
 
-PageNode parent =
-manager.GetPageNode(SiteInitializer.CurrentFrontendRootNodeId);
+PageNode parent = manager.GetPageNode(SiteInitializer.CurrentFrontendRootNodeId);
 
 PageNode pageNode = manager.CreatePage(parent, id, NodeType.OuterRedirect);
 
-pageNode.Name = \"linotadrosblogsite\";
+pageNode.Name = "linotadrosblogsite";
 
-pageNode.Title = \"Lino Tadros Blog site\";
+pageNode.Title = "Lino Tadros Blog site";
 
-pageNode.UrlName = \"lino-tadros-blog-site\";
+pageNode.UrlName = "lino-tadros-blog-site";
 
-pageNode.RedirectUrl = \"http://www.linotadros.com\";
+pageNode.RedirectUrl = "http://www.linotadros.com";
 
-pageNode.ApprovalWorkflowState = \"Published\";
+pageNode.ApprovalWorkflowState = "Published";
 
 manager.SaveChanges();
+```
 
 Show Page Hierarchy
 -------------------
@@ -605,43 +588,44 @@ titles in a RadTreeView control.
     nodes, the *PageNode.Parent* object is null, so we check for that
     and pass *Guid.Empty* in those cases.
 
-3.  Don't forget to add an \<asp:ScriptManager runat=\"server\"\>\</asp:ScriptManager\> in the MyPagesList.aspx for this RadTreeView to work correctly.
+3.  Don't forget to add an \<asp:ScriptManager runat=\"server\"\>\</asp:ScriptManager\> in the aspx page for this RadTreeView to work correctly.
 
+```
 protected void Page\_Load(object sender, EventArgs e)
 
 {
 
-PageManager manager = PageManager.GetManager();
+    PageManager manager = PageManager.GetManager();
 
-manager.Provider.SuppressSecurityChecks = true;
+    manager.Provider.SuppressSecurityChecks = true;
 
-var list = manager.GetPageNodes()
+    var list = manager.GetPageNodes()
 
-.ToList()
+        .ToList()
 
-.Select(p =\> new
+        .Select(p =\> new
+        {
 
-{
+            Id = p.Id,
 
-Id = p.Id,
+            ParentId = p.Parent == null ? Guid.Empty : p.Parent.Id,
 
-ParentId = p.Parent == null ? Guid.Empty : p.Parent.Id,
+            Title = p.Title
 
-Title = p.Title
+        });
 
-});
+    RadTreeView1.DataSource = list;
 
-RadTreeView1.DataSource = list;
+    RadTreeView1.DataTextField = "Title";
 
-RadTreeView1.DataTextField = \"Title\";
+    RadTreeView1.DataFieldID = "Id";
 
-RadTreeView1.DataFieldID = \"Id\";
+    RadTreeView1.DataFieldParentID = "ParentId";
 
-RadTreeView1.DataFieldParentID = \"ParentId\";
-
-RadTreeView1.DataBind();
+    RadTreeView1.DataBind();
 
 }
+```
 
 Run the example project. Pages defined in your site should show up in a
 tree layout. You can refine the query to only return front end pages or
@@ -670,6 +654,7 @@ Adding controls to the page at runtime involves the following steps:
 
 The first step is to get the PageData of the target page.
 
+```
 PageManager manager = PageManager.GetManager();
 
 manager.Provider.SuppressSecurityChecks = true;
@@ -678,23 +663,20 @@ manager.Provider.SuppressSecurityChecks = true;
 
 PageNode pageNode = manager
 
-.GetPageNodes().ToList()
+    .GetPageNodes().ToList()
 
-.Where(p =\>
+    .Where(p =\> p.Title.Equals(\"Latest News\") && p.IsBackend == false)
 
-p.Title.Equals(\"Latest News\") &&
+    .FirstOrDefault();
 
-p.IsBackend == false)
-
-.FirstOrDefault();
-
-PageData pageData = pageNode.GetPageData();
+    PageData pageData = pageNode.GetPageData();
+```
 
 The next step is to locate the exact target on the page where the widget
 will be placed. When you add a content widget to a page manually, you
 actually drop a widget on a page template placeholder. For example, you
 might drag a News widget to the "Content" placeholder of a page that
-uses the Right Sidebar, Header Footer template (see screenshot below).
+uses the Right Sidebar, Header Footer template which is a **Hybrid Template** (see screenshot below).
 
 ![](../media/image20.png)
 
@@ -704,13 +686,15 @@ array that contains the areas where controls are dropped. For example,
 you can retrieve the middle row of the template shown above and grab the
 "Content" placeholder from it.
 
+```
 var sideBarAndContentControl = pageData.Template.Controls
 
-.Where(c =\> c.Caption == \"Sidebar + Content\")
+    .Where(c =\> c.Caption == "Sidebar + Content")
 
-.SingleOrDefault();
+    .SingleOrDefault();
 
-var contentPlaceholder = sideBarAndContentControl.PlaceHolders\[0\];
+var contentPlaceholder = sideBarAndContentControl.PlaceHolders[0];
+```
 
 Next, get a draft of the page that you can edit.
 
@@ -718,11 +702,15 @@ The PageManager *EditPage()* method takes the *Id* of the PageData
 object. You could also use the PageNode's *PageId* property. The
 EditPage() methods returns a PageDraft.
 
+```
 PageDraft page = manager.EditPage(pageData.Id);
+```
 
 Create a widget object.
 
+```
 var newsWidget = new NewsView();
+```
 
 Call the PageManager's CreateControl method to create a
 *PageDraftControl* instance. The PageDraftControl joins the widget and
@@ -732,27 +720,31 @@ grants a basic set of permissions required to use the widget, for
 example, permission for everyone to view the control, but modification
 only allowed by the owner.
 
-var control = manager.CreateControl\<PageDraftControl\>(newsWidget,
-contentPlaceholder);
+```
+var control = manager.CreateControl<PageDraftControl>(newsWidget, contentPlaceholder);
 
-control.Caption = \"News Widget\";
+control.Caption = "News Widget";
+```
 
 Finally, add the control to the page draft's Controls collection,
 publish the draft and save the changes.
 
+```
 page.Controls.Add(control);
 
 manager.PublishPageDraft(page);
 
 manager.SaveChanges();
+```
 
 After the code executes, you can see the News Widget in the design view
 of the page.
 
-![](../media/image21.png){width="6.5in" height="3.057407042869641in"}
+![](../media/image21.png)
 
 The complete code listing:
 
+```
 PageManager manager = PageManager.GetManager();
 
 manager.Provider.SuppressSecurityChecks = true;
@@ -761,25 +753,21 @@ manager.Provider.SuppressSecurityChecks = true;
 
 PageNode pageNode = manager
 
-.GetPageNodes().ToList()
+    .GetPageNodes().ToList()
 
-.Where(p =\>
+    .Where(p => p.Title.Equals("Latest News") && p.IsBackend == false)
 
-p.Title.Equals(\"Latest News\") &&
-
-p.IsBackend == false)
-
-.FirstOrDefault();
+    .FirstOrDefault();
 
 PageData pageData = pageNode.GetPageData();
 
 var sideBarAndContentControl = pageData.Template.Controls
 
-.Where(c =\> c.Caption == \"Sidebar + Content\")
+    .Where(c => c.Caption == "Sidebar + Content")
 
-.SingleOrDefault();
+    .SingleOrDefault();
 
-var contentPlaceholder = sideBarAndContentControl.PlaceHolders\[0\];
+var contentPlaceholder = sideBarAndContentControl.PlaceHolders[0];
 
 // allow the page to be edited.
 
@@ -791,10 +779,9 @@ var newsWidget = new NewsView();
 
 // create a control to contain the widget
 
-var control = manager.CreateControl\<PageDraftControl\>(newsWidget,
-contentPlaceholder);
+var control = manager.CreateControl<PageDraftControl>(newsWidget, contentPlaceholder);
 
-control.Caption = \"NewsWidget\";
+control.Caption = "NewsWidget";
 
 // add control to the page draft controls collection
 
@@ -805,3 +792,4 @@ pageDraft.Controls.Add(control);
 manager.PublishPageDraft(pageDraft);
 
 manager.SaveChanges();
+```

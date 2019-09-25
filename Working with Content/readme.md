@@ -6,9 +6,9 @@ working with generic content, blogs, events or news. The first step is
 always to get the manager object. Generic content is a relatively simple
 starting point, so you will start by getting a reference to the
 *ContentManager*.
-
+```
 ContentManager manager = ContentManager.GetManager();
-
+```
 ContentManager knows how to perform basic CRUD operations (Create, Read, Update, and Delete):
 
 -   *CreateContent()* generates a *ContentItem*. ContentItem properties
@@ -38,6 +38,7 @@ Three other important ContentManager methods round out the field:
 
 The following references will help you work with content items in the examples that follow:
 
+```
 using System;
 
 using System.Linq;
@@ -49,8 +50,10 @@ using Telerik.Sitefinity.Modules.GenericContent; // ContentManager
 using Telerik.Sitefinity.Security; // UserManager
 
 using Telerik.Sitefinity.Security.Model; // User
+```
 
-### Content Lifecycle
+Content Lifecycle
+------------------
 
 A common question is "When I enter a news item, events, blog, etc. there
 are multiple rows in the table for that item. Why?" The answer is
@@ -72,7 +75,8 @@ shows as a row in the database.
     an item is deleted, the Master version state is changed to Deleted,
     and Live versions are no longer visible (but still exist).
 
-### List Content Items
+List Content Items
+------------------
 
 Each of the content manager objects has a *Get()* method that returns an
 *IQueryable\<T\>* of whatever kind of object you\'re working with. You
@@ -82,23 +86,25 @@ ContentManager *GetContent()* method returns an IQueryable of
 ContentItem. The example below displays all generic content visible to
 the public.
 
+```
 ContentManager contentManager = ContentManager.GetManager();
 
 contentManager.Provider.SuppressSecurityChecks = true;
 
 IQueryable\<ContentItem\> items = contentManager
 
-.GetContent()
+    .GetContent()
 
-.Where(i =\> i.Status == ContentLifecycleStatus.Master);
+    .Where(i =\> i.Status == ContentLifecycleStatus.Master);
 
 foreach (ContentItem item in items)
 
 {
 
-ListBox1.Items.Add(item.Title);
+    ListBox1.Items.Add(item.Title);
 
 };
+```
 
 ### Create
 
@@ -110,9 +116,9 @@ below creates a generic content item, populates the properties and
 finally performs housekeeping methods to generate the item URL, publish
 and save the item to the database. Setting the *SuppressSecurityChecks*
 property to true avoids having to deal with permissions issues for just
-now. See the [Permissions](#create-roles-and-permissions) section for
-more information.
+now. See the Permissions section for more information.
 
+```
 var id = Guid.NewGuid();
 
 ContentManager contentManager = ContentManager.GetManager();
@@ -123,15 +129,15 @@ ContentItem item = contentManager.CreateContent(id);
 
 // set item properties
 
-item.Title = \"My Generic Content Title\";
+item.Title = "My Generic Content Title";
 
-item.Name = \"MyGenericContent\";
+item.Name = "MyGenericContent";
 
-item.Author = \"Bob Smith\";
+item.Author = "Bob Smith";
 
-item.Content = \"My content \<b\>HTML\</b\>\";
+item.Content = "My content <b>HTML</b>";
 
-item.UrlName = \"my-generic-content-url\";
+item.UrlName = "my-generic-content-url";
 
 item.DateCreated = DateTime.UtcNow;
 
@@ -139,9 +145,9 @@ item.PublicationDate = DateTime.UtcNow;
 
 item.LastModified = DateTime.UtcNow;
 
-// generates the URL and save changes, called each time \"item\" changes
+// generates the URL and save changes, called each time "item" changes
 
-contentManager.RecompileItemUrls\<ContentItem\>(item);
+contentManager.RecompileItemUrls<ContentItem>(item);
 
 // has been in draft till now, so publish
 
@@ -150,6 +156,7 @@ contentManager.Lifecycle.Publish(item);
 // commit to database
 
 contentManager.SaveChanges();
+```
 
 The resulting item displays in the list of content blocks.
 
@@ -164,19 +171,21 @@ You may have noticed in the list of content blocks that the Owner column
 shows "User Not Found". The Owner is a Guid property and can be returned
 by way of the UserManager.
 
+```
 UserManager userManager = new UserManager();
 
 userManager.Provider.SuppressSecurityChecks = true;
 
 User user = userManager.GetUsers()
 
-.Where(u =\> u.UserName.Equals(\"bsmith\"))
+.Where(u => u.UserName.Equals("bsmith"))
 
 .FirstOrDefault();
 
 // assign ContentItem Properties\...
 
 item.Owner = user.Id;
+```
 
 ### Modify
 
@@ -196,6 +205,7 @@ Locate the master version of the content item.
 
 Here's an example of these steps being performed in order:
 
+```
 ContentManager manager = ContentManager.GetManager();
 
 manager.Provider.SuppressSecurityChecks = true;
@@ -204,13 +214,9 @@ manager.Provider.SuppressSecurityChecks = true;
 
 var master = manager.GetContent()
 
-.Where(i =\>
+    .Where(i =\> i.Status == ContentLifecycleStatus.Master && i.Title == "My Generic Content Title")
 
-i.Status == ContentLifecycleStatus.Master &&
-
-i.Title == \"My Generic Content Title\")
-
-.SingleOrDefault();
+    .SingleOrDefault();
 
 // check out a temporary copy of the item
 
@@ -218,7 +224,7 @@ var temp = manager.Lifecycle.CheckOut(master) as ContentItem;
 
 // modify the temp copy
 
-temp.Content = \"New content set at \" + DateTime.Now.ToLongDateString();
+temp.Content = "New content set at " + DateTime.Now.ToLongDateString();
 
 // check the item back in and assign back to master for saving and publishing
 
@@ -227,6 +233,7 @@ master = manager.Lifecycle.CheckIn(temp) as ContentItem;
 manager.Lifecycle.Publish(master);
 
 manager.SaveChanges();
+```
 
 Editing the content block manually shows the changed content.
 
@@ -239,24 +246,26 @@ To delete a content item, first retrieve it with the manager's
 that uniquely identifies it. If the item exists, call the manager's
 *Delete()* method and pass the ContentItem instance.
 
+```
 ContentManager manager = ContentManager.GetManager();
 
 manager.Provider.SuppressSecurityChecks = true;
 
 ContentItem item = manager
 
-.GetContent()
+    .GetContent()
 
-.Where(i =\> i.Title.Equals(\"My Generic Content Title\"))
+    .Where(i => i.Title.Equals("My Generic Content Title"))
 
-.FirstOrDefault();
+    .FirstOrDefault();
 
 if (item != null)
 
 {
 
-manager.Delete(item);
+    manager.Delete(item);
 
-manager.SaveChanges();
+    manager.SaveChanges();
 
 }
+```

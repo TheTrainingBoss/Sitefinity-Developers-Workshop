@@ -3,7 +3,8 @@ Working with Pages
 ------------------
 
 The two key objects that describe Sitefinity pages are **PageNode** and
-**PageData**. PageNode refers to the meta-data about the page container
+**PageData**. 
+**PageNode** refers to the meta-data about the page container
 itself, including the page name, description and title. The PageNode
 also tracks its parent node and child nodes. Here are some key
 properties used to filter lists of PageNode objects:
@@ -34,7 +35,7 @@ published pages. The screenshot below shows an example set of pages
 where we have two published pages and one in draft status. In the
 recycle bin, there is a published page and a draft page.
 
-![](../media/image4.png)
+![](../media/image4.png) ![](../media/image4B.png)
 
 ### List All Pages
 

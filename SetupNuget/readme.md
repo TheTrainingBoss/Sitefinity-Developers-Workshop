@@ -2,7 +2,7 @@ How to create the Sitefinity app in Visual Studio from scratch?
 ---------------------------------------------------------------
 
 In the previous introduction, we have seen how to open an existing Sitefinity project in Visual Studio.  What if you don't have an existing Sitefinity application or don't have access (for whatever reason) to the Sitefinity Project Manager.
-Well, Nuget to the rescue!  It will take literally a coupl eof minutes to create a new Sitefinity application in Visual Studio from scratch, so let's get started!
+Well, Nuget to the rescue!  It will take literally a couple of minutes to create a new Sitefinity application in Visual Studio from scratch, so let's get started!
 
 - First, create a new project in Visual Studio.  Search for ASP.NET and you will find an ASP.NET Web Application (.NET Framework) type for C#.  Remember, even though you can use MVC and a lot of other technologies in Sitefinity, the base for any Sitefinity Project is still ASP.NET Web Forms.
 

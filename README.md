@@ -38,9 +38,9 @@ Table of Contents
 --------------------------------------------
 [Working with Taxonomies](./Taxonomy/readme.md)
 --------------------------------------------
-[Dynamic Data](./Dynamic%20Data/readme.md)
+[Working with Dynamic Data](./Dynamic%20Data/readme.md)
 --------------------------------------------
-[Dynamic Types](./Dynamic%20Types/readme.md)
+[Working with Dynamic Types](./Dynamic%20Types/readme.md)
 --------------------------------------------
 [Authentication and Security](./Authentication%20and%20Security/readme.md)
 --------------------------------------------

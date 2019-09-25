@@ -2,8 +2,8 @@
 Working with Pages
 ------------------
 
-The two key objects that describe Sitefinity pages are *PageNode* and
-*PageData*. PageNode refers to the meta-data about the page container
+The two key objects that describe Sitefinity pages are **PageNode** and
+**PageData**. PageNode refers to the meta-data about the page container
 itself, including the page name, description and title. The PageNode
 also tracks its parent node and child nodes. Here are some key
 properties used to filter lists of PageNode objects:
@@ -21,7 +21,7 @@ page. It tracks elements used to compose the page such as templates,
 controls, personalization info, etc. Here are some key properties used
 to filter lists of PageData:
 
--   *Status* is the current lifecycle state of the page such as *Master* or *Live* or *Temp*.
+-   *Status* is the current lifecycle state of the page such as *Master* or *Live* or *Temp* or *Deleted*.
 
 -   *Visible* indicates if the page is publicly viewable.
 

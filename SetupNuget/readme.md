@@ -69,4 +69,6 @@ Time for Nuget
 
 - You will be presented with the License the screen when you can request an evaluation, enter credentials to retrieve the license automatically from your account or best yet, upload your **lic** file for Sitefinity that you have downloaded separately.
 
+![](../media/VS14.png)
+
 - Pick your database and you are on your way to developing in Visual Studio for the rest of this Workshop.

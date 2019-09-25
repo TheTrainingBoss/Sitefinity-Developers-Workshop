@@ -214,7 +214,7 @@ manager.Provider.SuppressSecurityChecks = true;
 
 var master = manager.GetContent()
 
-    .Where(i =\> i.Status == ContentLifecycleStatus.Master && i.Title == "My Generic Content Title")
+    .Where(i => i.Status == ContentLifecycleStatus.Master && i.Title == "My Generic Content Title")
 
     .SingleOrDefault();
 

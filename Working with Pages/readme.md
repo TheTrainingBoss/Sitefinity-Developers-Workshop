@@ -332,7 +332,7 @@ pageData.EnableViewState = true;
 
 pageData.IncludeScriptManager = true;
 
-pageData.HeadTagContent = \"http-equiv=\'refresh\' content=\'30\'\";
+pageData.HeadTagContent = "http-equiv='refresh' content='30'";
 ```
 
 ### Add a Template to a Page
@@ -344,7 +344,7 @@ template you'd like to use.
 ```
 pageData.Template = manager.GetTemplates()
 
-    .Where(t =\> t.Title.Equals(\"Left Sidebar, Content\"))
+    .Where(t => t.Title.Equals("Left Sidebar, Content"))
 
     .FirstOrDefault();
 ```
@@ -462,13 +462,13 @@ filtered.
 ```
 var pages = manager.GetPageNodes()
 
-    .Where(p =\> p.NodeType == NodeType.Standard && p.IsDeleted == false)
+    .Where(p => p.NodeType == NodeType.Standard && p.IsDeleted == false)
 
-    .Select(p =\> p)
+    .Select(p => p)
 
     .ToList()
 
-    .Where(p =\> p.IsBackend == false);
+    .Where(p => p.IsBackend == false);
 ```
 
 Redirecting to Other Pages
@@ -603,7 +603,7 @@ protected void Page\_Load(object sender, EventArgs e)
 
         .ToList()
 
-        .Select(p =\> new
+        .Select(p => new
         {
 
             Id = p.Id,
@@ -665,7 +665,7 @@ PageNode pageNode = manager
 
     .GetPageNodes().ToList()
 
-    .Where(p =\> p.Title.Equals(\"Latest News\") && p.IsBackend == false)
+    .Where(p => p.Title.Equals("Latest News") && p.IsBackend == false)
 
     .FirstOrDefault();
 
@@ -689,7 +689,7 @@ you can retrieve the middle row of the template shown above and grab the
 ```
 var sideBarAndContentControl = pageData.Template.Controls
 
-    .Where(c =\> c.Caption == "Sidebar + Content")
+    .Where(c => c.Caption == "Sidebar + Content")
 
     .SingleOrDefault();
 

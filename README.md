@@ -38,7 +38,7 @@ Table of Contents
 
 [Introduction and Setup](./Introduction/readme.md)
 --------------------------------------------
-[Setup Using Nuget](./SetupNuget/readme.md)
+[Setup Using NuGet](./SetupNuget/readme.md)
 ------------------------------------------
 [Working with Pages](./Working%20with%20Pages/readme.md)
 -------------------------------------------------------

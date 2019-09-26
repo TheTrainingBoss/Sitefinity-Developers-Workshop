@@ -134,7 +134,7 @@ public ActionResult ListByTaxon(ITaxon taxonFilter, int? page)
 
         .ToList();
 
-    return View(\"Index\", items);
+    return View("Index", items);
 
 }
 ```
@@ -424,9 +424,9 @@ custom widget editor by adding the following markup:
 
 <p>
 
-<label for="flag"\>Flag</label>
+<label for="flag">Flag</label>
 
-<input type="checkbox" id="flag" ng-model="properties.Flag.PropertyValue" /\>
+<input type="checkbox" id="flag" ng-model="properties.Flag.PropertyValue" />
 
 </p>
 
@@ -434,7 +434,7 @@ custom widget editor by adding the following markup:
 
 <label for="enum">Enum</label>
 
-<select id="enum" ng-model="properties.Enum.PropertyValue"\>
+<select id="enum" ng-model="properties.Enum.PropertyValue">
 
     <option value="Value1">Value 1</option>
 
@@ -456,7 +456,7 @@ custom widget editor by adding the following markup:
 
 <p>
 
-<label for="number"\>Number</label>
+<label for="number">Number</label>
 
 <input id="number" type="number" ng-model="properties.Number.PropertyValue" />
 

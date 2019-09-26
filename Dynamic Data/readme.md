@@ -12,7 +12,8 @@ was obtained? Sitefinity User objects have properties for *UserName*,
 Sitefinity allows you to create custom fields without having to register
 them in code-behind or referencing libraries.
 
-### Adding Custom Fields
+Adding Custom Fields
+--------------------
 
 You can create your own custom fields that come along for the ride when
 the user enters data. Custom fields are associated with a specific type
@@ -74,27 +75,28 @@ Custom fields can be created directly in Sitefinity administration.
 ![](../media/image44.png)
 
 **Note**: The Type drop down list also includes Short text, Long text,
-Multiple choice, Yes / No, Currency, Number and Classification. You can
+Multiple choice, Yes / No, Currency, Number, Classification and more. You can
 add multiple fields to a content type. The screenshot below shows
 examples of Date-Time, Long text, Multiple choice and Currency.
 
 ![](../media/image45.png)
 
-### Reading and Writing Custom Field Values
+Reading and Writing Custom Field Values
+---------------------------------------
 
 The most frequently asked question about custom fields is *\"how do I
 read or write my custom field value\"*? The magic is in the
 *DataExtensions* class from the *Telerik.Sitefinity.Model* namespace. As
-the name suggests, the class contains extension methods, so you need to
-have Telerik.Sitefinity.Model in your *uses* (C\#) or *Imports* (VB)
+the name suggests, the class contains **extension methods**, so you need to
+have Telerik.Sitefinity.Model in your *using* (C\#) or *Imports* (VB)
 section of code. The three key methods of DataExtensions that can be
 used with Sitefinity content items are:
 
--   *GetValue*(\<field name\>)
+-   *GetValue*(<field name>)
 
--   *SetValue*(\<field name\>, \<value\>)
+-   *SetValue*(<field name>, <value>)
 
--   *DoesFieldExist*(\<value\>)
+-   *DoesFieldExist*(<value>)
 
 For example, if we retrieve a particular NewsItem, we can call the
 *SetValue()* method from that NewsItem. The example below retrieves a
@@ -102,32 +104,32 @@ NewsItem where the Title property is \"Southern France Car Rally\", then
 calls the SetValue() extension method, passing the field name
 *ReviewDate* and a *DateTime* 30 days into the future.
 
+```
 NewsManager manager = NewsManager.GetManager();
 
-manager.GetNewsItems().Where(n =\>
+manager.GetNewsItems().Where(n => n.Title.Equals("Southern France Car Rally"))
 
-n.Title.Equals(\"Southern France Car Rally\"))
+    .ToList()
 
-.ToList()
-
-.ForEach(n =\> n.SetValue(\"ReviewDate\", DateTime.UtcNow.AddDays(30)));
+    .ForEach(n => n.SetValue("ReviewDate", DateTime.UtcNow.AddDays(30)));
 
 manager.SaveChanges();
+```
 
 A variation on this example uses the *GetValue()* method to pick up only
 the news items that have a null *ReviewDate* and sets the field values.
 
+```
 NewsManager manager = NewsManager.GetManager();
 
-manager.GetNewsItems().Where(n =\>
+manager.GetNewsItems().Where(n => !n.GetValue<DateTime?>("ReviewDate").HasValue)
 
-!n.GetValue\<DateTime?\>(\"ReviewDate\").HasValue)
+    .ToList()
 
-.ToList()
-
-.ForEach(n =\> n.SetValue(\"ReviewDate\", DateTime.UtcNow.AddDays(30)));
+    .ForEach(n => n.SetValue("ReviewDate", DateTime.UtcNow.AddDays(30)));
 
 manager.SaveChanges();
+```
 
 ### Walk-through
 
@@ -139,60 +141,59 @@ for a selected type.
     markup should look like the example below. Note: be sure to drag
     these controls onto the page so that they are registered properly.
 
-\<form id=\"form1\" runat=\"server\"\>
+```
+<form id="form1" runat="server">
 
-\<telerik:radscriptmanager id=\"RadScriptManager1\" runat=\"server\"\>
+    <telerik:radscriptmanager id="RadScriptManager1" runat="server">
 
-\</telerik:radscriptmanager\>
+    </telerik:radscriptmanager>
 
-\<telerik:radskinmanager id=\"RadSkinManager1\" runat=\"server\"
+    <telerik:radskinmanager id="RadSkinManager1" runat="server" skin="Bootstrap">
 
-skin=\"Bootstrap\"\>
+    </telerik:radskinmanager>
 
-\</telerik:radskinmanager\>
+    <div>
 
-\<div\>
+    </div>
 
-\</div\>
+    <telerik:radcombobox id="RadComboBox1" runat="server">
 
-\<telerik:radcombobox id=\"RadComboBox1\" runat=\"server\"\>
+    </telerik:radcombobox>
 
-\</telerik:radcombobox\>
+    <telerik:radgrid id="RadGrid1" runat="server">
 
-\<telerik:radgrid id=\"RadGrid1\" runat=\"server\"\>
+    </telerik:radgrid>
 
-\</telerik:radgrid\>
+</form>
+```
 
-\</form\>
-
-2.  In the code-behind, add the code below to the Page\_Load event
+2.  In the code-behind, add the code below to the Page_Load event
     handler.
 
-protected void Page\_Load(object sender, EventArgs e)
-
+```
+protected void Page_Load(object sender, EventArgs e)
 {
 
-if (!IsPostBack)
+    if (!IsPostBack)
 
-{
+    {
 
-MetadataManager manager = MetadataManager.GetManager();
+        MetadataManager manager = MetadataManager.GetManager();
 
-var types = manager.GetMetaTypes().Where(t =\>
+        var types = manager.GetMetaTypes().Where(t => !t.IsDynamic);
 
-!t.IsDynamic);
+        RadComboBox1.DataSource = types;
 
-RadComboBox1.DataSource = types;
+        RadComboBox1.DataTextField = "ClassName";
 
-RadComboBox1.DataTextField = \"ClassName\";
+        RadComboBox1.DataValueField = "Id";
 
-RadComboBox1.DataValueField = \"Id\";
+        RadComboBox1.DataBind();
 
-RadComboBox1.DataBind();
-
-}
+    }
 
 }
+```
 
 3.  In the page designer, double-click the RadComboBox to create a
     SelectedIndexChanged event handler.
@@ -203,39 +204,38 @@ RadComboBox1.DataBind();
     retrieved. Finally, all the fields for the selected item type are
     retrieved, reshaped to only use a few columns and bound to the grid.
 
-protected void RadComboBox1\_SelectedIndexChanged(object sender,
-
-RadComboBoxSelectedIndexChangedEventArgs e)
-
+```
+protected void RadComboBox1_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
 {
 
-MetadataManager manager = MetadataManager.GetManager();
+    MetadataManager manager = MetadataManager.GetManager();
 
-Guid typeId = new Guid(e.Value);
+    Guid typeId = new Guid(e.Value);
 
-var metaType = manager.GetMetaType(typeId);
+    var metaType = manager.GetMetaType(typeId);
 
-var fields = metaType.Fields
+    var fields = metaType.Fields
 
-.Select(f =\> new
+        .Select(f => new
 
-{
+            {
 
-Id = f.Id,
+                Id = f.Id,
 
-FieldName = f.FieldName,
+                FieldName = f.FieldName,
 
-ClrType = f.ClrType,
+                ClrType = f.ClrType,
 
-DbType = f.DBType
+                DbType = f.DBType
 
-});
+            });
 
-RadGrid1.DataSource = fields;
+    RadGrid1.DataSource = fields;
 
-RadGrid1.DataBind();
+    RadGrid1.DataBind();
 
 }
+```
 
 5.  Run the application.
 

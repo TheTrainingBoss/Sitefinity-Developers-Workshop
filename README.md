@@ -56,7 +56,7 @@ Table of Contents
 --------------------------------------------
 [Working with MVC in Sitefinity](./MVC%20in%20Sitefinity/readme.md)
 --------------------------------------------
-[Working with Sitefinity Feather](./Feather/readme.md)
+[Working with Sitefinity Feather and Angular Designers](./Feather/readme.md)
 --------------------------------------------
 [Working with Sitefinity Web Services](./Web%20Services/readme.md)
 --------------------------------------------

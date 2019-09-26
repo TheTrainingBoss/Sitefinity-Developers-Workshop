@@ -40,6 +40,8 @@ recycle bin, there is a published page and a draft page.
 
 ### List All Pages
 
+**Even though the sample here is in WebForms, the same code can be used for MVC as the API calls and Sitefinity lifecycle does not change between Webforms and MVC**
+
 To list all the pages of a Sitefinity website:
 
 1.  Create a new ASPX page at the root of the site

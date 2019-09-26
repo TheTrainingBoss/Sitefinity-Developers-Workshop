@@ -5,7 +5,7 @@ In addition to using traditional Web Form User Controls (ascx),
 developers can also take advantage of Sitefinity's support for MVC to
 create widgets. By using the familiar Model-View-Controller pattern,
 developers can quickly create widgets with full control over the markup,
-resulting in simpler, testable code.
+resulting in simpler, testable code.  **This is now the preferred way in Sitefinity going forward!**
 
 Choosing MVC or WebForms
 ------------------------
@@ -16,9 +16,10 @@ either (or both) platforms to create widgets that best suit their needs.
 
 Progress has made it clear that MVC development in Sitefinity is the
 choice going forward even though Web forms will continue to be supported
-for a long time to come.
+for a "while" :)
 
-### Choosing MVC
+Choosing MVC
+------------
 
 Using MVC for creating widgets offers the following advantages:
 
@@ -48,12 +49,13 @@ It is also important to keep in mind some of the disadvantages of using MVC:
 
 -   You cannot leverage existing ASP.NET WebForm controls (such as Telerik RadControls)
 
-### Choosing WebForms
+Choosing WebForms
+-----------------
 
 Widgets developed using traditional WebForm User Controls offer the following advantages:
 
 -   Familiar and mature platform with many existing controls and
-    off-the-shelf components
+    off-the-shelf components from so many vendors
 
 -   Easily port in existing WebForm applications by moving logic and
     markup to User Controls
@@ -75,11 +77,12 @@ However, choosing WebForms over MVC also exposes the following disadvantages:
 -   Less control over HTML output, as this is often defined by the
     controls being used
 
-### You can use Both
+You can use Both
+----------------
 
 The implementation of MVC within Sitefinity allows developers to
 leverage both options simultaneously on a page, mixing traditional
-WebForm widgets with MVC.
+WebForm widgets with MVC.  This is called the "HYBRID" way.
 
 Sitefinity MVC Modes
 --------------------
@@ -88,7 +91,8 @@ Sitefinity MVC can operate in one of three modes: Classic, Pure, and
 Hybrid. These three options are what allow Sitefinity to "mix and match"
 between WebForms and MVC.
 
-### Classic MVC Mode
+Classic MVC Mode
+----------------
 
 Classic MVC is simply the traditional ASP.NET MVC implementation. It is
 most useful for porting an existing application into a website to
@@ -100,7 +104,8 @@ so you are not able to manage content on pages or controllers using the
 Sitefinity Administration. Instead, the MVC application responds to
 requests using the traditional ASP.NET MVC routing and architecture.
 
-### Pure MVC Mode
+Pure MVC Mode (PREFERRED)
+------------------------
 
 If you are using MVC widgets exclusively, and do not wish to use or
 display the existing WebForm widgets, you can enable Sitefinity to work
@@ -114,8 +119,7 @@ to host multiple MVC widgets. A Sitefinity page is able to route the
 page request to each widget on the page, allowing each to render its
 markup individually to makeup the page contents.
 
-To enable MVC Pure mode, create a new Page Template, and assign the MVC
-only option for Web framework under Advanced Settings.
+To enable MVC Pure mode, use any of the Bootstrap based templates to be the base of your pages.
 
 ![](../media/image56.png)
 
@@ -131,12 +135,11 @@ Pure mode, you will see that the markup is free of the traditional
 WebForms content such as ViewState, and instead renders a light, clean
 markup.
 
-### Hybrid MVC Mode
+Hybrid MVC Mode
+---------------
 
-This mode is the default mode for Sitefinity Page Templates. Choosing
-this mode displays both the traditional WebForm toolbox items, as well
-as MVC widgets when editing a page, allowing you to mix and match widget
-types.
+Choosing this mode displays both the traditional WebForm toolbox items, as well
+as MVC widgets when editing a page, allowing you to mix and match widget types.
 
 ![](../media/image58.png)
 
@@ -146,7 +149,8 @@ widget to control its own rendered markup.
 
 ![](../media/image59.png)
 
-### Input Forms with Hybrid Mode
+Input Forms with Hybrid Mode
+----------------------------
 
 One important note to keep in mind: WebForms require that only a single
 FORM tag be present on the page. As a result, if you wish to create an
@@ -155,7 +159,8 @@ special Html helper \@Html.BeginFormSitefinity instead of the
 traditional MVC \@Html.BeginForm to ensure that your form posts
 correctly.
 
-### Choosing an MVC Mode
+Choosing an MVC Mode
+--------------------
 
 The choice of Sitefinity MVC mode depends on how MVC will be used in the
 website application, and can all be used simultaneously in different
@@ -183,42 +188,44 @@ the Sitefinity solution, then registering the Controller as a widget.
 
 To demonstrate this, we'll create a sample widget by first declaring a
 sample model. Add a new class file MyMvcWidgetModel.cs to the *Models*
-folder of the Sitefinity project with the following code:
+folder of the Sitefinity project Mvc folder with the following code:
 
+```
 public class MyMVCWidgetModel
-
 {
 
-/// \<summary\>
+    /// <summary>
 
-/// Gets or sets the message.
+    /// Gets or sets the message.
 
-/// \</summary\>
+    /// \<summary>
 
-public string Message { get; set; }
+    public string Message { get; set; }
 
 }
+```
 
 Next, add another class file MyMvcWidgetController.cs to the
 *Controllers* folder with the following code:
 
+```
 public class MyMVCWidgetController : Controller
-
 {
 
-public ActionResult Index()
+    public ActionResult Index()
 
-{
+    {
 
-var model = new MyMVCWidgetModel();
+        var model = new MyMVCWidgetModel();
 
-model.Message = \"Hello, World!\";
+        model.Message = "Hello, World!";
 
-return View(\"Default\", model);
+        return View("Default", model);
+
+    }
 
 }
-
-}
+```
 
 As you can see, the Controller is a traditional MVC controller and
 indeed even inherits from the standard *System.Web.Mvc.Controller* base
@@ -234,19 +241,22 @@ that it can find the desired view by name automatically.
 Create a folder under the Views folder named MyMvcWidget, and add the
 file Default.cshtml with the following markup:
 
-\@model SitefinityWebApp.Mvc.Models.MyMVCWidgetModel
+```
+@model SitefinityWebApp.Mvc.Models.MyMVCWidgetModel
 
-\<h1\>
+<h1>
 
-\@Html.Raw(Model.Message)
+    @Html.Raw(Model.Message)
 
-\</h1\>
+</h1>
+```
 
 With these three components (Controller, Model, View) in place, we can
 now register the controller as a widget for use in the Sitefinity page
 toolbox.
 
-### Registering the Widget in the Toolbox
+Registering the Widget in the Toolbox
+--------------------------------------
 
 The only step required here is to decorate the Controller class with the
 *ControllerToolboxItem* attribute, which contains parameters for naming
@@ -254,10 +264,7 @@ and placing the widget. The attribute below will give the widget the
 title of "My MVC Widget", placing it in the Toolbox section named
 "MvcWidgets".
 
-\[ControllerToolboxItem(Name = \"MyMVCWidget\", Title = \"My MVC
-Widget\",
-
-SectionName = \"Mvc Widgets\")\]
+[ControllerToolboxItem(Name = "MyMVCWidget", Title = "My MVC Widget", SectionName = "Mvc Widgets")]
 
 Save your changes and build your solution. Sitefinity will now
 automatically discover this widget through the attribute, and place it
@@ -266,15 +273,17 @@ it and add it to the toolbox.
 
 ![](../media/image60.png)
 
-### Creating a Control Designer
+Creating a Control Designer
+---------------------------
 
 Sitefinity MVC widgets can have control designers just like standard
 WebForm User Control widgets. The process for creating and registering
 designers is also done via attributes.
 
-### Sitefinity Thunder MVC Widget Template
+Sitefinity Thunder MVC Widget Template
+---------------------------------------
 
-**Note: Thunder is not available in Visual studio 2017 and newer
+**Note: Thunder is not available in Visual studio 2017 or 2019 and newer
 versions of Visual Studio. Because Progress is concentrating on MVC and
 Thunder is 90% all about Web Forms, it is not expected that Thunder will
 have a new revision. Going forward you will need to learn the Sitefinity
@@ -309,4 +318,4 @@ Existing Widget template.
 
 Alternatively, you can now leverage the MVC platform to create widget
 designers more intuitively, using a new Sitefinity module called
-Feather.
+Feather using Angular.

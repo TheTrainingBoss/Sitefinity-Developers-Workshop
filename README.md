@@ -23,6 +23,16 @@ this document
 
 ![](./media/SitefinityTraining.png)
 
+Developing in Sitefinity
+========================
+
+Using only the Sitefinity Administration Backend you can do many things,
+but what if you need to work with your Sitefinity data programmatically?
+For example, convert records in an Oracle database to a set of blog
+posts, or create pages in a user interface you build in iOS or Android? The Sitefinity API can help with one-time migration tasks,
+building interfaces to consume Sitefinity, custom content entry
+interfaces or just about anything you can visualize.
+
 Table of Contents
 =================
 
@@ -51,12 +61,4 @@ Table of Contents
 [Working with Sitefinity Web Services](./Web%20Services/readme.md)
 --------------------------------------------
 
-Developing in Sitefinity
-========================
 
-Using only the Sitefinity Administration Backend you can do many things,
-but what if you need to work with your Sitefinity data programmatically?
-For example, convert records in an Oracle database to a set of blog
-posts, or create pages in a user interface you build in iOS or Android? The Sitefinity API can help with one-time migration tasks,
-building interfaces to consume Sitefinity, custom content entry
-interfaces or just about anything you can visualize.

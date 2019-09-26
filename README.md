@@ -36,7 +36,7 @@ interfaces or just about anything you can visualize.
 Table of Contents
 =================
 
-[Introduction](./Introduction/readme.md)
+[Introduction and Setup](./Introduction/readme.md)
 --------------------------------------------
 [Setup Using Nuget](./SetupNuget/readme.md)
 ------------------------------------------

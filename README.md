@@ -59,6 +59,8 @@ Table of Contents
 [Working with Sitefinity Feather and Angular Designers](./Feather/readme.md)
 --------------------------------------------
 [Working with Sitefinity Web Services](./Web%20Services/readme.md)
---------------------------------------------
+-----------------------------------------------------------------
+[Bonus Material](./Bonus%20Material/readme.md)
+-----------------------------------------------
 
 

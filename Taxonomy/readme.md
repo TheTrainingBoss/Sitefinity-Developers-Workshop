@@ -430,7 +430,7 @@ HungaryTaxon.UrlName = "hungary";
 
 HungaryTaxon.Parent = EasternEuropeTaxon;
 
-**HungaryTaxon.Taxonomy = EasternEuropeTaxon.Taxonomy;**
+HungaryTaxon.Taxonomy = EasternEuropeTaxon.Taxonomy; //Very Important line!!!!!
 
 manager.SaveChanges();
 ```

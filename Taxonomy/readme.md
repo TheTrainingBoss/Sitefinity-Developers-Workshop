@@ -32,7 +32,8 @@ classification.
 
 -   *Taxa* is the plural of Taxon.
 
-### Getting Started
+Getting Started
+----------------
 
 The first step to working with taxonomies is to get a *TaxonomyManager*
 instance by calling the *GetManager()* method. With a *TaxonomyManager*,
@@ -49,71 +50,74 @@ taxonomies and individual taxon using methods:
 
 -   CreateTaxonomy()
 
--   Delete(\<taxon, taxonomy\>)
+-   Delete(<taxon, taxonomy>)
 
-### List Taxonomies
+List Taxonomies
+---------------
 
 You can retrieve either hierarchical or flat taxonomies. The code below
 retrieves all flat taxonomies and displays the Title of each in a list
 box.
 
+```
 TaxonomyManager taxonomyManager = TaxonomyManager.GetManager();
 
-IQueryable\<FlatTaxonomy\> taxonomies =
+IQueryable<FlatTaxonomy> taxonomies = taxonomyManager.GetTaxonomies<FlatTaxonomy>();
 
-taxonomyManager.GetTaxonomies\<FlatTaxonomy\>();
+ListBox1.DataValueField = "Id";
 
-ListBox1.DataValueField = \"Id\";
-
-ListBox1.DataTextField = \"Title\";
+ListBox1.DataTextField = "Title";
 
 ListBox1.DataSource = taxonomies;
 
 ListBox1.DataBind();
+```
 
 To find all tags in your system, make the *GetTaxonomies()* call twice,
 first with *FlatTaxonomy* as the type, then with *HierarchicalTaxonomy*.
 Use the LINQ *Union()* method to join the two lists together.
 
+```
 TaxonomyManager manager = TaxonomyManager.GetManager();
 
 var flat = manager
 
-.GetTaxonomies\<FlatTaxonomy\>()
+    .GetTaxonomies<FlatTaxonomy>()
 
-.Select(t =\> new
+    .Select(t => new
 
-{
+        {
 
-Id = t.Id,
+            Id = t.Id,
 
-Name = t.Name
+            Name = t.Name
 
-});
+        });
 
 var hierarchical = manager
 
-.GetTaxonomies\<HierarchicalTaxonomy\>()
+    .GetTaxonomies<HierarchicalTaxonomy>()
 
-.Select(t =\> new
+    .Select(t => new
 
-{
+        {
 
-Id = t.Id,
+            Id = t.Id,
 
-Name = t.Name
+            Name = t.Name
 
-});
+        });
 
 var taxonomies = hierarchical.Union(flat);
 
-ListBox1.DataValueField = \"Id\";
+ListBox1.DataValueField = "Id";
 
-ListBox1.DataTextField = \"Name\";
+ListBox1.DataTextField = "Name";
 
 ListBox1.DataSource = taxonomies;
 
 ListBox1.DataBind();
+```
 
 The result of the union is bound to a list box in the screenshot below
 and shows the flat tags taxonomy and the hierarchical categories
@@ -121,7 +125,8 @@ taxonomy.
 
 ![](../media/image31.png)
 
-### Listing Taxa
+Listing Taxa
+------------
 
 This example uses a sample set of data where the sample tags are
 collecting and classic. The sample categories form the following
@@ -136,8 +141,8 @@ constructor. Call the TaxonomyManager *GetTaxonomy()* method and pass
 the Guid. Add a second ListBox to the form and bind it\'s *DataSource*
 to the Taxonomy *Taxa* property.
 
-protected void ListBox1\_SelectedIndexChanged(object sender, EventArgs e)
-
+```
+protected void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
 {
 
 var value = (sender as ListBox).SelectedValue;
@@ -148,15 +153,16 @@ TaxonomyManager manager = TaxonomyManager.GetManager();
 
 ITaxonomy taxonomy = manager.GetTaxonomy(taxonomyId);
 
-ListBox2.DataValueField = \"Id\";
+ListBox2.DataValueField = "Id";
 
-ListBox2.DataTextField = \"Name\";
+ListBox2.DataTextField = "Name";
 
 ListBox2.DataSource = taxonomy.Taxa;
 
 ListBox2.DataBind();
 
 }
+```
 
 Selecting a taxonomy from the first list box fires the
 *SelectedIndexChanged* event, the bound taxonomy Id is retrieved and
@@ -187,11 +193,13 @@ possibilities are:
 We can simply bind this information to a RadGrid in ASP.NET to see the
 bulk data. Assign the GetStatistics() result to the RadGrid DataSource.
 
+```
 TaxonomyManager manager = TaxonomyManager.GetManager();
 
 RadGrid1.DataSource = manager.GetStatistics();
 
 RadGrid1.DataBind();
+```
 
 The grid shows the raw statistic data:
 
@@ -213,41 +221,44 @@ link, call the *TaxonomyManager GetTaxon()* method and pass the
 Finally, to get the comparative weight of each item, use the
 *MarkedItemsCount*.
 
-TaxonomyManager manager = TaxonomyManager.GetManager();
+```
+axonomyManager manager = TaxonomyManager.GetManager();
 
 var statistics = manager
 
-.GetStatistics()
+    .GetStatistics()
 
-.Where(s =\> s.StatisticType == ContentLifecycleStatus.Live)
+    .Where(s => s.StatisticType == ContentLifecycleStatus.Live)
 
-.ToList()
+    .ToList()
 
-.Select(s =\> new
+    .Select(s => new
 
-{
+        {
 
-Id = s.TaxonId,
+            Id = s.TaxonId,
 
-Title = manager.GetTaxon(s.TaxonId).Name,
+            Title = manager.GetTaxon(s.TaxonId).Name,
 
-Weight = s.MarkedItemsCount,
+            Weight = s.MarkedItemsCount,
 
-})
+        })
 
-.OrderBy(s =\> s.Title).ToList();
+    .OrderBy(s => s.Title).ToList();
 
-StatisticsCloud.DataTextField = \"Title\";
+StatisticsCloud.DataTextField = "Title";
 
-StatisticsCloud.DataWeightField = \"Weight\";
+StatisticsCloud.DataWeightField = "Weight";
 
-StatisticsCloud.DataValueField = \"Id\";
+StatisticsCloud.DataValueField = "Id";
 
 StatisticsCloud.DataSource = statistics;
 
 StatisticsCloud.DataBind();
+```
 
-### Get Items by Category or Tag
+Get Items by Category or Tag
+----------------------------
 
 What if I need to find all news items marked with the Europe category or
 tagged as collecting? You can get at that functionality through the
@@ -257,7 +268,7 @@ example *NewsManager.Provider*. The provider has a *GetItemsByTaxon()*
 method that returns an *IEnumerable* of whatever content type you\'re
 working with.
 
-The custom *GetTaxonItems()* method below returns an *IEnumerable\<T\>*
+The custom *GetTaxonItems()* method below returns an *IEnumerable<T>*
 for a particular Taxon.
 
 -   The *GetMappedManager()* call returns the appropriate manager for
@@ -273,73 +284,63 @@ for a particular Taxon.
 
 -   Finally, you get to call *GetItemsByTaxon()*, passing in the
     information you\'ve been hoarding up to this point. The returned
-    *IEnumerable* is cast to *IEnumerable\<T\>* and returned from this
+    *IEnumerable* is cast to *IEnumerable<T>* and returned from this
     method.
 
 **Note**: If there are no content items tagged with the taxon **T**, the
 method will return null.
 
-private static IEnumerable\<T\> GetTaxonItems\<T\>(ITaxon taxon)
+```
+private static IEnumerable<T> GetTaxonItems<T>(ITaxon taxon)
 
 {
 
-// get the manager for the items, e.g. NewsManager
+    // get the manager for the items, e.g. NewsManager
 
-var manager = ManagerBase.GetMappedManager(typeof(T));
+    var manager = ManagerBase.GetMappedManager(typeof(T));
 
-// get the base content database provider
+    // get the base content database provider
 
-ContentDataProviderBase contentProvider =
+    ContentDataProviderBase contentProvider = manager.Provider as ContentDataProviderBase;
 
-manager.Provider as ContentDataProviderBase;
+    // get a taxonomy property descriptor for this item type and taxon
 
-// get a taxonomy property descriptor for this item type and taxon
+    TaxonomyPropertyDescriptor prop = TaxonomyManager.GetPropertyDescriptor(typeof(T), taxon);
 
-TaxonomyPropertyDescriptor prop =
+    if (prop != null)
 
-TaxonomyManager.GetPropertyDescriptor(typeof(T), taxon);
+    {
 
-if (prop != null)
+        int? totalCount = 0;
 
-{
+        // use the GetItemsByTaxon() method
 
-int? totalCount = 0;
+        // to return IEnumerable of items.
 
-// use the GetItemsByTaxon() method
+        var items = contentProvider.GetItemsByTaxon(taxon.Id, prop.MetaField.IsSingleTaxon, 
+            prop.Name, typeof(T), 
+            string.Empty, // filter
+            string.Empty, // order by
+            0, // skip
+            100, // take
+            ref totalCount);
 
-// to return IEnumerable of items.
+        return items as IEnumerable\<T\>;
 
-var items = contentProvider.GetItemsByTaxon(taxon.Id,
-
-prop.MetaField.IsSingleTaxon,
-
-prop.Name,
-
-typeof(T),
-
-string.Empty, // filter
-
-string.Empty, // order by
-
-0, // skip
-
-100, // take
-
-ref totalCount);
-
-return items as IEnumerable\<T\>;
-
-}
+    }
 
 else return null;
 
 }
+```
 
 To call the method, set the type to be the content type you\'re looking
 for and pass in the taxon to search on as a parameter. The example below
 is looking for all news items that are marked with a particular taxon.
 
-IEnumerable\<NewsItem\> items = GetTaxonItems\<NewsItem\>(taxon);
+```
+IEnumerable<NewsItem> items = GetTaxonItems<NewsItem>(taxon);
+```
 
 If you bind the items directly against a grid, you will see all the
 columns for the content item type, in whatever lifecycle status they
@@ -360,41 +361,43 @@ custom *GetTaxonItems()* method and pass the taxon as a parameter. Next,
 a lambda expression filters for only items with a live status. Only the
 Title and Url columns are selected.
 
-protected void StatisticsCloud\_ItemClick(object sender, RadTagCloudEventArgs e)
-
+```
+protected void StatisticsCloud_ItemClick(object sender, RadTagCloudEventArgs e)
 {
 
-TaxonomyManager taxonomyManager = TaxonomyManager.GetManager();
+    TaxonomyManager taxonomyManager = TaxonomyManager.GetManager();
 
-ITaxon taxon = taxonomyManager.GetTaxon(new Guid(e.Item.Value));
+    ITaxon taxon = taxonomyManager.GetTaxon(new Guid(e.Item.Value));
 
-IEnumerable\<NewsItem\> items = GetTaxonItems\<NewsItem\>(taxon);
+    IEnumerable<NewsItem> items = GetTaxonItems<NewsItem>(taxon);
 
-var news = items
+    var news = items
 
-.Where(n =\> n.Status == ContentLifecycleStatus.Live)
+        .Where(n => n.Status == ContentLifecycleStatus.Live)
 
-.Select(n =\> new
+        .Select(n => new
 
-{
+            {
 
-Title = n.Title.Value,
+                Title = n.Title.Value,
 
-Url = n.Urls.FirstOrDefault().Url
+                Url = n.Urls.FirstOrDefault().Url
 
-});
+            });
 
-RadGrid1.DataSource = news;
+    RadGrid1.DataSource = news;
 
-RadGrid1.DataBind();
+    RadGrid1.DataBind();
 
 }
+```
 
 The data bound in the grid looks something like the screenshot below.
 
 ![](../media/image37.png)
 
-### Add Categories and Tags
+Add Categories and Tags
+-----------------------
 
 To create a new taxon, use the TaxonomyManager *CreateTaxon()* method.
 Specify the type of taxon you want to create, that is,
@@ -404,34 +407,33 @@ is retrieved using the *GetTaxa()* method and assigned to the new
 taxon\'s Parent property. Also notice programmatic login as a user with
 permissions to create a taxon.
 
+```
 TaxonomyManager manager = TaxonomyManager.GetManager();
 
 // get the parent taxon
 
-HierarchicalTaxon EasternEuropeTaxon =
+HierarchicalTaxon EasternEuropeTaxon = manager.GetTaxa<HierarchicalTaxon>()
 
-manager.GetTaxa\<HierarchicalTaxon\>()
+    .Where(t => t.Title.Value.Equals("Eastern Europe"))
 
-.Where(t =\> t.Title.Value.Equals(\"Eastern Europe\"))
-
-.SingleOrDefault();
+    .SingleOrDefault();
 
 // build a new taxon and place it underneath the parent
 
-HierarchicalTaxon HungaryTaxon =
-manager.CreateTaxon\<HierarchicalTaxon\>();
+HierarchicalTaxon HungaryTaxon = manager.CreateTaxon<HierarchicalTaxon>();
 
-HungaryTaxon.Name = \"Hungary\";
+HungaryTaxon.Name = "Hungary";
 
-HungaryTaxon.Title = \"Hungary\";
+HungaryTaxon.Title = "Hungary";
 
-HungaryTaxon.UrlName = \"hungary\";
+HungaryTaxon.UrlName = "hungary";
 
 HungaryTaxon.Parent = EasternEuropeTaxon;
 
 **HungaryTaxon.Taxonomy = EasternEuropeTaxon.Taxonomy;**
 
 manager.SaveChanges();
+```
 
 The Categories page shows the new taxon under its parent taxon.
 

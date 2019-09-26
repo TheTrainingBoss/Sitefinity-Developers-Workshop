@@ -265,7 +265,7 @@ Role backendUserRole = roleManager.GetRoles()
 
     .Single();
 
-// retrieve the \"Authors\" role
+// retrieve the "Authors" role
 
 Role authorRole = roleManager.GetRoles()
 

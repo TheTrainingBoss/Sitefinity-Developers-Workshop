@@ -60,7 +60,8 @@ that handle Sitefinity-specific content (like News, Blogs, etc.). If you
 are creating custom widgets that do not interact with Sitefinity content
 items, these features would not apply.
 
-### Adding Master Detail Actions
+Adding Master Detail Actions
+----------------------------
 
 The "Master" view of a widget is intended to present a list of the
 specified content items, and often will require paging to partition them
@@ -71,15 +72,16 @@ to help you page your results.
 For this to work you simply need to create the method *Index(int? page)*
 in your MVC Controller.
 
+```
 public ActionResult Index(int? page)
-
 {
 
-//\...
+    //...
 
-return View(model);
+    return View(model);
 
 }
+```
 
 Feather will automatically route to this command, passing in the page
 parameter from the Url. You can then use this value to appropriately
@@ -90,60 +92,60 @@ allow Feather to automatically pass an instance of the requested content
 item, based on the Url of the page. Simply add the following action to
 your controller:
 
+```
 public ActionResult Details(NewsItem newsItem)
-
 {
 
-return View(newsItem);
+    return View(newsItem);
 
 }
+```
 
 As long as the url matches a content item of the type specified
 (NewsItem in the sample above, but can be any Sitefinity content type),
 your action will be passed the content item via the supplied parameter.
 
-### Filter by Taxonomy
+Filter by Taxonomy
+------------------
 
 Feather also allows you to easily add route-based filtering to your
 Sitefinity MVC content widgets by implementing the following action on
 your controller:
 
+```
 public ActionResult ListByTaxon(ITaxon taxonFilter, int? page)
-
 {
 
-var manager = NewsManager.GetManager();
+    var manager = NewsManager.GetManager();
 
-string fieldName;
+    string fieldName;
 
-if (taxonFilter.Taxonomy.Name == \"Categories\")
+    if (taxonFilter.Taxonomy.Name == "Categories")
 
-fieldName = taxonFilter.Taxonomy.TaxonName;
+        fieldName = taxonFilter.Taxonomy.TaxonName;
 
-else
+    else
 
-fieldName = taxonFilter.Taxonomy.Name;
+        fieldName = taxonFilter.Taxonomy.Name;
 
-var items = manager.GetNewsItems().Where(n =\>
+    var items = manager.GetNewsItems().Where(n => n.GetValue<IList<Guid\>>(fieldName)
 
-n.GetValue\<IList\<Guid\>\>(fieldName)
+        .Contains(taxonFilter.Id) && n.Status == ContentLifecycleStatus.Live)
 
-.Contains(taxonFilter.Id) &&
+        .ToList();
 
-n.Status == ContentLifecycleStatus.Live)
-
-.ToList();
-
-return View(\"Index\", items);
+    return View(\"Index\", items);
 
 }
+```
 
 If the url contains a parameter that matches a taxonomy defined in
 Sitefinity, it will be populated in the *ListByTaxon()* method. The
 method includes the type of the taxonomy (such as Category or Tag) and
 allows custom filtering on the items returned to the view.
 
-### RelativeRoutes
+RelativeRoutes
+---------------
 
 Standard MVC controllers can use the *Route* attribute to explicitly
 specify routing configuration. Feather enhances this feature by adding
@@ -177,105 +179,72 @@ content.
 2.  Create a new class file called MyRouteTestController.cs and enter
     the code below.
 
-> using System;
->
-> using System.Collections.Generic;
->
-> using System.Linq;
->
-> using System.Web;
->
-> using System.Web.Mvc;
->
-> using Telerik.Sitefinity.Mvc;
->
-> namespace SitefinityWebApp.Mvc.Controllers
->
-> {
->
-> \[ControllerToolboxItem(Name = \"MyRouteTest\",
->
-> SectionName = \"Mvc Widgets\",
->
-> Title = \"My Route Test Widget\")\]
->
-> public class MyRouteTestController : Controller
->
-> {
->
-> \[RelativeRoute(\"\")\]
->
-> public ActionResult Index()
->
-> {
->
-> return View();
->
-> }
->
-> \[RelativeRoute(\"Relative\")\]
->
-> public ActionResult RelativeRoute()
->
-> {
->
-> return Content(\"This is the result of a relative,\" +
->
-> \" route and is placed directly on the page.\");
->
-> }
->
-> \[Route(\"custom/direct\")\]
->
-> public ActionResult DirectRoute()
->
-> {
->
-> return Content(\"This result is accessed by navigating\" +
->
-> \" to the path: custom/direct/route and returns plain\" +
->
-> \" text directly to the caller.\");
->
-> }
->
-> \[Route(\"test/direct\")\]
->
-> public ActionResult Invalid()
->
-> {
->
-> return Content(\"This result will never be seen, \" +
->
-> \" because the test route will be first intercepted\" +
->
-> \" by the page, so the direct route parameter \" +
->
-> \" will result in a 404.\");
->
-> }
->
-> \[RelativeRoute(\"dual\")\]
->
-> \[Route(\"custom/dual\")\]
->
-> public ActionResult MyRegularRoute()
->
-> {
->
-> return Content(\"This result can be routed by the\" +
->
-> \" relative path (showing this content on the host\" +
->
-> \" page) or via the direct route, which returns\" +
->
-> \" plain text to the caller.\");
->
-> }
->
-> }
->
-> }
+```
+using System;
+
+using System.Collections.Generic;
+
+using System.Linq;
+
+using System.Web;
+
+using System.Web.Mvc;
+
+using Telerik.Sitefinity.Mvc;
+
+namespace SitefinityWebApp.Mvc.Controllers
+
+{
+
+    [ControllerToolboxItem(Name = "MyRouteTest", SectionName = "Mvc Widgets", Title = "My Route Test Widget")]
+    public class MyRouteTestController : Controller
+    {
+
+    [RelativeRoute("")]
+    public ActionResult Index()
+    {
+
+        return View();
+
+    }
+
+    [RelativeRoute("Relative")]
+    public ActionResult RelativeRoute()
+    {
+
+        return Content("This is the result of a relative," + " route and is placed directly on the page.");
+
+    }
+
+    [Route("custom/direct")]
+    public ActionResult DirectRoute()
+    {
+
+        return Content("This result is accessed by navigating" + " to the path: custom/direct/route and returns plain" + " text directly to the caller.");
+
+    }
+
+    [Route("test/direct")]
+    public ActionResult Invalid()
+    {
+
+        return Content("This result will never be seen, " + " because the test route will be first intercepted" + " by the page, so the direct route parameter " + " will result in a 404.");
+
+    }
+
+    [RelativeRoute("dual")]
+    [Route("custom/dual")]
+    public ActionResult MyRegularRoute()
+    {
+
+        return Content("This result can be routed by the" + " relative path (showing this content on the host" + " page) or via the direct route, which returns" + " plain text to the caller.");
+
+    }
+
+    }
+
+}
+```
 
 3.  Create a new page called "Test" with *urlname* "test".
 
@@ -327,7 +296,8 @@ Like most of the customization provided by Feather, it relies on
 conventions for naming and placing your designer templates in the right
 location.
 
-### ControllerContainer Attribute
+ControllerContainer Attribute
+------------------------------
 
 Custom designers are actually served as partial views, and by default,
 will not be served properly by Sitefinity. If you simply add the
@@ -348,7 +318,8 @@ using Telerik.Sitefinity.Frontend.Mvc.Infrastructure.Controllers.Attributes;
 
 Now your designer views will be properly served.
 
-### Widget Designers Naming Convention
+Widget Designers Naming Convention
+----------------------------------
 
 The naming convention for widget designers is similar to the frontend
 portion of the widget template, but using the prefix for the type of
@@ -356,47 +327,33 @@ view being shown, for example "DesignerView". To demonstrate this, we'll
 create a simple MVC widget by adding the following class to your root
 Mvc/Controllers folder.
 
+```
 using System.Web.Mvc;
-
 using Telerik.Sitefinity.Mvc;
 
 namespace SitefinityWebApp.Mvc.Controllers
 
 {
 
-public enum Enumeration
+    public enum Enumeration
+    {
+        Value1,
+        Value2,
+        Value3
+    }
 
-{
+    [ControllerToolboxItem(Name = "MyTestWidget", SectionName = "Mvc Widgets", Title = "My Test Widget")]
 
-Value1,
-
-Value2,
-
-Value3
-
-}
-
-\[ControllerToolboxItem(Name = \"MyTestWidget\",
-
-SectionName = \"Mvc Widgets\",
-
-Title = \"My Test Widget\")\]
-
-public class MyTestWidgetController : Controller
-
-{
-
-public string Message { get; set; }
-
-public bool Flag { get; set; }
-
-public Enumeration Enum { get; set; }
-
-public int Number { get; set; }
+    public class MyTestWidgetController : Controller
+    {
+        public string Message { get; set; }
+        public bool Flag { get; set; }
+        public Enumeration Enum { get; set; }
+        public int Number { get; set; }
+    }
 
 }
-
-}
+```
 
 Create a new page and place this widget on the page. To keep things
 simple, do not use a Resource Package template, but instead use a plain
@@ -426,7 +383,8 @@ Clicking it will load that designer into the editor.
 
 ![](../media/image65.png)
 
-### Prioritizing the Custom Designer
+Prioritizing the Custom Designer
+--------------------------------
 
 Instead of making your designer an option, you can configure Sitefinity
 to load your designer by default. To do this, simply create a file
@@ -443,11 +401,11 @@ For our example, we would create the file DesignerView.MyDesigner.json
 and place it in the same folder. Next time we load the editor we'll
 automatically see our custom designer template.
 
-### Adding Fields with Angular
+Adding Fields with Angular
 
 The designer framework for Sitefinity widgets uses AngularJS, and can be
 extended by leveraging Directives. A complete discussion of AngularJS is
-outside the scope of this book, and for reference we recommend you visit
+outside the scope of this workshop, and for reference we recommend you visit
 <http://angularjs.org> to learn more.
 
 Each widget designer is passed an AngularJS *\$scope* which contains all
@@ -461,64 +419,59 @@ writing code.
 For example, we can create a complete (if entirely simple) UI for our
 custom widget editor by adding the following markup:
 
-\<fieldset\>
+```
+<fieldset>
 
-\<p\>
+<p>
 
-\<label for=\"flag\"\>Flag\</label\>
+<label for="flag"\>Flag</label>
 
-\<input type=\"checkbox\" id=\"flag\"
+<input type="checkbox" id="flag" ng-model="properties.Flag.PropertyValue" /\>
 
-ng-model=\"properties.Flag.PropertyValue\" /\>
+</p>
 
-\</p\>
+<p>
 
-\<p\>
+<label for="enum">Enum</label>
 
-\<label for=\"enum\"\>Enum\</label\>
+<select id="enum" ng-model="properties.Enum.PropertyValue"\>
 
-\<select id=\"enum\"
+    <option value="Value1">Value 1</option>
 
-ng-model=\"properties.Enum.PropertyValue\"\>
+    <option value="Value2">Value 2</option>
 
-\<option value=\"Value1\"\>Value 1\</option\>
+    <option value="Value3">Value 3</option>
 
-\<option value=\"Value2\"\>Value 2\</option\>
+</select>
 
-\<option value=\"Value3\"\>Value 3\</option\>
+</p>
 
-\</select\>
+<p>
 
-\</p\>
+<label for="message">Message</label>
 
-\<p\>
+<input id="message" type="text" ng-model="properties.Message.PropertyValue" />
 
-\<label for=\"message\"\>Message\</label\>
+</p>
 
-\<input id=\"message\" type=\"text\"
+<p>
 
-ng-model=\"properties.Message.PropertyValue\" /\>
+<label for="number"\>Number</label>
 
-\</p\>
+<input id="number" type="number" ng-model="properties.Number.PropertyValue" />
 
-\<p\>
+</p>
 
-\<label for=\"number\"\>Number\</label\>
-
-\<input id=\"number\" type=\"number\"
-
-ng-model=\"properties.Number.PropertyValue\" /\>
-
-\</p\>
-
-\</fieldset\>
+</fieldset>
+```
 
 Reloading the designer reveals an interface that is more intuitive than
 the standard textboxes offered by the stock version.
 
 ![](../media/image66.png)
 
-### Adding Custom Commands to Widgets
+Adding Custom Commands to Widgets
+--------------------------------
 
 Each widget has a simple set of commands in the backend; such as the
 Edit and Delete commands we've already seen.
@@ -530,105 +483,61 @@ simply by making a few changes to the widget controller. Specifically,
 the controller needs to implement the *IHasEditCommands* interface, and
 adding a few methods, as shown here for our sample widget from above:
 
+```
 public class MyTestWidgetController : Controller, IHasEditCommands
-
 {
+    public string Message { get; set; }
+    public bool Flag { get; set; }
+    public Enumeration Enum { get; set; }
+    public int Number { get; set; }
+    private IList<WidgetMenuItem> commands;
+    
+    public IList<WidgetMenuItem> Commands
+    {
+        get 
+        {
+            if (commands == null)
+            {
+                commands = new List<WidgetMenuItem>();
+                // restore the default commands
+                commands.Add(new WidgetMenuItem()
+                    {
+                        Text = Res.Get<Labels>().Delete,
+                        CommandName = "beforedelete",
+                        CssClass = "sfDeleteItm"
+                    });
+                commands.Add(new WidgetMenuItem()
+                {
+                    Text = Res.Get<Labels>().Duplicate,
+                    CommandName = "duplicate",
+                    CssClass = "sfDuplicateItm"
+                });
+                commands.Add(new WidgetMenuItem()
+                {
+                    Text = Res.Get<Labels>().Permissions,
+                    CommandName = "permissions",
+                    CssClass = "sfPermItm"
+                });
 
-public string Message { get; set; }
+                // Add the custom command
+                var packageManager = new PackageManager();
+                var customActionLink = packageManager.EnhanceUrl(RouteHelper.ResolveUrl(
+                    "Telerik.Sitefinity.Frontend/Designer/Master/MyTestWidget?view=CustomCommand", UrlResolveOptions.Rooted));
+                
+                commands.Add(new WidgetMenuItem()
+                {
+                    Text = "CustomCommand", 
+                    ActionUrl = customActionLink, 
+                    NeedsModal = true
+                });
+            }
 
-public bool Flag { get; set; }
+            return commands;
+        }
 
-public Enumeration Enum { get; set; }
-
-public int Number { get; set; }
-
-private IList\<WidgetMenuItem\> commands;
-
-public IList\<WidgetMenuItem\> Commands
-
-{
-
-get
-
-{
-
-if (commands == null)
-
-{
-
-commands = new List\<WidgetMenuItem\>();
-
-// restore the default commands
-
-commands.Add(new WidgetMenuItem()
-
-{
-
-Text = Res.Get\<Labels\>().Delete,
-
-CommandName = \"beforedelete\",
-
-CssClass = \"sfDeleteItm\"
-
-});
-
-commands.Add(new WidgetMenuItem()
-
-{
-
-Text = Res.Get\<Labels\>().Duplicate,
-
-CommandName = \"duplicate\",
-
-CssClass = \"sfDuplicateItm\"
-
-});
-
-commands.Add(new WidgetMenuItem()
-
-{
-
-Text = Res.Get\<Labels\>().Permissions,
-
-CommandName = \"permissions\",
-
-CssClass = \"sfPermItm\"
-
-});
-
-// Add the custom command
-
-var packageManager = new PackageManager();
-
-var customActionLink =
-
-packageManager.EnhanceUrl(RouteHelper.ResolveUrl(
-
-\"Telerik.Sitefinity.Frontend/Designer/Master/MyTestWidget?view=CustomCommand\",
-
-UrlResolveOptions.Rooted));
-
-commands.Add(new WidgetMenuItem()
-
-{
-
-Text = \"CustomCommand\",
-
-ActionUrl = customActionLink,
-
-NeedsModal = true
-
-});
-
+    }
 }
-
-return commands;
-
-}
-
-}
-
-}
+```
 
 Note that in this case, we've added the original commands to the
 Commands collection. This is because adding a custom command to a widget
@@ -664,11 +573,11 @@ option in the regular editor designer, simply add a matching json file
 (in this case DesignerView.CustomCommand.json) to the folder with the
 following contents:
 
+```
 {
-
-\"hidden\": true
-
+  "hidden": true
 }
+```
 
 The template will now be hidden from the designer, but still visible
 when launched from the custom command.

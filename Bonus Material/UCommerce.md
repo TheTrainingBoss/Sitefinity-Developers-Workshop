@@ -1,6 +1,6 @@
 First, upon loading your Sitefinity project in Visual Studio, right click on the project in the Solution Explorer and choose "Manage NuGet Packages"
 
-![](../media/UC1.png)
+![](../media/uc1.png)
 
 Next, you will search the online packages for "UCommerce.Sitefinity" Nuget package.
 
@@ -20,7 +20,7 @@ During the installation, you will need to accept several license agreements
 
 and finally UCommerce is installed in your solution of Sitefinity with the final screen in Visual Studio looking something like this:
 
-![](../media/UC6.png)
+![](../media/uc6.png)
 
 Build your project of Sitefinity in Visual Studio and browse the project in your favorite browser.
 

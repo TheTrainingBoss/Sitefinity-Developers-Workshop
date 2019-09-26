@@ -1,7 +1,7 @@
 Sitefinity Web Services
 =======================
 
-The latest version of Sitefinity introduces a new *Web Services* module
+Sitefinity has introduced a new *Web Services* module
 designed to simplify the process of exposing an API for your site's
 content that can be consumed by various clients, including mobile
 applications, external websites, and even custom widgets within your
@@ -12,7 +12,7 @@ Sitefinity has relied upon and used the existing WCF endpoints in the
 /Sitefinity folder. However, although you can make use of these
 services, they were primarily designed to support the administrative
 operations of the website and using them for custom applications
-requires additional configuration.
+requires additional configuration. **With the introduction of the AdminApp new backend implementation, the WCF services are less and less used in Sitefinity.**
 
 The requirements for parameters of items to be processed by the API are
 also complex and heavy, requiring inclusion of many Sitefinity-specific
@@ -55,7 +55,7 @@ considerations to help you decide.
 
 ### Supported Content Types
 
-As of the date of publication of this edition, only the following
+As of the date of publication of this Workshop, only the following
 content areas are supported by the new Web Services module:
 
 -   News items
@@ -79,27 +79,16 @@ content areas are supported by the new Web Services module:
 -   Shared content blocks
 
 -   Flat and Hierarchical taxonomies
+  
+-   Folders
+
+-   Pages
+
+-   Sites
 
 Although this covers the most commonly used content areas of Sitefinity,
 if you need to perform operations related to any other modules you must
 rely on the original WCF services or create your own.
-
-Of special note is the area of Security; if you need to manipulate Users
-or Roles, only the older WCF services expose endpoints to support these
-types of operations.
-
-### Recreating or Migrating Items
-
-If you intend to use Sitefinity web services to migrate or copy content
-from an existing Sitefinity site, and must retain the original content
-in full, including the Id, Owner, creation date and other relevant
-metadata, you must use the older WCF services. The newer Web Services
-module work with simpler object models designed for working with new
-content, or updating existing content, and do not allow you to specify
-these properties.
-
-If you need full control over the created object, you must use the WCF
-services or create your own API.
 
 ### Custom Payloads
 
@@ -345,130 +334,93 @@ First, we do it the dotnet way in C\#
 -------------------------------------
 
 Whether you are using a Windows Form application, WPF, MVC or Xamarin
-Mobile app in C\#, you need to establish 4 things:
+Mobile app in C#, you need to establish 4 things:
 
 First, establish your constants that will be needed during the execution
 
-public const string ClientId = \"linoApp\";
+```
+public const string ClientId = "linoApp";
+public const string ClientSecret = "secret";
+public const string TokenEndpoint ="http://<yousitefinitysite>/Sitefinity/Authenticate/OpenID/connect/token";
+public const string Username = "test\@test.test";
+public const string Password = "password";
+public const string Scopes = "openid offline_access";
 
-public const string ClientSecret = \"secret\";
-
-public const string TokenEndpoint =
-\"http://\<yousitefinitysite\>/Sitefinity/Authenticate/OpenID/connect/token\";
-
-public const string Username = \"test\@test.test\";
-
-public const string Password = \"password\";
-
-public const string Scopes = \"openid offline\_access\";
-
-public static readonly Dictionary\<string, string\> AdditionalParameters
-= new Dictionary\<string, string\>()
-
+public static readonly Dictionary\<string, string\> AdditionalParameters = new Dictionary<string, string>()
 {
-
-{ \"membershipProvider\", \"Default\" }
-
+    { "membershipProvider", "Default" }
 };
 
-public const string WebApiNewsEndPoint =
-"http://\<yoursitefinitysite\>/api/default/newsitems\";
+public const string WebApiNewsEndPoint = "http://<yoursitefinitysite>/api/default/newsitems";
+```
 
 Second, we will need to call a function that will help us get an **AccessToken**
 
+```
 public static TokenResponse RequestToken()
-
 {
+    //This is call to the token endpoint with the parameters that are set
+    TokenResponse tokenResponse = tokenClient.RequestResourceOwnerPasswordAsync(Username, Password, Scopes, AdditionalParameters).Result;
+    if (tokenResponse.IsError)
+    {
+        throw new ApplicationException("Couldn\'t get access token. Error: " + tokenResponse.Error);
+    }
 
-//This is call to the token endpoint with the parameters that are set
-
-TokenResponse tokenResponse =
-tokenClient.RequestResourceOwnerPasswordAsync(Username, Password,
-Scopes, AdditionalParameters).Result;
-
-if (tokenResponse.IsError)
-
-{
-
-throw new ApplicationException(\"Couldn\'t get access token. Error: \" +
-tokenResponse.Error);
-
+    return tokenResponse;
 }
-
-return tokenResponse;
-
-}
+```
 
 Third, we can now execute a Sitefinity API once we received an
 AccessToken already from the previous "RequestToken" function
 
+```
 public static string CallApi(string accessToken)
-
 {
-
-HttpWebRequest request =
-(HttpWebRequest)WebRequest.Create(WebApiNewsEndPoint);
-
-request.ContentType = \"application/json\";
-
-request.Method = \"GET\";
-
-request.Headers.Add(\"Authorization\", \"Bearer \" + accessToken);
-
-string html = string.Empty;
-
-WebResponse response = request.GetResponse();
-
-using (Stream stream = response.GetResponseStream())
-
-using (StreamReader reader = new StreamReader(stream))
-
-{
-
-html = reader.ReadToEnd();
-
+    HttpWebRequest request = (HttpWebRequest)WebRequest.Create(WebApiNewsEndPoint);
+    request.ContentType = "application/json";
+    request.Method = "GET";
+    request.Headers.Add("Authorization", "Bearer " + accessToken);
+    string html = string.Empty;
+    WebResponse response = request.GetResponse();
+    using (Stream stream = response.GetResponseStream())
+    using (StreamReader reader = new StreamReader(stream))
+    {
+        html = reader.ReadToEnd();
+    }
+    return html;
 }
-
-return html;
-
-}
+```
 
 Don't forget also to establish a Refresh of the token in case it is
 needed
 
+```
 public static TokenResponse RefreshToken(string refreshToken)
-
 {
-
-//This is call to the token endpoint that can retrieve new access and
-
-//refresh token from the current refresh token
-
-return tokenClient.RequestRefreshTokenAsync(refreshToken).Result;
-
+    //This is call to the token endpoint that can retrieve new access and
+    //refresh token from the current refresh token
+    return tokenClient.RequestRefreshTokenAsync(refreshToken).Result;
 }
+```
 
-Finally, the 4^th^ and final step is to bring it all together in a
+Finally, the 4th and final step is to bring it all together in a
 function of your choice in any platform to call these established
 functions:
 
+```
 tokenClient = new TokenClient(TokenEndpoint, ClientId, ClientSecret,
-
 AuthenticationStyle.PostValues);
-
 TokenResponse tokenResponse = RequestToken();
-
-string **accessToken** = tokenResponse.AccessToken;
-
-//The purpose of the refresh token is to retrieve new access token when
-//the it expires
+string accessToken = tokenResponse.AccessToken;
+//The purpose of the refresh token is to retrieve new access token when the it expires
 
 string refreshToken = tokenResponse.RefreshToken;
 
 string reponseHtml = CallApi(accessToken);
+```
 
 Voila, you can now access authenticated REST API calls in Sitefinity in
-C\# from any kind of applications (Web MVC, Web Forms, Windows Forms,
+C# from any kind of applications (Web MVC, Web Forms, Windows Forms,
 WPF, Xamarin Forms, Xamarin Native, etc...)
 
 Second, let's do this in JavaScript
@@ -477,44 +429,44 @@ Second, let's do this in JavaScript
 In any HTML page, php, ascx or cshtml, etc... you can load the following
 JavaScript to establish exactly what we accomplished in C\# above.
 
-\<script\>
+```
+<script>
 
 //The token end point from where we can retrieve the access token
 
-var tokenEndPoint =
-\"http://\<yourSFsite\>/Sitefinity/Authenticate/OpenID/connect/token\";
+var tokenEndPoint = "http://<yourSFsite>/Sitefinity/Authenticate/OpenID/connect/token";
 
-var apiUrl=\"http://\<yoursitefinitysite\>/api/default/newsitems\";
+var apiUrl="http://<yoursitefinitysite>/api/default/newsitems";
 
-var client\_id = \"linoApp\";
+var client_id = "linoApp";
 
-var client\_secret = \"secret\";
+var client_secret = "secret";
 
 var accessToken;
 
 var refreshToken;
 
-\$(\"\#getTokenBtn\").on(\"click\", getToken);
+$("#getTokenBtn").on("click", getToken);
 
-\$(\"\#getTokenWithRefreshBtn\").on(\"click\",
+$("#getTokenWithRefreshBtn").on("click",
 
 getAccessTokenFromRefreshToken);
 
-\$(\"\#apiCallBtn\").on(\"click\", callApi);
+$("#apiCallBtn").on("click", callApi);
 
 function getToken() {
 
 //Have an input element on the page for the username
 
-var username = \$(\'\#username\').val();
+var username = $('#username').val();
 
 //Have an input element on the page for the password
 
-var password = \$(\'\#password\').val();
+var password = $('#password').val();
 
 //Call that gets the access and refresh token
 
-\$.ajax({
+$.ajax({
 
 url:tokenEndPoint,
 
@@ -524,31 +476,31 @@ username:username,
 
 password:password,
 
-grant\_type:\'password\',
+grant_type:'password',
 
-scope:\'openid offline\_access\',
+scope:'openid offline_access',
 
-client\_id:client\_id,
+client_id:client_id,
 
-client\_secret:client\_secret
+client_secret:client_secret
 
 },
 
-method:\'POST\',
+method:'POST',
 
 success:function(data){
 
-console.log(data.access\_token);
+console.log(data.access_token);
 
-console.log(data.refresh\_token);
+console.log(data.refresh_token);
 
-\$(\'\#token\').text(data.access\_token);
+$('#token').text(data.access_token);
 
-\$(\'\#refreshToken\').text(data.refresh\_token);
+$('#refreshToken').text(data.refresh_token);
 
-accessToken=data.access\_token;
+accessToken=data.access_token;
 
-refreshToken=data.refresh\_token;
+refreshToken=data.refresh_token;
 
 },
 
@@ -562,42 +514,41 @@ alert(err.responseText);
 
 }
 
-//Call that gets new access and refresh token from the current refresh
-//token
+//Call that gets new access and refresh token from the current refresh token
 
 function getAccessTokenFromRefreshToken() {
 
-\$.ajax({
+$.ajax({
 
 url:tokenEndPoint,
 
 data:{
 
-refresh\_token:refreshToken,
+refresh_token:refreshToken,
 
-grant\_type: \'refresh\_token\',
+grant_type: 'refresh_token',
 
-client\_id:client\_id,
+client_id:client_id,
 
-client\_secret:client\_secret
+client_secret:client_secret
 
 },
 
-method:\'POST\',
+method:'POST',
 
 success:function(data){
 
-console.log(data.access\_token);
+console.log(data.access_token);
 
-console.log(data.refresh\_token);
+console.log(data.refresh_token);
 
-\$(\'\#token\').text(data.access\_token);
+$('#token').text(data.access_token);
 
-\$(\'\#refreshToken\').text(data.refresh\_token);
+$('#refreshToken').text(data.refresh_token);
 
-accessToken=data.access\_token;
+accessToken=data.access_token;
 
-refreshToken=data.refresh\_token;
+refreshToken=data.refresh_token;
 
 },
 
@@ -615,15 +566,15 @@ alert(err.responseText);
 
 function callApi() {
 
-\$.ajax({
+$.ajax({
 
 url:apiUrl,
 
-method:\'GET\',
+method:'GET',
 
 beforeSend:function (xhr) {
 
-xhr.setRequestHeader (\"Authorization\", \"**Bearer** \" + accessToken);
+xhr.setRequestHeader ("Authorization", "Bearer " + accessToken);
 
 },
 
@@ -631,13 +582,13 @@ success:function(data){
 
 if(data.value.length!==0){
 
-\$(\"\#apiResult\").text(\"Item content:\"+ data.value\[0\].Content)
+$("#apiResult").text("Item content:"+ data.value[0].Content)
 
 }
 
 else{
 
-\$(\"\#apiResult\").text(\"No news items\");
+$("#apiResult").text("No news items");
 
 }
 
@@ -653,7 +604,8 @@ alert(err.responseText);
 
 }
 
-\</script\>
+</script>
+```
 
 Working with the Sitefinity WCF Services
 ----------------------------------------
@@ -742,7 +694,7 @@ This form executes a POST operation to the following path:
 /Sitefinity/Authenticate/SWT
 
 It accepts FORM parameters for the username and password, using the
-respective field names "wrap\_name" and "wrap\_password". This POST
+respective field names "wrap_name" and "wrap_password". This POST
 returns the familiar access token required for authorization that should
 be included in subsequent requests.
 
@@ -768,7 +720,7 @@ use the correct token for each type of request.
 Here is the format for adding the value of the access token above to the
 Authorization header:
 
-Authorization: WRAP access\_token=\"\<ACCESS\_TOKEN\>\"
+Authorization: WRAP access_token="<ACCESS_TOKEN>"
 
 Where \<Access\_Token\> is the value returned from the Login request, an
 example of which is shown highlighted above.
@@ -1008,7 +960,7 @@ modified to demonstrate one way to create a user.
 
 \<meta charset=\"utf-8\" /\>
 
-\<script src=\"http://code.jquery.com/jquery-1.12.4.min.js\"
+\<script src=\"http://code.jquery.com/jquery-1.12.4.min.js"
 type=\"text/javascript\"\>\</script\>
 
 \</head\>
@@ -1028,7 +980,7 @@ function createUser(access\_token) {
 \$.ajax({
 
 url:
-\"http://localhost:61111/Sitefinity/Services/Security/Users.svc/create/00000000-0000-0000-0000-00000000/\",
+\"http://localhost:61111/Sitefinity/Services/Security/Users.svc/create/00000000-0000-0000-0000-00000000/",
 
 type: \"PUT\",
 
@@ -1063,7 +1015,7 @@ console.log(result);
 
 \$.post(
 
-\"http://localhost:61111/Sitefinity/Authenticate/SWT\",
+\"http://localhost:61111/Sitefinity/Authenticate/SWT",
 
 { wrap\_name: username, wrap\_password: password },
 
@@ -1098,11 +1050,9 @@ return query;
 
 var newUser = {
 
-AvatarImageUrl:
-\"\\/SFRes\\/images\\/Telerik.Sitefinity.Resources\\/Images.DefaultPhoto.png\",
+AvatarImageUrl: "/SFRes/images/Telerik.Sitefinity.Resources/Images.DefaultPhoto.png",
 
-AvatarThumbnailUrl:
-\"\\/SFRes\\/images\\/Telerik.Sitefinity.Resources\\/Images.DefaultPhoto.png\",
+AvatarThumbnailUrl: "/SFRes/images/Telerik.Sitefinity.Resources/Images.DefaultPhoto.png",
 
 Email: \"testuser\@site.com\",
 
@@ -1117,7 +1067,7 @@ PasswordAnswer: null,
 PasswordQuestion: \"\",
 
 ProfileData:
-\"{\\\"Telerik.Sitefinity.Security.Model.SitefinityProfile\\\":{\\\"\_\_type\\\":\\\"Telerik.Sitefinity.Security.Model.SitefinityProfile\\\",\\\"FirstName\\\":\\\"Test\\\",\\\"LastName\\\":\\\"User\\\",\\\"ApplicationName\\\":\\\"\\/UserProfiles\\\",\\\"IsProfilePublic\\\":false,\\\"\_\_providerName\\\":\\\"OpenAccessProfileProvider\\\"}}\",
+"{"Telerik.Sitefinity.Security.Model.SitefinityProfile":{"__type":"Telerik.Sitefinity.Security.Model.SitefinityProfile","FirstName":"Test","LastName":"User","ApplicationName":"/UserProfiles","IsProfilePublic":false,"__providerName":"OpenAccessProfileProvider"}}",
 
 ProviderName: \"Default\",
 
@@ -1174,10 +1124,10 @@ from the previous request:
 var newUser = {
 
 AvatarImageUrl:
-\"\\/SFRes\\/images\\/Telerik.Sitefinity.Resources\\/Images.DefaultPhoto.png\",
+"/SFRes/images/Telerik.Sitefinity.Resources/Images.DefaultPhoto.png",
 
 AvatarThumbnailUrl:
-\"\\/SFRes\\/images\\/Telerik.Sitefinity.Resources\\/Images.DefaultPhoto.png\",
+"/SFRes/images/Telerik.Sitefinity.Resources/Images.DefaultPhoto.png\",
 
 Email: \"testuser\@site.com\",
 
@@ -1192,7 +1142,7 @@ PasswordAnswer: null,
 PasswordQuestion: \"\",
 
 ProfileData:
-\"{\\\"Telerik.Sitefinity.Security.Model.SitefinityProfile\\\":{\\\"\_\_type\\\":\\\"Telerik.Sitefinity.Security.Model.SitefinityProfile\\\",\\\"FirstName\\\":\\\"Test\\\",\\\"LastName\\\":\\\"User\\\",\\\"ApplicationName\\\":\\\"\\/UserProfiles\\\",\\\"IsProfilePublic\\\":false,\\\"\_\_providerName\\\":\\\"OpenAccessProfileProvider\\\"}}\",
+"{"Telerik.Sitefinity.Security.Model.SitefinityProfile":{"__type":"Telerik.Sitefinity.Security.Model.SitefinityProfile","FirstName":"Test","LastName":"User","ApplicationName":"/UserProfiles","IsProfilePublic\":false,"__providerName":"OpenAccessProfileProvider"}}",
 
 ProviderName: \"Default\",
 
@@ -1233,6 +1183,7 @@ at a very simple implementation that solves this problem.
 
 Here is the complete code for such a class:
 
+```
 using System;
 
 using System.ServiceModel;
@@ -1249,80 +1200,44 @@ namespace SitefinityWebApp.Custom
 
 {
 
-\[AspNetCompatibilityRequirements(RequirementsMode =
+    [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Required),
+        ServiceBehavior(IncludeExceptionDetailInFaults = true,
+        InstanceContextMode = InstanceContextMode.Single,
+        ConcurrencyMode = ConcurrencyMode.Single)]
 
-AspNetCompatibilityRequirementsMode.Required),
+    public class UsersCustom : ICustomUser
+    {
+        /// \<summary\>
+        /// Inserts/Updates the user information.
+        /// The update user information is returned in JSON.
+        /// \</summary\>
+        /// \<param name=\"user\"\>User object to be created.\</param\>
+        /// \<param name=\"userId\"\>Id of the user to be created.\</param\>
+        /// \<param name=\"provider\"\>The name of membership
+        /// provider.\</param\>
+        /// \<returns\>\</returns\>
 
-ServiceBehavior(IncludeExceptionDetailInFaults = true,
+        public WcfMembershipUser CreateUserWithGuid(WcfMembershipUser user, string userId, string provider)
+        {
+            user.ProviderUserKey = Guid.Parse(user.ProviderUserKey.ToString());
+            return new Users().CreateUser(user, userId, provider);
+        }
 
-InstanceContextMode = InstanceContextMode.Single,
+    }
 
-ConcurrencyMode = ConcurrencyMode.Single)\]
+    [ServiceContract]
+    public interface ICustomUser
+    {
+        [OperationContract, WebHelp(Comment ="Inserts or updates a user for given membership provider. The results are returned in JSON format."),
+            WebInvoke(Method = "PUT", UriTemplate = "/createwithguid/{userId}/?provider={provider}",
+            ResponseFormat = WebMessageFormat.Json)]
 
-public class UsersCustom : ICustomUser
+        WcfMembershipUser CreateUserWithGuid(WcfMembershipUser user, string userId, string provider);
 
-{
-
-/// \<summary\>
-
-/// Inserts/Updates the user information.
-
-/// The update user information is returned in JSON.
-
-/// \</summary\>
-
-/// \<param name=\"user\"\>User object to be created.\</param\>
-
-/// \<param name=\"userId\"\>Id of the user to be created.\</param\>
-
-/// \<param name=\"provider\"\>The name of membership
-
-/// provider.\</param\>
-
-/// \<returns\>\</returns\>
-
-public WcfMembershipUser CreateUserWithGuid(
-
-WcfMembershipUser user,
-
-string userId, string provider)
-
-{
-
-user.ProviderUserKey =
-
-Guid.Parse(user.ProviderUserKey.ToString());
-
-return new Users().CreateUser(user, userId, provider);
+    }
 
 }
-
-}
-
-\[ServiceContract\]
-
-public interface ICustomUser
-
-{
-
-\[OperationContract, WebHelp(Comment =
-
-\"Inserts or updates a user for given membership provider. The results
-are returned in JSON format.\"),
-
-WebInvoke(Method = \"PUT\",
-
-UriTemplate = \"/createwithguid/{userId}/?provider={provider}\",
-
-ResponseFormat = WebMessageFormat.Json)\]
-
-WcfMembershipUser CreateUserWithGuid(WcfMembershipUser user,
-
-string userId, string provider);
-
-}
-
-}
+```
 
 As expected, the single "CreateUserWithGuid" method here accepts the
 same payload as the original endpoint, converts the property to a Guid
@@ -1332,60 +1247,53 @@ intended service.
 Next, we must register this service for use within Sitefinity. This is
 done by adding the following to your site's Global.asax file:
 
-protected void Application\_Start(object sender, EventArgs e)
-
+```
+protected void Application_Start(object sender, EventArgs e)
 {
-
-SystemManager.ApplicationStart +=
-
-new EventHandler\<EventArgs\>(ApplicationStartHandler);
-
+    SystemManager.ApplicationStart += new EventHandler<EventArgs>(ApplicationStartHandler);
 }
 
 private void ApplicationStartHandler(object sender, EventArgs e)
-
 {
-
-SystemManager.RegisterWebService(
-
-typeof(SitefinityWebApp.Custom.UsersCustom),
-
-\"Services/Sitefinity/UsersCustom\");
-
+    SystemManager.RegisterWebService(typeof(SitefinityWebApp.Custom.UsersCustom),"Services/Sitefinity/UsersCustom");
 }
+```
 
 You must also add the UsersCustom.svc file to the matching folder under
 /Sitefinity/Services/Security with the following content:
 
-\<%@ ServiceHost
+```
+<%@ ServiceHost
 
-Language=\"C\#\"
+Language="C#"
 
-Debug=\"false\"
+Debug="false"
 
-Service=\"SitefinityWebApp.Custom.UsersCustom\"
+Service="SitefinityWebApp.Custom.UsersCustom"
 
-Factory=\"Telerik.Sitefinity.Web.Services.WcfHostFactory\"
+Factory="Telerik.Sitefinity.Web.Services.WcfHostFactory"
 
-\%\>
+%>
+```
 
 Finally, we update the URL in our sample HTML page to call our new
 service, replacing the original and matching both the registered
 endpoint and the new method name. Now the request will hit our proxy
 instead of the original service:
 
-function createUser(access\_token) {
+```
+function createUser(access_token) {
 
-\$.ajax({
+$.ajax({
 
 url:
-\"**http://localhost:61111/Services/Security/UsersCustom.svc/createwithguid/00000000-0000-0000-0000-00000000/\",**
+"http://localhost:61111/Services/Security/UsersCustom.svc/createwithguid/00000000-0000-0000-0000-00000000/",
 
-type: \"PUT\",
+type: "PUT",
 
-dataType: \"json\",
+dataType: "json",
 
-contentType: \"application/json\",
+contentType: "application/json",
 
 data: JSON.stringify(newUser),
 
@@ -1393,13 +1301,13 @@ beforeSend: function (xhr) {
 
 xhr.setRequestHeader(\'Authorization\',
 
-\'WRAP access\_token=\"\' + access\_token + \'\"\');
+'WRAP access_token="' + access_token + '"');
 
 },
 
 success: function (result) {
 
-console.log(\"User imported successfully!\");
+console.log("User imported successfully!");
 
 },
 
@@ -1412,6 +1320,7 @@ console.log(result);
 });
 
 };
+```
 
 When we reload the page (having deleted the previously created user),
 the request succeeds:
@@ -1437,7 +1346,7 @@ some important points to remember.
     access token for use in each following request
 
 -   The access token should be sent as a header in this format:
-    Authorization: WRAP access\_token="\<ACCESS\_TOKEN\>"
+    Authorization: WRAP access_token="<ACCESS_TOKEN>"
 
 -   Logging in and issuing requests as a Sitefinity user using WCF
     counts as a "logged in" against the backend user count limitation
@@ -1777,37 +1686,20 @@ website's Global.asax file to return the headers for an OPTIONS request
 instead of continuing through its internal pipeline and failing. Open or
 create the Global.asax file for the site and add the following code:
 
-protected void Application\_BeginRequest(object sender, EventArgs e)
-
+```
+protected void Application_BeginRequest(object sender, EventArgs e)
 {
-
-if (HttpContext.Current.Request.HttpMethod == \"OPTIONS\")
-
-{
-
-//These headers are handling the \"pre-flight\"
-
-// OPTIONS call sent by the browser
-
-HttpContext.Current.Response.AddHeader(
-
-\"Access-Control-Allow-Methods\", \"GET, POST, PUT, DELETE\");
-
-HttpContext.Current.Response.AddHeader(
-
-\"Access-Control-Allow-Headers\",
-
-\"Content-Type, Accept, Authorization\");
-
-HttpContext.Current.Response.AddHeader(
-
-\"Access-Control-Max-Age\", \"1728000\");
-
-HttpContext.Current.Response.End();
-
+    if (HttpContext.Current.Request.HttpMethod == "OPTIONS")
+    {
+        //These headers are handling the "pre-flight"
+        // OPTIONS call sent by the browser
+        HttpContext.Current.Response.AddHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+        HttpContext.Current.Response.AddHeader("Access-Control-Allow-Headers", "Content-Type, Accept, Authorization");
+        HttpContext.Current.Response.AddHeader("Access-Control-Max-Age", "1728000");
+        HttpContext.Current.Response.End();
+    }
 }
-
-}
+```
 
 Here, we detect the method of the request and if it is of type OPTIONS,
 we append the expected headers for the allowed methods and allowed

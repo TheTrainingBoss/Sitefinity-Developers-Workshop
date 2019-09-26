@@ -76,15 +76,15 @@ below passes a Credentials object that simply packages up the user name,
 password, persistence and provider. If the Persistent property is true,
 then the authentication cookie is retained between sessions.
 
+```
 Credentials credentials = new Credentials()
-
 {
 
-UserName = \"admin\",
+    UserName = "admin@linotadros.com",
 
-Password = \"password\",
+    Password = "password",
 
-Persistent = true,
+    Persistent = true,
 
 };
 
@@ -94,9 +94,10 @@ if (result == UserLoggingReason.Unknown)
 
 {
 
-throw ApplicationException(\"Unable to login\");
+    throw ApplicationException("Unable to login");
 
 }
+```
 
 The AuthenticateUser() method returns a *UserLoggingReason* enum member
 that you check before taking action. For example,
@@ -121,22 +122,25 @@ specific information about how the site is being used:
 To logout programmatically, call the static SecurityManager.Logout()
 method. This logs out the user making the current request.
 
+```
 SecurityManager.Logout();
+```
 
 You can also use a Logout() overload if you need to pass specific
 credentials:
 
+```
 Credentials credentials = new Credentials()
-
 {
 
-UserName = \"admin\",
+    UserName = "admin@linotadros.com",
 
-Password = \"password\",
+    Password = "password",
 
 };
 
 SecurityManager.Logout(credentials);
+```
 
 **Note**: You must have administrative rights to logout other users or
 match the credentials of the user to perform the logout, otherwise a
@@ -150,72 +154,75 @@ To create a user, first get an instance of the *UserManager* by calling
 name. Populate the returned *User* object properties, then finally call
 the *SaveChanges()* method.
 
+```
 UserManager userManager = UserManager.GetManager();
 
-User user = userManager.CreateUser(\"ayamada\");
+User user = userManager.CreateUser("ayamada@mydomain.net");
 
-user.Password = \"password\";
+user.Password = "password";
 
-user.Email = \"ayamda\@mydomain.net\";
+user.Email = "ayamda@mydomain.net";
 
 // user first and last are deprecated
 
-user.Comment = \"Popular blogger\";
+user.Comment = "Popular blogger";
 
 userManager.SaveChanges();
+```
 
 Another overload of CreateUser() allows you to set many of the
 properties of the User at one time and also returns a
 *MembershipCreateStatus*. If the status is equal to Success, then you
 can call the SaveChanges() method.
 
+```
 MembershipCreateStatus createStatus;
 
 UserManager userManager = UserManager.GetManager();
 
 User user = userManager.CreateUser(
 
-// user name
+    // user name
 
-\"ayamada\",
+    "ayamada@mydomain.net",
 
-// password
+    // password
 
-\"password\",
+    "password",
 
-// email
+    // email
 
-\"ayamda\@mydomain.net\",
+    "ayamda@mydomain.net",
 
-// security question
+    // security question
 
-\"what is your favorite pet\'s name?\",
+    "what is your favorite pet's name?",
 
-// security answer
+    // security answer
 
-\"spot\",
+    "spot",
 
-// isApproved
+    // isApproved
 
-true,
+    true,
 
-// provider user key
+    // provider user key
 
-null,
+    null,
 
-// create status
+    // create status
 
-out createStatus
+    out createStatus
 
-);
+    );
 
 if (createStatus == MembershipCreateStatus.Success)
 
 {
 
-userManager.SaveChanges();
-
+    userManager.SaveChanges();
 }
+```
 
 Create Roles and Permissions
 ----------------------------
@@ -243,28 +250,28 @@ associating a role with a user are:
 
 The code below adds an existing user to the Backend and Authors roles:
 
-User user = UserManager.GetManager().GetUser(\"ayamada\");
+```
+User user = UserManager.GetManager().GetUser("ayamada@mydomain.net");
 
 // get the built in roles
 
-RoleManager roleManager =
-RoleManager.GetManager(SecurityManager.ApplicationRolesProviderName);
+RoleManager roleManager = RoleManager.GetManager(SecurityManager.ApplicationRolesProviderName);
 
-// retrieve the \"BackendUsers\" role
+// retrieve the "BackendUsers" role
 
 Role backendUserRole = roleManager.GetRoles()
 
-.Where(r =\> r.Name.Equals(SecurityManager.BackendUsersRoleName))
+    .Where(r => r.Name.Equals(SecurityManager.BackendUsersRoleName))
 
-.Single();
+    .Single();
 
 // retrieve the \"Authors\" role
 
 Role authorRole = roleManager.GetRoles()
 
-.Where(r =\> r.Name.Equals(\"Authors\"))
+    .Where(r => r.Name.Equals("Authors"))
 
-.Single();
+    .Single();
 
 // add the user to both roles
 
@@ -275,6 +282,7 @@ roleManager.AddUserToRole(user, authorRole);
 // save the new role settings
 
 roleManager.SaveChanges();
+```
 
 The user listing shows the addition of the roles:
 

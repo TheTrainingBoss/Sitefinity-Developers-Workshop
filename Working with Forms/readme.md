@@ -308,3 +308,6 @@ foreach (var form in forms)
 
 manager.SaveChanges();
 ```
+
+**Next Topic:**
+[Working with Taxonomies](../Taxonomy/readme.md)

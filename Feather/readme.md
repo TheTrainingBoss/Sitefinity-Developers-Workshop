@@ -585,3 +585,6 @@ when launched from the custom command.
 You can then use these templates to create a separate section of your
 website that display mobile content, then detecting and redirecting
 mobile devices to those pages.
+
+**Next Topic:**
+[Working with Web Services](../Web%20Services/readme.md)

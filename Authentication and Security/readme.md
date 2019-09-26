@@ -287,3 +287,6 @@ roleManager.SaveChanges();
 The user listing shows the addition of the roles:
 
 ![](../media/image55.png)
+
+**Next Topic:**
+[Working with MVC](../MVC%20in%20Sitefinity/readme.md)

@@ -189,3 +189,6 @@ The template for single items will show all fields, so you can steal
 markup from there to update the widget's list template.
 
 ![](../media/image52.png)
+
+**Next Topic:**
+[Authentication and Security](../Authentication%20and%20Security/readme.md)

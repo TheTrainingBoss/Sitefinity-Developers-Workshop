@@ -246,3 +246,6 @@ type display in the grid. In the screenshot below, the NewsItem type is
 selected and shows custom \"ReviewDate\" field.
 
 ![](../media/image47.png)
+
+**Next Topic:**
+[Working with Dynamic Types](../Dynamic%20Types/readme.md)

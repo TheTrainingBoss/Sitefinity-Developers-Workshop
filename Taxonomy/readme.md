@@ -443,3 +443,7 @@ The Categories page shows the new taxon under its parent taxon.
 a category, tag or a custom taxonomy. Not assigning the Taxonomy
 property leads to a difficult-to-diagnose \"Null reference object\"
 exception.
+
+
+**Next Topic:**
+[Working with Dynamic Data](../Dynamic%20Data/readme.md)

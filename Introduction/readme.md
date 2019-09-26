@@ -114,4 +114,4 @@ Next, setup a standard web forms .aspx page to contain your API code:
 3.  Click the *Add* button to create the page and close the dialog.
 
 **Next Topic:**
-[Working with Pages](../Working%20with%20Pages/readme.md)
+[Setup With NuGet](../SetupNuget/readme.md)

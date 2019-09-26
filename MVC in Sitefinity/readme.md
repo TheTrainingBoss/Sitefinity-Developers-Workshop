@@ -319,3 +319,6 @@ Existing Widget template.
 Alternatively, you can now leverage the MVC platform to create widget
 designers more intuitively, using a new Sitefinity module called
 Feather using Angular.
+
+**Next Topic:**
+[Working with Feather](../Feather/readme.md)

@@ -795,3 +795,6 @@ manager.PublishPageDraft(pageDraft);
 
 manager.SaveChanges();
 ```
+
+**Next Topic:**
+[Working with Content](../Working%20with%20Content/readme.md)

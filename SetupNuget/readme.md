@@ -72,3 +72,6 @@ Time for Nuget
 ![](../media/VS14.png)
 
 - Pick your database and you are on your way to developing in Visual Studio for the rest of this Workshop.
+
+**Next Topic:**
+[Working with Pages](../Working%20with%20Pages/readme.md)

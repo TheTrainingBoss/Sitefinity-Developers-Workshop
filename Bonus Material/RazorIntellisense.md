@@ -1,5 +1,8 @@
 If you followed all the steps in my sample project on [Github](https://github.com/TheTrainingBoss/Lino.TheTrainingBoss.RotatingCarousel) for the **Lino.TheTrainingBoss.RotatingCarousel** you would have been able to rebuild the project successfully and deploy it to any sitefinity site with no problem.
-The only thing that might have been annoying is that when you went ahead to work with your **Default.cshtml** file, you might have notices that the editor in Visual Studio is showing a lot of red lines under so many words in the file and you can't really get any help from code completion in Visual Studio.  The truth of the matter is, everything will compile fine and the cshtml file is perfectly ok and will work great, except the intellisense part which is, of course, an important piece for any developers for speed and less errors during development.
+
+The only thing that might have been annoying is that when you went ahead to work with your **Default.cshtml** file, you might have noticed that the editor in Visual Studio is showing a lot of red lines under so many words in the file and you can't really get any help from code completion in Visual Studio.  
+
+The truth of the matter is, everything will compile fine and the cshtml file is perfectly ok and will work great, except the intellisense part which is, of course, an important piece for any developers for speed and less errors during development.
 
 ![](../media/RI1.png)
 

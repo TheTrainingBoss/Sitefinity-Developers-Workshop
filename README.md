@@ -51,13 +51,13 @@ Table of Contents
 [Working with Dynamic Data](./Dynamic%20Data/readme.md)
 --------------------------------------------
 [Working with Dynamic Types](./Dynamic%20Types/readme.md)
---------------------------------------------
+--------------------------------------------------------
 [Authentication and Security](./Authentication%20and%20Security/readme.md)
---------------------------------------------
+--------------------------------------------------------------------------
 [Working with MVC in Sitefinity](./MVC%20in%20Sitefinity/readme.md)
---------------------------------------------
+--------------------------------------------------------------------
 [Working with Sitefinity Feather and Angular Designers](./Feather/readme.md)
---------------------------------------------
+------------------------------------------------------------------------------
 [Working with Sitefinity Web Services](./Web%20Services/readme.md)
 -----------------------------------------------------------------
 [Bonus Material](./Bonus%20Material/readme.md)

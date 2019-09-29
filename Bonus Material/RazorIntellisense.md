@@ -51,6 +51,6 @@ The Good news is that there is a way to work around that and make Intellisense w
 - Clean the Project
 - Build the project
 - Restart the solution for good measure.
-- Your editor now in the class library for cshtml files are ready with intellisense
+- Your editor now in the class library for cshtml files is ready with intellisense
 
 ![](../media/RI2.png)
